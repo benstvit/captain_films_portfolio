@@ -2,9 +2,9 @@ import createSitemapRoutes from "./utils/createSitemap";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "TFD Nuxt Tailwind Boilerplate",
+    title: "Captain Films Portfolio",
     htmlAttrs: {
-      lang: "kh",
+      lang: "en-US",
     },
     meta: [
       { charset: "utf-8" },
@@ -12,7 +12,20 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/cffavicon.jpg" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: true,
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+Khojki:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap",
+        crossorigin: true,
+      },
+    ],
     script: [
       {
         src: "https://cdn.jsdelivr.net/npm/kutty@latest/dist/kutty.min.js",

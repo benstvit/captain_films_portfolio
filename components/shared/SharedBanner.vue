@@ -1,12 +1,28 @@
 <template>
   <section>
-    <div class="flex flex-col items-center bg-white w-full p-4">
-      <h1 class="font-bold text-6xl p-4 text-slate-800">Captain Films</h1>
-      <p>
-        Change your life and learn to code at one of our campuses around the
-        world.
-      </p>
-      <a class="btn btn-flat" href="#">Apply now</a>
+    <div class="grid grid-cols-6">
+      <div
+        id="left"
+        class="col-span-2 flex flex-col justify-end items-center bg-white w-full p-4"
+      >
+        <p class="font-cormorant text-slate-600 text-2xl">Photography</p>
+      </div>
+      <div
+        id="center"
+        class="col-span-2 flex flex-col items-center bg-white w-full p-4 gap-4"
+      >
+        <nuxt-img class="w-24 h-24" src="/logo-solo.png"></nuxt-img>
+        <h1 class="font-captainbold text-6xl pb-4 text-slate-800">
+          Captain Films
+        </h1>
+        <p class="text-slate-600 font-cormorant text-2xl">Music</p>
+      </div>
+      <div
+        id="right"
+        class="col-span-2 flex flex-col items-center justify-end bg-white w-full p-4"
+      >
+        <p class="font-cormorant text-slate-600 text-2xl">web development</p>
+      </div>
     </div>
   </section>
 </template>

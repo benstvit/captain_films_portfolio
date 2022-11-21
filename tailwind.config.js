@@ -39,6 +39,20 @@ module.exports = {
         facebook: "#1778F2",
         tfd: "#ce3637",
       }),
+      fontFamily: {
+        captainbold: [
+          '"Medium 500"',
+          '"Noto Serif Khojki"',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        captainlight: [
+          '"Regular 400"',
+          '"Noto Serif Khojki"',
+          ...defaultTheme.fontFamily.sans,
+        ],
+        playfair: ['"Playfair Display"', ...defaultTheme.fontFamily.sans],
+        cormorant: ['"Cormorant Garamond"', ...defaultTheme.fontFamily.sans],
+      },
     },
   },
   daisyui: {
