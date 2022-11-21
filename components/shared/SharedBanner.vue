@@ -34,12 +34,13 @@ export default {
     this.fetchImages();
   },
   methods: {
-    fetchImages() {
-      const rawPhotos = this.$axios.get(
-        "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1"
-      );
-      console.log(rawPhotos);
-    },
+    // fetchImages() {
+    //   const rawPhotos = this.$axios.get(
+    //     "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1"
+    //   );
+    //   // rawPhotos.map(photo => this.$axios.get("https://www.flickr.com/services/rest/?method=flickr.photos.getInfos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=&secret=format=json&nojsoncallback=1"))
+    //   console.log(rawPhotos);
+    // },
   },
 };
 </script>

@@ -1,4 +1,5 @@
 import createSitemapRoutes from "./utils/createSitemap";
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -156,7 +157,9 @@ export default {
   },
   loading: false,
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || "http://localhost:80",
-    nodeEnv: process.env.NODE_ENV || "development",
+    axios: {
+      baseURL: process.env.BASE_URL || "http://localhost:3000",
+      nodeEnv: process.env.NODE_ENV || "development",
+    },
   },
 };
