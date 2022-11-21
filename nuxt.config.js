@@ -47,7 +47,10 @@ export default {
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/tailwind-components.js" }],
+  plugins: [
+    { src: "~/plugins/tailwind-components.js" },
+    { src: "~/plugins/global.js" },
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -121,23 +124,15 @@ export default {
         dir: "ltr",
         moment: "en",
       },
-      {
-        code: "kh",
-        iso: "kh-KH",
-        file: "kh-KH.json",
-        dir: "ltr",
-        moment: "kh",
-      },
     ],
-    defaultLocale: "kh",
+    defaultLocale: "en",
     lazy: true,
     langDir: "locales/",
     noPrefixDefaultLocale: true,
     vueI18n: {
-      fallbackLocale: "kh",
+      fallbackLocale: "en",
       messages: {
         "en-US": require("./locales/en-US"),
-        "kh-KH": require("./locales/kh-KH"),
       },
     },
   },

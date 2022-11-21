@@ -13,15 +13,9 @@ import {
   TAlert,
   TModal,
   TDropdown,
-  TRichSelect,
   TPagination,
-  TTag,
-  TRadioGroup,
-  TCheckboxGroup,
   TTable,
   TDatepicker,
-  TToggle,
-  TDialog,
 } from "vue-tailwind/dist/components";
 
 const settings = {
