@@ -1,12 +1,12 @@
 <template>
   <section>
     <div class="grid grid-cols-6">
-      <div
-        id="left"
-        class="col-span-2 flex flex-col justify-end items-center bg-white w-full p-4"
-      >
-        <p class="font-cormorant text-slate-600 text-2xl">Photography</p>
-      </div>
+        <div
+          id="left"
+          class="col-span-2 flex flex-col justify-end items-center bg-white w-full p-4"
+        >
+          <p class="font-cormorant text-slate-600 text-2xl">Photography</p>
+        </div>
       <div
         id="center"
         class="col-span-2 flex flex-col items-center bg-white w-full p-4 gap-4"
@@ -30,17 +30,38 @@
 <script>
 export default {
   name: "SharedBanner",
-  mounted() {
-    this.fetchImages();
+  data () {
+    return {
+      photos: [],
+    }
+  },
+  computed: {
+    formattedImages() {
+      return this.photos.map(photo => ({
+        id: photo.data.photo.id,
+        title: photo.data.photo.title._content,
+        description: photo.data.photo.description._content,
+        url: photo.data.photo.urls.url[0]._content
+        }
+      ));
+    }
+  },
+  // r
+  async mounted() {
+    await this.fetchImages();
+    console.log(this.formattedImages)
   },
   methods: {
-    // fetchImages() {
-    //   const rawPhotos = this.$axios.get(
-    //     "https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1"
-    //   );
-    //   // rawPhotos.map(photo => this.$axios.get("https://www.flickr.com/services/rest/?method=flickr.photos.getInfos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=&secret=format=json&nojsoncallback=1"))
-    //   console.log(rawPhotos);
-    // },
+    async fetchImages() {
+      let photos = []
+      const rawData = await this.$axios.get("https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1")
+      rawData.data.photoset.photo.map(photo => {
+        const item =this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}&format=json&nojsoncallback=1`)
+        photos.push(item);
+      })
+      this.photos = await Promise.all(photos);
+    },
   },
 };
+              // this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}format=json&nojsoncallback=1`);
 </script>
