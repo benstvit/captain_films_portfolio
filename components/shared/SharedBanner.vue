@@ -1,5 +1,10 @@
 <template>
-  <section>
+  <section v-show="photos">
+    <div
+      v-for="photo in photos"
+      :key="photo.id">
+      <img :src="photo.url" :alt="photo.description">
+    </div>
     <div class="grid grid-cols-6">
         <div
           id="left"
@@ -32,35 +37,39 @@ export default {
   name: "SharedBanner",
   data () {
     return {
-      photos: [],
+      photos: null,
     }
   },
-  computed: {
-    formattedImages() {
-      return this.photos.map(photo => ({
-        id: photo.data.photo.id,
-        title: photo.data.photo.title._content,
-        description: photo.data.photo.description._content,
-        url: photo.data.photo.urls.url[0]._content
-        }
-      ));
-    }
-  },
-  // r
   async mounted() {
     await this.fetchImages();
-    console.log(this.formattedImages)
   },
   methods: {
     async fetchImages() {
       let photos = []
       const rawData = await this.$axios.get("https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1")
       rawData.data.photoset.photo.map(photo => {
-        const item =this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}&format=json&nojsoncallback=1`)
+        const item =this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}&format=json`)
         photos.push(item);
       })
-      this.photos = await Promise.all(photos);
+      const results = await Promise.all(photos);
+
+      console.log(results)
+      // this.jsonFlickrApi(results.data)
+      this.formattedImages(results)
     },
+    jsonFlickrApi(results) {
+      console.log(results[0].data)
+    },
+    formattedImages(results) {
+
+      this.photos = results?.map(photo => ({
+        id: photo?.data.photo.id,
+        title: photo?.data.photo.title._content,
+        description: photo?.data.photo.description._content,
+        url: photo?.data.photo.urls.url[0]._content
+        }
+      ));
+    }
   },
 };
               // this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}format=json&nojsoncallback=1`);

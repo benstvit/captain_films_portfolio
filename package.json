@@ -24,6 +24,7 @@
     "node-fetch": "^2.6.1",
     "nuxt": "^2.15.8",
     "nuxt-i18n": "^6.28.1",
+    "parse-json": "^6.0.2",
     "vue-content-loader": "0.2",
     "vue-tailwind": "^2.4.2",
     "vue-template-compiler": "^2.6.14",
