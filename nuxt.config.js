@@ -48,7 +48,10 @@ export default {
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/tailwind-components.js" }],
+  plugins: ["~/plugins/tailwind-components.js",'~/plugins/axios.js'],
+  //   { src: "~/plugins/tailwind-components.js" },
+  //   { src: '~/plugins/axios.js'}
+  // ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -74,6 +77,7 @@ export default {
         ? false
         : process.env.NODE_ENV !== "staging",
     baseURL: process.env.BASE_URL || "http://localhost:80",
+
     // proxyHeaders: false,
     // credentials: false
   },

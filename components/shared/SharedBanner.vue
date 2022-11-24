@@ -33,6 +33,8 @@
 </template>
 
 <script>
+const parse = require('parse-jsonp')
+
 export default {
   name: "SharedBanner",
   data () {
@@ -48,17 +50,12 @@ export default {
       let photos = []
       const rawData = await this.$axios.get("https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1")
       rawData.data.photoset.photo.map(photo => {
-        const item =this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}&format=json`)
+        const item =this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}&format=json&nojsoncallback=1`)
         photos.push(item);
       })
       const results = await Promise.all(photos);
-
       console.log(results)
-      // this.jsonFlickrApi(results.data)
       this.formattedImages(results)
-    },
-    jsonFlickrApi(results) {
-      console.log(results[0].data)
     },
     formattedImages(results) {
 
@@ -69,7 +66,7 @@ export default {
         url: photo?.data.photo.urls.url[0]._content
         }
       ));
-    }
+    },
   },
 };
               // this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.getInfos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photo_id=${photo.id}&secret=${photo.secret}format=json&nojsoncallback=1`);
