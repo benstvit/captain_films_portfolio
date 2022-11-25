@@ -4,7 +4,6 @@ export default ({ $axios, env }) => {
   // });
 
   $axios.interceptors.request.use(function (config) {
-    console.log(config)
     config.headers.get['Content-Type'] = "application/json";
     return config;
   });
