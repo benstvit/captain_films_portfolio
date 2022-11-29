@@ -4,11 +4,11 @@
       :musicOpen="musicOpen"
       :photoOpen="photoOpen"
       :webOpen="webOpen"
-      @toggleView="value" />
-    <NavBar
+      @toggle-nav="toggleNav" />
+    <!-- <NavBar
       :musicOpen="musicOpen"
       :photoOpen="photoOpen"
-      :webOpen="webOpen" />
+      :webOpen="webOpen" /> -->
   </main>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   name: "HomePage",
   data() {
     return {
-      photoOpen: true,
+      photoOpen: false,
       musicOpen: false,
       webOpen: false,
     }
@@ -29,5 +29,18 @@ export default {
     NavBar,
     SharedBanner,
   },
+  methods: {
+    reset() {
+      this.photoOpen = false;
+      this.musicOpen = false;
+      this.webOpen = false
+    },
+    toggleNav(event) {
+      console.log(event);
+      this.reset();
+      if (event.type === 'photo') this.photoOpen = true;
+      event.type === 'music' ? this.musicOpen = true : this.webOpen = false;
+    }
+  }
 };
 </script>

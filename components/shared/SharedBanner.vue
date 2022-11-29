@@ -1,43 +1,47 @@
 <template>
   <section v-show="photos">
-    <div class="grid grid-cols-6">
-      <div class="col-span-2"
-          v-for="photo in photos"
-          :key="photo.id">
-        <nuxt-img class="h-full border border-white border-4 rounded-md" :src="photo.url" :alt="photo.title"></nuxt-img>
-      </div>
-      <div class="absolute flex justify-between top-44 w-full">
-        <div
-          id="left"
-          @click="openPhotoNav"
-          class="col-span-2 hover:cursor-pointer flex justify-center items-end w-full p-4"
-        >
-          <p class="font-captainbold text-white text-4xl opacity-90" v-show="photoOpen">Photography</p>
+    <div class="flex justify-center items-center mx-20 max-w-screen">
+      <div class="grid grid-cols-6">
+        <div id="image-wrapper" class="col-span-3 hover:cursor-pointer"
+            v-for="photo in photos"
+            @click="toggleTitle(photo.index)"
+            :key="photo.id">
+          <nuxt-img
+            class="h-[50vh] w-full border border-white border-4 rounded-md"
+            :src="photo.url"
+            :alt="photo.title"/>
         </div>
-        <div
-          id="center"
-          @click="openMusicNav"
-          class="col-span-2 hover:cursor-pointer flex flex-col items-center w-full p-4 gap-4"
-        >
+        <!-- <div class="absolute flex justify-between w-full">
           <div
-            id="captain-logo" class="flex items-end pb-10">
-            <nuxt-img
-              class="w-24 h-24"
-              src="/logo-solo-white.png">
-            </nuxt-img>
-            <h1 class="text-center font-captainbold text-6xl pb-4 text-white opacity-90">
-              Captain Films
-            </h1>
+            id="left"
+            class="col-span-2 flex justify-center items-start w-full p-4"
+          >
+            <p class="font-captainbold text-white text-4xl opacity-90" v-show="photoOpen">Photography</p>
           </div>
-          <p class="font-captainbold text-white text-4xl opacity-90" v-show="musicOpen">Music</p>
-        </div>
-        <div
-          id="right"
-          @click="openWebNav"
-          class="col-span-2 hover:cursor-pointer flex flex-col items-center justify-end w-full p-4"
-        >
-          <p class="font-captainbold text-white text-4xl opacity-90" v-show="webOpen">Web development</p>
-        </div>
+          <div
+            id="center"
+            class="col-span-2 flex justify-center items-end h-full w-full p-4"
+          >
+            <div
+              id="captain-logo"
+              class="flex flex-col items-center pb-10">
+              <nuxt-img
+                class="w-24 h-24"
+                src="/logo-solo-white.png">
+              </nuxt-img>
+              <h1 class="font-captainbold text-center text-lg md:text-4xl lg:text-5xl pb-4 text-white opacity-90">
+                Captain Films
+              </h1>
+            </div>
+            <p class="font-captainbold text-white text-4xl opacity-90" v-show="musicOpen">Music</p>
+          </div>
+          <div
+            id="right"
+            class="col-span-2 flex justify-center items-end h-full w-full p-4"
+          >
+            <p class="font-captainbold text-white text-4xl opacity-90" v-show="webOpen">Web development</p>
+          </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -69,31 +73,32 @@ export default {
   },
   computed: {
     ...mapState('banner', { photosData: 'data'}),
+
+    allClosed() {
+      const isTrue = (element) => element === true;
+      return [this.openPhotoNav, this.musicOpen, this.webOpen].some(isTrue)
+    }
   },
   async mounted() {
     await this.fetchPhotos();
-    this.photos = this.photosData;
+    this.photos = this.photosData,
+    console.log(this.photos)
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
-    reset() {
-      this.photoOpen = false;
-      this.musicOpen = false;
-      this.webOpen = false
-    },
     openPhotoNav() {
-      this.reset();
-      this.photoOpen = true;
+      this.$emit('toggle-nav', { type: 'photo'})
     },
     openMusicNav() {
-      this.reset();
-      this.musicOpen = true;
+      this.$emit('toggle-nav', { type: 'music'})
     },
     openWebNav() {
-      this.reset();
-      this.webOpen = true;
+      this.$emit('toggle-nav', { type: 'web'})
     },
+    toggleTitle(index) {
+      return index === 1 ? this.openPhotoNav() : (index === 2 ? this.openMusicNav() : this.openWebNav())
+    }
   },
 };
 </script>
