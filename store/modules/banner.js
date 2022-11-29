@@ -13,6 +13,7 @@ export default {
       rawData.data.photoset.photo.map((photo, index) => {
         const item = {
           index: index + 1,
+          enabled: true,
           id: photo.id,
           title: photo.title,
           url: `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_c.jpg`
