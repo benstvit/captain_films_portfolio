@@ -1,16 +1,11 @@
 <template>
-  <main>
+  <main v-show="isLoaded">
     <SharedBanner
-      :photos="photos"
-      :musicOpen="musicOpen"
-      :photoOpen="photoOpen"
-      :webOpen="webOpen"
-      @reset-menu="resetMenu"
-      @toggle-nav="toggleNav" />
-    <!-- <NavBar
-      :musicOpen="musicOpen"
-      :photoOpen="photoOpen"
-      :webOpen="webOpen" /> -->
+      :photos="bannerPhotos"
+      @reset-menu="resetMenu"/>
+    <NavBar
+    v-if="activeNav"
+    :active="activeNav" />
   </main>
 </template>
 
@@ -24,10 +19,8 @@ export default {
   name: "HomePage",
   data() {
     return {
-      photos: null,
-      photoOpen: true,
-      musicOpen: true,
-      webOpen: true,
+      bannerPhotos: null,
+      isLoaded: false,
     }
   },
   components: {
@@ -36,6 +29,12 @@ export default {
   },
   computed: {
     ...mapState('banner', { photosData: 'data'}),
+
+    activeNav() {
+      if (!this.bannerPhotos) return;
+      const enabled = this.bannerPhotos.filter(photo => photo.enabled);
+      return enabled.length === 1 ? enabled : null;
+    }
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
@@ -46,18 +45,13 @@ export default {
       this.webOpen = false
     },
     resetMenu() {
-      this.photos.forEach(photo => photo.enabled = true);
+      this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
-    toggleNav(event) {
-      this.reset();
-      if (event.type === 'photo') this.photoOpen = true;
-
-      event.type === 'music' ? this.musicOpen = true : this.webOpen = true;
-    }
   },
   async mounted() {
     await this.fetchPhotos();
-    this.photos = this.photosData
+    this.bannerPhotos = this.photosData
+    this.isLoaded = true;
   },
 };
 </script>
