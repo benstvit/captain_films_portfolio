@@ -5,7 +5,7 @@
           id="captain-logo"
           @click="resetMenu"
           v-if="!menuDisplay"
-          class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-6 text-center">
+          class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-14 text-center">
         <transition name='fade'>
           <nuxt-img
             class="w-14 h-14"
@@ -32,16 +32,16 @@
           </transition>
           <h1
             v-if="photo.enabled"
-            class="absolute top-1/2 font-captainbold text-white text-4xl opacity-90">
+            class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
             {{ photo.title }}
           </h1>
         </div>
         <div
         id="captain-logo"
         v-if="menuDisplay"
-        class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-6 text-center">
+        class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-10 text-center">
         <nuxt-img
-          class="w-12 h-12"
+          class="w-14 h-14"
           src="/logo-solo-white.png">
         </nuxt-img>
         <h1 class="font-captainbold text-center text-sm pb-4 text-white">
