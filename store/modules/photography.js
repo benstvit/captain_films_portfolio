@@ -16,10 +16,9 @@ export default {
   },
   actions: {
     async fetch({ commit }, payload) {
-      console.log(payload)
-      // this.PHOTOSETS.filter(s => s.title === commit.title)
+      const album_id = PHOTOSETS.filter(s => s.title === payload.payload.title)[0].photosetId
       let photos = []
-      const rawData = await this.$axios.get("https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=72177720303881549&user_id=184230567%40N04&format=json&nojsoncallback=1")
+      const rawData = await this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=${album_id}&user_id=184230567%40N04&format=json&nojsoncallback=1`)
       rawData.data.photoset.photo.map((photo, index) => {
         const item = {
           index: index + 1,
