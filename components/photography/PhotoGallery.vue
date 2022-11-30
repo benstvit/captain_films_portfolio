@@ -17,8 +17,11 @@ export default {
       default: () => {}
     }
   },
-  mounted() {
-    console.log(this.activeSubmenu);
+  methods: {
+    ...mapActions({ fetchPhotos: 'photography/fetch' })
+  },
+  async mounted() {
+    await this.fetchPhotos({ payload: this.active });
   }
 }
 </script>
