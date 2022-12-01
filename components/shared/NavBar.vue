@@ -21,7 +21,7 @@ export default ({
   name: 'NavbarComponent',
   data () {
     return {
-      photo: [{ title: 'Here, there & everywhere', active: true }, { title: 'By the Seas', active: false }, { title: 'Live Music', active: false }, { title: 'Portraits', active: false }, { title: 'Wild Life', active: false }],
+      photo: [{ title: 'By the Seas', active: true }, { title: 'Here, there & everywhere', active: false }, { title: 'Live Music', active: false }, { title: 'Portraits', active: false }, { title: 'Wild Life', active: false }],
       music: [{ title: 'Ben & The Saints', active: true }, { title: 'NAVAHO', active: false }, { title: 'A Short Journey Inside The Head of Captain Films', active: false }],
       web: [ {title: 'Blabla', active: true }, { title: 'Blabla2', active: false }],
       submenus: [],

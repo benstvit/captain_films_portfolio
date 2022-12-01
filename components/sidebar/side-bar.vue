@@ -2,7 +2,7 @@
   <div class="h-screen hidden lg:block shadow-lg relative w-80">
     <div class="bg-white h-full dark:bg-gray-700">
       <div class="flex items-center justify-start pt-6 ml-8">
-        <img class="w-7 mr-3" src="https://i.imgur.com/SZqGIpL.png" />
+        <img class="w-7 mr-3" src="https://i.imgur.com/SZqGIpL.png" alt="" />
         <p class="font-bold dark:text-white text-xl">Dashboard</p>
       </div>
       <nav class="mt-6">

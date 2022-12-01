@@ -1,9 +1,14 @@
 <template>
   <section>
-    <div class="flex justify-between items-center w-full p-6 bg-gray-100">
-      <silent-box
-        :gallery="images"
-        class="rounded-xl"/>
+    <div class="grid grid-cols-9 flex justify-center items-center py-6 px-12 bg-gray-200">
+      <div
+      v-for="image in images"
+      :key="image.title"
+      class="col-span-3 m-4">
+        <silent-box
+          :image="image"
+          :lazy-loading="true"/>
+      </div>
     </div>
   </section>
 </template>
@@ -25,17 +30,15 @@ export default {
     images() {
       if (!this.photosData.length) return;
 
-      return this.photosData.map(photo => {
+      return this.photosData.map((photo, index) => {
         return {
-          src: photo.url,
-          description: photo.title,
-          thumbnailWidth: '400',
-          thumbnailHeight: '280',
           alt: photo.title,
-          lazyLoading: true,
+          description: photo.title,
+          index: index,
+          src: photo.url,
         }
       })
-    }
+    },
   },
   watch: {
     active(newValue) {
@@ -43,10 +46,11 @@ export default {
     }
   },
   methods: {
-    ...mapActions({ fetchPhotos: 'photography/fetch' })
+    ...mapActions({ fetchPhotos: 'photography/fetch' }),
   },
   async mounted() {
     await this.fetchPhotos({ payload: this.active });
+    console.log(this.photosData);
   }
 }
 </script>

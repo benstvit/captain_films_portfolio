@@ -6,12 +6,10 @@
           @click="resetMenu"
           v-if="!menuDisplay"
           class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-14 text-center">
-        <transition name='fade'>
           <nuxt-img
-            class="w-14 h-14"
+            class="w-16 h-16"
             src="/logo-solo.png">
           </nuxt-img>
-        </transition>
           <h1 class="font-captainbold text-center text-md pb-4 text-black">
             Captain Films
           </h1>
@@ -20,20 +18,18 @@
         <div id="image-wrapper"
             v-for="photo in photos"
             :key="photo.id"
-            class="relative flex justify-center hover:cursor-pointer hover:opacity-90"
+            class="relative flex justify-center"
             @click="toggleMenu(photo.index)"
-            :class="menuDisplay ? 'col-span-3' : 'col-span-6'">
-          <transition :name="customTransition(photo.index)">
-            <nuxt-img
-              v-if="photo.enabled"
-              class="h-[50vh] w-full border border-white border-2 rounded-lg shadow-sm"
-              :src="photo.url"
-              :alt="photo.title"/>
-          </transition>
-          <h1
+            :class="menuDisplay ? 'hover:cursor-pointer hover:opacity-90 col-span-3' : 'col-span-6'">
+          <nuxt-img
             v-if="photo.enabled"
-            class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
-            {{ photo.title }}
+            class="h-[50vh] w-full border border-white border-2 rounded-lg shadow-sm"
+            :src="photo.url"
+            :alt="photo.title"/>
+          <h1
+          v-if="photo.enabled"
+          class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
+          {{ photo.title }}
           </h1>
         </div>
         <div
@@ -76,9 +72,6 @@ export default {
     }
   },
   methods: {
-    customTransition(index) {
-      return 'fade';
-    },
     resetMenu() {
       this.$emit('reset-menu')
     },
