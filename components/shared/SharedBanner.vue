@@ -19,7 +19,7 @@
             v-for="photo in photos"
             :key="photo.id"
             class="relative flex justify-center"
-            @click="toggleMenu(photo.index)"
+            @click="selectMenu(photo.index)"
             :class="menuDisplay ? 'hover:cursor-pointer hover:opacity-90 col-span-3' : 'col-span-6'">
           <nuxt-img
             v-if="photo.enabled"
@@ -75,7 +75,9 @@ export default {
     resetMenu() {
       this.$emit('reset-menu')
     },
-    toggleMenu(index) {
+    selectMenu(index) {
+      if (index === 4) return this.$router.push({path: '/contact'});
+
       this.photos.filter(p => p.index !== index).forEach(photo => photo.enabled = false);
     },
   },

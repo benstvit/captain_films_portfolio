@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="grid grid-cols-9 flex justify-center items-center py-6 px-12 bg-gray-200">
+    <div class="grid grid-cols-9 flex justify-center items-center py-4 px-12 bg-gray-200">
       <div
       v-for="image in images"
       :key="image.title"
@@ -50,7 +50,6 @@ export default {
   },
   async mounted() {
     await this.fetchPhotos({ payload: this.active });
-    console.log(this.photosData);
   }
 }
 </script>
