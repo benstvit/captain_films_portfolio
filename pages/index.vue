@@ -7,10 +7,12 @@
       v-if="activeMenu"
       :active-menu="activeMenu"
       @active-submenu="setActiveSubmenu" />
-    <PhotoGallery
-      v-if="activeSubmenu.title"
-      :active="activeSubmenu"
-    />
+    <keep-alive>
+      <PhotoGallery
+        v-if="activeSubmenu.title"
+        :active="activeSubmenu"
+      />
+    </keep-alive>
   </main>
 </template>
 
