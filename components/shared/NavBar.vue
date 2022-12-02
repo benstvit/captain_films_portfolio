@@ -35,7 +35,7 @@ export default ({
   },
   computed: {
     selectedSubMenu() {
-      const index = this.activeMenu.pop().index
+      const index = this.activeMenu[0].index
       const results = index === 1 ? this.photo : (index === 2 ? this.music : this.web)
       return results.map((e, i) => ({ ...e, active: i === 0 && true || false, menu: index === 1 ? 'photo' : (index === 2 ? 'music' : 'web')}));
     },
@@ -48,7 +48,9 @@ export default ({
       const active = newValue.filter(menu => menu.active).pop();
       this.$emit('active-submenu', active)
     },
-    immediate: true
+    activeMenu() {
+      this.submenus = this.selectedSubMenu;
+    }
   },
   methods: {
     activate(title) {

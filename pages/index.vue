@@ -2,7 +2,8 @@
   <main v-show="isLoaded">
     <SharedBanner
       :menus="enabledMenu"
-      @reset-menu="resetMenu"/>
+      @reset-menu="resetHome"
+      @toggle-menu="toggleMenu"/>
     <NavBar
       v-if="activeMenu"
       :active-menu="activeMenu"
@@ -52,22 +53,26 @@ export default {
     },
     isPhotography() {
       return this.activeSubmenu.menu === 'photo';
-    }
+    },
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
     setActiveSubmenu(event) {
+      console.log(event);
       this.activeSubmenu = event
     },
     reset() {
-      this.photoOpen = false;
-      this.musicOpen = false;
-      this.webOpen = false
+      this.bannerPhotos.forEach(photo => photo.enabled = false);
     },
-    resetMenu() {
+    resetHome() {
       this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
+    toggleMenu(payload) {
+      this.reset();
+      const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
+      this.bannerPhotos.find(menu => menu.index === direction).enabled = true;
+    }
   },
   async mounted() {
     await this.fetchPhotos();
