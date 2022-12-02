@@ -5,7 +5,17 @@
         @mouseover="leftArrowFill = '#000'"
         @mouseleave="leftArrowFill = 'none'"
         @click="toggleMenu('left')">
-        <LeftArrowSvg v-show="!menuDisplay" :fill="leftArrowFill"/>
+        <LeftArrowSvg
+          v-if="!menuDisplay && pageIndex !== 1"
+          :fill="leftArrowFill"/>
+      </span>
+      <span
+        v-if="!menuDisplay && pageIndex === 1"
+        class="flex justify-center items-center">
+        <VerticalSvg  />
+        <h2
+          class="font-cormorant hover:cursor-pointer text-black text-xl"
+          @click="resetMenu">Home</h2>
       </span>
       <BannerImage
         :menus="menus"
@@ -15,7 +25,9 @@
         @mouseover="rightArrowFill = '#000'"
         @mouseleave="rightArrowFill = 'none'"
         @click="toggleMenu('right')">
-        <RightArrowSvg v-show="!menuDisplay" :fill="rightArrowFill"/>
+        <RightArrowSvg
+          v-if="!menuDisplay"
+          :fill="rightArrowFill"/>
       </span>
     </div>
   </section>
@@ -24,6 +36,7 @@
 <script>
 import LeftArrowSvg from "../svg/LeftArrowSvg.vue"
 import RightArrowSvg from "../svg/RightArrowSvg.vue"
+import VerticalSvg from "../svg/VerticalSvg.vue"
 
 import BannerImage from "../partials/BannerImage.vue"
 
@@ -33,12 +46,14 @@ export default {
     return {
       leftArrowFill: 'none',
       rightArrowFill: 'none',
+      pageIndex: null,
     }
   },
   components: {
     BannerImage,
     LeftArrowSvg,
-    RightArrowSvg
+    RightArrowSvg,
+    VerticalSvg
   },
   props: {
     menus: {
@@ -46,10 +61,21 @@ export default {
       default: () => [],
     },
   },
+  watch: {
+    menus() {
+      this.pageIndex = this.menus[0].index;
+    }
+  },
   computed: {
     menuDisplay() {
       if (!this.menus) return;
+
       return this.menus.length === 4;
+    },
+    menuIndex() {
+      if (!this.menus) return;
+      console.log(this.menus);
+      // return menu;
     },
   },
   methods: {

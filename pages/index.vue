@@ -59,7 +59,6 @@ export default {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
     setActiveSubmenu(event) {
-      console.log(event);
       this.activeSubmenu = event
     },
     reset() {
