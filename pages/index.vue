@@ -1,7 +1,7 @@
 <template>
   <main v-show="isLoaded">
     <SharedBanner
-      :photos="bannerPhotos"
+      :menus="enabledMenu"
       @reset-menu="resetMenu"/>
     <NavBar
       v-if="activeMenu"
@@ -9,7 +9,7 @@
       @active-submenu="setActiveSubmenu" />
     <keep-alive>
       <PhotoGallery
-        v-if="activeSubmenu.title"
+        v-if="isPhotography"
         :active="activeSubmenu"
       />
     </keep-alive>
@@ -35,15 +35,23 @@ export default {
   components: {
     NavBar,
     PhotoGallery,
-    SharedBanner,
+    SharedBanner
   },
   computed: {
     ...mapState('banner', { photosData: 'data'}),
 
     activeMenu() {
       if (!this.bannerPhotos) return;
+
       const enabled = this.bannerPhotos.filter(photo => photo.enabled);
       return enabled.length === 1 ? enabled : null;
+    },
+    enabledMenu() {
+      if (!this.bannerPhotos) return;
+      return this.bannerPhotos.filter(photo => photo.enabled);
+    },
+    isPhotography() {
+      return this.activeSubmenu.menu === 'photo';
     }
   },
   methods: {
