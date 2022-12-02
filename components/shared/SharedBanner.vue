@@ -15,7 +15,9 @@
         <VerticalSvg  />
         <h2
           class="font-cormorant hover:cursor-pointer text-black text-xl"
-          @click="resetMenu">Home</h2>
+          @click="resetMenu">
+          Home
+        </h2>
       </span>
       <BannerImage
         :menus="menus"
@@ -26,8 +28,18 @@
         @mouseleave="rightArrowFill = 'none'"
         @click="toggleMenu('right')">
         <RightArrowSvg
-          v-if="!menuDisplay"
+          v-if="!menuDisplay && pageIndex !== 4"
           :fill="rightArrowFill"/>
+      </span>
+      <span
+        v-if="!menuDisplay && pageIndex === 4"
+        class="flex justify-center items-center">
+        <h2
+          class="font-cormorant hover:cursor-pointer text-black text-xl"
+          @click="toggleMenu">
+          Rewind
+        </h2>
+        <VerticalSvg  />
       </span>
     </div>
   </section>

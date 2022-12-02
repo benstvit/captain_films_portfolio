@@ -70,7 +70,7 @@ export default {
     toggleMenu(payload) {
       this.reset();
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.bannerPhotos.find(menu => menu.index === direction).enabled = true;
+      this.bannerPhotos.find(menu => menu.index === (payload.index === 4 ? 1 : direction)).enabled = true;
     }
   },
   async mounted() {
