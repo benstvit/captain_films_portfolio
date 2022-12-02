@@ -14,7 +14,7 @@
         class="flex justify-center items-center">
         <VerticalSvg  />
         <h2
-          class="font-cormorant hover:cursor-pointer text-black text-xl"
+          class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
           @click="resetMenu">
           Home
         </h2>
@@ -35,9 +35,9 @@
         v-if="!menuDisplay && pageIndex === 4"
         class="flex justify-center items-center">
         <h2
-          class="font-cormorant hover:cursor-pointer text-black text-xl"
+          class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
           @click="toggleMenu">
-          Rewind
+          🎞 Rewind
         </h2>
         <VerticalSvg  />
       </span>

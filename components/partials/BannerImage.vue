@@ -67,8 +67,6 @@ export default {
       this.$emit('reset-menu');
     },
     selectMenu(index) {
-      if (index === 4) return this.$router.push({path: '/contact'});
-
       this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
     },
   }

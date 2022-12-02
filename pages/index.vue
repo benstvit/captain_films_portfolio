@@ -5,7 +5,7 @@
       @reset-menu="resetHome"
       @toggle-menu="toggleMenu"/>
     <NavBar
-      v-if="activeMenu"
+      v-if="activeMenu && activeMenu[0].index !== 4"
       :active-menu="activeMenu"
       @active-submenu="setActiveSubmenu" />
     <keep-alive>
@@ -45,7 +45,7 @@ export default {
       if (!this.bannerPhotos) return;
 
       const enabled = this.bannerPhotos.filter(photo => photo.enabled);
-      return enabled.length === 1 ? enabled : null;
+      return enabled.length === 1 ? enabled : null; // Remove navbar from contact page
     },
     enabledMenu() {
       if (!this.bannerPhotos) return;
@@ -77,6 +77,7 @@ export default {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData
     this.isLoaded = true;
+    console.log(this.bannerPhotos);
   },
 };
 </script>
