@@ -65,6 +65,7 @@ export default {
       this.bannerPhotos.forEach(photo => photo.enabled = false);
     },
     resetHome() {
+      this.activeSubmenu = {};
       this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
     toggleMenu(payload) {
