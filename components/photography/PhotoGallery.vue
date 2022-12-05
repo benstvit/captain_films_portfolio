@@ -2,12 +2,12 @@
   <section>
     <div class="grid grid-cols-9 flex justify-center items-center h-screen py-4 px-12 bg-gray-100">
       <div
-      v-for="image in images"
-      :key="image.title"
-      class="col-span-3 m-4">
-        <silent-box
-          :image="image"
-          :lazy-loading="true"/>
+        v-for="image in images"
+        :key="image.title"
+        class="col-span-3 m-4">
+          <silent-box
+            :image="image"
+            :lazy-loading="true"/>
       </div>
     </div>
   </section>

@@ -4,22 +4,18 @@
       :menus="enabledMenu"
       @reset-menu="resetHome"
       @toggle-menu="toggleMenu"/>
-    <NavBar
-      v-if="activeMenu && activeMenu[0].index !== 4"
-      :active-menu="activeMenu"
-      @active-submenu="setActiveSubmenu" />
-    <keep-alive>
-      <PhotoGallery
-        v-if="isPhotography"
-        :active="activeSubmenu"
-      />
-    </keep-alive>
+    <PhotographyPage
+      v-if="isOpen('Film Photography')"
+      :photos="bannerPhotos"/>
+    <MusicPage
+      class="mt-24"
+      v-if="isOpen('Music')"/>
   </main>
 </template>
 
 <script>
-import NavBar from "../components/shared/NavBar.vue";
-import PhotoGallery from "../components/photography/PhotoGallery.vue";
+import MusicPage from "../components/pages/MusicPage.vue";
+import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/SharedBanner.vue";
 
 import { mapState, mapActions } from 'vuex';
@@ -28,14 +24,13 @@ export default {
   name: "HomePage",
   data() {
     return {
-      activeSubmenu: {},
       bannerPhotos: null,
       isLoaded: false,
     }
   },
   components: {
-    NavBar,
-    PhotoGallery,
+    MusicPage,
+    PhotographyPage,
     SharedBanner
   },
   computed: {
@@ -45,21 +40,20 @@ export default {
       if (!this.bannerPhotos) return;
 
       const enabled = this.bannerPhotos.filter(photo => photo.enabled);
-      return enabled.length === 1 ? enabled : null; // Remove navbar from contact page
+      return enabled.length === 1 ? enabled : null;
     },
     enabledMenu() {
       if (!this.bannerPhotos) return;
       return this.bannerPhotos.filter(photo => photo.enabled);
     },
-    isPhotography() {
-      return this.activeSubmenu.menu === 'photo';
-    },
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
-    setActiveSubmenu(event) {
-      this.activeSubmenu = event
+    isOpen(pageTitle) {
+      if (!this.activeMenu) return null;
+
+      return this.activeMenu[0].title === pageTitle
     },
     reset() {
       this.bannerPhotos.forEach(photo => photo.enabled = false);
@@ -78,7 +72,6 @@ export default {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData
     this.isLoaded = true;
-    console.log(this.bannerPhotos);
   },
 };
 </script>
