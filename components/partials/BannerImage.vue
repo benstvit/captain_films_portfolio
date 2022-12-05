@@ -23,13 +23,13 @@
           :class="menuDisplay ? 'hover:cursor-pointer hover:opacity-90 col-span-3' : 'col-span-6'">
           <nuxt-img
             v-if="menu.enabled"
-            class="h-[50vh] w-full border border-white border-2 rounded-lg shadow-sm"
+            class="h-[50vh] object-cover w-full border border-white border-2 rounded-lg shadow-sm"
             :src="menu.url"
             :alt="menu.title"/>
           <h1
-          v-if="menu.enabled"
-          class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
-          {{ menu.title }}
+            v-if="menu.enabled"
+            class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
+            {{ menu.title }}
           </h1>
         </div>
         <div
