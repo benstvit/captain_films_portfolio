@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="grid grid-cols-9 flex justify-center items-center h-screen py-4 px-12 bg-gray-100">
+    <div class="grid grid-cols-9 flex justify-center items-center h-full py-4 px-12 bg-gray-100">
       <div
         v-for="image in images"
         :key="image.title"
