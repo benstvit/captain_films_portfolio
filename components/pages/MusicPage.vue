@@ -26,6 +26,10 @@ export default {
   },
   methods: {
     ...mapActions({ fetchPhotos: 'music/fetch'}),
+
+    scrollHorizontaly() {
+
+    }
   },
   async mounted() {
     await this.fetchPhotos();

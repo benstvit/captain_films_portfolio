@@ -1,11 +1,33 @@
 <template>
   <section>
-    <div class="flex justify-center">
-      <div
-        id="musicSection"
-        class="flex justify-center p-4 w-5/6 bg-yellow-100 h-screen rounded-lg">
-        <h1 class="font-captainbold uppercase text-4xl font-bold">Ben And The Saints</h1>
-      </div>
+    <div
+      id="musicSection"
+      class="flex justify-between items-center gap-24 overflow-x-scroll scroll-smooth scroll-p-0 scroll-m-0 p-4 h-screen rounded-lg">
+      <h1 class="whitespace-nowrap font-captainbold uppercase text-4xl font-bold">Ben And The Saints</h1>
+      <nuxt-img
+        class="w-96 h-72 bg-black rounded-full"
+        src="@/static/logo-solo.png">
+      </nuxt-img>
+      <nuxt-img
+        class="w-96 h-72 bg-black rounded-full"
+        src="@/static/logo-solo.png">
+      </nuxt-img>
+      <nuxt-img
+        class="w-96 h-72 bg-black rounded-full"
+        src="@/static/logo-solo.png">
+      </nuxt-img>
+      <nuxt-img
+        class="w-96 h-72 bg-black rounded-full"
+        src="@/static/logo-solo.png">
+      </nuxt-img>
+      <nuxt-img
+        class="w-96 h-72 bg-black rounded-full"
+        src="@/static/logo-solo.png">
+      </nuxt-img>
+      <nuxt-img
+        class="w-96 h-72 bg-black rounded-full"
+        src="@/static/logo-solo.png">
+      </nuxt-img>
     </div>
   </section>
 </template>
@@ -16,10 +38,25 @@ import IntersectionObserver from '../../mixins/intersection-observer.js'
 export default {
   name: "BandHorizontalScroll",
   mixins: [IntersectionObserver],
+  created () {
+    window.addEventListener('scroll', this.scrollHorizontaly);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.scrollHorizontaly);
+  },
   props: {
     photos: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    scrollHorizontaly() {
+      const horizontalScroll = document.getElementById('musicSection');
+      horizontalScroll.addEventListener('wheel', (event) => {
+        event.preventDefault();  // stop scrolling in another direction
+        horizontalScroll.scrollLeft += (event.deltaY + event.deltaX );
+    });
     }
   }
 }
