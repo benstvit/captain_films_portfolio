@@ -1,33 +1,36 @@
 <template>
   <section>
     <div
-      id="musicSection"
-      class="flex justify-between items-center gap-24 overflow-x-scroll scroll-smooth scroll-p-0 scroll-m-0 p-4 h-screen rounded-lg">
-      <h1 class="whitespace-nowrap font-captainbold uppercase text-4xl font-bold">Ben And The Saints</h1>
-      <nuxt-img
-        class="w-96 h-72 bg-black rounded-full"
-        src="@/static/logo-solo.png">
-      </nuxt-img>
-      <nuxt-img
-        class="w-96 h-72 bg-black rounded-full"
-        src="@/static/logo-solo.png">
-      </nuxt-img>
-      <nuxt-img
-        class="w-96 h-72 bg-black rounded-full"
-        src="@/static/logo-solo.png">
-      </nuxt-img>
-      <nuxt-img
-        class="w-96 h-72 bg-black rounded-full"
-        src="@/static/logo-solo.png">
-      </nuxt-img>
-      <nuxt-img
-        class="w-96 h-72 bg-black rounded-full"
-        src="@/static/logo-solo.png">
-      </nuxt-img>
-      <nuxt-img
-        class="w-96 h-72 bg-black rounded-full"
-        src="@/static/logo-solo.png">
-      </nuxt-img>
+      class="p-4 h-screen rounded-lg bg-yellow-50">
+      <div
+        id="musicSection"
+        class="flex justify-between items-center gap-24 overflow-x-scroll scroll-auto scroll-p-0 scroll-m-0 px-12">
+        <h1 class="whitespace-nowrap font-captainbold uppercase text-4xl font-bold">Ben And The Saints</h1>
+        <nuxt-img
+          class="w-96 h-72 bg-black rounded-full"
+          src="@/static/logo-solo.png">
+        </nuxt-img>
+        <nuxt-img
+          class="w-96 h-72 bg-black rounded-full"
+          src="@/static/logo-solo.png">
+        </nuxt-img>
+        <nuxt-img
+          class="w-96 h-72 bg-black rounded-full"
+          src="@/static/logo-solo.png">
+        </nuxt-img>
+        <nuxt-img
+          class="w-96 h-72 bg-black rounded-full"
+          src="@/static/logo-solo.png">
+        </nuxt-img>
+        <nuxt-img
+          class="w-96 h-72 bg-black rounded-full"
+          src="@/static/logo-solo.png">
+        </nuxt-img>
+        <nuxt-img
+          class="w-96 h-72 bg-black rounded-full"
+          src="@/static/logo-solo.png">
+        </nuxt-img>
+      </div>
     </div>
   </section>
 </template>
@@ -38,11 +41,13 @@ import IntersectionObserver from '../../mixins/intersection-observer.js'
 export default {
   name: "BandHorizontalScroll",
   mixins: [IntersectionObserver],
-  created () {
-    window.addEventListener('scroll', this.scrollHorizontaly);
+  mounted () {
+    const horizontalScroll = document.getElementById('musicSection');
+    horizontalScroll.addEventListener('wheel', this.scrollHorizontaly);
   },
   destroyed () {
-    window.removeEventListener('scroll', this.scrollHorizontaly);
+    const horizontalScroll = document.getElementById('musicSection');
+    horizontalScroll.removeEventListener('wheel', this.scrollHorizontaly);
   },
   props: {
     photos: {
@@ -51,12 +56,12 @@ export default {
     }
   },
   methods: {
-    scrollHorizontaly() {
-      const horizontalScroll = document.getElementById('musicSection');
-      horizontalScroll.addEventListener('wheel', (event) => {
-        event.preventDefault();  // stop scrolling in another direction
-        horizontalScroll.scrollLeft += (event.deltaY + event.deltaX );
-    });
+    scrollHorizontaly(event) {
+      console.log(event);
+      if (event.currentTarget.scrollLeft !== 0 || event.deltaY === 1) {
+        event.preventDefault();
+        event.currentTarget.scrollLeft += (event.deltaY + event.deltaX)
+      }
     }
   }
 }
