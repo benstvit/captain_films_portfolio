@@ -7,7 +7,7 @@
         class="w-fit shadow-sm">
         <button
           @click="activate(menu.title)"
-          class="border border-black text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-4 py-2 mx-2"
+          class="text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-4 py-2 mx-2"
           :class="customClass(menu)">
           {{ menu.title }}
         </button>
@@ -42,9 +42,6 @@ export default ({
     },
   },
   watch: {
-    isScrolling(newValue) {
-      console.log(newValue);
-    },
     submenus(newValue) {
       const active = newValue.filter(menu => menu.active).pop();
       this.$emit('active-submenu', active)
@@ -55,9 +52,9 @@ export default ({
       this.submenus = this.selectedSubMenu.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
     },
     customClass(menu) {
-      if (menu.active) return 'bg-black text-white pointer-events-none opacity-90 shadow-lg';
+      if (menu.active) return 'border border-black bg-black text-white pointer-events-none opacity-90 shadow-lg';
 
-      return this.isScrolling ? 'bg-white text-black border-none transition ease-out duration-300' : 'text-black';
+      return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     }
   },
   async mounted() {

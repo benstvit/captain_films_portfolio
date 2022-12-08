@@ -36,12 +36,12 @@ export default {
     PhotoGallery
   },
   methods: {
-    setActiveSubmenu(event) {
-      this.activeSubmenu = event
-    },
     getGalleryPosition() {
       const galleryY = document.getElementById('gallery');
       this.galleryY = galleryY.getBoundingClientRect().top < 65;
+    },
+    setActiveSubmenu(event) {
+      this.activeSubmenu = event
     }
   },
 }

@@ -8,7 +8,6 @@
       v-if="isOpen('Film Photography')"
       :photos="bannerPhotos"/>
     <MusicPage
-      class="mt-12"
       v-if="isOpen('Music')"/>
   </main>
 </template>

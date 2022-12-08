@@ -13,7 +13,6 @@ export default {
       let photos = []
       const rawData = await this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=${ALBUM_ID}&user_id=184230567%40N04&format=json&nojsoncallback=1`)
       rawData.data.photoset.photo.map((photo, index) => {
-        console.log(photo);
         const item = {
           index: index + 1,
           enabled: true,

@@ -22,6 +22,7 @@
           @click="selectMenu(menu.index)"
           :class="menuDisplay ? 'hover:cursor-pointer hover:opacity-90 col-span-3' : 'col-span-6'">
           <nuxt-img
+            id="musicPageBanner"
             v-if="menu.enabled"
             class="h-[50vh] object-cover w-full border border-white border-2 rounded-lg shadow-sm"
             :src="menu.url"
@@ -50,8 +51,11 @@
 </template>
 
 <script>
+import IntersectionObserver from '../../mixins/intersection-observer.js'
+
 export default {
   name:"BannerImage",
+  mixins: [IntersectionObserver],
   props: {
     menus: {
       type: Array,

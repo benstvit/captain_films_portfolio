@@ -48,7 +48,7 @@ export default {
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~/plugins/tailwind-components.js','~/plugins/axios.js'],
+  plugins: ['./plugins/tailwind-components.js','./plugins/axios.js'],
   //   { src: "~/plugins/tailwind-components.js" },
   //   { src: '~/plugins/axios.js'}
   // ],
