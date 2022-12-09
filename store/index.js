@@ -1,18 +1,20 @@
-export const getters = {
-  isAuthenticated(state) {
-    return state.auth.loggedIn;
+import Vue from 'vue';
+import Vuex from 'vuex';
+import VueSilentbox from 'vue-silentbox'
+import banner from "./modules/banner.js";
+import music from "./modules/music.js";
+import photography from "./modules/photography.js";
+
+Vue.use(Vuex);
+Vue.use(VueSilentbox);
+
+export default () => new Vuex.Store({
+  modules: {
+    banner,
+    music,
+    photography
   },
-  loggedInUser(state) {
-    return state.auth.user;
+  state: {
+    data: {},
   },
-};
-export const mutations = {
-  UPDATE_LOGGED_USER(state, user) {
-    if (user.id === state.auth.user.id) {
-      state.auth.user.name = user.name;
-      state.auth.user.username = user.username;
-      state.auth.user.email = user.email;
-    }
-  },
-};
-export const strict = process.env.NODE_ENV !== "production";
+});

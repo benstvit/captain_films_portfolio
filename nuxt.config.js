@@ -1,10 +1,11 @@
 import createSitemapRoutes from "./utils/createSitemap";
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "TFD Nuxt Tailwind Boilerplate",
+    title: "Captain Films Portfolio",
     htmlAttrs: {
-      lang: "kh",
+      lang: "en-US",
     },
     meta: [
       { charset: "utf-8" },
@@ -12,7 +13,20 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/cffavicon.jpg" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossorigin: true,
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+Khojki:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap",
+        crossorigin: true,
+      },
+    ],
     script: [
       {
         src: "https://cdn.jsdelivr.net/npm/kutty@latest/dist/kutty.min.js",
@@ -34,7 +48,10 @@ export default {
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/tailwind-components.js" }],
+  plugins: ['./plugins/tailwind-components.js','./plugins/axios.js'],
+  //   { src: "~/plugins/tailwind-components.js" },
+  //   { src: '~/plugins/axios.js'}
+  // ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -60,6 +77,7 @@ export default {
         ? false
         : process.env.NODE_ENV !== "staging",
     baseURL: process.env.BASE_URL || "http://localhost:80",
+
     // proxyHeaders: false,
     // credentials: false
   },
@@ -108,23 +126,15 @@ export default {
         dir: "ltr",
         moment: "en",
       },
-      {
-        code: "kh",
-        iso: "kh-KH",
-        file: "kh-KH.json",
-        dir: "ltr",
-        moment: "kh",
-      },
     ],
-    defaultLocale: "kh",
+    defaultLocale: "en",
     lazy: true,
     langDir: "locales/",
     noPrefixDefaultLocale: true,
     vueI18n: {
-      fallbackLocale: "kh",
+      fallbackLocale: "en",
       messages: {
         "en-US": require("./locales/en-US"),
-        "kh-KH": require("./locales/kh-KH"),
       },
     },
   },
@@ -151,7 +161,9 @@ export default {
   },
   loading: false,
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || "http://localhost:80",
-    nodeEnv: process.env.NODE_ENV || "development",
+    axios: {
+      baseURL: process.env.BASE_URL || "http://localhost:3000",
+      nodeEnv: process.env.NODE_ENV || "development",
+    },
   },
 };
