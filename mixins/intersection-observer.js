@@ -1,15 +1,14 @@
 export default {
   mounted() {
+    const bandBanner = document.getElementById('bandBanner');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        console.log(entry.isIntersecting);
         if (entry.isIntersecting) {
-          this.scrollOn = true;
+          console.log(entry.isIntersecting);
         }
-        observer.unobserve(entry.target)
+        observer.unobserve(entry.target);
       })
-    })
-
-    observer.observe(document.getElementById('captain-logo'));
+    }, { threshold: .6 })
+    observer.observe(bandBanner);
   }
 }

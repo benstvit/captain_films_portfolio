@@ -1,20 +1,20 @@
 <template>
   <section v-if="musicPhotos">
-    <BandHorizontalScroll
+    <BandSection
       class="mt-6"
       :photos="musicPhotos" />
   </section>
 </template>
 
 <script>
-import BandHorizontalScroll from '../music/BandHorizontalScroll.vue'
+import BandSection from '../music/BandSection.vue'
 
 import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'MusicPage',
   components: {
-    BandHorizontalScroll,
+    BandSection,
   },
   data() {
     return {
