@@ -27,6 +27,7 @@
     "nuxt-i18n": "^6.28.1",
     "parse-json": "^6.0.2",
     "parse-jsonp": "^2.0.0",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "vue-content-loader": "0.2",
     "vue-silentbox": "^2.4.6",
     "vue-tailwind": "^2.4.2",

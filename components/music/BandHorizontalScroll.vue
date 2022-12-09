@@ -4,7 +4,7 @@
       class="p-4 h-screen rounded-lg bg-yellow-50">
       <div
         id="musicSection"
-        class="flex justify-between items-center gap-24 overflow-x-scroll scroll-auto scroll-p-0 scroll-m-0 px-12">
+        class="flex justify-between items-center gap-24 scrollbar-hide overflow-x-scroll scroll-auto scroll-p-0 scroll-m-0 px-12">
         <h1 class="whitespace-nowrap font-captainbold uppercase text-4xl font-bold">Ben And The Saints</h1>
         <nuxt-img
           class="w-96 h-72 bg-black rounded-full"
@@ -39,15 +39,15 @@
 import IntersectionObserver from '../../mixins/intersection-observer.js'
 
 export default {
+  data () {
+    return {
+      musicSection: null
+    }
+  },
   name: "BandHorizontalScroll",
   mixins: [IntersectionObserver],
-  mounted () {
-    const horizontalScroll = document.getElementById('musicSection');
-    horizontalScroll.addEventListener('wheel', this.scrollHorizontaly);
-  },
   destroyed () {
-    const horizontalScroll = document.getElementById('musicSection');
-    horizontalScroll.removeEventListener('wheel', this.scrollHorizontaly);
+    this.musicSection.removeEventListener('wheel', this.scrollHorizontaly);
   },
   props: {
     photos: {
@@ -57,13 +57,18 @@ export default {
   },
   methods: {
     scrollHorizontaly(event) {
-      console.log(event);
-      if (event.currentTarget.scrollLeft !== 0 || event.deltaY === 1) {
+      if (event.currentTarget.scrollLeft !== 0 || event.deltaY > 0) {
         event.preventDefault();
         event.currentTarget.scrollLeft += (event.deltaY + event.deltaX)
       }
     }
-  }
+  },
+  mounted () {
+    console.log(this.photos);
+    const horizontalScroll = document.getElementById('musicSection');
+    this.musicSection = horizontalScroll;
+    this.musicSection.addEventListener('wheel', this.scrollHorizontaly);
+  },
 }
 </script>
   // <section v-if="photos"

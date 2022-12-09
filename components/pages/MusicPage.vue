@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="musicPhotos">
     <BandHorizontalScroll
       class="mt-6"
       :photos="musicPhotos" />
