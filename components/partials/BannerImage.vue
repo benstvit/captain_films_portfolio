@@ -5,12 +5,12 @@
         id="captain-logo"
         @click="resetMenu"
         v-if="!menuDisplay"
-        class="relative 2xl:absolute 2xl:left-14 flex flex-col justify-center items-center hover:cursor-pointer top-6 text-center">
+        class="2xl:absolute 2xl:left-14 flex flex-row 2xl:flex-col justify-center items-center hover:cursor-pointer pt-6 text-center">
         <nuxt-img
-          class="w-16 h-16"
+          class="w-20 h-20 2xl:w-16 2xl:h-16"
           src="/logo-solo.png">
         </nuxt-img>
-        <h1 class="font-captainbold text-center text-md pb-4 text-black">
+        <h1 class="font-captainbold text-center text-md 2xl:pb-4 text-black">
           Captain Films
         </h1>
       </div>
@@ -51,11 +51,8 @@
 </template>
 
 <script>
-import IntersectionObserver from '../../mixins/intersection-observer.js'
-
 export default {
   name:"BannerImage",
-  mixins: [IntersectionObserver],
   props: {
     menus: {
       type: Array,
