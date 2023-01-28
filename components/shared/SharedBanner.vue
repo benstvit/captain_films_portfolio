@@ -86,12 +86,7 @@ export default {
     menuDisplay() {
       if (!this.menus) return;
 
-      return this.menus.length === 4;
-    },
-    menuIndex() {
-      if (!this.menus) return;
-      console.log(this.menus);
-      // return menu;
+      return this.menus.length === 3;
     },
   },
   methods: {

@@ -20,7 +20,7 @@
           :key="menu.id"
           class="relative flex justify-center"
           @click="selectMenu(menu.index)"
-          :class="menuDisplay ? 'hover:cursor-pointer hover:opacity-90 col-span-3' : 'col-span-6'">
+          :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'">
           <nuxt-img
             id="musicPageBanner"
             v-if="menu.enabled"
@@ -67,6 +67,9 @@ export default {
     }
   },
   methods: {
+    menuGrid(index) {
+      return index === 3 ? 'hover:cursor-pointer hover:opacity-90 col-span-6' : 'hover:cursor-pointer hover:opacity-90 col-span-3';
+    },
     resetMenu() {
       this.$emit('reset-menu');
     },

@@ -7,8 +7,6 @@
     <PhotographyPage
       v-if="isOpen('Film Photography')"
       :photos="bannerPhotos"/>
-    <MusicPage
-      v-if="isOpen('Music')"/>
   </main>
 </template>
 
@@ -43,6 +41,7 @@ export default {
     },
     enabledMenu() {
       if (!this.bannerPhotos) return;
+
       return this.bannerPhotos.filter(photo => photo.enabled);
     },
   },
@@ -70,6 +69,7 @@ export default {
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData
+    console.log(this.bannerPhotos);
     this.isLoaded = true;
   },
 };
