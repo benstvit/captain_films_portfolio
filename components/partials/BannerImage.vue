@@ -39,9 +39,9 @@
           class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-10 text-center">
           <nuxt-img
             class="w-14 h-14"
-            src="/logo-solo-white.png">
+            src="/logo-solo.png">
           </nuxt-img>
-          <h1 class="font-captainbold text-center text-sm pb-4 text-white">
+          <h1 class="font-captainbold text-center text-sm pb-4 text-black">
             Captain Films
           </h1>
         </div>

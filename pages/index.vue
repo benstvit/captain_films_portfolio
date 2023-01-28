@@ -1,5 +1,10 @@
 <template>
-  <main v-show="isLoaded">
+  <main
+    v-show="isLoaded"
+    @click="handleClickOutside">
+    <InstructionsModal
+      v-if="isOpen('Film Photography')"
+      :click-target="handleClickOutside"/>
     <SharedBanner
       :menus="enabledMenu"
       @reset-menu="resetHome"
@@ -11,6 +16,7 @@
 </template>
 
 <script>
+import InstructionsModal from "../components/shared/InstructionsModal.vue"
 import MusicPage from "../components/pages/MusicPage.vue";
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/SharedBanner.vue";
@@ -26,6 +32,7 @@ export default {
     }
   },
   components: {
+    InstructionsModal,
     MusicPage,
     PhotographyPage,
     SharedBanner
@@ -48,6 +55,9 @@ export default {
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
+    handleClickOutside(event) {
+      return event.target;
+    },
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
 
@@ -69,7 +79,6 @@ export default {
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData
-    console.log(this.bannerPhotos);
     this.isLoaded = true;
   },
 };

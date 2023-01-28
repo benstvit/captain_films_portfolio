@@ -69,7 +69,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.photos);
     const horizontalScroll = document.getElementById('bandHorizontalScroll');
     this.bandHorizontalScroll = horizontalScroll;
     this.bandHorizontalScroll.addEventListener('wheel', this.scrollHorizontaly);
