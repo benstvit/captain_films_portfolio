@@ -2,9 +2,11 @@
   <main
     v-show="isLoaded"
     @click="handleClickOutside">
-    <InstructionsModal
-      v-if="isOpen('Film Photography')"
-      :click-target="handleClickOutside"/>
+    <IntroductionModal
+      v-if="isOpen('Film Photography') && displayModal"
+      :click-target="handleClickOutside"
+      @close-modal="displayModal = false"
+      @toggle-menu="toggleMenu"/>
     <SharedBanner
       :menus="enabledMenu"
       @reset-menu="resetHome"
@@ -16,7 +18,7 @@
 </template>
 
 <script>
-import InstructionsModal from "../components/shared/InstructionsModal.vue"
+import IntroductionModal from "../components/shared/IntroductionModal.vue"
 import MusicPage from "../components/pages/MusicPage.vue";
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/SharedBanner.vue";
@@ -29,10 +31,11 @@ export default {
     return {
       bannerPhotos: null,
       isLoaded: false,
+      displayModal: true
     }
   },
   components: {
-    InstructionsModal,
+    IntroductionModal,
     MusicPage,
     PhotographyPage,
     SharedBanner
