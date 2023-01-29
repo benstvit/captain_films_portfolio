@@ -24,7 +24,7 @@
           <nuxt-img
             id="musicPageBanner"
             v-if="menu.enabled"
-            class="h-[50vh] object-cover w-full border border-white border-2 rounded-lg shadow-sm"
+            class="h-[50vh] object-cover w-full border border-white border-2 shadow-sm"
             :src="menu.url"
             :alt="menu.title"/>
           <h1
