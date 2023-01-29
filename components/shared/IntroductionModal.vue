@@ -33,7 +33,7 @@ export default {
       this.$emit('close-modal');
     },
     navigateToGallery() {
-      this.$emit('toggle-menu', { direction: 'right', index: 2 });
+      this.$emit('toggle-menu', { direction: 'right', index: 1 });
       this.$emit('close-modal');
     }
   },
