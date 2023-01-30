@@ -3,7 +3,7 @@
     <main
       v-show="isLoaded">
       <IntroductionModal
-        v-if="isOpen('Film Photography')"
+        v-if="isOpen('Gallery')"
         :display-modal="displayModal"
         @close-modal="displayModal = false"
         @toggle-menu="toggleMenu"/>
@@ -12,7 +12,7 @@
         @reset-menu="resetHome"
         @toggle-menu="toggleMenu"/>
       <PhotographyPage
-        v-if="isOpen('Film Photography')"
+        v-if="isOpen('Gallery')"
         :photos="bannerPhotos"/>
     </main>
   </div>

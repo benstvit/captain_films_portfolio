@@ -21,6 +21,21 @@
           </h2>
         </span>
       </div>
+      <div
+        id="captain-logo"
+        v-if="menuDisplay"
+        class="absolute flex flex-col justify-center items-center top-8 left-10 text-center">
+        <nuxt-img
+          class="w-14 h-14"
+          src="/logo-solo.png">
+        </nuxt-img>
+        <h1 class="font-captainbold font-bold text-center text-sm text-black">
+          Captain Films
+        </h1>
+        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
+          Film Photography
+        </p>
+      </div>
       <BannerImage
         :menus="menus"
         :menuDisplay="menuDisplay"

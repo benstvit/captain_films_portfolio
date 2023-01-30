@@ -24,25 +24,13 @@
           <nuxt-img
             id="musicPageBanner"
             v-if="menu.enabled"
-            class="h-[50vh] object-cover w-full border border-white border-2 shadow-sm"
+            class="h-[50vh] object-cover object-bottom w-full border border-white border-1 shadow-sm"
             :src="menu.url"
             :alt="menu.title"/>
           <h1
             v-if="menu.enabled"
-            class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
+            class="absolute top-[45%] font-captainbold text-center text-white sm:text-2xl md:text-3xl lg:text-4xl opacity-90">
             {{ menu.title }}
-          </h1>
-        </div>
-        <div
-          id="captain-logo"
-          v-if="menuDisplay"
-          class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-10 text-center">
-          <nuxt-img
-            class="w-14 h-14"
-            src="/logo-solo.png">
-          </nuxt-img>
-          <h1 class="font-captainbold text-center text-sm pb-4 text-black">
-            Captain Films
           </h1>
         </div>
       </div>
