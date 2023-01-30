@@ -1,6 +1,6 @@
 <template>
   <section v-show="menus">
-    <div class="flex justify-center items-center mx-16">
+    <div class="flex justify-center items-center mx-24">
       <div class="pt-24 2xl:pt-0">
         <span
           @mouseover="leftArrowFill = '#000'"
@@ -31,11 +31,11 @@
           @mouseleave="rightArrowFill = 'none'"
           @click="toggleMenu('right')">
           <RightArrowSvg
-            v-if="!menuDisplay && pageIndex !== 4"
+            v-if="!menuDisplay && pageIndex !== 3"
             :fill="rightArrowFill"/>
         </span>
         <span
-          v-if="!menuDisplay && pageIndex === 4"
+          v-if="!menuDisplay && pageIndex === 3"
           class="flex justify-center items-center">
           <h2
             class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
@@ -94,6 +94,7 @@ export default {
       this.$emit('reset-menu');
     },
     toggleMenu(direction) {
+      console.log(this.menus[0].index)
       this.$emit('toggle-menu', { direction: direction, index: this.menus[0].index });
     }
   },

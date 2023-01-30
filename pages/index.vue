@@ -1,20 +1,21 @@
 <template>
-  <main
-    v-show="isLoaded"
-    @click="handleClickOutside">
-    <IntroductionModal
-      v-if="isOpen('Film Photography') && displayModal"
-      :click-target="handleClickOutside"
-      @close-modal="displayModal = false"
-      @toggle-menu="toggleMenu"/>
-    <SharedBanner
-      :menus="enabledMenu"
-      @reset-menu="resetHome"
-      @toggle-menu="toggleMenu"/>
-    <PhotographyPage
-      v-if="isOpen('Film Photography')"
-      :photos="bannerPhotos"/>
-  </main>
+  <div class="-z-10" @click="handleClickOutside">
+    <main
+      v-show="isLoaded">
+      <IntroductionModal
+        v-if="isOpen('Film Photography')"
+        :display-modal="displayModal"
+        @close-modal="displayModal = false"
+        @toggle-menu="toggleMenu"/>
+      <SharedBanner
+        :menus="enabledMenu"
+        @reset-menu="resetHome"
+        @toggle-menu="toggleMenu"/>
+      <PhotographyPage
+        v-if="isOpen('Film Photography')"
+        :photos="bannerPhotos"/>
+    </main>
+  </div>
 </template>
 
 <script>
@@ -31,7 +32,7 @@ export default {
     return {
       bannerPhotos: null,
       isLoaded: false,
-      displayModal: true
+      displayModal: ''
     }
   },
   components: {
@@ -58,8 +59,8 @@ export default {
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
-    handleClickOutside(event) {
-      return event.target;
+    handleClickOutside() {
+      if (this.displayModal) this.displayModal = false;
     },
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
@@ -76,7 +77,7 @@ export default {
     toggleMenu(payload) {
       this.reset();
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.bannerPhotos.find(menu => menu.index === (payload.index === 4 ? 1 : direction)).enabled = true;
+      this.bannerPhotos.find(menu => menu.index === (payload.index === 3 ? 1 : direction)).enabled = true;
     }
   },
   async mounted() {
