@@ -49,7 +49,7 @@ export default ({
       this.submenus = this.photos.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
     },
     customClass(menu) {
-      if (menu.active) return 'border border-black bg-black text-white pointer-events-none opacity-90 shadow-lg';
+      if (menu.active) return 'border border-black bg-gray-600 text-white pointer-events-none opacity-90 shadow-lg';
 
       return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     }

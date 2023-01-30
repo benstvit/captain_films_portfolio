@@ -10,9 +10,12 @@
           class="w-16 h-16"
           src="/logo-solo.png">
         </nuxt-img>
-        <h1 class="font-captainbold text-center text-md pb-4 text-black">
+        <h1 class="font-captainbold text-center text-md text-black">
           Captain Films
         </h1>
+        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
+          Film Photography
+        </p>
       </div>
       <div class="relative grid grid-cols-6">
         <div id="image-wrapper"
