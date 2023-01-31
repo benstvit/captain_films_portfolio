@@ -1,21 +1,19 @@
 <template>
-  <div class="-z-10" @click="handleClickOutside">
-    <main
-      v-show="isLoaded">
-      <IntroductionModal
-        v-if="isOpen('Gallery')"
-        :display-modal="displayModal"
-        @close-modal="displayModal = false"
-        @toggle-menu="toggleMenu"/>
-      <SharedBanner
-        :menus="enabledMenu"
-        @reset-menu="resetHome"
-        @toggle-menu="toggleMenu"/>
-      <PhotographyPage
-        v-if="isOpen('Gallery')"
-        :photos="bannerPhotos"/>
-    </main>
-  </div>
+  <main
+    v-show="isLoaded">
+    <IntroductionModal
+      v-if="isOpen('Gallery')"
+      :display-modal="displayModal"
+      @close-modal="displayModal = false"
+      @toggle-menu="toggleMenu"/>
+    <SharedBanner
+      :menus="enabledMenu"
+      @reset-menu="resetHome"
+      @toggle-menu="toggleMenu"/>
+    <PhotographyPage
+      v-if="isOpen('Gallery')"
+      :photos="bannerPhotos"/>
+  </main>
 </template>
 
 <script>

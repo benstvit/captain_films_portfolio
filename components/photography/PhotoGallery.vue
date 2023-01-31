@@ -49,6 +49,7 @@ export default {
     ...mapActions({ fetchPhotos: 'photography/fetch' }),
   },
   async mounted() {
+    // console.log(this.active);
     await this.fetchPhotos({ payload: this.active });
   }
 }
