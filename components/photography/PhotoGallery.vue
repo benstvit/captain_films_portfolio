@@ -1,14 +1,13 @@
 <template>
   <section>
-    <div class="grid grid-cols-9 flex justify-center items-center h-full py-4 px-12 bg-gray-100">
-      <div
-        v-for="image in images"
-        :key="image.title"
-        class="col-span-3 m-4">
-          <silent-box
-            :image="image"
-            :lazy-loading="true"/>
-      </div>
+    <div class="flex justify-center items-center h-full py-8 px-12 bg-gray-100">
+      <viewer :images="images" class="grid grid-cols-9 flex items-start bg-white">
+        <img v-for="image in images"
+            :key="image.src"
+            :src="image.src"
+            :alt="image.alt"
+            class="col-span-3 flex items-center hover:cursor-pointer px-2 py-4 bg-white">
+      </viewer>
     </div>
   </section>
 </template>
@@ -49,7 +48,6 @@ export default {
     ...mapActions({ fetchPhotos: 'photography/fetch' }),
   },
   async mounted() {
-    // console.log(this.active);
     await this.fetchPhotos({ payload: this.active });
   }
 }

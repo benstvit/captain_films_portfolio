@@ -1,4 +1,5 @@
 const PHOTOSETS = [
+  { title: 'New Arrival', photosetId: '72177720305655857'},
   { title: 'Here, there & everywhere', photosetId: '72177720304112937'},
   { title: 'By the Seas', photosetId: '72177720304086995'},
   { title: 'Live Music', photosetId: '72177720304100994'},
