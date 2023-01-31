@@ -11403,6 +11403,11 @@ throat@^6.0.1:
   resolved "https://registry.npmjs.org/throat/-/throat-6.0.1.tgz"
   integrity sha512-8hmiGIJMDlwjg7dlJ4yKGLK8EsYqKgPWbG3b4wjJddKNwc7N7Dpn08Df4szr/sZdMVeOstrdYSsqzX6BYbcB+w==
 
+throttle-debounce@^2.0.1:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-2.3.0.tgz#fd31865e66502071e411817e241465b3e9c372e2"
+  integrity sha512-H7oLPV0P7+jgvrk+6mwwwBDmxTaxnu9HMXmloNLXwnNO0ZxZ31Orah2n8lU1eMPvsaowP2CX+USCgyovXfdOFQ==
+
 through2@^2.0.0:
   version "2.0.5"
   resolved "https://registry.npmjs.org/through2/-/through2-2.0.5.tgz"
@@ -11864,6 +11869,14 @@ utils-merge@1.0.1:
   resolved "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+v-viewer@^1.6.4:
+  version "1.6.4"
+  resolved "https://registry.yarnpkg.com/v-viewer/-/v-viewer-1.6.4.tgz#39e36b534baab34076fb816704c6a734de0dc72f"
+  integrity sha512-LVkiUHpmsbsZXebeNXnu8krRCi5i2n07FeLFxoIVGhw8lVvTBO0ffpbDC6mLEuacCjrIh09HjIqpciwUtWE8lQ==
+  dependencies:
+    throttle-debounce "^2.0.1"
+    viewerjs "^1.5.0"
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.npmjs.org/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz"
@@ -11895,6 +11908,11 @@ vendors@^1.0.0:
   version "1.0.4"
   resolved "https://registry.npmjs.org/vendors/-/vendors-1.0.4.tgz"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
+
+viewerjs@^1.5.0:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/viewerjs/-/viewerjs-1.11.2.tgz#18eb326188225461f85d1e6430f43ba90623b907"
+  integrity sha512-z7N9R91ORhtLvOUxN7GoIl+MFVVMbtWNB1T2UmTKuMlzc4EevS+/bletZcIwDf8RIUzk2CFMdleQzcsjsfLl+A==
 
 vm-browserify@^1.0.1:
   version "1.1.2"
@@ -11994,11 +12012,6 @@ vue-server-renderer@^2.6.12:
     resolve "^1.2.0"
     serialize-javascript "^3.1.0"
     source-map "0.5.6"
-
-vue-silentbox@^2.4.6:
-  version "2.4.6"
-  resolved "https://registry.yarnpkg.com/vue-silentbox/-/vue-silentbox-2.4.6.tgz#8a33890b393f7265057bbe5077aff56df07c1480"
-  integrity sha512-YydMqG2aprYBgV3CNirFhdgUszUxSY89gnQhmPbGwMFxyGN/SHHoPaUanwnc6n3Ybeudmde7lUiAgFuDJnWU7A==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.3:
   version "4.1.3"

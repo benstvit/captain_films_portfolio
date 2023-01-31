@@ -26,7 +26,7 @@
         v-if="menuDisplay"
         class="absolute flex flex-col justify-center items-center top-8 left-10 text-center">
         <nuxt-img
-          class="w-28 h-28"
+          class="w-24 h-24"
           src="/logo-solo.png">
         </nuxt-img>
         <h1 class="font-captainbold font-bold text-center text-sm text-black">
