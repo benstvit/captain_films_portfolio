@@ -1,6 +1,6 @@
 <template>
   <section v-show="menus">
-    <div class="flex justify-center items-center mx-16">
+    <div class="flex justify-center items-center mx-24">
       <div class="pt-24 2xl:pt-0">
         <span
           @mouseover="leftArrowFill = '#000'"
@@ -21,6 +21,21 @@
           </h2>
         </span>
       </div>
+      <div
+        id="captain-logo"
+        v-if="menuDisplay"
+        class="absolute flex flex-col justify-center items-center top-8 left-10 text-center">
+        <nuxt-img
+          class="w-28 h-28"
+          src="/logo-solo.png">
+        </nuxt-img>
+        <h1 class="font-captainbold font-bold text-center text-sm text-black">
+          Captain Films
+        </h1>
+        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
+          Film Photography
+        </p>
+      </div>
       <BannerImage
         :menus="menus"
         :menuDisplay="menuDisplay"
@@ -31,11 +46,11 @@
           @mouseleave="rightArrowFill = 'none'"
           @click="toggleMenu('right')">
           <RightArrowSvg
-            v-if="!menuDisplay && pageIndex !== 4"
+            v-if="!menuDisplay && pageIndex !== 3"
             :fill="rightArrowFill"/>
         </span>
         <span
-          v-if="!menuDisplay && pageIndex === 4"
+          v-if="!menuDisplay && pageIndex === 3"
           class="flex justify-center items-center">
           <h2
             class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
@@ -86,12 +101,7 @@ export default {
     menuDisplay() {
       if (!this.menus) return;
 
-      return this.menus.length === 4;
-    },
-    menuIndex() {
-      if (!this.menus) return;
-      console.log(this.menus);
-      // return menu;
+      return this.menus.length === 3;
     },
   },
   methods: {
@@ -99,6 +109,7 @@ export default {
       this.$emit('reset-menu');
     },
     toggleMenu(direction) {
+      console.log(this.menus[0].index)
       this.$emit('toggle-menu', { direction: direction, index: this.menus[0].index });
     }
   },

@@ -27,7 +27,7 @@ export default ({
   },
   data () {
     return {
-      photo: [
+      photos: [
         { title: 'By the Seas', active: true },
         { title: 'Here, there & everywhere', active: false },
         { title: 'Live Music', active: false },
@@ -36,30 +36,26 @@ export default ({
       submenus: [],
     }
   },
-  computed: {
-    selectedSubMenu() {
-      return this.photo.map((e, i) => ({ ...e, active: i === 0 && true || false, menu: 'photo' }));
-    },
-  },
   watch: {
     submenus(newValue) {
       const active = newValue.filter(menu => menu.active).pop();
-      this.$emit('active-submenu', active)
+      if (active) this.$emit('active-submenu', active);
+
+      return;
     },
   },
   methods: {
     activate(title) {
-      this.submenus = this.selectedSubMenu.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
+      this.submenus = this.photos.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
     },
     customClass(menu) {
-      if (menu.active) return 'border border-black bg-black text-white pointer-events-none opacity-90 shadow-lg';
+      if (menu.active) return 'border border-black bg-gray-600 text-white pointer-events-none opacity-90 shadow-lg';
 
       return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     }
   },
   async mounted() {
-    await this.selectedSubMenu;
-    this.submenus = this.selectedSubMenu;
+    this.submenus = this.photos;
   },
 })
 </script>

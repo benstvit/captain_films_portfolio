@@ -1,18 +1,25 @@
 <template>
-  <main v-show="isLoaded">
-    <SharedBanner
-      :menus="enabledMenu"
-      @reset-menu="resetHome"
-      @toggle-menu="toggleMenu"/>
-    <PhotographyPage
-      v-if="isOpen('Film Photography')"
-      :photos="bannerPhotos"/>
-    <MusicPage
-      v-if="isOpen('Music')"/>
-  </main>
+  <div class="-z-10" @click="handleClickOutside">
+    <main
+      v-show="isLoaded">
+      <IntroductionModal
+        v-if="isOpen('Gallery')"
+        :display-modal="displayModal"
+        @close-modal="displayModal = false"
+        @toggle-menu="toggleMenu"/>
+      <SharedBanner
+        :menus="enabledMenu"
+        @reset-menu="resetHome"
+        @toggle-menu="toggleMenu"/>
+      <PhotographyPage
+        v-if="isOpen('Gallery')"
+        :photos="bannerPhotos"/>
+    </main>
+  </div>
 </template>
 
 <script>
+import IntroductionModal from "../components/shared/IntroductionModal.vue"
 import MusicPage from "../components/pages/MusicPage.vue";
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/SharedBanner.vue";
@@ -25,9 +32,11 @@ export default {
     return {
       bannerPhotos: null,
       isLoaded: false,
+      displayModal: ''
     }
   },
   components: {
+    IntroductionModal,
     MusicPage,
     PhotographyPage,
     SharedBanner
@@ -43,12 +52,16 @@ export default {
     },
     enabledMenu() {
       if (!this.bannerPhotos) return;
+
       return this.bannerPhotos.filter(photo => photo.enabled);
     },
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
+    handleClickOutside() {
+      if (this.displayModal) this.displayModal = false;
+    },
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
 
@@ -64,7 +77,7 @@ export default {
     toggleMenu(payload) {
       this.reset();
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.bannerPhotos.find(menu => menu.index === (payload.index === 4 ? 1 : direction)).enabled = true;
+      this.bannerPhotos.find(menu => menu.index === (payload.index === 3 ? 1 : direction)).enabled = true;
     }
   },
   async mounted() {

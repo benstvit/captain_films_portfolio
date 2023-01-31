@@ -50,6 +50,10 @@ module.exports = {
           '"Noto Serif Khojki"',
           ...defaultTheme.fontFamily.sans,
         ],
+        handwritten: [
+          '"Caveat"',
+          ...defaultTheme.fontFamily.sans,
+        ],
         playfair: ['"Playfair Display"', ...defaultTheme.fontFamily.sans],
         cormorant: ['"Cormorant Garamond"', ...defaultTheme.fontFamily.sans],
       },

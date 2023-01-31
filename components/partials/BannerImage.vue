@@ -10,9 +10,12 @@
           class="w-16 h-16"
           src="/logo-solo.png">
         </nuxt-img>
-        <h1 class="font-captainbold text-center text-md pb-4 text-black">
+        <h1 class="font-captainbold text-center text-md text-black">
           Captain Films
         </h1>
+        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
+          Film Photography
+        </p>
       </div>
       <div class="relative grid grid-cols-6">
         <div id="image-wrapper"
@@ -20,29 +23,17 @@
           :key="menu.id"
           class="relative flex justify-center"
           @click="selectMenu(menu.index)"
-          :class="menuDisplay ? 'hover:cursor-pointer hover:opacity-90 col-span-3' : 'col-span-6'">
+          :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'">
           <nuxt-img
             id="musicPageBanner"
             v-if="menu.enabled"
-            class="h-[50vh] object-cover w-full border border-white border-2 rounded-lg shadow-sm"
+            class="h-[50vh] object-cover object-bottom w-full border border-white border-1 shadow-sm"
             :src="menu.url"
             :alt="menu.title"/>
           <h1
             v-if="menu.enabled"
-            class="absolute top-[45%] font-captainbold text-white text-4xl opacity-90">
+            class="absolute top-[45%] font-captainbold text-center text-white sm:text-2xl md:text-3xl lg:text-4xl opacity-90">
             {{ menu.title }}
-          </h1>
-        </div>
-        <div
-          id="captain-logo"
-          v-if="menuDisplay"
-          class="absolute flex flex-col justify-center items-center hover:cursor-pointer top-6 left-10 text-center">
-          <nuxt-img
-            class="w-14 h-14"
-            src="/logo-solo-white.png">
-          </nuxt-img>
-          <h1 class="font-captainbold text-center text-sm pb-4 text-white">
-            Captain Films
           </h1>
         </div>
       </div>
@@ -67,6 +58,9 @@ export default {
     }
   },
   methods: {
+    menuGrid(index) {
+      return index === 3 ? 'hover:cursor-pointer hover:opacity-90 col-span-6' : 'hover:cursor-pointer hover:opacity-90 col-span-3';
+    },
     resetMenu() {
       this.$emit('reset-menu');
     },
