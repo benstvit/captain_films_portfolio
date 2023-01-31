@@ -54,7 +54,7 @@
           class="flex justify-center items-center">
           <h2
             class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
-            @click="toggleMenu">
+            @click="toggleMenu('right')">
             🎞 Rewind
           </h2>
           <VerticalSvg  />
@@ -109,7 +109,7 @@ export default {
       this.$emit('reset-menu');
     },
     toggleMenu(direction) {
-      console.log(this.menus[0].index)
+      console.log(this.menus)
       this.$emit('toggle-menu', { direction: direction, index: this.menus[0].index });
     }
   },

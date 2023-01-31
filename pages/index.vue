@@ -13,10 +13,13 @@
     <PhotographyPage
       v-if="isOpen('Gallery')"
       :photos="bannerPhotos"/>
+    <ContactPage
+      v-if="isOpen('Contact me | Order your pic')" />
   </main>
 </template>
 
 <script>
+import ContactPage from "../components/pages/ContactPage.vue"
 import IntroductionModal from "../components/shared/IntroductionModal.vue"
 import MusicPage from "../components/pages/MusicPage.vue";
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
@@ -35,6 +38,7 @@ export default {
   },
   components: {
     IntroductionModal,
+    ContactPage,
     MusicPage,
     PhotographyPage,
     SharedBanner
@@ -75,7 +79,7 @@ export default {
     toggleMenu(payload) {
       this.reset();
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.bannerPhotos.find(menu => menu.index === (payload.index === 3 ? 1 : direction)).enabled = true;
+      this.bannerPhotos.find(menu => menu.index === (payload.index === 3 && payload.direction === 'right' ? 1 : direction)).enabled = true;
     }
   },
   async mounted() {
