@@ -21,25 +21,12 @@
           </h2>
         </span>
       </div>
-      <div
-        id="captain-logo"
-        v-if="menuDisplay"
-        class="absolute flex flex-col justify-center items-center top-8 left-10 text-center">
-        <nuxt-img
-          class="w-28 h-28"
-          src="/logo-solo.png">
-        </nuxt-img>
-        <h1 class="font-captainbold font-bold text-center text-sm text-black">
-          Captain Films
-        </h1>
-        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
-          Film Photography
-        </p>
-      </div>
+      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'top-8 left-10'" />
       <BannerImage
         :menus="menus"
         :menuDisplay="menuDisplay"
         @reset-menu="resetMenu" />
+      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'top-8 right-10'" />
       <div class="pt-24 2xl:pt-0">
         <span
           @mouseover="rightArrowFill = '#000'"
@@ -65,6 +52,7 @@
 </template>
 
 <script>
+import CaptainFilmsLogo from "../partials/CaptainFilmsLogo.vue"
 import LeftArrowSvg from "../svg/LeftArrowSvg.vue"
 import RightArrowSvg from "../svg/RightArrowSvg.vue"
 import VerticalSvg from "../svg/VerticalSvg.vue"
@@ -82,6 +70,7 @@ export default {
   },
   components: {
     BannerImage,
+    CaptainFilmsLogo,
     LeftArrowSvg,
     RightArrowSvg,
     VerticalSvg
