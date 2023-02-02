@@ -2,7 +2,10 @@
   <div class="flex flex-col justify-center items-start m-4 p-8">
     <h1 class="font-captainbold text-3xl py-4">Contact me</h1>
     <div class="flex flex-col justify-center items-start gap-6 h-fit w-1/2">
-     <FormulateForm>
+     <FormulateForm
+        @submit="submitHandler"
+        #default="{ hasErrors }"
+        >
          <FormulateInput
           name="email"
           type="email"
@@ -36,7 +39,8 @@
         <FormulateInput
           type="submit"
           label="Send message"
-          class="text-xl transition ease-in hover:cursor-pointer hover:shadow-lg hover:text-white text-black hover:border-transparent border border-black w-fit bg-white hover:bg-teal-700 font-cormorant px-4 py-2"
+          :class="hasErrors ? 'cursor-none hover:cursor-not-allowed' : 'transition ease-in text-black hover:border-transparent bg-white hover:bg-teal-700 hover:cursor-pointer hover:shadow-lg hover:text-white'"
+          class="text-xl font-cormorant w-fit px-4 py-2 border border-black"
         />
      </FormulateForm>
     </div>
