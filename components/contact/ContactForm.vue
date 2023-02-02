@@ -10,11 +10,12 @@
     </div>
     <div class="flex flex-col justify-between items-center gap-4 m-4 p-8 bg-white">
       <div>
-        <h1 class="text-2xl font-captainbold my-4">
+        <h1 class="text-2xl text-center font-captainbold my-4">
           Fill in this form if you wish to adopt a photograph:
         </h1>
         <FormulateForm
-          @submit="submitHandler"
+          ref="contact-form"
+          @submit="handleSubmit"
           #default="{ hasErrors }"
           >
             <div class="flex justify-between items-start lg:gap-12 flex-wrap">
@@ -23,19 +24,19 @@
               type="email"
               label="Please leave me your e-mail so I can contact you back"
               placeholder="Email address"
-              input-class="w-2/3"
+              input-class="w-2/3 focus:ring-2 focus:ring-teal-600 focus:border-transparent"
               class="mb-6 mt-2"
               validation="required|email"
             />
             <FormulateInput
               v-model="reason"
               name='reason'
-              :options="{question: 'Ask a question / get more info', order: 'Order a photograph', other: 'Talk about the weather or anything, really'}"
+              :options="{question: 'Ask a question / get more information', order: 'Order a photograph', other: 'Talk about the weather or anything, really'}"
               type="select"
               placeholder="What do you want to talk about ?"
               label="Please choose the reason you are contacting me for (though you don't need any)"
               label-class="font-captainlight text-sm whitespace-normal"
-              input-class="w-fit"
+              input-class="w-fit focus:ring-2 focus:ring-teal-600 focus:border-transparent"
               class="mb-6 mt-2 items-end"
             />
             </div>
@@ -44,8 +45,8 @@
             v-model="text"
             name="message"
             label="Write your message here. I will get back to you ASAP"
-            label-class="py-2 font-captainlight text-sm"
-            input-class="w-full h-36"
+            label-class="font-captainlight text-sm"
+            input-class="w-full h-36 focus:ring-2 focus:ring-teal-600 focus:border-transparent"
             class="mb-4"
 
           />
@@ -75,9 +76,9 @@ export default {
       return 'captainfilmbold text-pink-900'
     }
   },
-  watch: {
-    value(newValue) {
-      console.log(newValue)
+  methods: {
+    handleSubmit(event) {
+      console.log(event);
     }
   }
 }

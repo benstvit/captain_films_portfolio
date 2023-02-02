@@ -6,7 +6,9 @@
         :submenus="submenus" />
     <keep-alive>
       <div class="my-12">
-        <ContactForm v-if="isOpen('Contact Me')" />
+        <ContactForm
+          ref="contact-form"
+          v-if="isOpen('Contact Me')" />
         <MyPartners v-if="isOpen('My Partners')" />
         <QuoteForm v-if="isOpen('Quick Quote')" />
       </div>
@@ -51,7 +53,7 @@ export default {
     },
     setActiveSubmenu(event) {
       this.activeSubmenu = event
-    }
+    },
   }
 }
 </script>
