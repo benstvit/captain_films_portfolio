@@ -2,7 +2,8 @@
   <section>
     <NavBar
       @active-submenu="setActiveSubmenu"
-      :is-scrolling="galleryY" />
+      :is-scrolling="galleryY"
+      :submenus="submenus" />
     <keep-alive>
       <PhotoGallery
         id="gallery"
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-import NavBar from "../photography/NavBar.vue";
+import NavBar from "../shared/NavBar.vue";
 import PhotoGallery from "../photography/PhotoGallery.vue";
 
 export default {
@@ -28,7 +29,14 @@ export default {
   data() {
     return {
       activeSubmenu: {},
-      galleryY: false
+      galleryY: false,
+      submenus: [
+        { title: 'New Arrival', active: false },
+        { title: 'By the Seas', active: true },
+        { title: 'Here, there & everywhere', active: false },
+        { title: 'Live Music', active: false },
+        { title: 'Portraits', active: false },
+        { title: 'Wild Life', active: false }],
     }
   },
   components: {

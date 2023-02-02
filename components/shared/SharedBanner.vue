@@ -36,16 +36,16 @@
             v-if="!menuDisplay && pageIndex !== 3"
             :fill="rightArrowFill"/>
         </span>
-        <span
+        <div
           v-if="!menuDisplay && pageIndex === 3"
           class="flex justify-center items-center">
-          <h2
-            class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
+          <span
+            @mouseover="stopFill = '#000'"
+            @mouseleave="stopFill = 'none'"
             @click="toggleMenu('right')">
-            🎞 Rewind
-          </h2>
-          <VerticalSvg  />
-        </span>
+            <StopSvg  :fill="stopFill" />
+          </span>
+        </div>
       </div>
     </div>
   </section>
@@ -55,7 +55,7 @@
 import CaptainFilmsLogo from "../partials/CaptainFilmsLogo.vue"
 import LeftArrowSvg from "../svg/LeftArrowSvg.vue"
 import RightArrowSvg from "../svg/RightArrowSvg.vue"
-import VerticalSvg from "../svg/VerticalSvg.vue"
+import StopSvg from "../svg/StopSvg.vue"
 
 import BannerImage from "../partials/BannerImage.vue"
 
@@ -65,6 +65,7 @@ export default {
     return {
       leftArrowFill: 'none',
       rightArrowFill: 'none',
+      stopFill: 'none',
       pageIndex: null,
     }
   },
@@ -73,7 +74,7 @@ export default {
     CaptainFilmsLogo,
     LeftArrowSvg,
     RightArrowSvg,
-    VerticalSvg
+    StopSvg,
   },
   props: {
     menus: {
@@ -98,8 +99,8 @@ export default {
       this.$emit('reset-menu');
     },
     toggleMenu(direction) {
-      console.log(this.menus)
       this.$emit('toggle-menu', { direction: direction, index: this.menus[0].index });
+      [this.leftArrowFill, this.rightArrowFillthis, this.stopFill].forEach(e => e = 'none');
     }
   },
 };
