@@ -9,8 +9,12 @@
       </p>
     </div>
     <div class="flex flex-col justify-between items-center gap-4 m-4 p-8 bg-white">
-      <div>
-        <h1 class="text-2xl text-center font-captainbold my-4">
+      <FormSubmitMessage
+        v-if="successMessage || errorMessage"
+        :success="successMessage"
+        :error="errorMessage" />
+      <div v-else>
+        <h1 class="text-2xl text-left font-captainbold my-4">
           Fill in this form if you wish to adopt a photograph:
         </h1>
         <FormulateForm
@@ -52,7 +56,7 @@
           />
           <FormulateInput
             type="submit"
-            label="Send message"
+            :label="isLoading ? 'Sending message...' : 'Send message'"
             :class="hasErrors ? 'font-light cursor-none bg-gray-200 text-gray-500 hover:cursor-not-allowed' : 'transition ease-in text-black hover:border-transparent bg-white hover:bg-teal-700 hover:cursor-pointer hover:shadow-lg hover:text-white'"
             class="text-xl font-cormorant w-fit px-4 py-2 border border-black"
           />
@@ -63,22 +67,36 @@
 </template>
 
 <script>
+import emailjs from '@emailjs/browser'
+import FormSubmitMessage from './FormSubmitMessage.vue'
+
 export default {
   name: 'ContactPage',
   data () {
     return {
-      text: '',
-      reason: ''
+      errorMessage: false,
+      isLoading: false,
+      reason: '',
+      successMessage: false,
+      text: ''
     }
   },
-  computed: {
-    test() {
-      return 'captainfilmbold text-pink-900'
-    }
+  components: {
+    FormSubmitMessage
   },
   methods: {
-    handleSubmit(event) {
-      console.log(event);
+    async handleSubmit(event) {
+      this.isLoading = true;
+      const templateParams = event;
+      await emailjs.send('service_hoffucc', 'contact_form', templateParams, 'zI57JYyitltBxG966')
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          if (response.status === 200) this.successMessage = true;
+        }, (error) => {
+          console.log('FAILED...', error);
+          if (error) return this.errorMessage = true;
+        })
+      this.isLoading = false;
     }
   }
 }
