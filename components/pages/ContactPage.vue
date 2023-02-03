@@ -29,8 +29,8 @@ export default {
       activeSubmenu: {},
       galleryY: false,
       submenus: [
-        { title: 'Contact Me', active: false },
-        { title: 'My Partners', active: true },
+        { title: 'Contact Me', active: true },
+        { title: 'My Partners', active: false },
         { title: 'Quick Quote', active: false },
       ]
     }
