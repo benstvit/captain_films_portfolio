@@ -21,25 +21,12 @@
           </h2>
         </span>
       </div>
-      <div
-        id="captain-logo"
-        v-if="menuDisplay"
-        class="absolute flex flex-col justify-center items-center top-8 left-10 text-center">
-        <nuxt-img
-          class="w-24 h-24"
-          src="/logo-solo.png">
-        </nuxt-img>
-        <h1 class="font-captainbold font-bold text-center text-sm text-black">
-          Captain Films
-        </h1>
-        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
-          Film Photography
-        </p>
-      </div>
+      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'left-10'" />
       <BannerImage
         :menus="menus"
         :menuDisplay="menuDisplay"
         @reset-menu="resetMenu" />
+      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'right-10'" />
       <div class="pt-24 2xl:pt-0">
         <span
           @mouseover="rightArrowFill = '#000'"
@@ -49,25 +36,26 @@
             v-if="!menuDisplay && pageIndex !== 3"
             :fill="rightArrowFill"/>
         </span>
-        <span
+        <div
           v-if="!menuDisplay && pageIndex === 3"
           class="flex justify-center items-center">
-          <h2
-            class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
-            @click="toggleMenu">
-            🎞 Rewind
-          </h2>
-          <VerticalSvg  />
-        </span>
+          <span
+            @mouseover="stopFill = '#000'"
+            @mouseleave="stopFill = 'none'"
+            @click="toggleMenu('right')">
+            <StopSvg  :fill="stopFill" />
+          </span>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import CaptainFilmsLogo from "../partials/CaptainFilmsLogo.vue"
 import LeftArrowSvg from "../svg/LeftArrowSvg.vue"
 import RightArrowSvg from "../svg/RightArrowSvg.vue"
-import VerticalSvg from "../svg/VerticalSvg.vue"
+import StopSvg from "../svg/StopSvg.vue"
 
 import BannerImage from "../partials/BannerImage.vue"
 
@@ -77,14 +65,16 @@ export default {
     return {
       leftArrowFill: 'none',
       rightArrowFill: 'none',
+      stopFill: 'none',
       pageIndex: null,
     }
   },
   components: {
     BannerImage,
+    CaptainFilmsLogo,
     LeftArrowSvg,
     RightArrowSvg,
-    VerticalSvg
+    StopSvg,
   },
   props: {
     menus: {
@@ -109,8 +99,8 @@ export default {
       this.$emit('reset-menu');
     },
     toggleMenu(direction) {
-      console.log(this.menus[0].index)
       this.$emit('toggle-menu', { direction: direction, index: this.menus[0].index });
+      [this.leftArrowFill, this.rightArrowFillthis, this.stopFill].forEach(e => e = 'none');
     }
   },
 };

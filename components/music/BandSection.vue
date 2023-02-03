@@ -41,8 +41,6 @@
 </template>
 
 <script>
-import IntersectionObserver from '../../mixins/intersection-observer.js'
-
 export default {
   data () {
     return {
@@ -50,7 +48,6 @@ export default {
     }
   },
   name: "BandSection",
-  mixins: [IntersectionObserver],
   destroyed () {
     this.bandHorizontalScroll.removeEventListener('wheel', this.scrollHorizontaly);
   },

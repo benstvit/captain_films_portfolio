@@ -7,7 +7,7 @@
         v-if="!menuDisplay"
         class="relative 2xl:absolute 2xl:left-14 flex flex-col justify-center items-center hover:cursor-pointer top-6 text-center">
         <nuxt-img
-          class="w-16 h-16"
+          class="w-14 h-14"
           src="/logo-solo.png">
         </nuxt-img>
         <h1 class="font-captainbold text-center text-md text-black">
@@ -43,11 +43,9 @@
 </template>
 
 <script>
-import IntersectionObserver from '../../mixins/intersection-observer.js'
 
 export default {
   name:"BannerImage",
-  mixins: [IntersectionObserver],
   props: {
     menus: {
       type: Array,

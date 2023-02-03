@@ -2,7 +2,7 @@
   <section class="fixed sticky top-10">
     <div id="navbar" class="flex flex-nowrap justify-center my-12">
       <div
-        v-for="(menu, index) in submenus"
+        v-for="(menu, index) in formattedSubmenus"
         :key="index"
         class="w-fit shadow-sm">
         <button
@@ -20,6 +20,10 @@
 export default ({
   name: 'NavbarComponent',
   props: {
+    submenus: {
+      type: Array,
+      default: () => []
+    },
     isScrolling: {
       type: Boolean,
       default: false,
@@ -27,18 +31,11 @@ export default ({
   },
   data () {
     return {
-      photos: [
-        { title: 'New Arrival', active: false },
-        { title: 'By the Seas', active: true },
-        { title: 'Here, there & everywhere', active: false },
-        { title: 'Live Music', active: false },
-        { title: 'Portraits', active: false },
-        { title: 'Wild Life', active: false }],
-      submenus: [],
+      formattedSubmenus: [],
     }
   },
   watch: {
-    submenus(newValue) {
+    formattedSubmenus(newValue) {
       const active = newValue.filter(menu => menu.active).pop();
       if (active) this.$emit('active-submenu', active);
 
@@ -47,7 +44,7 @@ export default ({
   },
   methods: {
     activate(title) {
-      this.submenus = this.photos.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
+      this.formattedSubmenus = this.submenus.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
     },
     customClass(menu) {
       if (menu.active) return 'bg-teal-700 text-white pointer-events-none opacity-90 shadow-lg';
@@ -56,7 +53,7 @@ export default ({
     }
   },
   async mounted() {
-    this.submenus = this.photos;
+    this.formattedSubmenus = this.submenus;
   },
 })
 </script>
