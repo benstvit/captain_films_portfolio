@@ -13,7 +13,6 @@
         <span
           v-if="!menuDisplay && pageIndex === 1"
           class="flex justify-center items-center">
-          <VerticalSvg  />
           <h2
             class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
             @click="resetMenu">
