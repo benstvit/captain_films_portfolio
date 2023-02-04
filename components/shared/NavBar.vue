@@ -1,6 +1,6 @@
 <template>
   <section class="fixed sticky top-10">
-    <div id="navbar" class="flex flex-nowrap justify-center my-12">
+    <div id="navbar" class="flex flex-nowrap justify-center my-8">
       <div
         v-for="(menu, index) in formattedSubmenus"
         :key="index"

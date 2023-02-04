@@ -1,8 +1,8 @@
 <template>
   <section>
-    <div class="w-full rounded-sm bg-white text-center font-captainlight text-md leading-loose my-4 p-4 bg-gray-100">
-      <p class="py-4">
-        <span class="text-lg font-bold font-captainbold py-4">Why film photography ?</span><br>
+    <div class="w-full bg-gray-100 text-center font-captainlight text-md leading-loose my-2 p-4">
+      <p class="py-4 italic">
+        <span class="text-lg font-bold not-italic font-captainbold py-4">Why film photography ?</span><br>
         Each photograph has its own identity, its history and is therefore <b>unique</b>.<br>
         More than a simple snapshot, it becomes the product of a reflective work.<br>
         This idea of ​​uniqueness transpires in the meticulousness that I bring to the development, printing and framing of my photographs.
