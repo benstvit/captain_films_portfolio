@@ -2,7 +2,7 @@
   <div
     id="captain-logo"
     v-if="menuDisplay"
-    class="absolute flex flex-col justify-center items-center text-center"
+    class="absolute flex flex-col justify-center items-center text-center top-8"
     :class="customClass">
     <nuxt-img
       class="w-28 h-28"

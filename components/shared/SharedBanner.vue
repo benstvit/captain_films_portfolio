@@ -20,12 +20,12 @@
           </h2>
         </span>
       </div>
-      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'top-8 left-10'" />
+      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'left-10'" />
       <BannerImage
         :menus="menus"
         :menuDisplay="menuDisplay"
         @reset-menu="resetMenu" />
-      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'bottom-8 right-10'" />
+      <CaptainFilmsLogo :menu-display="menuDisplay" :custom-class="'right-10'" />
       <div class="pt-24 2xl:pt-0">
         <span
           @mouseover="rightArrowFill = '#000'"
