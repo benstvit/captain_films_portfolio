@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="w-full bg-gray-100 text-center font-captainlight text-md leading-loose my-2 p-4">
+    <div class="w-full bg-gray-100 text-center font-captainlight text-md leading-loose my-2 p-2">
       <p class="py-4 italic">
         <span class="text-lg font-bold not-italic font-captainbold py-4">Why film photography ?</span><br>
         Each photograph has its own identity, its history and is therefore <b>unique</b>.<br>

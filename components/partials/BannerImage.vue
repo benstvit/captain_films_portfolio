@@ -5,9 +5,9 @@
         id="captain-logo"
         @click="resetMenu"
         v-if="!menuDisplay"
-        class="relative 2xl:absolute 2xl:left-14 flex flex-col justify-center items-center hover:cursor-pointer top-6 text-center">
+        class="relative 2xl:absolute 2xl:left-14 flex flex-col justify-center items-center hover:cursor-pointer opacity-70 hover:opacity-100 top-6 text-center">
         <nuxt-img
-          class="w-14 h-14"
+          class="w-16 h-16"
           src="/logo-solo.png">
         </nuxt-img>
         <h1 class="font-captainbold text-center text-md text-black">
