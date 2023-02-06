@@ -1,11 +1,73 @@
 <template>
-  <div class="w-full m-4 p-8">
-    <h1 class="font-captainbold text-3xl py-2">My partners</h1>
-  </div>
+  <section>
+    <div class="flex justify-between items-start my-4 py-4 px-8 bg-gray-100">
+      <div
+        v-for="(partner, index) in partners"
+        :key="partner.name">
+          <nuxt-img
+            v-if="!partner.selected || menuDisplay"
+            :src="partner.imgUrl"
+            :alt="partner.name"
+            @click="setActivePartner(index)"
+            class="h-52 object-contain hover:cursor-pointer hover:opacity-80 hover:opacity-70 my-4"/>
+          <Transition name="fade">
+            <div v-if="partner.selected" class="flex flex-col items-center h-fit w-56 my-4 mx-4">
+              <span><a class="text-center text-teal-600 font-captainbold hover:text-teal-700 hover:font-bold " :href="partner.site" target="_blank">{{partner.name}}</a></span>
+              <p class="mb-4 font-captainlight text-md text-center whitespace-normal">{{ partner.description}}</p>
+            </div>
+          </Transition>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 export default {
   name: 'MyPartners',
+  data() {
+    return {
+      partners: [
+        {
+          name: 'Mori Film Lab',
+          imgUrl: '/morifilm.png',
+          description: 'was created by two young passionates, Cole and Raph. More than a shop, they created a community and offer the holy trinity of film developing: quality, speed and affordability.',
+          selected: false,
+          site: 'https://morifilmlab.com/'
+        },
+        {
+          name: 'L\'Atelier KZG',
+          imgUrl: '/atelierkzg.png',
+          description: 'was created by photographs for photographs and offers a mix of craftsmanship and technology with pigment printing on a wide variety of archival papers',
+          selected: false,
+          site: 'http://www.kzg.be/'
+        },
+        {
+          name: 'Desenio',
+          imgUrl: '/desenio.png',
+          description: 'Frames can often come at a very expensive price. Desenio offers a wide range of fairly priced frames made of FSC© certified wood. There is something for every taste !',
+          selected: false,
+          site: 'https://desenio.be/fr-be/cadres-photo/'
+        },
+      ]
+    }
+  },
+  computed: {
+    menuDisplay() {
+      const findActive = this.partners.filter(e => e.selected === true);
+      return findActive.length === 0;
+    },
+
+  },
+  methods: {
+    setActivePartner(index) {
+      this.partners.map(partner => partner.selected = false);
+      const setActive = this.partners.map((e, i) => {
+        if (i === index && e.selected) this.partners.forEach(p => p.selected = false);
+
+        return i === index ? {...e, selected: true} : {...e };
+      });
+      this.partners = setActive;
+    }
+  }
 }
 </script>

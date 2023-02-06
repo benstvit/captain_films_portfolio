@@ -13,6 +13,8 @@
     <PhotographyPage
       v-if="isOpen('Gallery')"
       :photos="bannerPhotos"/>
+    <ShowRoomPage
+      v-if="isOpen('Showroom')" />
     <ContactPage
       v-if="isOpen('Contact me | Order your pic')" />
   </main>
@@ -21,9 +23,9 @@
 <script>
 import ContactPage from "../components/pages/ContactPage.vue"
 import IntroductionModal from "../components/shared/IntroductionModal.vue"
-import MusicPage from "../components/pages/MusicPage.vue";
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/SharedBanner.vue";
+import ShowRoomPage from "../components/pages/ShowRoomPage.vue";
 
 import { mapState, mapActions } from 'vuex';
 
@@ -39,9 +41,9 @@ export default {
   components: {
     IntroductionModal,
     ContactPage,
-    MusicPage,
     PhotographyPage,
-    SharedBanner
+    SharedBanner,
+    ShowRoomPage
   },
   computed: {
     ...mapState('banner', { photosData: 'data'}),

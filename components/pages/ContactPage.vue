@@ -6,9 +6,7 @@
         :submenus="submenus" />
     <keep-alive>
       <div class="my-12">
-        <ContactForm
-          ref="contact-form"
-          v-if="isOpen('Contact Me')" />
+        <ContactForm v-if="isOpen('Contact Me')" />
         <MyPartners v-if="isOpen('My Partners')" />
         <QuoteForm v-if="isOpen('Quick Quote')" />
       </div>
@@ -17,10 +15,9 @@
 </template>
 
 <script>
-import ContactForm from "../contact/ContactForm.vue"
+import ContactForm from "../contact/Form/ContactForm.vue"
 import NavBar from "../shared/NavBar"
 import MyPartners from "../contact/MyPartners.vue"
-import QuoteForm from "../contact/QuoteForm.vue"
 
 export default {
   name: 'ContactPage',
@@ -31,7 +28,6 @@ export default {
       submenus: [
         { title: 'Contact Me', active: true },
         { title: 'My Partners', active: false },
-        { title: 'Quick Quote', active: false },
       ]
     }
   },
@@ -39,7 +35,6 @@ export default {
     ContactForm,
     NavBar,
     MyPartners,
-    QuoteForm
   },
   methods: {
     isOpen(pageTitle) {
