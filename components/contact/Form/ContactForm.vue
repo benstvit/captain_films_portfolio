@@ -35,7 +35,7 @@
             <FormulateInput
               v-model="reason"
               name='reason'
-              :options="{question: 'Ask a question / get more information', order: 'Order a photograph', other: 'Talk about the weather or anything, really'}"
+              :options="{question: 'Ask a question / get information', order: 'Order a photograph', other: 'Talk about the weather or anything, really'}"
               type="select"
               placeholder="What do you want to talk about ?"
               label="Please choose the reason you are contacting me for (though you don't need any)"
@@ -52,7 +52,6 @@
             label-class="font-captainlight text-sm"
             input-class="w-full h-36 focus:ring-2 focus:ring-teal-600 focus:border-transparent"
             class="mb-4"
-
           />
           <FormulateInput
             type="submit"
@@ -103,7 +102,7 @@ export default {
     setTimeout(() => {
       const form = document.getElementById('contact-form');
       form.scrollIntoView({ behavior: 'smooth' });
-    }, 600);
+    }, 500);
   }
 }
 </script>

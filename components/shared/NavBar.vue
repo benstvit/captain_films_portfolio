@@ -1,6 +1,6 @@
 <template>
-  <section class="fixed sticky top-10 z-10">
-    <div id="navbar" class="flex flex-nowrap justify-center my-8">
+  <section id="navbar" class="fixed sticky top-10 z-10">
+    <div class="flex flex-nowrap justify-center my-8">
       <div
         v-for="(menu, index) in formattedSubmenus"
         :key="index"
@@ -45,11 +45,19 @@ export default ({
   methods: {
     activate(title) {
       this.formattedSubmenus = this.submenus.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
+      this.handleScrollBack();
     },
     customClass(menu) {
       if (menu.active) return 'bg-teal-700 text-white pointer-events-none opacity-90 shadow-lg';
 
       return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
+    },
+    handleScrollBack() {
+      const navbar = document.getElementById('navbar');
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        topPosition.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      }, 500);
     }
   },
   async mounted() {
