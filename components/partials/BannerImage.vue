@@ -25,7 +25,6 @@
           @click="selectMenu(menu.index)"
           :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'">
           <nuxt-img
-            id="musicPageBanner"
             v-if="menu.enabled"
             class="h-[50vh] object-cover object-bottom w-full"
             :class="menuDisplay ? 'border border-1 border-white' : 'shadow-lg rounded-sm'"

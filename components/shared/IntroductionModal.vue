@@ -1,6 +1,9 @@
 <template>
-  <div v-if="displayModal" @click.stop class="fixed top-40 left-0 z-10 w-full h-full overflow-auto backdrop-blur-sm">
-    <div ref="modal" class="bg-white t-56 mt-auto mx-auto p-4 border-1 border-gray-50 w-2/3 rounded-md shadow-md">
+  <div
+    v-if="displayModal"
+    @click.stop="handleBodyClick"
+    class="fixed top-40 left-0 z-20 w-full h-full overflow-auto backdrop-blur-sm">
+    <div id="modal" class="bg-white t-56 mt-auto mx-auto p-4 border-1 border-gray-50 w-2/3 rounded-md shadow-md">
       <span @click="closeModal" class="hover:text-black cursor-pointer text-gray-500 float-right font-bold text-4xl">&times;</span>
       <div class="flex flex-col justify-between items-center divide-y-1 p-4 gap-4 my-2 font-captainlight text-center">
         <nuxt-img class="h-14 w-14" src="/aileron.png"/>
@@ -24,6 +27,12 @@ export default {
   methods: {
     closeModal() {
       this.$emit('close-modal');
+    },
+    handleBodyClick(event) {
+      const modal = document.getElementById('modal');
+      if (event.target.closest('#modal') === modal) {
+        this.closeModal()
+      }
     },
     navigateToGallery() {
       this.$emit('toggle-menu', { direction: 'right', index: 1 });

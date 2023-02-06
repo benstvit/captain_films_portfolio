@@ -56,7 +56,7 @@ export default ({
       const navbar = document.getElementById('navbar');
       window.scrollTo(0, 0);
       setTimeout(() => {
-        topPosition.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
       }, 500);
     }
   },

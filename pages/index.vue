@@ -2,6 +2,7 @@
   <main
     v-show="isLoaded">
     <IntroductionModal
+      id="modal"
       v-if="isOpen('Gallery')"
       :display-modal="displayModal"
       @close-modal="displayModal = false"
@@ -63,9 +64,6 @@ export default {
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
-    handleClickOutside() {
-      if (this.displayModal) this.displayModal = false;
-    },
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
 
