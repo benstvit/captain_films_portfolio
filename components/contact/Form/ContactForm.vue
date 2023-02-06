@@ -18,7 +18,7 @@
           Fill in this form if you wish to adopt a photograph:
         </h1>
         <FormulateForm
-          ref="contact-form"
+          id="contact-form"
           @submit="handleSubmit"
           #default="{ hasErrors }"
           >
@@ -98,6 +98,12 @@ export default {
         })
       this.isLoading = false;
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      const form = document.getElementById('contact-form');
+      form.scrollIntoView({ behavior: 'smooth' });
+    }, 600);
   }
 }
 </script>

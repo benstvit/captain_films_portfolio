@@ -1,5 +1,5 @@
 <template>
-  <section class="fixed sticky top-10">
+  <section class="fixed sticky top-10 z-10">
     <div id="navbar" class="flex flex-nowrap justify-center my-8">
       <div
         v-for="(menu, index) in formattedSubmenus"
