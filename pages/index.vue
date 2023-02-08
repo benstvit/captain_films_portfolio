@@ -18,7 +18,10 @@
       v-if="isOpen('Showroom')" />
     <ContactPage
       v-if="isOpen('Contact me | Order your pic')" />
-    <Footer v-if="activeMenu"/>
+    <Footer
+      @navigate="navigateTo"
+      :active-page="enabledMenu"
+      v-if="activeMenu"/>
   </main>
 </template>
 
@@ -71,6 +74,12 @@ export default {
       if (!this.activeMenu) return null;
 
       return this.activeMenu[0].title === pageTitle
+    },
+    navigateTo(payload) {
+      if (payload === 'Home') return this.resetHome();
+
+      this.reset()
+      this.bannerPhotos.forEach(photo => photo.title === payload ? photo.enabled = true : photo.enabled = false);
     },
     reset() {
       this.bannerPhotos.forEach(photo => photo.enabled = false);

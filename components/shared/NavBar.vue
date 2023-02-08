@@ -48,7 +48,7 @@ export default ({
       this.handleScrollBack();
     },
     customClass(menu) {
-      if (menu.active) return 'bg-teal-700 text-white pointer-events-none opacity-90 shadow-lg';
+      if (menu.active) return 'bg-teal-700 text-white pointer-events-none shadow-lg';
 
       return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     },
