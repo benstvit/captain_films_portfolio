@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center gap-2 w-full bg-gray-50 pt-4 pb-1 shadow-md">
     <div class="flex justify-center items-center gap-8">
-      <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-700 dark:text-white">
+      <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-800 text-sm dark:text-white">
         <li
           v-for="menu in menus"
           :key="menu"

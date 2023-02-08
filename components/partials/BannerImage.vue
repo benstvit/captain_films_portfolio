@@ -1,11 +1,11 @@
 <template>
   <section>
-    <div class="flex flex-col 2xl:flex-row justify-center items-center gap-8 mx-24 max-w-screen">
+    <div class="flex flex-col justify-center items-center gap-8 mx-24 max-w-screen">
       <div
         id="captain-logo"
         @click="resetMenu"
         v-if="!menuDisplay"
-        class="relative 2xl:absolute 2xl:left-14 flex flex-col justify-center items-center hover:cursor-pointer opacity-70 hover:opacity-100 top-6 text-center">
+        class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-70 hover:opacity-100 text-center">
         <nuxt-img
           class="w-16 h-16"
           src="/logo-solo.png">
