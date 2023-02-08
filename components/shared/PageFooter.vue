@@ -1,20 +1,20 @@
 <template>
   <div class="flex flex-col items-center gap-2 w-full bg-gray-50 pt-4 pb-1 shadow-md">
-    <div class="flex justify-start items-center gap-8">
-      <div class="flex justify-center items-center gap-8">
-        <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-700 dark:text-white">
-          <li
-            v-for="menu in menus"
-            class="mr-4 md:mr-6"
-            :class="customClass(menu)"
-            @click.stop="navigateTo(menu)"
-            :key="menu">
-            {{menu}}
-          </li>
-        </ul>
-      </div>
-    </div >
-    <p class="items-center text-xs font-captainlight italic text-center">© All work contained within this blog is Captain Films | Benjamin Saint Viteux 2015-2022 unless otherwise noted and may not be copied, downloaded, blogged, distributed, or reproduced in any form without express written consent.</p>
+    <div class="flex justify-center items-center gap-8">
+      <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-700 dark:text-white">
+        <li
+          v-for="menu in menus"
+          :key="menu"
+          class="mr-4 md:mr-6"
+          :class="customClass(menu)"
+          @click.stop="navigateTo(menu)">
+          {{menu}}
+        </li>
+      </ul>
+    </div>
+    <p class="items-center text-xs font-captainlight italic text-center">
+      © All work contained within this blog is Captain Films | Benjamin Saint Viteux 2015-2022 unless otherwise noted and may not be copied, downloaded, blogged, distributed, or reproduced in any form without express written consent.
+    </p>
   </div>
 </template>
 
@@ -40,8 +40,5 @@ export default {
       this.$emit('navigate', menu)
     }
   },
-  mounted() {
-    console.log(this.activePage)
-  }
 }
 </script>
