@@ -1,28 +1,33 @@
 <template>
-  <main
-    v-show="isLoaded">
-    <IntroductionModal
-      id="modal"
-      v-if="isOpen('Gallery')"
-      :display-modal="displayModal"
-      @close-modal="displayModal = false"
-      @toggle-menu="toggleMenu"/>
-    <SharedBanner
-      :menus="enabledMenu"
-      @reset-menu="resetHome"
-      @toggle-menu="toggleMenu"/>
-    <PhotographyPage
-      v-if="isOpen('Gallery')"
-      :photos="bannerPhotos"/>
-    <ShowRoomPage
-      v-if="isOpen('Showroom')" />
-    <ContactPage
-      v-if="isOpen('Contact me | Order your pic')" />
-    <Footer
-      @navigate="navigateTo"
-      :active-page="enabledMenu"
-      v-if="activeMenu"/>
-  </main>
+  <div v-show="isLoaded" class="flex flex-col h-screen">
+    <header>
+      <SharedBanner
+        :menus="enabledMenu"
+        @reset-menu="resetHome"
+        @toggle-menu="toggleMenu"/>
+      <IntroductionModal
+        id="modal"
+        v-if="isOpen('Gallery')"
+        :display-modal="displayModal"
+        @close-modal="displayModal = false"
+        @toggle-menu="toggleMenu"/>
+    </header>
+    <main class="flex-grow">
+      <PhotographyPage
+        v-if="isOpen('Gallery')"
+        :photos="bannerPhotos"/>
+      <ShowRoomPage
+        v-if="isOpen('Showroom')" />
+      <ContactPage
+        v-if="isOpen('Contact me | Order your pic')" />
+    </main>
+    <footer>
+      <Footer
+        @navigate="navigateTo"
+        :active-page="enabledMenu"
+        v-if="activeMenu"/>
+    </footer>
+  </div>
 </template>
 
 <script>

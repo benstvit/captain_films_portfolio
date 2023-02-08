@@ -12,7 +12,7 @@
         </li>
       </ul>
     </div>
-    <p class="items-center text-xs font-captainlight italic text-center">
+    <p class="items-center text-xs font-captainlight italic text-center p-1">
       © All work contained within this blog is Captain Films | Benjamin Saint Viteux 2015-2022 unless otherwise noted and may not be copied, downloaded, blogged, distributed, or reproduced in any form without express written consent.
     </p>
   </div>
