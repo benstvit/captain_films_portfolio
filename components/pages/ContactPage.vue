@@ -2,11 +2,11 @@
   <section>
     <NavBar
         @active-submenu="setActiveSubmenu"
-        :is-scrolling="galleryY"
+        :is-scrolling="introY"
         :submenus="submenus" />
     <keep-alive>
       <div class="my-12">
-        <ContactForm v-if="isOpen('Contact Me')" />
+        <ContactForm id="form" v-if="isOpen('Contact Me')" />
         <MyPartners v-if="isOpen('My Partners')" />
         <QuoteForm v-if="isOpen('Quick Quote')" />
       </div>
@@ -21,10 +21,16 @@ import MyPartners from "../contact/MyPartners.vue"
 
 export default {
   name: 'ContactPage',
+  created () {
+    window.addEventListener('scroll', this.getFormPosition);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.getFormPosition);
+  },
   data() {
     return {
       activeSubmenu: {},
-      galleryY: false,
+      introY: false,
       submenus: [
         { title: 'Contact Me', active: true },
         { title: 'My Partners', active: false },
@@ -42,9 +48,9 @@ export default {
 
       return this.activeSubmenu.title === pageTitle
     },
-    getGalleryPosition() {
-      const galleryY = document.getElementById('gallery');
-      this.galleryY = galleryY.getBoundingClientRect().top < 65;
+    getFormPosition() {
+      const introY = document.getElementById('form');
+      this.introY = introY.getBoundingClientRect().top < 65;
     },
     setActiveSubmenu(event) {
       this.activeSubmenu = event

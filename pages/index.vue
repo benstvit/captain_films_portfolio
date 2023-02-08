@@ -18,11 +18,13 @@
       v-if="isOpen('Showroom')" />
     <ContactPage
       v-if="isOpen('Contact me | Order your pic')" />
+    <Footer v-if="activeMenu"/>
   </main>
 </template>
 
 <script>
 import ContactPage from "../components/pages/ContactPage.vue"
+import Footer from "../components/shared/PageFooter.vue"
 import IntroductionModal from "../components/shared/IntroductionModal.vue"
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/SharedBanner.vue";
@@ -40,8 +42,9 @@ export default {
     }
   },
   components: {
-    IntroductionModal,
     ContactPage,
+    Footer,
+    IntroductionModal,
     PhotographyPage,
     SharedBanner,
     ShowRoomPage
