@@ -24,12 +24,23 @@
           class="relative flex justify-center"
           @click="selectMenu(menu.index)"
           :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'">
-          <nuxt-img
-            v-if="menu.enabled"
-            class="h-[50vh] object-cover object-bottom w-full"
-            :class="menuDisplay ? 'border border-1 border-white' : 'shadow-lg rounded-sm'"
-            :src="menu.url"
-            :alt="menu.title"/>
+          <div class="flex items-center justify-center gap-12" :class="menuDisplay && 'flex-grow'">
+            <NavigateLeft
+              v-if="!menuDisplay"
+              :pageIndex="pageIndex"
+              @reset-menu="resetMenu"
+              @toggle-menu="toggleMenu" />
+            <nuxt-img
+              v-if="menu.enabled"
+              class="h-[50vh] object-cover object-bottom w-full"
+              :class="menuDisplay ? 'border border-1 border-white' : 'shadow-lg rounded-sm w-[70vh]'"
+              :src="menu.url"
+              :alt="menu.title"/>
+            <NavigateRight
+              v-if="!menuDisplay"
+              :pageIndex="pageIndex"
+              @toggle-menu="toggleMenu" />
+          </div >
           <h1
             v-if="menu.enabled"
             class="absolute top-[45%] font-captainbold text-center text-white sm:text-2xl md:text-3xl lg:text-4xl opacity-90">
@@ -42,9 +53,15 @@
 </template>
 
 <script>
+import NavigateLeft from "../shared/menu/NavigateLeft.vue"
+import NavigateRight from "../shared/menu/NavigateRight.vue"
 
 export default {
   name:"BannerImage",
+  components: {
+    NavigateLeft,
+    NavigateRight
+  },
   props: {
     menus: {
       type: Array,
@@ -53,10 +70,15 @@ export default {
     menuDisplay: {
       type: Boolean,
       default: true,
+    },
+    pageIndex: {
+      type: Number,
+      default: 0
     }
   },
   methods: {
     menuGrid(index) {
+      console.log(index);
       return index === 3 ? 'hover:cursor-pointer hover:opacity-90 col-span-6' : 'hover:cursor-pointer hover:opacity-90 col-span-3';
     },
     resetMenu() {
@@ -65,6 +87,9 @@ export default {
     selectMenu(index) {
       this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
     },
+    toggleMenu(direction) {
+      this.$emit('toggle-menu', direction)
+    }
   }
 }
 </script>

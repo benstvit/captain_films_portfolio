@@ -35,7 +35,7 @@ import ContactPage from "../components/pages/ContactPage.vue"
 import Footer from "../components/shared/PageFooter.vue"
 import IntroductionModal from "../components/shared/IntroductionModal.vue"
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
-import SharedBanner from "../components/shared/SharedBanner.vue";
+import SharedBanner from "../components/shared/menu/SharedBanner.vue";
 import ShowRoomPage from "../components/pages/ShowRoomPage.vue";
 
 import { mapState, mapActions } from 'vuex';
@@ -94,9 +94,11 @@ export default {
       this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
     toggleMenu(payload) {
-      this.reset();
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.bannerPhotos.find(menu => menu.index === (payload.index === 3 && payload.direction === 'right' ? 1 : direction)).enabled = true;
+      this.reset();
+      if (payload === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
+      this.bannerPhotos.forEach(photo => photo.index === direction ? photo.enabled = true : photo.enabled = false);
+      // this.bannerPhotos.find(menu => menu.index === (payload.index === 3 && payload.direction === 'right' ? 1 : direction)).enabled = true;
     }
   },
   async mounted() {
