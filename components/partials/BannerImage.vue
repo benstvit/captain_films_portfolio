@@ -29,7 +29,7 @@
               v-if="!menuDisplay"
               :pageIndex="pageIndex"
               @reset-menu="resetMenu"
-              @toggle-menu="toggleMenu" />
+              @toggle-menu="toggleMenu"/>
             <nuxt-img
               v-if="menu.enabled"
               class="h-[50vh] object-cover object-bottom w-full"
@@ -78,18 +78,16 @@ export default {
   },
   methods: {
     menuGrid(index) {
-      console.log(index);
       return index === 3 ? 'hover:cursor-pointer hover:opacity-90 col-span-6' : 'hover:cursor-pointer hover:opacity-90 col-span-3';
     },
     resetMenu() {
-      this.$emit('reset-menu');
+      this.$parent.$emit('reset-menu');
     },
     selectMenu(index) {
       this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
     },
     toggleMenu(direction) {
-      this.$emit('toggle-menu', direction)
-    }
+      this.$parent.$emit('toggle-menu', { direction: direction, index: this.menus[0].index })}
   }
 }
 </script>

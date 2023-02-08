@@ -46,7 +46,7 @@ export default {
     return {
       bannerPhotos: null,
       isLoaded: false,
-      displayModal: ''
+      displayModal: '',
     }
   },
   components: {
@@ -94,16 +94,17 @@ export default {
       this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
     toggleMenu(payload) {
+      console.log(payload);
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.reset();
-      if (payload === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
-      this.bannerPhotos.forEach(photo => photo.index === direction ? photo.enabled = true : photo.enabled = false);
-      // this.bannerPhotos.find(menu => menu.index === (payload.index === 3 && payload.direction === 'right' ? 1 : direction)).enabled = true;
+      if (payload.direction === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
+      const test = this.bannerPhotos.map(photo => photo.index === direction ? ({...photo, enabled: true}) : ({...photo, enabled: false}));
+      this.bannerPhotos = test;
+      // this.bannerPhotos.forEach(photo => photo.index === direction ? photo.enabled = true : photo.enabled = false);
     }
   },
   async mounted() {
     await this.fetchPhotos();
-    this.bannerPhotos = this.photosData
+    this.bannerPhotos = this.photosData;
     this.isLoaded = true;
   },
 };
