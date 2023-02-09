@@ -99,10 +99,12 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      const form = document.getElementById('contact-form');
-      form.scrollIntoView({ behavior: 'smooth' });
-    }, 500);
+    if (window.scrollY === 0 ) {
+      setTimeout(() => {
+        const form = document.getElementById('contact-form');
+        form.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    }
   }
 }
 </script>

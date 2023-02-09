@@ -1,6 +1,6 @@
 <template>
   <div v-if="!isLoading" class="flex flex-col h-screen">
-    <header>
+    <header id="header">
       <SharedBanner
         :menus="enabledMenu"
         @reset-menu="resetHome"
@@ -85,6 +85,7 @@ export default {
 
       this.reset()
       this.bannerPhotos.forEach(photo => photo.title === payload ? photo.enabled = true : photo.enabled = false);
+      this.scrollToTop()
     },
     reset() {
       this.bannerPhotos.forEach(photo => photo.enabled = false);
@@ -92,6 +93,12 @@ export default {
     resetHome() {
       this.activeSubmenu = {};
       this.bannerPhotos.forEach(photo => photo.enabled = true);
+    },
+    scrollToTop() {
+      const header = document.getElementById('header');
+      setTimeout(() => {
+        header.scrollIntoView({ behavior: 'smooth' });
+      }, 200);
     },
     toggleMenu(payload) {
       console.log(payload);
