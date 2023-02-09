@@ -35,7 +35,6 @@ export default {
   },
   watch: {
     menus(newValue) {
-      console.log(newValue);
       this.pageIndex = this.menus[0].index;
     }
   },

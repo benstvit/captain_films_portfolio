@@ -1,16 +1,16 @@
 <template>
   <section>
-    <WorkInProgress />
+    <ShowroomGallery />
   </section>
 </template>
 
 <script>
-import WorkInProgress from "../shared/WorkInProgress.vue"
+import ShowroomGallery from "../showroom/ShowroomGallery.vue"
 
 export default {
   name: 'ShowRoomPage',
   components: {
-    WorkInProgress
+    ShowroomGallery
   }
 }
 </script>

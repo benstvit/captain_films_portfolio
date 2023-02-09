@@ -1,12 +1,12 @@
 <template>
   <section>
-    <div class="flex justify-center items-center h-full py-8 px-12 bg-gray-100">
+    <div class="flex justify-center items-center h-full py-8 px-12">
       <viewer :images="images" class="grid grid-cols-9 flex items-start">
         <img v-for="image in images"
             :key="image.src"
             :src="image.src"
             :alt="image.alt"
-            class="col-span-3 flex items-center hover:cursor-pointer hover:opacity-90 border border-1 border-white">
+            class="col-span-3 flex items-center hover:cursor-zoom-in hover:opacity-90 border border-1 border-white">
       </viewer>
     </div>
   </section>
