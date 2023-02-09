@@ -8,7 +8,6 @@
       <div id="form" class="mt-12">
         <ContactForm v-if="isOpen('Contact Me')" />
         <MyPartners v-if="isOpen('My Partners')" />
-        <QuoteForm v-if="isOpen('Quick Quote')" />
       </div>
     </keep-alive>
   </section>

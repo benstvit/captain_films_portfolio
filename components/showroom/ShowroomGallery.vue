@@ -1,12 +1,14 @@
 <template>
   <section>
     <div class="relative flex flex-col justify-center items-center h-full mt-16 py-8 px-12">
+    <GalleryLoader v-if="isLoading" />
       <div
+        v-else
         v-for="photo in photos"
         :key="photo.title"
         class="my-4 py-4"
-        :data-aos="photo.index !== 1 && 'fade-in'"
-        data-aos-offset="200"
+        data-aos="fade-in"
+        :data-aos-offset="photo.index === 1 ? '20' : '200'"
         data-aos-easing="ease-in-sine"
         :class="photo.index % 2 === 0 ? 'self-center lg:self-end mx-2 lg:mx-0 lg:mr-12' : 'self-center lg:self-start mx-2 lg:mx-0 lg:ml-12'">
         <viewer>
@@ -31,10 +33,19 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import aos from "../../mixins/aos"
+import GalleryLoader from "../partials/GalleryLoader.vue"
 
 export default {
   name: 'ShowroomGallery',
   mixins: [aos],
+  components: {
+    GalleryLoader
+  },
+  data() {
+    return {
+      isLoading: true
+    }
+  },
   computed: {
     ...mapState('showroom', { showroomData: 'data'}),
 
@@ -48,6 +59,7 @@ export default {
   },
   async mounted() {
     await this.fetchPhotos();
+    this.isLoading = false;
   }
 }
 </script>

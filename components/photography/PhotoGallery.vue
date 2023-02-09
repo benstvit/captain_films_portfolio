@@ -1,7 +1,8 @@
 <template>
   <section>
     <div class="flex justify-center items-center h-full py-8 px-12">
-      <viewer :images="images" class="grid grid-cols-9 flex items-start">
+      <GalleryLoader v-if="isLoading" />
+      <viewer v-else :images="images" class="grid grid-cols-9 flex items-start">
         <img v-for="image in images"
             :key="image.src"
             :src="image.src"
@@ -14,6 +15,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
+import GalleryLoader from '../partials/GalleryLoader'
 
 export default {
   name: 'PhotoGallery',
@@ -21,6 +23,14 @@ export default {
     active: {
       type: Object,
       default: () => {}
+    }
+  },
+  components: {
+    GalleryLoader
+  },
+  data() {
+    return {
+      isLoading: true,
     }
   },
   computed: {
@@ -40,8 +50,10 @@ export default {
     },
   },
   watch: {
-    active(newValue) {
-      this.fetchPhotos({ payload: newValue});
+    async active(newValue) {
+      this.isLoading = true;
+      await this.fetchPhotos({ payload: newValue});
+      this.isLoading = false;
     }
   },
   methods: {
@@ -49,6 +61,7 @@ export default {
   },
   async mounted() {
     await this.fetchPhotos({ payload: this.active });
+    this.isLoading = false;
   }
 }
 </script>
