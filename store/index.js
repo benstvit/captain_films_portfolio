@@ -11,9 +11,9 @@ import music from "./modules/music.js";
 import photography from "./modules/photography.js";
 import showroom from "./modules/showroom.js";
 
+Vue.use(VueFormulate);
 Vue.use(VuePrlx);
 Vue.use(VueViewer)
-Vue.use(VueFormulate);
 Vue.use(Vuex);
 
 export default () => new Vuex.Store({

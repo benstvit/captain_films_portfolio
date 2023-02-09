@@ -1,5 +1,5 @@
 <template>
-  <div v-show="isLoaded" class="flex flex-col h-screen">
+  <div v-if="!isLoading" class="flex flex-col h-screen">
     <header>
       <SharedBanner
         :menus="enabledMenu"
@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       bannerPhotos: null,
-      isLoaded: false,
+      isLoading: true,
       displayModal: '',
     }
   },
@@ -105,7 +105,7 @@ export default {
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
-    this.isLoaded = true;
+    this.isLoading = false;
   },
 };
 </script>

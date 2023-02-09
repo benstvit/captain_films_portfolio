@@ -18,6 +18,7 @@
         </p>
       </div>
       <div class="relative grid grid-cols-6">
+        <GalleryLoader v-if="!menus.length" class="h-[50vh] object-cover object-bottom w-full"/>
         <div id="image-wrapper"
           v-for="menu in menus"
           :key="menu.id"
@@ -88,6 +89,6 @@ export default {
     },
     toggleMenu(direction) {
       this.$parent.$emit('toggle-menu', { direction: direction, index: this.menus[0].index })}
-  }
+  },
 }
 </script>

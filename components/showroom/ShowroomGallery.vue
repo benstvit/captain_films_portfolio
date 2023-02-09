@@ -1,26 +1,26 @@
 <template>
   <section>
-    <div class="relative flex flex-col justify-center items-center h-full mt-16 py-8 px-12">
+    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 px-12">
     <GalleryLoader v-if="isLoading" />
       <div
         v-else
         v-for="photo in photos"
         :key="photo.title"
         class="my-4 py-4"
-        data-aos="fade-in"
-        :data-aos-offset="photo.index === 1 ? '20' : '200'"
+        :class="photo.index % 2 === 0 ? 'self-center lg:self-end mx-2 lg:mx-0 lg:mr-12' : 'self-center lg:self-start mx-2 lg:mx-0 lg:ml-12'"
         data-aos-easing="ease-in-sine"
-        :class="photo.index % 2 === 0 ? 'self-center lg:self-end mx-2 lg:mx-0 lg:mr-12' : 'self-center lg:self-start mx-2 lg:mx-0 lg:ml-12'">
+        data-aos="fade-in"
+        :data-aos-offset="photo.index === 1 ? '20' : '200'">
         <viewer>
           <keep-alive>
             <nuxt-img
+              class="h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
               v-prlx="{
                 speed: 0.1,
                 preserveInitialPosition: false,
-                limit: { min: -30, max: 60 }
+                limit: { min: -50, max: 60 }
               }"
-              class="h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               :src="photo.url"
               :alt="photo.title"/>
           </keep-alive>
