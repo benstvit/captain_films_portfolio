@@ -5,8 +5,8 @@
         :is-scrolling="introY"
         :submenus="submenus" />
     <keep-alive>
-      <div class="my-12">
-        <ContactForm id="form" v-if="isOpen('Contact Me')" />
+      <div id="form" class="mt-12">
+        <ContactForm v-if="isOpen('Contact Me')" />
         <MyPartners v-if="isOpen('My Partners')" />
         <QuoteForm v-if="isOpen('Quick Quote')" />
       </div>
@@ -53,7 +53,8 @@ export default {
       this.introY = introY.getBoundingClientRect().top < 65;
     },
     setActiveSubmenu(event) {
-      this.activeSubmenu = event
+      this.activeSubmenu = event;
+      this.introY = false;
     },
   }
 }

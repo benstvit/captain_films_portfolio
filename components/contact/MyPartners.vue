@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex justify-between items-start my-4 py-4 px-8 bg-gray-100">
+    <div class="flex justify-between items-center mt-4 py-4 px-8 bg-gray-100">
       <div
         v-for="(partner, index) in partners"
         :key="partner.name">
@@ -13,7 +13,7 @@
           <Transition name="fade">
             <div v-if="partner.selected" class="flex flex-col items-center h-fit w-56 my-4 mx-4">
               <span><a class="text-center text-teal-600 font-captainbold hover:text-teal-700 hover:font-bold " :href="partner.site" target="_blank">{{partner.name}}</a></span>
-              <p class="mb-4 font-captainlight text-md text-center whitespace-normal">{{ partner.description}}</p>
+              <p class="font-captainlight text-md text-center whitespace-normal">{{ partner.description}}</p>
             </div>
           </Transition>
       </div>
