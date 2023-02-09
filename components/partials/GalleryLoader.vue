@@ -4,7 +4,7 @@
         <div
           v-for="number in 4"
           :key="number"
-          class="col-span-2">
+          class="col-span-4 lg:col-span-2">
           <ContentLoader class="w-auto h-36 mx-4" />
         </div>
       </div>

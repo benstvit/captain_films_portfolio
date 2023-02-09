@@ -14,13 +14,9 @@
         <viewer>
           <keep-alive>
             <nuxt-img
-              class="h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
+              class="h-[25vh] md:h-[35vh] lg:h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
-              v-prlx="{
-                speed: 0.1,
-                preserveInitialPosition: false,
-                limit: { min: -50, max: 60 }
-              }"
+              v-prlx="{speed: 0.1}"
               :src="photo.url"
               :alt="photo.title"/>
           </keep-alive>

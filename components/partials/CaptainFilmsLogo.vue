@@ -2,10 +2,10 @@
   <div
     id="captain-logo"
     v-if="menuDisplay"
-    class="absolute flex flex-col justify-center items-center text-center top-8"
+    class="flex flex-col justify-center items-center lg:w-44 xl:w-36 text-center"
     :class="customClass">
     <nuxt-img
-      class="w-28 h-28"
+      class="md:h-20 md:w-20 lg:h-28 lg:w-28"
       src="/logo-solo.png">
     </nuxt-img>
     <h1 class="font-captainbold font-bold text-center text-sm text-black">
