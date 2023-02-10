@@ -12,7 +12,7 @@
       v-if="pageIndex === 1"
       class="flex justify-center items-center">
       <h2
-        class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-xl"
+        class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-md md:text-lg lg:text-xl"
         @click="resetMenu">
         Home
       </h2>

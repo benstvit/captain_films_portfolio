@@ -1,13 +1,13 @@
 <template>
   <section v-show="menus">
-    <div class="flex justify-center items-center md:gap-12 lg:gap-0 md:mx-16 xl:mx-24">
-      <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden" :custom-class="'left-16'" />
+    <div class="flex justify-center items-center md:gap-12 lg:gap-0 md:mx-12">
+      <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden"/>
       <BannerImage
         :menus="menus"
         :menu-display="menuDisplay"
         :page-index="pageIndex"
         />
-      <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden"  :custom-class="'right-16'" />
+      <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden"/>
     </div>
   </section>
 </template>

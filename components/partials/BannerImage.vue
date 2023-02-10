@@ -7,13 +7,13 @@
         v-if="!menuDisplay"
         class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-70 hover:opacity-100 text-center">
         <nuxt-img
-          class="w-12 h-12 md:w-16 md:h-16"
+          class="w-10 h-10 md:w-16 md:h-16"
           src="/logo-solo.png">
         </nuxt-img>
         <h1 class="font-captainbold text-center text-md text-black">
           Captain Films
         </h1>
-        <p class="font-captainlight text-center italic text-xs pb-2 md:pb-4 text-black">
+        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
           Film Photography
         </p>
       </div>
@@ -25,20 +25,22 @@
           class="relative flex justify-center"
           @click="selectMenu(menu.index)"
           :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'">
-          <div class="flex items-center justify-center gap-12" :class="menuDisplay && 'flex-grow'">
+          <div class="flex items-center justify-center gap-4 md:gap-12" :class="menuDisplay && 'flex-grow'">
             <NavigateLeft
               v-if="!menuDisplay"
+              class="hidden md:block"
               :pageIndex="pageIndex"
               @reset-menu="resetMenu"
               @toggle-menu="toggleMenu"/>
             <nuxt-img
               v-if="menu.enabled"
-              class="h-[25vh] md:h-[35vh] lg:h-[50vh] w-full object-cover object-bottom w-full"
-              :class="menuDisplay ? 'h-full w-full border border-1 border-white' : 'shadow-lg rounded-sm w-[70vh]'"
+              class="object-cover object-bottom "
+              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-full border border-1 border-white' : 'h-[35vh] md:h-[50vh] shadow-lg rounded-sm w-full md:w-[70vh]'"
               :src="menu.url"
               :alt="menu.title"/>
             <NavigateRight
               v-if="!menuDisplay"
+              class="hidden md:block"
               :pageIndex="pageIndex"
               @toggle-menu="toggleMenu" />
           </div >

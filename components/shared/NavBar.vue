@@ -4,10 +4,10 @@
       <div
         v-for="(menu, index) in formattedSubmenus"
         :key="index"
-        class="w-fit shadow-sm">
+        class="w-fit">
         <button
           @click="activate(menu.title)"
-          class="text-md md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-2 lg:px-4 py-2 mx-2 my-2 md:my-0"
+          class="text-sm md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-2 lg:px-4 py-2 mx-2 my-2 md:my-0"
           :class="customClass(menu)">
           {{ menu.title }}
         </button>
