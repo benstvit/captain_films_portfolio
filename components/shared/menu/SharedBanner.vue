@@ -1,6 +1,6 @@
 <template>
   <section v-show="menus">
-    <div class="flex justify-center items-center md:gap-12 lg:gap-0 md:mx-12">
+    <div class="flex justify-center items-center w-full">
       <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden"/>
       <BannerImage
         :menus="menus"

@@ -1,6 +1,12 @@
 <template>
-  <div v-if="!isLoading" class="flex flex-col h-screen">
+  <div v-if="!isLoading"
+    class="h-screen">
     <header id="header">
+      <MobileMenu
+        v-if="!menuDisplay"
+        class="block md:hidden"
+        :active-page="enabledMenu"
+        @navigate="navigateTo"/>
       <SharedBanner
         :menus="enabledMenu"
         @reset-menu="resetHome"
@@ -34,6 +40,7 @@
 import ContactPage from "../components/pages/ContactPage.vue"
 import Footer from "../components/shared/PageFooter.vue"
 import IntroductionModal from "../components/shared/IntroductionModal.vue"
+import MobileMenu from "../components/partials/MobileMenu.vue"
 import PhotographyPage from "../components/pages/PhotographyPage.vue";
 import SharedBanner from "../components/shared/menu/SharedBanner.vue";
 import ShowRoomPage from "../components/pages/ShowRoomPage.vue";
@@ -53,6 +60,7 @@ export default {
     ContactPage,
     Footer,
     IntroductionModal,
+    MobileMenu,
     PhotographyPage,
     SharedBanner,
     ShowRoomPage
@@ -70,6 +78,9 @@ export default {
       if (!this.bannerPhotos) return;
 
       return this.bannerPhotos.filter(photo => photo.enabled);
+    },
+    menuDisplay() {
+      return this.enabledMenu.length === 3;
     },
   },
   methods: {
@@ -101,18 +112,29 @@ export default {
       }, 200);
     },
     toggleMenu(payload) {
-      console.log(payload);
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
       if (payload.direction === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
       const test = this.bannerPhotos.map(photo => photo.index === direction ? ({...photo, enabled: true}) : ({...photo, enabled: false}));
       this.bannerPhotos = test;
       // this.bannerPhotos.forEach(photo => photo.index === direction ? photo.enabled = true : photo.enabled = false);
+    },
+    detectOverflow() {
+      const docWidth = document.documentElement.offsetWidth;
+    [].forEach.call(
+      document.querySelectorAll('*'),
+      function(el) {
+        if (el.offsetWidth > docWidth) {
+          console.log(el);
+        }
+      }
+    );
     }
   },
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
     this.isLoading = false;
+    this.detectOverflow();
   },
 };
 </script>

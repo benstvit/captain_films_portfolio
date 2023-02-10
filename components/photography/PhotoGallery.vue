@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex justify-center items-center h-full py-8 px-12">
+    <div class="flex justify-center items-center h-full py-2 md:py-8 px-12">
       <GalleryLoader v-if="isLoading" />
       <viewer v-else :images="images" class="grid grid-cols-12 flex items-start">
         <img v-for="image in images"

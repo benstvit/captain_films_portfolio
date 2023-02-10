@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      menus: ['Home', 'Gallery', 'Showroom', 'Contact me | Order your pic']
+      menus: ['Home', 'Gallery', 'Showroom', 'Contact me']
     }
   },
   methods: {
@@ -38,7 +38,8 @@ export default {
       return menu === this.activePage[0].title ? 'text-black underline hover:cursor-default' : 'hover:underline hover:text-black hover:cursor-pointer';
     },
     navigateTo(menu) {
-      this.$emit('navigate', menu)
+      const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
+      this.$emit('navigate', payload)
     }
   },
 }

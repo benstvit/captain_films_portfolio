@@ -7,14 +7,14 @@
         v-for="photo in photos"
         :key="photo.title"
         class="my-4 py-4"
-        :class="photo.index % 2 === 0 ? 'self-center lg:self-end mx-2 lg:mx-0 lg:mr-12' : 'self-center lg:self-start mx-2 lg:mx-0 lg:ml-12'"
+        :class="photo.index % 2 === 0 ? 'self-center sm:self-end mx-2 sm:mx-0 sm:mr-12' : 'self-center sm:self-start mx-2 sm:mx-0 sm:ml-12'"
         data-aos-easing="ease-in-sine"
         data-aos="fade-in"
         :data-aos-offset="photo.index === 1 ? '20' : '200'">
         <viewer>
           <keep-alive>
             <nuxt-img
-              class="h-[25vh] md:h-[35vh] lg:h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
+              class="h-[30vh] md:h-[35vh] lg:h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
               v-prlx="{speed: 0.1}"
               :src="photo.url"

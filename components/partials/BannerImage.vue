@@ -1,16 +1,16 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center md:gap-8 mx-8 lg:mx-24 max-w-screen">
+    <div class="flex flex-col justify-center items-center md:gap-4 mx-4 max-w-screen">
       <div
         id="captain-logo"
         @click="resetMenu"
         v-if="!menuDisplay"
         class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-70 hover:opacity-100 text-center">
         <nuxt-img
-          class="w-10 h-10 md:w-16 md:h-16"
+          class="w-12 h-12 md:w-16 md:h-16"
           src="/logo-solo.png">
         </nuxt-img>
-        <h1 class="font-captainbold text-center text-md text-black">
+        <h1 class="font-captainbold text-center text-sm md:text-md text-black">
           Captain Films
         </h1>
         <p class="font-captainlight text-center italic text-xs pb-4 text-black">
@@ -28,7 +28,7 @@
           <div class="flex items-center justify-center gap-4 md:gap-12" :class="menuDisplay && 'flex-grow'">
             <NavigateLeft
               v-if="!menuDisplay"
-              class="hidden md:block"
+              class="invisible md:visible"
               :pageIndex="pageIndex"
               @reset-menu="resetMenu"
               @toggle-menu="toggleMenu"/>
@@ -40,7 +40,7 @@
               :alt="menu.title"/>
             <NavigateRight
               v-if="!menuDisplay"
-              class="hidden md:block"
+              class="invisible md:visible"
               :pageIndex="pageIndex"
               @toggle-menu="toggleMenu" />
           </div >

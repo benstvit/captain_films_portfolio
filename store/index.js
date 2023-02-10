@@ -11,6 +11,9 @@ import music from "./modules/music.js";
 import photography from "./modules/photography.js";
 import showroom from "./modules/showroom.js";
 
+import Vue2TouchEvents from 'vue2-touch-events'
+
+Vue.use(Vue2TouchEvents)
 Vue.use(VueFormulate);
 Vue.use(VuePrlx);
 Vue.use(VueViewer)
