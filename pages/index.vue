@@ -1,6 +1,5 @@
 <template>
-  <div v-if="!isLoading"
-    class="h-screen">
+  <section v-if="!isLoading">
     <header id="header">
       <MobileMenu
         v-if="!menuDisplay"
@@ -33,7 +32,7 @@
         :active-page="enabledMenu"
         v-if="activeMenu"/>
     </footer>
-  </div>
+  </section>
 </template>
 
 <script>

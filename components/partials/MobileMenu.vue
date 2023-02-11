@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="flex justify-center items-center pt-8 px-8"
-      :class="!customClass ? 'flex-col' : 'flex-row'">
+      :class="customClass ? 'flex-col' : 'flex-row'">
         <HamburgerSvg
          :class="customClass"
           @click.native="toggleMenu()"
@@ -9,7 +9,7 @@
         <Transition name="fade">
           <div
             class="flex justify-start w-fit px-2 py-4"
-            v-if="!customClass">
+            v-if="customClass">
             <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-800 ml-4 text-xs dark:text-white">
               <li
                 v-for="menu in menus"
@@ -43,13 +43,15 @@ export default {
   data() {
     return {
       menus: ['Home', 'Gallery', 'Showroom', 'Contact me'],
-      customClass: 'rotate-90',
+      customClass: '',
       openedMenu: false
     }
   },
   methods: {
     activeClass(menu) {
-      if (menu === this.activePage[0].title) return 'text-black font-bold';
+      const submenu = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
+
+      if (submenu === this.activePage[0].title) return 'text-black font-bold';
     },
     navigateTo(menu) {
       const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
