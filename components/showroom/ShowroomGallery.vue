@@ -6,7 +6,7 @@
         v-else
         v-for="photo in photos"
         :key="photo.title"
-        class="my-4 py-4"
+        class="my-2 py-4"
         :class="photo.index % 2 === 0 ? 'self-center sm:self-end mx-2 sm:mx-0 sm:mr-12' : 'self-center sm:self-start mx-2 sm:mx-0 sm:ml-12'"
         data-aos-easing="ease-in-sine"
         data-aos="fade-in"
@@ -16,7 +16,7 @@
             <nuxt-img
               class="h-[30vh] md:h-[35vh] lg:h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
-              v-prlx="{speed: 0.1}"
+              v-prlx="photo.index % 2 === 0 ? {speed: 0.1} : { disabled: true }"
               :src="photo.url"
               :alt="photo.title"/>
           </keep-alive>
