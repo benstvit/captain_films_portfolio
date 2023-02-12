@@ -17,7 +17,7 @@
         @close-modal="displayModal = false"
         @toggle-menu="toggleMenu"/>
     </header>
-    <main class="flex-grow">
+    <main class="">
       <PhotographyPage
         v-if="isOpen('Gallery')"
         :photos="bannerPhotos"/>

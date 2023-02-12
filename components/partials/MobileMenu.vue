@@ -1,20 +1,13 @@
 <template>
   <section>
-    <div class="flex justify-center items-center pt-8 px-8"
-      :class="customClass ? 'flex-col' : 'flex-row'">
-        <HamburgerSvg
-         :class="customClass"
-          @click.native="toggleMenu()"
-          />
+    <div class="flex justify-center items-center pt-4 px-8">
         <Transition name="fade">
-          <div
-            class="flex justify-start w-fit px-2 py-4"
-            v-if="customClass">
+          <div class="flex justify-start w-fit px-2 py-2">
             <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-800 ml-4 text-xs dark:text-white">
               <li
                 v-for="menu in menus"
                 :key="menu"
-                class="mr-4 md:mr-6"
+                class="mx-2"
                 :class="activeClass(menu)"
                 @click.stop="navigateTo(menu)">
                 {{menu}}
@@ -27,13 +20,9 @@
 </template>
 
 <script>
-import HamburgerSvg from "../svg/HamburgerSvg"
 
 export default {
   name:'MobileMenu',
-  components: {
-    HamburgerSvg,
-  },
    props: {
     activePage: {
       type: Array,
@@ -43,8 +32,6 @@ export default {
   data() {
     return {
       menus: ['Home', 'Gallery', 'Showroom', 'Contact me'],
-      customClass: '',
-      openedMenu: false
     }
   },
   methods: {
@@ -57,9 +44,6 @@ export default {
       const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
       this.$emit('navigate', payload);
     },
-    toggleMenu() {
-      this.customClass = this.customClass === 'rotate-90' ? '' : 'rotate-90';
-    }
   }
 }
 </script>

@@ -35,7 +35,7 @@
             <nuxt-img
               v-if="menu.enabled"
               class="object-cover object-bottom "
-              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-full border border-1 border-white' : 'h-[35vh] md:h-[50vh] shadow-lg rounded-sm w-full md:w-[70vh]'"
+              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-full object-cover border border-1 border-white' : 'h-[32vh] md:h-[50vh] object-cover shadow-lg rounded-sm w-full '"
               :src="menu.url"
               :alt="menu.title"/>
             <NavigateRight
@@ -46,7 +46,7 @@
           </div >
           <h1
             v-if="menu.enabled"
-            class="absolute top-[45%] font-captainbold text-center text-white text-lg sm:text-xl lg:text-4xl opacity-90">
+            class="absolute top-[45%] font-captainlight text-center text-white text-lg sm:text-xl lg:text-3xl opacity-90">
             {{ menu.title }}
           </h1>
         </div>
