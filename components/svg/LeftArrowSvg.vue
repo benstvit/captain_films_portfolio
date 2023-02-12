@@ -1,5 +1,5 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 hover:cursor-pointer icon icon-tabler icon-tabler-player-skip-back" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000" :fill="fill" stroke-linecap="round" stroke-linejoin="round">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-8 md:w-8 xl:h-10 xl:w-10 hover:cursor-pointer icon icon-tabler icon-tabler-player-skip-back" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000" :fill="fill" stroke-linecap="round" stroke-linejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
     <path d="M20 5v14l-12 -7z" />
     <line x1="4" y1="5" x2="4" y2="19" />

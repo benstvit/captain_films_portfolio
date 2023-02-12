@@ -1,13 +1,13 @@
 <template>
-  <section class="fixed sticky top-10">
-    <div id="navbar" class="flex flex-nowrap justify-center my-8">
+  <section id="navbar" class="fixed sticky top-10 z-10">
+    <div class="flex flex-wrap md:flex-nowrap justify-center my-2 md:my-8">
       <div
         v-for="(menu, index) in formattedSubmenus"
         :key="index"
-        class="w-fit shadow-sm">
+        class="w-fit">
         <button
           @click="activate(menu.title)"
-          class="text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-4 py-2 mx-2"
+          class="text-sm md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-1 lg:px-4 py-1 mx-2 my-2 md:my-0"
           :class="customClass(menu)">
           {{ menu.title }}
         </button>
@@ -45,11 +45,19 @@ export default ({
   methods: {
     activate(title) {
       this.formattedSubmenus = this.submenus.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
+      this.handleScrollBack();
     },
     customClass(menu) {
-      if (menu.active) return 'bg-teal-700 text-white pointer-events-none opacity-90 shadow-lg';
+      if (menu.active) return 'bg-teal-700 text-white pointer-events-none shadow-lg border border-transparent';
 
       return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
+    },
+    handleScrollBack() {
+      const navbar = document.getElementById('navbar');
+      window.scrollTo(0, 0);
+      setTimeout(() => {
+        navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      }, 500);
     }
   },
   async mounted() {

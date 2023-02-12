@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex justify-between items-start my-4 py-4 px-8 bg-gray-100">
+    <div class="flex flex-col md:flex-row justify-between items-center mt-4 lg:py-4 px-8 bg-gray-100">
       <div
         v-for="(partner, index) in partners"
         :key="partner.name">
@@ -9,11 +9,11 @@
             :src="partner.imgUrl"
             :alt="partner.name"
             @click="setActivePartner(index)"
-            class="h-52 object-contain hover:cursor-pointer hover:opacity-80 hover:opacity-70 my-4"/>
+            class="h-36 md:h-42 lg:h-52 object-contain hover:cursor-pointer hover:opacity-80 hover:opacity-70 my-4"/>
           <Transition name="fade">
             <div v-if="partner.selected" class="flex flex-col items-center h-fit w-56 my-4 mx-4">
-              <span><a class="text-center text-teal-600 font-captainbold hover:text-teal-700 hover:font-bold " :href="partner.site" target="_blank">{{partner.name}}</a></span>
-              <p class="mb-4 font-captainlight text-md text-center whitespace-normal">{{ partner.description}}</p>
+              <span><a class="text-center text-sm md:text-base text-teal-600 font-captainbold hover:text-teal-700 hover:font-bold " :href="partner.site" target="_blank">{{partner.name}}</a></span>
+              <p class="font-captainlight text-xs md:text-sm lg:text-base text-center whitespace-normal">{{ partner.description}}</p>
             </div>
           </Transition>
       </div>

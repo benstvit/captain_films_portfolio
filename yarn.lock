@@ -2746,6 +2746,15 @@ anymatch@^2.0.0:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
 
+aos@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/aos/-/aos-2.3.4.tgz#eb1c29f5c1806a197cf6323080747547edd3db8e"
+  integrity sha512-zh/ahtR2yME4I51z8IttIt4lC1Nw0ktsFtmeDzID1m9naJnWXhCoARaCgNOGXb5CLy3zm+wqmRAEgMYB5E2HUw==
+  dependencies:
+    classlist-polyfill "^1.0.3"
+    lodash.debounce "^4.0.6"
+    lodash.throttle "^4.0.1"
+
 aproba@^1.0.3, aproba@^1.1.1:
   version "1.2.0"
   resolved "https://registry.npmjs.org/aproba/-/aproba-1.2.0.tgz"
@@ -3680,6 +3689,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classlist-polyfill@^1.0.3:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/classlist-polyfill/-/classlist-polyfill-1.2.0.tgz#935bc2dfd9458a876b279617514638bcaa964a2e"
+  integrity sha512-GzIjNdcEtH4ieA2S8NmrSxv7DfEV5fmixQeyTmqmRmRJPGpRBaSnA2a0VrCjyT8iW8JjEdMbKzDotAJf+ajgaQ==
+
 clean-css@^4.2.1, clean-css@^4.2.3:
   version "4.2.4"
   resolved "https://registry.npmjs.org/clean-css/-/clean-css-4.2.4.tgz"
@@ -4030,7 +4044,7 @@ core-js-compat@^3.12.1, core-js-compat@^3.20.2, core-js-compat@^3.21.0:
     browserslist "^4.20.2"
     semver "7.0.0"
 
-core-js@^2.4.0, core-js@^2.6.5:
+core-js@2, core-js@^2.4.0, core-js@^2.6.5:
   version "2.6.12"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
@@ -7676,7 +7690,7 @@ lodash.clonedeep@^4.5.0:
   resolved "https://registry.npmjs.org/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz"
   integrity sha1-4j8/nE+Pvd6HJSnBBxhXoIblzO8=
 
-lodash.debounce@^4.0.8:
+lodash.debounce@^4.0.6, lodash.debounce@^4.0.8:
   version "4.0.8"
   resolved "https://registry.npmjs.org/lodash.debounce/-/lodash.debounce-4.0.8.tgz"
   integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
@@ -7755,6 +7769,11 @@ lodash.templatesettings@^4.0.0:
   integrity sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==
   dependencies:
     lodash._reinterpolate "^3.0.0"
+
+lodash.throttle@^4.0.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
 
 lodash.topath@^4.5.2:
   version "4.5.2"
@@ -12005,6 +12024,13 @@ vue-loader@^15.9.7:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-loading-skeleton@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/vue-loading-skeleton/-/vue-loading-skeleton-1.1.9.tgz#e38bd157bf3348860fc22c49f1621e61feda7183"
+  integrity sha512-5gMrI9equv0PMVLD5EMa4NTUvqDM3Bq/wiO4NftbEaVNeoGomG/XslB4Ev8Ued+WiE2Y/9HsIx5YXhDXimyqZw==
+  dependencies:
+    core-js "2"
+
 vue-meta@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/vue-meta/-/vue-meta-2.4.0.tgz"
@@ -12016,6 +12042,11 @@ vue-no-ssr@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
+
+vue-prlx@^1.3.4:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/vue-prlx/-/vue-prlx-1.3.4.tgz#b8aac82d5469be2524daf396b034526b8b2e34ba"
+  integrity sha512-5+tuwSlwZDyTUGD6YTg9XW4F4NRgtkpUTdGjXEaYA8SF6hfRKRumDiAIcJ4ZcAt02JjVuPFJGwrRWS/TpLnHmw==
 
 vue-router@^3.5.1:
   version "3.5.3"
@@ -12078,6 +12109,11 @@ vue-toasted@^1.1.28:
   version "1.1.28"
   resolved "https://registry.npmjs.org/vue-toasted/-/vue-toasted-1.1.28.tgz"
   integrity sha512-UUzr5LX51UbbiROSGZ49GOgSzFxaMHK6L00JV8fir/CYNJCpIIvNZ5YmS4Qc8Y2+Z/4VVYRpeQL2UO0G800Raw==
+
+vue2-touch-events@^3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/vue2-touch-events/-/vue2-touch-events-3.2.2.tgz#77b760a70659ed8a75e7c685163e73497be87042"
+  integrity sha512-rGV8jxgOQEJYkJCp7uOBe3hjvmG1arThrq1wGtJHwJTgi65+P2a+0l4CYcQO/U1ZFqTq2/TT2+oTE6H7Y+6Eog==
 
 vue@^2.6.12:
   version "2.6.14"
