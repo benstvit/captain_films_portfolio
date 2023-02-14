@@ -5,27 +5,42 @@
           @mouseover="display(showroom)"
           @mouseleave="hide(showroom)"
           @click="toggleMenu('right')">
-          <ShowroomSvg :stroke="showroom.stroke" />
+          <div class="flex justify-center items-center h-fit gap-4">
+            <div class="flex flex-col justify-center items-center">
+              <ShowroomSvg :stroke="showroom.stroke" />
+              <h2 class="font-cormorant text-lg">Showroom</h2>
+            </div >
+            <RightArrowSvg />
+          </div >
         </span>
-        <h2 v-if="showroom.hover" class="font-cormorant text-lg">Showroom</h2>
       </div >
       <div :class="pageIndex !== 2 ? 'hidden' : buttonClass">
         <span
           @mouseover="display(contact)"
           @mouseleave="hide(contact)"
           @click="toggleMenu('right')">
-          <ContactSvg :stroke="contact.stroke" />
+         <div class="flex justify-center items-center h-fit gap-4">
+            <div class="flex flex-col justify-center items-center">
+              <ContactSvg :stroke="contact.stroke" />
+              <h2 class="font-cormorant text-lg">Contact</h2>
+            </div >
+            <RightArrowSvg />
+          </div >
         </span>
-        <h2 v-if="contact.hover" class="font-cormorant text-lg">Contact</h2>
       </div >
      <div :class="pageIndex !== 3 ? 'hidden' : buttonClass">
         <span
           @mouseover="display(gallery)"
           @mouseleave="hide(gallery)"
           @click="toggleMenu('rewind')">
-          <GallerySvg :stroke="gallery.stroke" />
+          <div class="flex justify-center items-center h-fit gap-4">
+            <div class="flex flex-col justify-center items-center">
+              <GallerySvg :stroke="gallery.stroke" />
+              <h2 class="font-cormorant text-lg">Gallery</h2>
+            </div >
+            <RightArrowSvg />
+          </div >
         </span>
-        <h2 v-if="gallery.hover" class="font-cormorant text-lg">Gallery</h2>
      </div >
   </section>
 </template>
@@ -33,6 +48,7 @@
 <script>
 import ContactSvg from "../../svg/ContactSvg.vue"
 import GallerySvg from "../../svg/GallerySvg.vue"
+import RightArrowSvg from "../../svg/RightArrowSvg.vue"
 import ShowroomSvg from "../../svg/ShowroomSvg.vue"
 
 export default {
@@ -40,6 +56,7 @@ export default {
   components: {
     ContactSvg,
     GallerySvg,
+    RightArrowSvg,
     ShowroomSvg
   },
   props: {
@@ -50,24 +67,22 @@ export default {
   },
   data() {
     return {
-      contact: {stroke: '#000', hover: false },
-      gallery: {stroke: '#000', hover: false },
-      showroom: {stroke: '#000', hover: false }
+      contact: {stroke: '#27272A'},
+      gallery: {stroke: '#27272A'},
+      showroom: {stroke: '#27272A'}
     }
   },
   computed: {
     buttonClass() {
-      return 'flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 hover:cursor-pointer hover:text-teal-600'
+      return 'flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 ml-4 hover:cursor-pointer hover:text-teal-600'
     }
   },
   methods: {
     display(page) {
       page.stroke = '#0D9488'
-      page.hover = true
     },
     hide(page) {
-      page.stroke = '#000'
-      page.hover = false
+      page.stroke = '#27272A'
     },
     toggleMenu(direction) {
       this.$emit('toggle-menu', direction)

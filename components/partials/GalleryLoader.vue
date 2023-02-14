@@ -1,11 +1,11 @@
 <template>
    <section>
-      <div class="grid grid-cols-4">
+      <div class="grid grid-cols-4 my-2">
         <div
           v-for="number in 4"
           :key="number"
-          class="col-span-4 lg:col-span-2">
-          <ContentLoader class="w-auto h-18 lg:h-36 mx-4" />
+          class="col-span-4 md:col-span-2">
+          <ContentLoader class="h-20 lg:h-32 px-4" />
         </div>
       </div>
    </section>
