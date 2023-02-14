@@ -1,32 +1,46 @@
 <template>
   <section>
-    <span
-      @mouseover="leftArrowFill = '#000'"
-      @mouseleave="leftArrowFill = 'none'"
-      @click="toggleMenu('left')">
-      <LeftArrowSvg
-        v-if="pageIndex !== 1"
-        :fill="leftArrowFill"/>
-    </span>
-    <span
-      v-if="pageIndex === 1"
-      class="flex justify-center items-center">
-      <h2
-        class="font-cormorant hover:cursor-pointer hover:font-bold text-black text-md md:text-lg lg:text-xl"
+    <div :class="pageIndex !== 1 ? 'hidden' : buttonClass">
+      <span
+        @mouseover="display(home)"
+        @mouseleave="hide(home)"
         @click="resetMenu">
-        Home
-      </h2>
-    </span>
+        <HomeSvg :stroke="home.stroke" />
+      </span>
+      <h2 v-if="home.hover" class="font-cormorant text-lg">Home</h2>
+    </div >
+    <div :class="pageIndex !== 2 ? 'hidden' : buttonClass">
+      <span
+        @mouseover="display(gallery)"
+        @mouseleave="hide(gallery)"
+        @click="toggleMenu('left')">
+        <GallerySvg :stroke="gallery.stroke" />
+      </span>
+      <h2 v-if="gallery.hover" class="font-cormorant text-lg">Gallery</h2>
+    </div >
+    <div :class="pageIndex !== 3 ? 'hidden' : buttonClass">
+      <span
+        @mouseover="display(showroom)"
+        @mouseleave="hide(showroom)"
+        @click="toggleMenu('left')">
+        <ShowroomSvg :stroke="showroom.stroke" />
+      </span>
+      <h2 v-if="showroom.hover" class="font-cormorant text-lg">Showroom</h2>
+    </div >
   </section>
 </template>
 
 <script>
-import LeftArrowSvg from "../../svg/LeftArrowSvg.vue"
+import HomeSvg from "../../svg/HomeSvg.vue"
+import GallerySvg from "../../svg/GallerySvg.vue"
+import ShowroomSvg from "../../svg/ShowroomSvg.vue"
 
 export default {
   name: 'NavigateLeft',
   components: {
-    LeftArrowSvg
+    HomeSvg,
+    GallerySvg,
+    ShowroomSvg
   },
   props: {
     pageIndex: {
@@ -36,10 +50,25 @@ export default {
   },
   data() {
     return {
-      leftArrowFill: 'none',
+      home: {stroke: '#000', hover: false },
+      gallery: {stroke: '#000', hover: false },
+      showroom: {stroke: '#000', hover: false }
+    }
+  },
+  computed: {
+    buttonClass() {
+      return 'flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 hover:cursor-pointer hover:text-teal-600'
     }
   },
   methods: {
+    display(page) {
+      page.stroke = '#0D9488'
+      page.hover = true
+    },
+    hide(page) {
+      page.stroke = '#000'
+      page.hover = false
+    },
     resetMenu() {
       this.$emit('reset-menu');
     },
