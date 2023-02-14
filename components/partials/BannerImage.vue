@@ -25,7 +25,9 @@
           class="relative flex justify-center"
           @click="selectMenu(menu.index)"
           :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'">
-          <div class="flex items-center justify-center gap-4 md:gap-12" :class="menuDisplay && 'flex-grow'">
+          <div
+            class="flex items-center justify-center gap-4 md:gap-12"
+            :class="menuDisplay && !menu.error && 'flex-grow'">
             <NavigateLeft
               v-if="!menuDisplay"
               class="invisible md:visible"
@@ -46,7 +48,8 @@
           </div >
           <h1
             v-if="menu.enabled"
-            class="absolute top-[45%] font-captainlight text-center text-white text-lg sm:text-xl lg:text-3xl opacity-90">
+            class="absolute top-[45%] font-captainlight text-centertext-lg sm:text-xl lg:text-3xl opacity-90"
+            :class="menu.error ? 'text-gray-700': 'text-white'">
             {{ menu.title }}
           </h1>
         </div>

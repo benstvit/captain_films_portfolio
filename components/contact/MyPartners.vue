@@ -35,13 +35,6 @@ export default {
           site: 'https://morifilmlab.com/'
         },
         {
-          name: 'L\'Atelier KZG',
-          imgUrl: '/atelierkzg.png',
-          description: 'was created by photographs for photographs and offers a mix of craftsmanship and technology with pigment printing on a wide variety of archival papers',
-          selected: false,
-          site: 'http://www.kzg.be/'
-        },
-        {
           name: 'Desenio',
           imgUrl: '/desenio.png',
           description: 'Frames can often come at a very expensive price. Desenio offers a wide range of fairly priced frames made of FSC© certified wood. There is something for every taste !',
