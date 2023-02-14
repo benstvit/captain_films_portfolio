@@ -7,7 +7,7 @@
     <keep-alive>
       <div id="form" class="mt-12">
         <ContactForm v-if="isOpen('Contact Me')" />
-        <MyPartners v-if="isOpen('My Partners')" />
+        <MyPartners v-if="isOpen('Partners')" />
       </div>
     </keep-alive>
   </section>
@@ -32,7 +32,7 @@ export default {
       introY: false,
       submenus: [
         { title: 'Contact Me', active: true },
-        { title: 'My Partners', active: false },
+        { title: 'Partners', active: false },
       ]
     }
   },
