@@ -75,12 +75,12 @@ export default {
   },
   computed: {
     buttonClass() {
-      return 'flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 mr-4 hover:cursor-pointer hover:text-teal-600'
+      return 'flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 mr-4 hover:cursor-pointer hover:text-teal-700'
     }
   },
   methods: {
     display(page) {
-      page.stroke = '#0D9488'
+      page.stroke = '#0F766E'
     },
     hide(page) {
       page.stroke = '#27272A'
