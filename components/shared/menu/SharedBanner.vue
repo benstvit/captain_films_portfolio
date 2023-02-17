@@ -3,6 +3,7 @@
     <div class="flex justify-center items-center">
       <CaptainFilmsLogo :menu-display="menuDisplay"/>
       <BannerImage
+      class="shrink-0 w-screen lg:shrink"
         :menus="menus"
         :menu-display="menuDisplay"
         :page-index="pageIndex"

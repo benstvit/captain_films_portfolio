@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center md:gap-4 mx-4 max-w-screen">
+    <div class="flex flex-col justify-center items-center md:gap-4 mx-4">
       <div
         id="captain-logo"
         @click="resetMenu"

@@ -20,7 +20,7 @@
      <div
       class="w-32 flex col justify-center"
       v-if="menuDisplay">
-      <h1 class="hidden md:block md:text-2xl lg:text-4xl text-gray-800 uppercase whitespace-nowrap rotate-90 font-cormorant tracking-widest">
+      <h1 class="hidden lg:block md:text-2xl lg:text-4xl text-gray-800 uppercase whitespace-nowrap rotate-90 font-cormorant tracking-widest">
         Captain Films
       </h1>
      </div>
