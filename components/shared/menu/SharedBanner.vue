@@ -1,13 +1,13 @@
 <template>
   <section v-show="menus">
-    <div class="flex justify-center items-center max-w-screen">
-      <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden"/>
+    <div class="flex justify-center items-center">
+      <CaptainFilmsLogo :menu-display="menuDisplay"/>
       <BannerImage
         :menus="menus"
         :menu-display="menuDisplay"
         :page-index="pageIndex"
         />
-      <CaptainFilmsLogo :menu-display="menuDisplay" class="md:block hidden"/>
+      <CaptainFilmsLogo :menu-display="menuDisplay"/>
     </div>
   </section>
 </template>
