@@ -1,24 +1,27 @@
 <template>
   <section v-show="menus">
-    <div class="flex justify-center items-center">
+    <div
+      class="flex justify-center items-center">
       <CaptainFilmsLogo :menu-display="menuDisplay"/>
-      <NavigateLeft
-        v-if="!menuDisplay"
-        class="invisible md:visible"
-        :pageIndex="pageIndex"
-        @reset-menu="resetMenu"
-        @toggle-menu="toggleMenu"/>
-      <BannerImage
-        class="shrink-0 w-screen lg:shrink"
-        :menus="menus"
-        :menu-display="menuDisplay"
-        @select-menu="selectMenu"
-        />
-      <NavigateRight
-        v-if="!menuDisplay"
-        class="invisible md:visible"
-        :pageIndex="pageIndex"
-        @toggle-menu="toggleMenu" />
+      <div class="h-full flex justify-center items-center">
+        <NavigateLeft
+          v-if="!menuDisplay"
+          class="pt-32 m-4 invisible md:visible"
+          :pageIndex="pageIndex"
+          @reset-menu="resetMenu"
+          @toggle-menu="toggleMenu"/>
+        <BannerImage
+          class="shrink-0 lg:shrink"
+          :menus="menus"
+          :menu-display="menuDisplay"
+          @select-menu="selectMenu"
+          />
+        <NavigateRight
+          v-if="!menuDisplay"
+          class="pt-32 m-4 invisible md:visible"
+          :pageIndex="pageIndex"
+          @toggle-menu="toggleMenu" />
+      </div >
       <CaptainFilmsLogo :menu-display="menuDisplay"/>
     </div>
   </section>
