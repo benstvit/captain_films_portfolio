@@ -9,13 +9,13 @@
       <SharedBanner
         :menus="enabledMenu"
         @reset-menu="resetHome"
-        @toggle-menu="toggleMenu"/>
+        @toggle-menu="setMenu"/>
       <IntroductionModal
         id="modal"
         v-if="isOpen('Gallery')"
         :display-modal="displayModal"
         @close-modal="displayModal = false"
-        @toggle-menu="toggleMenu"/>
+        @toggle-menu="setMenu"/>
     </header>
     <main class="">
       <PhotographyPage
@@ -53,6 +53,7 @@ export default {
       bannerPhotos: null,
       isLoading: true,
       displayModal: '',
+      menus: null
     }
   },
   components: {
@@ -74,9 +75,11 @@ export default {
       return enabled.length === 1 ? enabled : null;
     },
     enabledMenu() {
-      if (!this.bannerPhotos) return;
+      if (!this.bannerPhotos || !this.menus) return;
+      console.log(this.bannerPhotos);
 
-      return this.bannerPhotos.filter(photo => photo.enabled);
+      const enabled = this.menus.filter(photo => photo.enabled);
+      return enabled;
     },
     menuDisplay() {
       return this.enabledMenu.length === 3;
@@ -84,7 +87,6 @@ export default {
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
-
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
 
@@ -110,30 +112,18 @@ export default {
         header.scrollIntoView({ behavior: 'smooth' });
       }, 200);
     },
-    toggleMenu(payload) {
-      const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
+    setMenu(payload) {
       if (payload.direction === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
-      const test = this.bannerPhotos.map(photo => photo.index === direction ? ({...photo, enabled: true}) : ({...photo, enabled: false}));
-      this.bannerPhotos = test;
-      // this.bannerPhotos.forEach(photo => photo.index === direction ? photo.enabled = true : photo.enabled = false);
+
+      const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
+      this.menus = this.bannerPhotos.map(menu => menu.index === direction ? {...menu, enabled: true } : {...menu, enabled: false});
     },
-    detectOverflow() {
-      const docWidth = document.documentElement.offsetWidth;
-    [].forEach.call(
-      document.querySelectorAll('*'),
-      function(el) {
-        if (el.offsetWidth > docWidth) {
-          console.log(el);
-        }
-      }
-    );
-    }
   },
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
+    this.menus = this.bannerPhotos
     this.isLoading = false;
-    this.detectOverflow();
   },
 };
 </script>

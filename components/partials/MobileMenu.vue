@@ -36,6 +36,8 @@ export default {
   },
   methods: {
     activeClass(menu) {
+      if (!this.activePage.length) return;
+
       const submenu = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
 
       if (submenu === this.activePage[0].title) return 'text-black font-bold';

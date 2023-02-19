@@ -35,13 +35,15 @@ export default {
     },
   },
   watch: {
-    menus(newValue) {
+    menus(active) {
+      console.log(active);
+      // if (!active.length) return;
       this.pageIndex = this.menus[0].index;
     }
   },
   computed: {
     menuDisplay() {
-      if (!this.menus) return;
+      if (!this.menus.length) return;
 
       return this.menus.length === 3;
     },

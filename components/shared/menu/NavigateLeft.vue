@@ -18,7 +18,7 @@
       <span
         @mouseover="display(gallery)"
         @mouseleave="hide(gallery)"
-        @click="toggleMenu('left')">
+        @click="toggleMenu()">
         <div class="flex justify-center items-center h-fit gap-4">
           <LeftArrowSvg />
           <div class="flex flex-col justify-center items-center">
@@ -32,7 +32,7 @@
       <span
         @mouseover="display(showroom)"
         @mouseleave="hide(showroom)"
-        @click="toggleMenu('left')">
+        @click="toggleMenu()">
         <div class="flex justify-center items-center h-fit gap-4">
           <LeftArrowSvg />
           <div class="flex flex-col justify-center items-center">
@@ -88,8 +88,8 @@ export default {
     resetMenu() {
       this.$emit('reset-menu');
     },
-    toggleMenu(direction) {
-      this.$emit('toggle-menu', direction)
+    toggleMenu() {
+      this.$emit('toggle-menu', 'left')
     }
   }
 }

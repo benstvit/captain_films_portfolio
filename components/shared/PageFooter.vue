@@ -48,6 +48,8 @@ export default {
   },
   methods: {
     customClass(menu) {
+      if (!this.activePage.length) return;
+
       return menu === this.activePage[0].title ? 'text-black underline hover:cursor-default' : 'hover:text-teal-700 hover:cursor-pointer';
     },
     navigateTo(menu) {
