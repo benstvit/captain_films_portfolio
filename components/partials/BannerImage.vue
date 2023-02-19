@@ -27,23 +27,12 @@
           <div
             class="flex items-center justify-center gap-4 md:gap-12"
             :class="menuDisplay && !menu.error && 'flex-grow'">
-            <NavigateLeft
-              v-if="!menuDisplay"
-              class="invisible md:visible"
-              :pageIndex="pageIndex"
-              @reset-menu="resetMenu"
-              @toggle-menu="toggleMenu"/>
             <nuxt-img
               v-if="menu.enabled"
               class="object-cover object-bottom "
               :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-full object-cover border border-1 border-white' : 'h-[32vh] md:h-[50vh] object-cover shadow-lg rounded-sm w-full '"
               :src="menu.url"
               :alt="menu.title"/>
-            <NavigateRight
-              v-if="!menuDisplay"
-              class="invisible md:visible"
-              :pageIndex="pageIndex"
-              @toggle-menu="toggleMenu" />
           </div >
           <h1
             v-if="menu.enabled"
@@ -58,15 +47,9 @@
 </template>
 
 <script>
-import NavigateLeft from "../shared/menu/NavigateLeft.vue"
-import NavigateRight from "../shared/menu/NavigateRight.vue"
 
 export default {
   name:"BannerImage",
-  components: {
-    NavigateLeft,
-    NavigateRight
-  },
   props: {
     menus: {
       type: Array,
@@ -76,10 +59,6 @@ export default {
       type: Boolean,
       default: true,
     },
-    pageIndex: {
-      type: Number,
-      default: 0
-    }
   },
   methods: {
     menuGrid(index) {
@@ -89,11 +68,8 @@ export default {
       this.$parent.$emit('reset-menu');
     },
     selectMenu(index) {
-      this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
+      this.$emit('select-menu', index)
     },
-    toggleMenu(direction) {
-      this.$parent.$emit('toggle-menu', { direction: direction, index: this.menus[0].index })
-    }
   },
 }
 </script>
