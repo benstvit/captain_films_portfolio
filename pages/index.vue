@@ -101,7 +101,6 @@ export default {
       this.bannerPhotos.forEach(photo => photo.enabled = false);
     },
     resetHome() {
-      console.log('hello');
       this.activeSubmenu = {};
       this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
@@ -112,11 +111,10 @@ export default {
       }, 200);
     },
     setMenu(payload) {
-      console.log(payload)
-      if (payload.direction === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
+      if (payload.direction === 'rewind') return this.bannerPhotos.forEach(menu => menu.index === 1 ? menu.enabled = true : menu.enabled = false);
 
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.bannerPhotos.forEach(menu => menu.index === direction ? menu.enabled = true : menu.enabled = false);
+      this.bannerPhotos.forEach(menu => menu.index === direction ? menu.enabled = true : menu.enabled = false)
     },
   },
   async mounted() {

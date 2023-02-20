@@ -55,8 +55,7 @@ export default {
   watch: {
     menus(active) {
       if (!this.menus.length) return;
-      console.log(active);
-      // if (!active.length) return;
+
       this.pageIndex = this.menus[0].index;
     }
   },
