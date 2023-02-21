@@ -11,16 +11,16 @@
         data-aos-easing="ease-in-sine"
         data-aos="fade-in"
         :data-aos-offset="photo.index === 1 ? '20' : '200'">
+      <keep-alive>
         <viewer>
-          <keep-alive>
             <nuxt-img
-              class="h-[30vh] md:h-[35vh] lg:h-[50vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
+              class="h-[30vh] md:h-[35vh] lg:h-[45vh] xl:h-[55vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
               v-prlx="photo.index % 2 === 0 ? {speed: 0.1} : { disabled: true }"
               :src="photo.url"
               :alt="photo.title"/>
-          </keep-alive>
         </viewer>
+      </keep-alive>
       </div>
     </div>
   </section>

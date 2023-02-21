@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!isLoading">
+  <section v-if="!isLoading" class="w-full h-full">
     <header id="header">
       <MobileMenu
         v-if="!menuDisplay"
@@ -9,15 +9,15 @@
       <SharedBanner
         :menus="enabledMenu"
         @reset-menu="resetHome"
-        @toggle-menu="toggleMenu"/>
+        @toggle-menu="setMenu"/>
       <IntroductionModal
         id="modal"
         v-if="isOpen('Gallery')"
         :display-modal="displayModal"
         @close-modal="displayModal = false"
-        @toggle-menu="toggleMenu"/>
+        @toggle-menu="setMenu"/>
     </header>
-    <main class="flex-grow">
+    <main class="">
       <PhotographyPage
         v-if="isOpen('Gallery')"
         :photos="bannerPhotos"/>
@@ -110,30 +110,17 @@ export default {
         header.scrollIntoView({ behavior: 'smooth' });
       }, 200);
     },
-    toggleMenu(payload) {
+    setMenu(payload) {
+      if (payload.direction === 'rewind') return this.bannerPhotos.forEach(menu => menu.index === 1 ? menu.enabled = true : menu.enabled = false);
+
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      if (payload.direction === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
-      const test = this.bannerPhotos.map(photo => photo.index === direction ? ({...photo, enabled: true}) : ({...photo, enabled: false}));
-      this.bannerPhotos = test;
-      // this.bannerPhotos.forEach(photo => photo.index === direction ? photo.enabled = true : photo.enabled = false);
+      this.bannerPhotos.forEach(menu => menu.index === direction ? menu.enabled = true : menu.enabled = false)
     },
-    detectOverflow() {
-      const docWidth = document.documentElement.offsetWidth;
-    [].forEach.call(
-      document.querySelectorAll('*'),
-      function(el) {
-        if (el.offsetWidth > docWidth) {
-          console.log(el);
-        }
-      }
-    );
-    }
   },
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
     this.isLoading = false;
-    this.detectOverflow();
   },
 };
 </script>

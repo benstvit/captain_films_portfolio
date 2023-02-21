@@ -57,7 +57,7 @@ export default ({
       window.scrollTo(0, 0);
       setTimeout(() => {
         navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
-      }, 500);
+      }, 300);
     }
   },
   async mounted() {
