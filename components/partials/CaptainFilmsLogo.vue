@@ -1,8 +1,7 @@
 <template>
    <section>
     <div
-      class="w-24 flex flex-col justify-center items-center gap-6"
-      v-if="menuDisplay">
+      class="w-24 flex flex-col justify-center items-center gap-6">
       <div class="flex-col justify-center">
         <h1
           v-for="(letter, index) in 'Captain'"
@@ -26,11 +25,5 @@
 <script>
 export default {
   name: 'CaptainFilmsLogo',
-  props: {
-    menuDisplay: {
-      type: Boolean,
-      default: false
-    }
-  }
 }
 </script>

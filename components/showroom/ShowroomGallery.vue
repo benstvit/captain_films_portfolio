@@ -1,26 +1,26 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 px-12">
+    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 lg:px-8">
     <GalleryLoader v-if="isLoading" />
       <div
         v-else
         v-for="photo in photos"
         :key="photo.title"
-        class="my-2 py-4"
+        class="my-4 py-4"
         :class="photo.index % 2 === 0 ? 'self-center sm:self-end mx-2 sm:mx-0 sm:mr-12' : 'self-center sm:self-start mx-2 sm:mx-0 sm:ml-12'"
         data-aos-easing="ease-in-sine"
         data-aos="fade-in"
         :data-aos-offset="photo.index === 1 ? '20' : '200'">
-      <keep-alive>
         <viewer>
+      <keep-alive>
             <nuxt-img
-              class="h-[30vh] md:h-[35vh] lg:h-[45vh] xl:h-[55vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
+              class="h-[30vh] md:h-[35vh] lg:h-[45vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
               v-prlx="photo.index % 2 === 0 ? {speed: 0.1} : { disabled: true }"
               :src="photo.url"
               :alt="photo.title"/>
-        </viewer>
       </keep-alive>
+        </viewer>
       </div>
     </div>
   </section>
@@ -47,7 +47,9 @@ export default {
 
     photos() {
       if (!this.showroomData) return;
-      return this.showroomData
+
+      const shuffledArray = this.showroomData.sort((a, b) => 0.5 - Math.random());
+      return shuffledArray.map((e, i) => ({...e, index: i + 1}))
     }
   },
   methods: {

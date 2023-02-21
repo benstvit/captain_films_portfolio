@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-col items-center gap-2 w-full bg-gray-50 pt-4 pb-1 shadow-md">
+  <div class="flex flex-col items-center justify-center gap-2 w-full bg-gray-50 pt-4 pb-1">
     <div class="flex justify-center items-center gap-8">
       <a
         href="https://www.instagram.com/captain_films/"
         target="_blank"
-        @mouseover="instagramSvg.stroke = '#0F766E'"
-        @mouseleave="instagramSvg.stroke = '#27272A'">
+        @mouseover="instagramSvg.stroke = '#D22F8C'"
+        @mouseleave="instagramSvg.stroke = '#0F766E'">
         <InstagramSvg class="self-start" :stroke="instagramSvg.stroke" />
       </a>
       <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-800 text-sm dark:text-white">
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       menus: ['Home', 'Gallery', 'Showroom', 'Contact me'],
-      instagramSvg: {stroke: '#27272A'},
+      instagramSvg: {stroke: '#0F766E'},
     }
   },
   methods: {

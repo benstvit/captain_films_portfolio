@@ -1,12 +1,12 @@
 <template>
   <section v-show="menus">
     <div
-      class="flex justify-center items-center">
-      <CaptainFilmsLogo :menu-display="menuDisplay"/>
-      <div class="h-full flex justify-center items-center">
+      class="flex justify-center items-center sm:max-w-screen-sm md:max-w-none">
+      <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
+      <div class="flex justify-center items-center flex-wrap">
         <NavigateLeft
           v-if="!menuDisplay"
-          class="pt-32 mx-10 invisible md:visible"
+          class="pt-32 mx-10 hidden md:block"
           :pageIndex="pageIndex"
           @reset-menu="resetMenu"
           @toggle-menu="toggleMenu"/>
@@ -18,11 +18,11 @@
           />
         <NavigateRight
           v-if="!menuDisplay"
-          class="pt-32 mx-10 invisible md:visible"
+          class="pt-32 mx-10 hidden md:block"
           :pageIndex="pageIndex"
           @toggle-menu="toggleMenu" />
       </div >
-      <CaptainFilmsLogo :menu-display="menuDisplay"/>
+      <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
     </div>
   </section>
 </template>
