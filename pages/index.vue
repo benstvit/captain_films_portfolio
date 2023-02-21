@@ -53,7 +53,6 @@ export default {
       bannerPhotos: null,
       isLoading: true,
       displayModal: '',
-      menus: null
     }
   },
   components: {
@@ -75,11 +74,9 @@ export default {
       return enabled.length === 1 ? enabled : null;
     },
     enabledMenu() {
-      if (!this.bannerPhotos || !this.menus) return;
-      console.log(this.bannerPhotos);
+      if (!this.bannerPhotos) return;
 
-      const enabled = this.menus.filter(photo => photo.enabled);
-      return enabled;
+      return this.bannerPhotos.filter(photo => photo.enabled);
     },
     menuDisplay() {
       return this.enabledMenu.length === 3;
@@ -87,6 +84,7 @@ export default {
   },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
+
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
 
@@ -113,16 +111,15 @@ export default {
       }, 200);
     },
     setMenu(payload) {
-      if (payload.direction === 'rewind') this.bannerPhotos.find(menu => menu.index === 1).enabled = true;
+      if (payload.direction === 'rewind') return this.bannerPhotos.forEach(menu => menu.index === 1 ? menu.enabled = true : menu.enabled = false);
 
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
-      this.menus = this.bannerPhotos.map(menu => menu.index === direction ? {...menu, enabled: true } : {...menu, enabled: false});
+      this.bannerPhotos.forEach(menu => menu.index === direction ? menu.enabled = true : menu.enabled = false)
     },
   },
   async mounted() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
-    this.menus = this.bannerPhotos
     this.isLoading = false;
   },
 };
