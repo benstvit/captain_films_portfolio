@@ -6,7 +6,7 @@
       <div class="h-full flex justify-center items-center">
         <NavigateLeft
           v-if="!menuDisplay"
-          class="pt-32 m-4 invisible md:visible"
+          class="pt-32 mx-10 invisible md:visible"
           :pageIndex="pageIndex"
           @reset-menu="resetMenu"
           @toggle-menu="toggleMenu"/>
@@ -18,7 +18,7 @@
           />
         <NavigateRight
           v-if="!menuDisplay"
-          class="pt-32 m-4 invisible md:visible"
+          class="pt-32 mx-10 invisible md:visible"
           :pageIndex="pageIndex"
           @toggle-menu="toggleMenu" />
       </div >
