@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 lg:px-8">
+    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 lg:px-6">
     <GalleryLoader v-if="isLoading" />
       <div
         v-else
@@ -14,7 +14,7 @@
         <viewer>
       <keep-alive>
             <nuxt-img
-              class="h-[30vh] md:h-[35vh] lg:h-[45vh] object-cover rounded-md shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
+              class="h-[30vh] md:h-[35vh] lg:h-[45vh] object-cover rounded-sm shadow-md hover:shadow-lg xl:hover:opacity-80 hover:cursor-zoom-in"
               v.prlx.mobile
               v-prlx="photo.index % 2 === 0 ? {speed: 0.1} : { disabled: true }"
               :src="photo.url"
