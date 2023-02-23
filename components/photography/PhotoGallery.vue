@@ -31,11 +31,17 @@ export default {
   data() {
     return {
       isLoading: true,
+      backgroundPhoto: null
     }
   },
   computed: {
     ...mapState('photography', { photosData: 'data'}),
 
+    backgroundImage() {
+      if (this.backgroundPhoto) return;
+
+      return this.photosData?.filter(photo => photo.title === 'Two religions').pop()
+    },
     images() {
       if (!this.photosData.length) return;
 
@@ -51,6 +57,7 @@ export default {
   },
   watch: {
     async active(newValue) {
+      console.log(newValue.title);
       this.isLoading = true;
       await this.fetchPhotos({ payload: newValue});
       this.isLoading = false;

@@ -1,9 +1,9 @@
 <template>
   <section>
-    <div class="w-fit lg:w-full bg-gray-100 text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-4 lg:mx-0 lg:my-2 p-2">
-      <p class="py-4 italic">
-        <span class="text-sm md:text-base lg:text-lg font-bold not-italic font-captainbold py-4">Why film photography ?</span><br>
-        Each photograph has its own identity, its history and is therefore <b>unique</b>.<br>
+    <div class="w-full bg-gray-100 shadow-inner text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-4 lg:mx-0 lg:my-2 p-2">
+      <p class="py-4 font-cormorant text-xs md:text-base lg:text-lg">
+        <span class="text-xs md:text-base lg:text-lg not-italic font-captainbold pb-8">Why film photography ?</span><br>
+        Each photograph has its own identity, its history and is therefore <span class="text-teal-700">unique</span>.<br>
         More than a simple snapshot, it becomes the product of a reflective work.<br>
         This idea of ​​uniqueness transpires in the meticulousness that I bring to the development, printing and framing of my photographs.
       </p>
@@ -26,20 +26,20 @@
               <FormulateInput
               name="email"
               type="email"
-              label="Please leave me your e-mail so I can contact you back"
+              label="Please leave me your e-mail so I can contact you back 🙏"
               placeholder="Email address"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
               input-class="w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"
               class="mb-6 mt-2"
               validation="required|email"
-            />
+              error-behavior="submit" />
             <FormulateInput
               v-model="reason"
               name='reason'
               :options="{question: 'Ask a question / get information', order: 'Order a photograph', other: 'Talk about the weather or anything, really'}"
               type="select"
-              placeholder="What do you want to talk about ?"
-              label="Please choose the reason you are contacting me for (though you don't need any)"
+              placeholder="What do you want to talk about?"
+              label="Please choose the reason you are contacting me for (though you don't need any)."
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
               input-class="w-fit focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
               class="mb-6 mt-2 items-end"
@@ -49,7 +49,7 @@
             type="textarea"
             v-model="text"
             name="message"
-            label="Write your message here. I will get back to you ASAP"
+            label="Write your message here. I will get back to you ASAP."
             label-class="font-captainlight text-xs lg:text-sm"
             input-class="w-full h-36 focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
             class="mb-4"

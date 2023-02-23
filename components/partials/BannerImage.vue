@@ -5,9 +5,9 @@
         id="captain-logo"
         @click="resetMenu"
         v-if="!menuDisplay"
-        class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-70 hover:opacity-100 text-center">
+        class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-80 hover:opacity-100 text-center">
         <nuxt-img
-          class="w-12 h-12 md:w-16 md:h-16"
+          class="w-10 h-10 md:w-16 md:h-16"
           src="/logo-solo.png">
         </nuxt-img>
         <h1 class="font-captainbold text-center text-sm md:text-md text-black">
@@ -30,7 +30,7 @@
             <nuxt-img
               v-if="menu.enabled"
               class="object-cover object-bottom "
-              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-full object-cover border border-1 border-white' : 'h-[32vh] md:h-[50vh] object-cover shadow-lg rounded-sm w-full '"
+              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'h-[32vh] lg:h-[50vh] md:w-auto object-cover shadow-lg rounded-sm w-full '"
               :src="menu.url"
               :alt="menu.title"/>
           </div >
@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     menuGrid(index) {
-      return index === 3 ? 'hover:cursor-pointer hover:opacity-90 col-span-6' : 'hover:cursor-pointer hover:opacity-90 col-span-6 lg:col-span-3';
+      return index === 3 ? 'col-span-6 hover:cursor-pointer hover:opacity-90 hover:shadow-inner' : 'col-span-6 lg:col-span-3 hover:cursor-pointer hover:opacity-90 hover:shadow-inner';
     },
     resetMenu() {
       this.$parent.$emit('reset-menu');

@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!isLoading" class="w-full h-full">
+  <section v-if="!isLoading" class="flex flex-col justify-center">
     <header id="header">
       <MobileMenu
         v-if="!menuDisplay"
