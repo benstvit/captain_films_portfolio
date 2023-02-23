@@ -49,8 +49,9 @@ export default {
   methods: {
     customClass(menu) {
       if (!this.activePage.length) return;
+      const activeMenu = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
 
-      return menu === this.activePage[0].title ? 'text-black underline hover:cursor-default' : 'hover:text-teal-700 hover:cursor-pointer';
+      return activeMenu === this.activePage[0].title ? 'text-black underline hover:cursor-default' : 'hover:text-teal-700 hover:cursor-pointer';
     },
     navigateTo(menu) {
       const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;

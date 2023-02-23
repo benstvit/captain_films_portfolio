@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 lg:px-6">
+    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 lg:px-12">
     <GalleryLoader v-if="isLoading" />
       <div
         v-else
