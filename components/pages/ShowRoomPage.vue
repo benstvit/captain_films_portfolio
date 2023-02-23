@@ -11,6 +11,6 @@ export default {
   name: 'ShowRoomPage',
   components: {
     ShowroomGallery
-  }
+  },
 }
 </script>

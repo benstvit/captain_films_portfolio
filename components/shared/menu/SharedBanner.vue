@@ -1,7 +1,6 @@
 <template>
   <section v-show="menus">
-    <div
-      class="relative flex justify-center items-center sm:max-w-screen-sm md:max-w-none">
+    <div class="relative flex justify-center items-center sm:max-w-screen-sm md:max-w-none">
       <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
       <div class="flex justify-center items-center flex-wrap">
         <NavigateLeft
@@ -11,6 +10,7 @@
           @reset-menu="resetMenu"
           @toggle-menu="toggleMenu"/>
         <BannerImage
+          id="bannerImage"
           class="shrink-0 lg:shrink"
           :menus="menus"
           :menu-display="menuDisplay"
@@ -76,6 +76,6 @@ export default {
     toggleMenu(direction) {
       this.$emit('toggle-menu', { direction, index: this.menus[0].index })
     }
-  }
+  },
 };
 </script>

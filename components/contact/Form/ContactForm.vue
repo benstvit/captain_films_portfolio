@@ -53,6 +53,7 @@
             label-class="font-captainlight text-xs lg:text-sm"
             input-class="w-full h-36 focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
             class="mb-4"
+            validation="required|min:10"
           />
           <FormulateInput
             type="submit"
