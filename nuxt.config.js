@@ -35,7 +35,7 @@ export default {
       },
     ],
   },
-  target: "static",
+  target: "server", // Set to static before build, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
