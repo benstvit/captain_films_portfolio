@@ -7,7 +7,7 @@
         :active-page="enabledMenu"
         @navigate="navigateTo"/>
       <SharedBanner
-        :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)' }"
+        :style="{ transform: 'translateX(' + translateY + 'px)' }"
         :menus="enabledMenu"
         @reset-menu="resetHome"
         @toggle-menu="setMenu"/>
