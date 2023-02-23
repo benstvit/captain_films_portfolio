@@ -7,7 +7,7 @@
               <li
                 v-for="menu in menus"
                 :key="menu"
-                class="mx-2"
+                class="mx-1"
                 :class="activeClass(menu)"
                 @click.stop="navigateTo(menu)">
                 {{menu}}
@@ -40,7 +40,7 @@ export default {
 
       const submenu = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
 
-      if (submenu === this.activePage[0].title) return 'text-black font-bold';
+      if (submenu === this.activePage[0].title) return 'text-teal-700';
     },
     navigateTo(menu) {
       const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
