@@ -4,13 +4,13 @@
       @active-submenu="setActiveSubmenu"
       :is-scrolling="galleryY"
       :submenus="submenus" />
-    <keep-alive>
-      <PhotoGallery
-        id="gallery"
-        v-if="activeSubmenu.title"
-        :active="activeSubmenu"
-      />
-    </keep-alive>
+      <keep-alive>
+        <PhotoGallery
+          id="gallery"
+          v-if="activeSubmenu.title"
+          :active="activeSubmenu"
+        />
+      </keep-alive>
   </section>
 </template>
 

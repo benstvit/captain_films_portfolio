@@ -7,6 +7,7 @@
         :active-page="enabledMenu"
         @navigate="navigateTo"/>
       <SharedBanner
+        :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)' }"
         :menus="enabledMenu"
         @reset-menu="resetHome"
         @toggle-menu="setMenu"/>
@@ -53,6 +54,7 @@ export default {
       bannerPhotos: null,
       isLoading: true,
       displayModal: '',
+      translateY: 0
     }
   },
   components: {
@@ -82,9 +84,21 @@ export default {
       return this.enabledMenu.length === 3;
     },
   },
+  async mounted() {
+    await this.fetchPhotos();
+    window.addEventListener('scroll', this.handleScroll);
+    this.bannerPhotos = this.photosData;
+    this.isLoading = false;
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
+    handleScroll() {
+      this.translateY = window.scrollY / 2; // You can adjust the division value to control the speed of the translation
+    },
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;
 
@@ -116,11 +130,6 @@ export default {
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
       this.bannerPhotos.forEach(menu => menu.index === direction ? menu.enabled = true : menu.enabled = false)
     },
-  },
-  async mounted() {
-    await this.fetchPhotos();
-    this.bannerPhotos = this.photosData;
-    this.isLoading = false;
   },
 };
 </script>
