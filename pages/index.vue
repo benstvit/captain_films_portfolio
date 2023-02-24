@@ -8,6 +8,7 @@
         @navigate="navigateTo"/>
       <SharedBanner
         :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)' }"
+        class="overflow-hidden"
         :menus="enabledMenu"
         @reset-menu="resetHome"
         @toggle-menu="setMenu"/>

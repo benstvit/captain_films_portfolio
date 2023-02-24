@@ -19,7 +19,7 @@
         </li>
       </ul>
     </div>
-    <p class="text-xs font-sans italic text-center pt-1">
+    <p class="text-xs font-sans italic text-center px-2 pt-1">
       © All work contained within this blog is Captain Films | Benjamin Saint Viteux 2015-2022 unless otherwise noted and may not be copied, downloaded, blogged, distributed, or reproduced in any form without express written consent.
     </p>
     <p class="text-xs font-sans text-center">Portfolio coded with 💙 by Benjamin Saint Viteux (Captain Films) in Vue.js</p>
