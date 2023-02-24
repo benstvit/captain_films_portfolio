@@ -30,7 +30,7 @@
             <nuxt-img
               v-if="menu.enabled"
               class="object-cover object-bottom "
-              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'h-[32vh] lg:h-[50vh] md:w-auto object-cover shadow-lg rounded-sm w-full '"
+              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'h-[24vh] md:h-[32vh] lg:h-[50vh] md:w-auto object-cover shadow-lg rounded-sm w-full '"
               :src="menu.url"
               :alt="menu.title"/>
           </div >

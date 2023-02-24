@@ -1,6 +1,6 @@
 <template>
   <section v-show="menus">
-    <div class="relative flex justify-center items-center sm:max-w-screen-sm md:max-w-none">
+    <div class="relative flex justify-center items-center">
       <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
       <div class="flex justify-center items-center">
         <NavigateLeft
