@@ -8,7 +8,7 @@
           <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
               <ShowroomSvg :stroke="showroom.stroke" />
-              <h2 class="font-cormorant text-lg">Showroom</h2>
+              <h2 class="font-cormorant text-base lg:text-lg">Showroom</h2>
             </div >
             <RightArrowSvg />
           </div >
@@ -22,7 +22,7 @@
          <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
               <ContactSvg :stroke="contact.stroke" />
-              <h2 class="font-cormorant text-lg">Contact</h2>
+              <h2 class="font-cormorant text-base lg:text-lg">Contact</h2>
             </div >
             <RightArrowSvg />
           </div >
@@ -36,7 +36,7 @@
           <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
               <GallerySvg :stroke="gallery.stroke" />
-              <h2 class="font-cormorant text-lg">Gallery</h2>
+              <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
             </div >
             <RightArrowSvg />
           </div >

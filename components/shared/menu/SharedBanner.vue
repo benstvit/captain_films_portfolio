@@ -1,11 +1,11 @@
 <template>
   <section v-show="menus">
-    <div class="relative flex justify-center items-center sm:max-w-screen-sm md:max-w-none">
+    <div class="relative flex justify-center items-center">
       <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
-      <div class="flex justify-center items-center flex-wrap">
+      <div class="flex justify-center items-center">
         <NavigateLeft
           v-if="!menuDisplay"
-          class="pt-32 mx-10 hidden md:block"
+          class="pt-32 mx-2 lg:mx-10 hidden md:block"
           :pageIndex="pageIndex"
           @reset-menu="resetMenu"
           @toggle-menu="toggleMenu"/>
@@ -18,7 +18,7 @@
           />
         <NavigateRight
           v-if="!menuDisplay"
-          class="pt-32 mx-10 hidden md:block"
+          class="pt-32 mx-2 lg:mx-10 hidden md:block"
           :pageIndex="pageIndex"
           @toggle-menu="toggleMenu" />
       </div >

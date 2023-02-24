@@ -9,7 +9,7 @@
             <LeftArrowSvg />
             <div class="flex flex-col justify-center items-center">
               <HomeSvg :stroke="home.stroke" />
-              <h2 class="font-cormorant text-lg">Home</h2>
+              <h2 class="font-cormorant text-base lg:text-lg">Home</h2>
             </div >
           </div >
         </span>
@@ -23,7 +23,7 @@
           <LeftArrowSvg />
           <div class="flex flex-col justify-center items-center">
             <GallerySvg :stroke="gallery.stroke" />
-            <h2 class="font-cormorant text-lg">Gallery</h2>
+            <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
           </div >
         </div>
       </span>
@@ -37,7 +37,7 @@
           <LeftArrowSvg />
           <div class="flex flex-col justify-center items-center">
             <ShowroomSvg :stroke="showroom.stroke" />
-            <h2 class="font-cormorant text-lg">Showroom</h2>
+            <h2 class="font-cormorant text-base lg:text-lg">Showroom</h2>
           </div >
         </div>
       </span>
