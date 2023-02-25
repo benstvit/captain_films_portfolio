@@ -3,7 +3,7 @@
     v-if="displayModal"
     @click.stop="handleBodyClick"
     class="fixed top-36 left-0 z-20 w-full h-full overflow-auto backdrop-blur-sm">
-    <div id="modal" class="bg-white t-56 mt-auto mx-auto p-4 border-1 border-gray-50 w-2/3 rounded-md shadow-md">
+    <div id="modal" class="bg-white t-56 mt-auto mx-auto p-4 border-2 md:border-1 border-gray-600 md:border-gray-50 w-2/3 rounded-sm md:rounded-md shadow-md">
       <span @click="closeModal" class="hover:text-black cursor-pointer text-gray-500 float-right font-bold text-4xl">&times;</span>
       <div class="flex flex-col justify-between items-center divide-y-1 p-4 gap-4 my-2 font-captainlight text-center">
         <nuxt-img class="h-14 w-14" src="/aileron.png"/>
