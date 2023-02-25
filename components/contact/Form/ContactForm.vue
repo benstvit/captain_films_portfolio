@@ -22,11 +22,11 @@
           @submit="handleSubmit"
           #default="{ hasErrors }"
           >
-            <div class="flex justify-between items-start lg:gap-12 flex-wrap">
+            <div class="flex justify-center md:justify-between items-center md:items-start lg:gap-12 flex-wrap">
               <FormulateInput
               name="email"
               type="email"
-              label="Please leave me your e-mail so I can contact you back 🙏"
+              label="Please leave me your e-mail so I can contact you back"
               placeholder="Email address"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
               input-class="w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"
