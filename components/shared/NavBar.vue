@@ -48,9 +48,9 @@ export default ({
       this.handleScrollBack();
     },
     customClass(menu) {
-      if (menu.active) return 'bg-teal-700 text-white pointer-events-none shadow-lg border border-transparent';
+      if (menu.active) return 'bg-teal-600 md:bg-teal-700 text-white pointer-events-none shadow-lg border border-gray-600 md:border-transparent';
 
-      return this.isScrolling ? 'bg-white text-black border border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
+      return this.isScrolling ? 'bg-white text-black border border-gray-600 md:border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     },
     handleScrollBack() {
       const navbar = document.getElementById('navbar');
