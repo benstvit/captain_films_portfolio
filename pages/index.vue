@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!isLoading" class="flex flex-col justify-center overflow-hidden">
+  <section v-if="!isLoading" class="flex flex-col justify-center" :style="{ contain: 'paint'}">
     <header id="header">
       <MobileMenu
         v-if="!menuDisplay"
@@ -19,7 +19,7 @@
         @close-modal="displayModal = false"
         @toggle-menu="setMenu"/>
     </header>
-    <main class="">
+    <main>
       <PhotographyPage
         v-if="isOpen('Gallery')"
         :photos="bannerPhotos"/>
