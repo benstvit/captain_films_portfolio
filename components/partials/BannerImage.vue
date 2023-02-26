@@ -29,14 +29,13 @@
             :class="menuDisplay && !menu.error && 'flex-grow'">
             <nuxt-img
               v-if="menu.enabled"
-              class="object-cover object-bottom "
-              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'h-[24vh] md:h-[32vh] lg:h-[50vh] w-auto object-contain shadow-lg rounded-sm w-full '"
+              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-lg rounded-sm w-full '"
               :src="menu.url"
               :alt="menu.title"/>
           </div >
           <h1
             v-if="menu.enabled"
-            class="absolute top-[45%] font-captainlight text-centertext-lg sm:text-xl lg:text-3xl opacity-90"
+            class="absolute top-[45%] font-captainlight text-center sm:text-xl lg:text-3xl opacity-90"
             :class="menu.error ? 'text-gray-700': 'text-white'">
             {{ menu.title }}
           </h1>
