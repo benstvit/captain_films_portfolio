@@ -57,7 +57,6 @@ export default {
   },
   watch: {
     async active(newValue) {
-      console.log(newValue.title);
       this.isLoading = true;
       await this.fetchPhotos({ payload: newValue});
       this.isLoading = false;
