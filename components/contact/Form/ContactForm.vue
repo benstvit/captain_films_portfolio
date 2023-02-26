@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="w-full bg-gray-100 shadow-inner text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-4 lg:mx-0 lg:my-2 p-2">
+    <div class="w-max-full bg-gray-100 shadow-inner text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-4 lg:mx-0 lg:my-2 p-2">
       <p class="py-4 font-cormorant text-xs md:text-base lg:text-lg">
         <span class="text-xs md:text-base lg:text-lg not-italic font-captainbold pb-8">Why film photography ?</span><br>
         Each photograph has its own identity, its history and is therefore <span class="text-teal-700">unique</span>.<br>
@@ -26,7 +26,7 @@
               <FormulateInput
               name="email"
               type="email"
-              label="Please leave me your e-mail so I can contact you back 🙏"
+              label="Please leave me your e-mail so I can contact you back"
               placeholder="Email address"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
               input-class="w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"

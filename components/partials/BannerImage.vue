@@ -10,10 +10,10 @@
           class="w-10 h-10 md:w-16 md:h-16"
           src="/logo-solo.png">
         </nuxt-img>
-        <h1 class="font-captainbold text-center text-sm md:text-md text-black">
+        <h1 class="font-captainlight text-center text-[0.7rem] md:text-sm text-black">
           Captain Films
         </h1>
-        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
+        <p class="font-captainlight text-center italic text-[0.6rem] md:text-xs pb-4 text-black">
           Film Photography
         </p>
       </div>
@@ -30,7 +30,7 @@
             <nuxt-img
               v-if="menu.enabled"
               class="object-cover object-bottom "
-              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'h-[24vh] md:h-[32vh] lg:h-[50vh] md:w-auto object-cover shadow-lg rounded-sm w-full '"
+              :class="menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white' : 'h-[24vh] md:h-[32vh] lg:h-[50vh] w-auto object-contain shadow-lg rounded-sm w-full '"
               :src="menu.url"
               :alt="menu.title"/>
           </div >

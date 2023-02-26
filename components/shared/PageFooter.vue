@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-col items-center justify-center gap-2 w-full bg-gray-50 pt-4 pb-1">
-    <div class="flex justify-center items-center gap-8">
+  <div class="flex flex-col items-center justify-center gap-2 w-full bg-gray-50 pt-4 pb-2">
+    <div class="flex justify-center items-center gap-4 md:gap-8">
       <a
         href="https://www.instagram.com/captain_films/"
         target="_blank"
