@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="w-full bg-gray-100 shadow-inner text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-4 lg:mx-0 lg:my-2 p-2">
+    <div class="w-max-full bg-gray-100 shadow-inner text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-4 lg:mx-0 lg:my-2 p-2">
       <p class="py-4 font-cormorant text-xs md:text-base lg:text-lg">
         <span class="text-xs md:text-base lg:text-lg not-italic font-captainbold pb-8">Why film photography ?</span><br>
         Each photograph has its own identity, its history and is therefore <span class="text-teal-700">unique</span>.<br>
@@ -22,7 +22,7 @@
           @submit="handleSubmit"
           #default="{ hasErrors }"
           >
-            <div class="flex justify-center md:justify-between items-center md:items-start lg:gap-12 flex-wrap">
+            <div class="flex justify-between items-start lg:gap-12 flex-wrap">
               <FormulateInput
               name="email"
               type="email"

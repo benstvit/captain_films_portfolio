@@ -10,10 +10,10 @@
           class="w-10 h-10 md:w-16 md:h-16"
           src="/logo-solo.png">
         </nuxt-img>
-        <h1 class="font-captainbold text-center text-sm md:text-md text-black">
+        <h1 class="font-captainlight text-center text-[0.7rem] md:text-md text-black">
           Captain Films
         </h1>
-        <p class="font-captainlight text-center italic text-xs pb-4 text-black">
+        <p class="font-captainlight text-center italic text-[0.6rem] pb-4 text-black">
           Film Photography
         </p>
       </div>
