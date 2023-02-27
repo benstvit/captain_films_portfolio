@@ -102,7 +102,6 @@ export default {
       return this.activeMenu[0].title === pageTitle
     },
     navigateTo(payload) {
-      console.log(payload);
       if (payload === 'Home') return this.resetHome();
 
       this.reset()
