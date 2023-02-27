@@ -13,10 +13,14 @@
         <h1 class="font-captainlight text-center text-[0.7rem] md:text-sm text-black">
           Captain Films
         </h1>
-        <p class="font-captainlight text-center italic text-[0.6rem] md:text-xs pb-4 text-black">
+        <p class="font-captainlight text-center italic text-[0.6rem] md:text-xs md:pb-4 text-black">
           Film Photography
         </p>
       </div>
+      <MobileMenu
+        v-if="!menuDisplay"
+        class="block md:hidden"
+        :active-page="menus"/>
       <div class="relative grid grid-cols-6">
         <div id="image-wrapper"
           v-for="menu in menus"
@@ -46,9 +50,13 @@
 </template>
 
 <script>
+import MobileMenu from './MobileMenu.vue'
 
 export default {
   name:"BannerImage",
+  components: {
+    MobileMenu
+  },
   props: {
     menus: {
       type: Array,

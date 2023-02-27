@@ -1,17 +1,13 @@
 <template>
   <section v-if="!isLoading" class="flex flex-col justify-center" :style="{ contain: 'paint'}">
     <header id="header">
-      <MobileMenu
-        v-if="!menuDisplay"
-        class="block md:hidden"
-        :active-page="enabledMenu"
-        @navigate="navigateTo"/>
       <SharedBanner
         :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)' }"
         class="overflow-hidden"
         :menus="enabledMenu"
         @reset-menu="resetHome"
-        @toggle-menu="setMenu"/>
+        @toggle-menu="setMenu"
+        @navigate="navigateTo"/>
       <IntroductionModal
         id="modal"
         v-if="isOpen('Gallery')"
@@ -106,6 +102,7 @@ export default {
       return this.activeMenu[0].title === pageTitle
     },
     navigateTo(payload) {
+      console.log(payload);
       if (payload === 'Home') return this.resetHome();
 
       this.reset()

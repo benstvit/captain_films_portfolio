@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex justify-center items-center pt-4 px-8">
+    <div class="flex justify-center items-center p-2 pb-1 px-8">
         <Transition name="fade">
           <div class="flex justify-start w-fit px-2 py-2">
             <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-800 ml-4 text-xs dark:text-white">
@@ -44,7 +44,7 @@ export default {
     },
     navigateTo(menu) {
       const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
-      this.$emit('navigate', payload);
+      this.$parent.$emit('navigate', payload);
     },
   }
 }
