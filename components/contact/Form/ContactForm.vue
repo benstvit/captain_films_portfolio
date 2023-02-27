@@ -59,7 +59,7 @@
             type="submit"
             :label="isLoading ? 'Sending message...' : 'Send message'"
             :class="hasErrors ? 'font-light md:cursor-none bg-teal-700 md:bg-gray-200 text-white md:text-gray-500 md:hover:cursor-not-allowed' : 'transition ease-in text-black hover:border-transparent bg-white hover:bg-teal-700 hover:cursor-pointer hover:shadow-lg hover:text-white'"
-            class="text-base md:text-lg lg:text-xl font-cormorant w-fit px-4 py-2 border border-black"
+            class="text-base md:text-lg lg:text-xl font-cormorant w-fit px-4 py-2 border border-transparent md:border-black"
           />
         </FormulateForm>
       </div>
