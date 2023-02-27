@@ -14,7 +14,8 @@
           class="shrink-0 lg:shrink"
           :menus="menus"
           :menu-display="menuDisplay"
-          @select-menu="selectMenu"/>
+          @select-menu="selectMenu"
+          @navigate="navigateTo"/>
         <NavigateRight
           v-if="!menuDisplay"
           class="pt-32 mx-2 lg:mx-10 hidden md:block"
@@ -66,6 +67,9 @@ export default {
     },
   },
   methods: {
+    navigateTo(payload) {
+      this.$emit('navigate', payload)
+    },
     resetMenu() {
       this.$emit('reset-menu');
     },
