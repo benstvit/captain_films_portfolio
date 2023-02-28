@@ -2,8 +2,9 @@
   <section v-if="!isLoading" class="flex flex-col justify-center" :style="{ contain: 'paint'}">
     <header id="header">
       <SharedBanner
-        :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)' }"
-        class="overflow-hidden"
+        id="banner"
+        :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)', opacity: bannerOpacity }"
+        class="transition ease-out duration-300"
         :menus="enabledMenu"
         @reset-menu="resetHome"
         @toggle-menu="setMenu"
@@ -48,6 +49,8 @@ export default {
   name: "HomePage",
   data() {
     return {
+      bannerHeight: null,
+      bannerOpacity: 100,
       bannerPhotos: null,
       isLoading: true,
       displayModal: '',
@@ -94,7 +97,12 @@ export default {
     ...mapActions({ fetchPhotos: 'banner/fetch' }),
 
     handleScroll() {
-      this.translateY = window.scrollY / 2; // You can adjust the division value to control the speed of the translation
+      if (!this.bannerHeight) return this.bannerHeight = document.getElementById('banner').offsetHeight;
+      if (document.body.offsetHeight > 2 * this.bannerHeight) {
+        this.translateY = window.scrollY / 2; // You can adjust the division value to control the speed of the translation
+        const opacity = Math.round((this.translateY / 300) * 10) / 10;
+        this.bannerOpacity = 1 - opacity;
+      }
     },
     isOpen(pageTitle) {
       if (!this.activeMenu) return null;

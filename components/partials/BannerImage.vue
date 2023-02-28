@@ -7,7 +7,7 @@
         v-if="!menuDisplay"
         class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-80 hover:opacity-100 text-center">
         <nuxt-img
-          class="w-10 h-10 md:w-16 md:h-16"
+          class="w-12 h-12 md:w-20 md:h-20"
           src="/logo-solo.png">
         </nuxt-img>
         <h1 class="font-captainlight text-center text-[0.7rem] md:text-sm text-black">
