@@ -41,7 +41,7 @@ export default ({
   },
   components: {
     stickyClass() {
-      return this.formattedSubmenus[0].page === 'photo' ? 'fixed sticky top-10 z-10' : '';
+      if (this.formattedSubmenus[0].page === 'photo') return 'fixed sticky top-10 z-10';
     }
   },
   watch: {
@@ -58,7 +58,7 @@ export default ({
       this.handleScrollBack();
     },
     customClass(menu) {
-      if (menu.active) return 'bg-teal-700 text-white pointer-events-none shadow-lg border border-gray-600 border-transparent';
+      if (menu.active) return 'hover:bg-teal-700 bg-teal-700 hover:text-white text-white pointer-events-none shadow-lg border border-transparent';
 
       return this.isScrolling ? 'bg-white text-black border border-black md:border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     },
