@@ -99,7 +99,7 @@ export default {
 
     handleScroll() {
       if (!this.bannerHeight) return this.bannerHeight = document.getElementById('banner').offsetHeight;
-      if (document.body.offsetHeight > 2 * this.bannerHeight) {
+      if (document.body.offsetHeight > (3 * this.bannerHeight)) {
         this.translateY = window.scrollY / 2; // You can adjust the division value to control the speed of the translation
         const opacity = Math.round((this.translateY / 300) * 10) / 10;
         this.bannerOpacity = 1 - opacity;

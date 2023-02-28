@@ -41,7 +41,7 @@ export default ({
   },
   components: {
     stickyClass() {
-      return this.formattedSubmenus[0].page === 'photo' ? 'fixed sticky top-10 z-10' : '';
+      if (this.formattedSubmenus[0].page === 'photo') return 'fixed sticky top-10 z-10';
     }
   },
   watch: {
