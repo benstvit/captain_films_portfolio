@@ -2,7 +2,6 @@
   <section>
     <NavBar
         @active-submenu="setActiveSubmenu"
-        :is-scrolling="introY"
         :submenus="submenus" />
     <keep-alive>
       <div id="form" class="mt-12">
@@ -31,8 +30,8 @@ export default {
       activeSubmenu: {},
       introY: false,
       submenus: [
-        { title: 'Contact Me', active: true },
-        { title: 'Partners', active: false },
+        { title: 'Contact Me', active: true, page: 'contact' },
+        { title: 'Partners', active: false, page: 'contact' },
       ]
     }
   },

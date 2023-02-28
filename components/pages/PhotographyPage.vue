@@ -31,12 +31,12 @@ export default {
       activeSubmenu: {},
       galleryY: false,
       submenus: [
-        { title: 'New Arrival', active: false },
-        { title: 'By the Seas', active: true },
-        { title: 'Here, there & everywhere', active: false },
-        { title: 'Live Music', active: false },
-        { title: 'Portraits', active: false },
-        { title: 'Wild Life', active: false }],
+        { title: 'New Arrival', active: false, page: 'photo' },
+        { title: 'By the Seas', active: true, page: 'photo' },
+        { title: 'Here, there & everywhere', active: false, page: 'photo' },
+        { title: 'Live Music', active: false, page: 'photo' },
+        { title: 'Portraits', active: false, page: 'photo' },
+        { title: 'Wild Life', active: false, page: 'photo' }],
     }
   },
   components: {

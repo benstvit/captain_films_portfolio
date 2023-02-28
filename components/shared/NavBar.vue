@@ -1,5 +1,5 @@
 <template>
-  <section id="navbar" class="fixed sticky top-10 z-10">
+  <section id="navbar" :class="page === 'photo' && 'fixed sticky top-10 z-10'">
     <div class="flex flex-wrap md:flex-nowrap justify-center my-2 md:my-8">
       <div
         v-for="(menu, index) in formattedSubmenus"
@@ -32,6 +32,12 @@ export default ({
   data () {
     return {
       formattedSubmenus: [],
+      page: ''
+    }
+  },
+  components: {
+    stickyClass() {
+      return this.formattedSubmenus[0].page === 'photo' ? 'fixed sticky top-10 z-10' : '';
     }
   },
   watch: {
@@ -61,6 +67,7 @@ export default ({
     }
   },
   async mounted() {
+    this.page = this.submenus[0].page;
     this.formattedSubmenus = this.submenus;
   },
 })
