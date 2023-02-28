@@ -65,7 +65,7 @@ export default ({
     handleScrollBack() {
       const navbar = document.getElementById('navbar');
       window.scrollTo(0, 0)
-      if (!this.isLoading) {
+      if (!this.isLoading && window.innerWidth > 640) {
         setTimeout(() => {
           navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
         }, 500);
