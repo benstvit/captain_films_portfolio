@@ -14,8 +14,8 @@
           class="shrink-0 lg:shrink"
           :menus="menus"
           :menu-display="menuDisplay"
-          @select-menu="selectMenu"
-          @navigate="navigateTo"/>
+          @navigate="navigateTo"
+          @select-menu="selectMenu"/>
         <NavigateRight
           v-if="!menuDisplay"
           class="pt-32 mx-2 lg:mx-10 hidden md:block"

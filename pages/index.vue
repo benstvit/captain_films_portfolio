@@ -19,7 +19,8 @@
     <main>
       <PhotographyPage
         v-if="isOpen('Gallery')"
-        :photos="bannerPhotos"/>
+        :photos="bannerPhotos"
+        @reset-translateY="resetTranslateY"/>
       <ShowRoomPage
         v-if="isOpen('Showroom')" />
       <ContactPage
@@ -122,6 +123,10 @@ export default {
     resetHome() {
       this.activeSubmenu = {};
       this.bannerPhotos.forEach(photo => photo.enabled = true);
+    },
+    resetTranslateY() {
+      this.translateY = 0;
+      this.bannerOpacity = 1;
     },
     scrollToTop() {
       const header = document.getElementById('header');

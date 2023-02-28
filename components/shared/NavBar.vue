@@ -6,7 +6,7 @@
         :key="index"
         class="w-fit">
         <button
-          @click="activate(menu.title)"
+          @click.stop="activate(menu.title)"
           class="text-sm md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-1 lg:px-4 py-1 mx-2 my-2 md:my-0"
           :class="customClass(menu)">
           {{ menu.title }}
@@ -64,12 +64,13 @@ export default ({
     },
     handleScrollBack() {
       const navbar = document.getElementById('navbar');
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0)
       if (!this.isLoading) {
         setTimeout(() => {
           navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
-        }, 300);
+        }, 500);
       }
+      this.$parent.$emit('reset-translateY')
     }
   },
   async mounted() {
