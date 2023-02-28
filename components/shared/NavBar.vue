@@ -24,6 +24,10 @@ export default ({
       type: Array,
       default: () => []
     },
+    isLoading: {
+      type: Boolean,
+      default: true,
+    },
     isScrolling: {
       type: Boolean,
       default: false,
@@ -61,9 +65,11 @@ export default ({
     handleScrollBack() {
       const navbar = document.getElementById('navbar');
       window.scrollTo(0, 0);
-      setTimeout(() => {
-        navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
-      }, 300);
+      if (!this.isLoading) {
+        setTimeout(() => {
+          navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
+        }, 300);
+      }
     }
   },
   async mounted() {

@@ -3,12 +3,14 @@
     <NavBar
       @active-submenu="setActiveSubmenu"
       :is-scrolling="galleryY"
+      :is-loading="isLoading"
       :submenus="submenus" />
       <keep-alive>
         <PhotoGallery
           id="gallery"
           v-if="activeSubmenu.title"
           :active="activeSubmenu"
+          @set-loading="setLoadingStatus"
         />
       </keep-alive>
   </section>
@@ -30,6 +32,7 @@ export default {
     return {
       activeSubmenu: {},
       galleryY: false,
+      isLoading: false,
       submenus: [
         { title: 'New Arrival', active: false, page: 'photo' },
         { title: 'By the Seas', active: true, page: 'photo' },
@@ -50,6 +53,9 @@ export default {
     },
     setActiveSubmenu(event) {
       this.activeSubmenu = event
+    },
+    setLoadingStatus(payload) {
+      this.isLoading = payload;
     }
   },
 }

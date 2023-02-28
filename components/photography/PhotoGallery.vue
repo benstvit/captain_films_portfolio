@@ -60,6 +60,9 @@ export default {
       this.isLoading = true;
       await this.fetchPhotos({ payload: newValue});
       this.isLoading = false;
+    },
+    isLoading(newValue) {
+      this.$emit('set-loading', newValue);
     }
   },
   methods: {
