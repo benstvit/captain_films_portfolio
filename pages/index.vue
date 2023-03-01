@@ -28,9 +28,10 @@
     </main>
     <footer>
       <Footer
-        @navigate="navigateTo"
+        v-if="activeMenu"
         :active-page="enabledMenu"
-        v-if="activeMenu"/>
+        @navigate="navigateTo"
+        @reset-translateY="resetTranslateY"/>
     </footer>
   </section>
 </template>

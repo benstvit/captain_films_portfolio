@@ -55,7 +55,8 @@ export default {
     },
     navigateTo(menu) {
       const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
-      this.$emit('navigate', payload)
+      this.$emit('reset-translateY');
+      this.$emit('navigate', payload);
     }
   },
 }
