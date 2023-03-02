@@ -3,7 +3,7 @@ import createSitemapRoutes from "./utils/createSitemap";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Captain Films Portfolio",
+    title: "Captain Films - Film Photography",
     htmlAttrs: {
       lang: "en-US",
     },
@@ -14,7 +14,7 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/cffavicon.jpg" },
+      { rel: "icon", type: "image/x-icon", href: "/cffavicon.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
