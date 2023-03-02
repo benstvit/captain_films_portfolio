@@ -19,7 +19,7 @@
     </h1>
     <p
       class="font-captainlight text-center italic text-[0.6rem] md:text-xs md:pb-4 sm:font-bold md:font-normal text-white md:text-black"
-      :class="menuDisplay ? 'font-bold text-white' : 'font-normal text-black'">
+      :class="menuDisplay ? 'text-white' : 'font-normal text-black'">
       Film Photography
     </p>
   </div>
