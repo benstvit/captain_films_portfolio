@@ -7,9 +7,10 @@
       <span @click="closeModal" class="absolute top-2 right-4 hover:text-black cursor-pointer text-gray-500 float-right font-bold text-2xl md:text-4xl">&times;</span>
       <div class="flex flex-col justify-between items-center divide-y-1 p-4 gap-4 my-2 font-captainlight text-center">
         <nuxt-img class="h-14 w-14" src="/aileron.png"/>
-        <p class="text-xs md:text-base"> Welcome to my porfolio and thanks for visiting !</p>
-        <p class="text-xs md:text-base"> All my photographs were shot on 35mm film in various places around the world. All photos are available to be printed in different formats on cotton paper of great quality.</p>
-        <p class="text-xs md:text-base"> <span class="italic">Curious ?</span> Take a look at <span class="underline decoration-3 cursor-pointer hover:font-bold" @click="navigateToGallery">the final result</span> in the home of the people who took the plunge.</p>
+        <p class="text-xs md:text-base"> Welcome and thanks for visiting !</p>
+        <p class="text-xs md:text-base"> All photographs were shot on 35mm film in various places around the world. They are all available to be printed and framed in different formats on cotton paper of great quality.</p>
+        <p class="text-xs md:text-base"> Curious ? Take a look at <span class="underline decoration-3 cursor-pointer hover:font-bold" @click="navigateToGallery">the final result</span> in the home of the people who took the plunge.</p>
+        <p class="text-xs md:text-base">As a web developer, I coded this portfolio from scratch to share my passions.</p>
         <p class="text-lg md:text-2xl font-handwritten">Captain Films.</p>
       </div>
     </div>
