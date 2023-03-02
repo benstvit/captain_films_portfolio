@@ -1,25 +1,12 @@
 <template>
   <section>
     <div class="flex flex-col justify-center items-center md:gap-4 mx-4">
-      <div
-        id="captain-logo"
-        @click="resetMenu"
+      <CaptainFilmsLogo
         v-if="!menuDisplay"
-        class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-80 hover:opacity-100 text-center">
-        <nuxt-img
-          class="w-12 h-12 md:w-20 md:h-20"
-          src="/logo-solo.png">
-        </nuxt-img>
-        <h1 class="font-captainlight text-center text-[0.7rem] md:text-sm text-black">
-          Captain Films
-        </h1>
-        <p class="font-captainlight text-center italic text-[0.6rem] md:text-xs md:pb-4 text-black">
-          Film Photography
-        </p>
-      </div>
+        @reset-menu="resetMenu" />
       <MobileMenu
-        v-if="!menuDisplay"
         class="block md:hidden"
+        :menu-display="menuDisplay"
         :active-page="menus"/>
       <div class="relative grid grid-cols-6">
         <div id="image-wrapper"
@@ -50,11 +37,13 @@
 </template>
 
 <script>
+import CaptainFilmsLogo from './CaptainFilmsLogo.vue'
 import MobileMenu from './MobileMenu.vue'
 
 export default {
   name:"BannerImage",
   components: {
+    CaptainFilmsLogo,
     MobileMenu
   },
   props: {

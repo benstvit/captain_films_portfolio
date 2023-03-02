@@ -1,7 +1,7 @@
 <template>
   <section v-show="menus">
     <div class="relative flex justify-center items-center">
-      <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
+      <CaptainFilmsText :class="menuDisplay ? 'block' : 'hidden'"/>
       <div class="flex justify-center items-center">
         <NavigateLeft
           v-if="!menuDisplay"
@@ -22,14 +22,14 @@
           :pageIndex="pageIndex"
           @toggle-menu="toggleMenu" />
       </div >
-      <CaptainFilmsLogo :class="menuDisplay ? 'block' : 'hidden'"/>
+      <CaptainFilmsText :class="menuDisplay ? 'block' : 'hidden'"/>
     </div>
   </section>
 </template>
 
 <script>
 import BannerImage from "../../partials/BannerImage.vue"
-import CaptainFilmsLogo from "../../partials/CaptainFilmsLogo.vue"
+import CaptainFilmsText from "../../partials/CaptainFilmsText.vue"
 import NavigateLeft from "./NavigateLeft.vue"
 import NavigateRight from "./NavigateRight.vue"
 
@@ -42,7 +42,7 @@ export default {
   },
   components: {
     BannerImage,
-    CaptainFilmsLogo,
+    CaptainFilmsText,
     NavigateLeft,
     NavigateRight
   },
