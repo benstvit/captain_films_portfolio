@@ -3,6 +3,7 @@
     <div class="flex flex-col justify-center items-center md:gap-4 mx-4">
       <CaptainFilmsLogo
         v-if="!menuDisplay"
+        :menu-display="menuDisplay"
         @reset-menu="resetMenu" />
       <MobileMenu
         class="block md:hidden"
