@@ -1,5 +1,5 @@
 <template>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-4 w-4 md:h-12 md:w-12 hover:cursor-pointer" width="400" height="400" viewBox="0 0 400 400" stroke-width="2.3" :stroke="stroke" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="h-12 w-12 hover:cursor-pointer" width="400" height="400" viewBox="0 0 400 400" stroke-width="2.3" :stroke="stroke" fill="none">
   <defs>
     <style>
       .cls-1 {
