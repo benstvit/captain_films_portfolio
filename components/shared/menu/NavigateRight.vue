@@ -7,7 +7,7 @@
           @click="toggleMenu('right')">
           <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
-              <ShowroomSvg :stroke="showroom.stroke" />
+              <ShowroomSvg2 :stroke="showroom.stroke" />
               <h2 class="font-cormorant text-base lg:text-lg">Showroom</h2>
             </div >
             <RightArrowSvg />
@@ -49,7 +49,7 @@
 import ContactSvg from "../../svg/ContactSvg.vue"
 import GallerySvg2 from "../../svg/GallerySvg2.vue"
 import RightArrowSvg from "../../svg/RightArrowSvg.vue"
-import ShowroomSvg from "../../svg/ShowroomSvg.vue"
+import ShowroomSvg2 from "../../svg/ShowroomSvg2.vue"
 
 export default {
   name: 'NavigateRight',
@@ -57,7 +57,7 @@ export default {
     ContactSvg,
     GallerySvg2,
     RightArrowSvg,
-    ShowroomSvg
+    ShowroomSvg2
   },
   props: {
     pageIndex: {
