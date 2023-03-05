@@ -5,7 +5,7 @@
       <div class="flex justify-center items-center">
         <NavigateLeft
           v-if="!menuDisplay"
-          class="pt-32 mx-2 lg:mx-10 hidden md:block"
+          class="hidden md:block pt-32 mx-4 lg:mx-10"
           :pageIndex="pageIndex"
           @reset-menu="resetMenu"
           @toggle-menu="toggleMenu"/>
@@ -18,7 +18,7 @@
           @select-menu="selectMenu"/>
         <NavigateRight
           v-if="!menuDisplay"
-          class="pt-32 mx-2 lg:mx-10 hidden md:block"
+          class="hidden md:block pt-32 mx-4 lg:mx-10"
           :pageIndex="pageIndex"
           @toggle-menu="toggleMenu" />
       </div >
