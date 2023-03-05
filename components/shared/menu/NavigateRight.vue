@@ -35,7 +35,7 @@
           @click="toggleMenu('rewind')">
           <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
-              <GallerySvg :stroke="gallery.stroke" />
+              <GallerySvg2 :stroke="gallery.stroke" />
               <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
             </div >
             <RightArrowSvg />
@@ -47,7 +47,7 @@
 
 <script>
 import ContactSvg from "../../svg/ContactSvg.vue"
-import GallerySvg from "../../svg/GallerySvg.vue"
+import GallerySvg2 from "../../svg/GallerySvg2.vue"
 import RightArrowSvg from "../../svg/RightArrowSvg.vue"
 import ShowroomSvg from "../../svg/ShowroomSvg.vue"
 
@@ -55,7 +55,7 @@ export default {
   name: 'NavigateRight',
   components: {
     ContactSvg,
-    GallerySvg,
+    GallerySvg2,
     RightArrowSvg,
     ShowroomSvg
   },

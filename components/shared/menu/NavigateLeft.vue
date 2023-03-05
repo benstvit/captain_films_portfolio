@@ -22,7 +22,7 @@
         <div class="flex justify-center items-center h-fit gap-4">
           <LeftArrowSvg />
           <div class="flex flex-col justify-center items-center">
-            <GallerySvg :stroke="gallery.stroke" />
+            <GallerySvg2 :stroke="gallery.stroke" />
             <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
           </div >
         </div>
@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import GallerySvg from "../../svg/GallerySvg.vue"
+import GallerySvg2 from "../../svg/GallerySvg2.vue"
 import HomeSvg2 from "../../svg/HomeSvg2.vue"
 import LeftArrowSvg from "../../svg/LeftArrowSvg.vue"
 import ShowroomSvg from "../../svg/ShowroomSvg.vue"
@@ -54,7 +54,7 @@ import ShowroomSvg from "../../svg/ShowroomSvg.vue"
 export default {
   name: 'NavigateLeft',
   components: {
-    GallerySvg,
+    GallerySvg2,
     HomeSvg2,
     LeftArrowSvg,
     ShowroomSvg
