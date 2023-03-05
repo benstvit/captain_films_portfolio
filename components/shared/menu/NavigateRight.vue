@@ -7,7 +7,7 @@
           @click="toggleMenu('right')">
           <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
-              <ShowroomSvg2 :stroke="showroom.stroke" />
+              <ShowroomSvg :stroke="showroom.stroke" />
               <h2 class="font-cormorant text-base lg:text-lg">Showroom</h2>
             </div >
             <RightArrowSvg />
@@ -21,7 +21,7 @@
           @click="toggleMenu('right')">
          <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
-              <ContactSvg2 :stroke="contact.stroke" />
+              <ContactSvg :stroke="contact.stroke" />
               <h2 class="font-cormorant text-base lg:text-lg">Contact</h2>
             </div >
             <RightArrowSvg />
@@ -35,7 +35,7 @@
           @click="toggleMenu('rewind')">
           <div class="flex justify-center items-center h-fit gap-4">
             <div class="flex flex-col justify-center items-center">
-              <GallerySvg2 :stroke="gallery.stroke" />
+              <GallerySvg :stroke="gallery.stroke" />
               <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
             </div >
             <RightArrowSvg />
@@ -46,18 +46,18 @@
 </template>
 
 <script>
-import ContactSvg2 from "../../svg/ContactSvg2.vue"
-import GallerySvg2 from "../../svg/GallerySvg2.vue"
+import ContactSvg from "../../svg/ContactSvg.vue"
+import GallerySvg from "../../svg/GallerySvg.vue"
 import RightArrowSvg from "../../svg/RightArrowSvg.vue"
-import ShowroomSvg2 from "../../svg/ShowroomSvg2.vue"
+import ShowroomSvg from "../../svg/ShowroomSvg.vue"
 
 export default {
   name: 'NavigateRight',
   components: {
-    ContactSvg2,
-    GallerySvg2,
+    ContactSvg,
+    GallerySvg,
     RightArrowSvg,
-    ShowroomSvg2
+    ShowroomSvg
   },
   props: {
     pageIndex: {
