@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center gap-2 w-full bg-gray-50 pt-4 pb-2">
+  <div class="flex flex-col items-center justify-center gap-2 w-full bg-gray-50 pt-4 pb-2 px-4 md:px-0">
     <div class="flex justify-center items-center gap-4 md:gap-8">
       <a
         href="https://www.instagram.com/captain_films/"
@@ -20,7 +20,7 @@
       </ul>
     </div>
     <p class="text-xs font-sans italic text-center px-2 pt-1">
-      © All work contained within this blog is Captain Films | Benjamin Saint Viteux 2015-2022 unless otherwise noted and may not be copied, downloaded, blogged, distributed, or reproduced in any form without express written consent.
+      © All work contained within this blog is Captain Films | Benjamin Saint Viteux 2015-2022.
     </p>
     <p class="text-xs font-sans text-center">Portfolio coded with 💙 by Benjamin Saint Viteux (Captain Films) in Vue.js</p>
   </div>

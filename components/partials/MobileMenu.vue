@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      menus: ['Home', 'Gallery', 'Showroom', 'Contact me'],
+      menus: ['Gallery', 'Showroom', 'Contact me'],
     }
   },
   methods: {
