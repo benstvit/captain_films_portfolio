@@ -8,7 +8,7 @@
       :src="'logo-solo.png'">
     </nuxt-img>
     <nuxt-img
-      class="w-12 h-12 md:w-20 md:h-20"
+      class="w-14 h-14 md:w-20 md:h-20"
       :class="menuDisplay ? 'block md:hidden' : 'hidden'"
       src="logo-solo-white.png">
     </nuxt-img>

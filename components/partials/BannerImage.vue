@@ -45,7 +45,7 @@ export default {
   name:"BannerImage",
   components: {
     CaptainFilmsLogo,
-    MobileMenu
+    MobileMenu,
   },
   props: {
     menus: {
@@ -68,5 +68,8 @@ export default {
       this.$emit('select-menu', index)
     },
   },
+  mounted() {
+    console.log(this.menus)
+  }
 }
 </script>
