@@ -1,8 +1,8 @@
 <template>
   <section>
-    <CaptainFilmsLogo
+    <!-- <CaptainFilmsLogo
       v-if="menuDisplay"
-      class="hover:invert absolute top-0 right-1/3 left-1/3 z-20" />
+      class="hover:invert absolute top-0 right-1/3 left-1/3 z-20" /> -->
     <div
       v-if="!menuDisplay"
       class="flex justify-center items-center p-2 pb-1 px-8">
@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      menus: ['Home', 'Gallery', 'Showroom', 'Contact me'],
+      menus: ['Gallery', 'Showroom', 'Contact me'],
     }
   },
   methods: {
