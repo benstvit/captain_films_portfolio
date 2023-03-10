@@ -11,7 +11,7 @@
         data-aos-easing="ease-in-sine"
         data-aos="fade-in"
         data-aos-duration="500"
-        :data-aos-offset="photo.index === 1 ? '400' : '200'">
+        :data-aos-offset="photo.index === 1 ? '300' : '200'">
         <viewer>
           <keep-alive>
             <nuxt-img
