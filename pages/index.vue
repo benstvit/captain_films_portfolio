@@ -22,7 +22,9 @@
         :photos="bannerPhotos"
         @reset-translateY="resetTranslateY"/>
       <ShowRoomPage
-        v-if="isOpen('Showroom')" />
+        v-if="isOpen('Showroom')"
+        @reset-translateY="resetTranslateY"
+        @toggle-menu="setMenu"/>
       <ContactPage
         v-if="isOpen('Contact me | Order your pic')" />
     </main>

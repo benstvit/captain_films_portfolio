@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center h-full mt-16 py-8 lg:px-12">
+    <div class="flex flex-col justify-center items-center h-full mt-4 md:mt-16 py-8 lg:px-12">
     <GalleryLoader v-if="isLoading" />
       <div
         v-else
@@ -10,7 +10,8 @@
         :class="photo.index % 2 === 0 ? 'self-center sm:self-end mx-2 sm:mx-0 sm:mr-12' : 'self-center sm:self-start mx-2 sm:mx-0 sm:ml-12'"
         data-aos-easing="ease-in-sine"
         data-aos="fade-in"
-        :data-aos-offset="photo.index === 1 ? '20' : '200'">
+        data-aos-duration="500"
+        :data-aos-offset="photo.index === 1 ? '400' : '200'">
         <viewer>
           <keep-alive>
             <nuxt-img

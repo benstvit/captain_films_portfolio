@@ -58,7 +58,7 @@ export default ({
       this.handleScrollBack();
     },
     customClass(menu) {
-      if (menu.active) return 'hover:bg-teal-700 bg-teal-700 hover:text-white text-white pointer-events-none shadow-lg border border-transparent';
+      if (menu.active) return 'hover:bg-teal-700 animate-pulse bg-teal-700 hover:text-white text-white pointer-events-none shadow-lg border border-transparent';
 
       return this.isScrolling ? 'bg-white text-black border border-black md:border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
     },
