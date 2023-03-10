@@ -1,13 +1,19 @@
 <template>
-  <section>
+  <section class="mt-16">
+    <Transition name="fade">
+      <div
+        v-if="!isScrolling"
+        class="flex justify-center w-full mx-auto font-cormorant text-lg md:text-xl" >
+        ↓ Scroll Down ↓
+      </div>
+    </Transition >
     <div
-      class="flex justify-center items-center w-2/3 p-4 m-4 mt-16 mx-auto transition ease-in"
-      :class="isScrolling ? 'visible' : 'invisible'"
-      data-aos="flip-down"
+      class="flex justify-center items-center w-2/3 p-8 my-20 mx-auto transition ease-in"
+      data-aos="fade-in"
       data-aos-easing="ease-in-sine"
-      data-aos-duration="1000"
-      :data-aos-offset="offSet">
-      <p class="text-center font-cormorant text-lg">
+      data-aos-duration="400"
+      :data-aos-offset="350">
+      <p class="text-center font-cormorant text-base md:text-lg">
         Voici un text d'introduction dont le but est de poser les fondements d'une belle réflexion.
         Voici un text d'introduction dont le but est de poser les fondements d'une belle réflexion.
         Voici un text d'introduction dont le but est de poser les fondements d'une belle réflexion.
@@ -24,13 +30,14 @@ export default {
   name: 'ShowroomIntroduction',
   mixins: [aos],
   props: {
-    isScrolling: {
-      type: Boolean,
-      default: false
-    },
-    offSet: {
+    scrollTop: {
       type: Number,
-      default: 0
+      default: 0,
+    }
+  },
+  computed: {
+    isScrolling() {
+      return this.scrollTop > 50;
     }
   }
 }

@@ -1,9 +1,7 @@
 <template>
   <section>
-    <ShowroomIntroduction
-      :is-scrolling="isScrolling"
-      :off-set="offSet"/>
-    <ShowroomGallery id="gallery" />
+    <ShowroomIntroduction :scroll-top="scrollTop" />
+    <ShowroomGallery />
   </section>
 </template>
 
@@ -19,22 +17,18 @@ export default {
   },
   data() {
     return {
-      isScrolling: false,
-      offSet: 0,
+      scrollTop: 0,
     }
   },
   created () {
-    window.addEventListener('scroll', this.getGalleryPosition);
+    window.addEventListener('scroll', this.handleScroll);
   },
   destroyed () {
-    window.removeEventListener('scroll', this.getGalleryPosition);
+    window.removeEventListener('scroll', this.handleScroll);
   },
   methods: {
-    getGalleryPosition() {
-      const gallery = document.getElementById('gallery');
-      console.log(gallery.getBoundingClientRect().top);
-      this.offSet = gallery.getBoundingClientRect().top;
-      this.isScrolling = this.offSet < 350;
+    handleScroll() {
+      this.scrollTop = window.scrollY;
     },
   }
 }
