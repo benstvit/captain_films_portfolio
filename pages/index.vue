@@ -22,7 +22,9 @@
         :photos="bannerPhotos"
         @reset-translateY="resetTranslateY"/>
       <ShowRoomPage
-        v-if="isOpen('Showroom')" />
+        v-if="isOpen('Showroom')"
+        @reset-translateY="resetTranslateY"
+        @toggle-menu="setMenu"/>
       <ContactPage
         v-if="isOpen('Contact me | Order your pic')" />
     </main>
@@ -137,6 +139,7 @@ export default {
     },
     setMenu(payload) {
       if (payload.direction === 'rewind') return this.bannerPhotos.forEach(menu => menu.index === 1 ? menu.enabled = true : menu.enabled = false);
+      console.log(payload);
 
       const direction = payload.direction === 'right' ? payload.index + 1 : payload.index - 1;
       this.bannerPhotos.forEach(menu => menu.index === direction ? menu.enabled = true : menu.enabled = false)
