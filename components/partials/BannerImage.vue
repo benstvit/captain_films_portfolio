@@ -68,8 +68,5 @@ export default {
       this.$emit('select-menu', index)
     },
   },
-  mounted() {
-    console.log(this.menus)
-  }
 }
 </script>
