@@ -1,19 +1,17 @@
 <template>
   <section class="mt-16">
-    <Transition name="fade">
-      <div
-        :class="isScrolling ? 'invisible' : 'visible'"
-        class="flex justify-center w-full mx-auto font-cormorant text-lg md:text-xl animate-bounce transition ease-in" >
-        <span>↓ Scroll Down ↓</span>
-      </div>
-    </Transition >
     <div
-      class="flex justify-center items-center border-1 border-black w-2/3 p-2 my-2 md:my-16 mx-auto transition ease-in"
+      :class="isScrolling ? 'opacity-0' : 'opacity-100'"
+      class="flex justify-center w-full mx-auto font-cormorant text-lg md:text-xl animate-bounce transition ease-out duration-600" >
+      <span>↓ Scroll Down ↓</span>
+    </div>
+    <div
+      class="flex justify-center items-center rounded-md w-2/3 p-2 my-2 md:my-16 mx-auto"
       data-aos="fade-in"
       data-aos-easing="ease-in-sine"
-      data-aos-duration="600"
-      :data-aos-offset="350">
-      <p class="text-center font-cormorant text-base md:text-lg">
+      data-aos-duration="500"
+      :data-aos-offset="370">
+      <p class="font-cormorant text-center text-base md:text-lg tracking-wide lg:whitespace-nowrap">
         It is always a pleasure to see your photographs leave the digital world of Instagram and Internet
         to come to life in people's homes.<br>
         You will find on this page pictures of the photographs that left the nest to go and live their own life.<br>
