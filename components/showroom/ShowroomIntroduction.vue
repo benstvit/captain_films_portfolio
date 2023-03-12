@@ -6,12 +6,12 @@
       <span>↓ Scroll Down ↓</span>
     </div>
     <div
-      class="flex justify-center items-center border-1 border-black w-2/3 p-2 my-2 md:my-16 mx-auto transition ease-in"
+      class="flex justify-center items-center rounded-md w-2/3 p-2 my-2 md:my-16 mx-auto"
       data-aos="fade-in"
       data-aos-easing="ease-in-sine"
       data-aos-duration="500"
       :data-aos-offset="370">
-      <p class="text-center font-cormorant text-base md:text-lg">
+      <p class="font-cormorant text-center text-base md:text-lg tracking-wide lg:whitespace-nowrap">
         It is always a pleasure to see your photographs leave the digital world of Instagram and Internet
         to come to life in people's homes.<br>
         You will find on this page pictures of the photographs that left the nest to go and live their own life.<br>
