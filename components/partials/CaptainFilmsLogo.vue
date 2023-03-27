@@ -3,8 +3,7 @@
     class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-80 hover:opacity-100 text-center"
     @click="$emit('reset-menu')">
     <nuxt-img
-      class="w-12 h-12 md:w-20 md:h-20"
-      :class="menuDisplay && 'hidden'"
+      :class="{'hidden': menuDisplay, 'w-14 h-14 md:w-20 md:h-20': !loader, 'w-80 h-80': loader }"
       :src="'logo-solo.png'">
     </nuxt-img>
     <nuxt-img
@@ -29,6 +28,10 @@
 export default {
   name: 'CaptainFilmsLogo',
   props: {
+    loader: {
+      type: Boolean,
+      default: false
+    },
     menuDisplay: {
       type: Boolean,
       default: true

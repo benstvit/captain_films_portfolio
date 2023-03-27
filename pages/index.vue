@@ -1,8 +1,14 @@
 <template>
-  <section v-if="!isLoading" class="flex flex-col justify-center" :style="{ contain: 'paint'}">
+  <section class="flex flex-col justify-center" :style="{ contain: 'paint'}">
     <header id="header">
+      <CaptainFilmsLogo
+        v-if="isLoading"
+        class="mx-auto animate-pulse"
+        :menu-display="false"
+        :loader="true"/>
       <SharedBanner
         id="banner"
+        v-else
         :style="!menuDisplay && { transform: 'translateX(' + translateY + 'px)', opacity: bannerOpacity }"
         class="transition ease-out duration-300"
         :menus="enabledMenu"
@@ -39,6 +45,7 @@
 </template>
 
 <script>
+import CaptainFilmsLogo from "../components/partials/CaptainFilmsLogo.vue"
 import ContactPage from "../components/pages/ContactPage.vue"
 import Footer from "../components/shared/PageFooter.vue"
 import IntroductionModal from "../components/shared/IntroductionModal.vue"
@@ -56,12 +63,13 @@ export default {
       bannerHeight: null,
       bannerOpacity: 100,
       bannerPhotos: null,
-      isLoading: true,
       displayModal: '',
+      isLoading: true,
       translateY: 0
     }
   },
   components: {
+    CaptainFilmsLogo,
     ContactPage,
     Footer,
     IntroductionModal,
@@ -92,7 +100,9 @@ export default {
     await this.fetchPhotos();
     window.addEventListener('scroll', this.handleScroll);
     this.bannerPhotos = this.photosData;
-    this.isLoading = false;
+    setInterval(() => {
+      this.isLoading = false;
+    }, 2800);
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
