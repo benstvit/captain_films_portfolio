@@ -8,6 +8,7 @@
             v-if="!partner.selected || menuDisplay"
             :src="partner.imgUrl"
             :alt="partner.name"
+            format="webp"
             @click="setActivePartner(index)"
             class="h-36 md:h-42 lg:h-52 object-contain hover:cursor-pointer hover:opacity-80 hover:opacity-70 md:my-4"/>
           <Transition name="fade">

@@ -5,11 +5,13 @@
     @click="$emit('reset-menu')">
     <div :class="{'hidden': menuDisplay}">
       <nuxt-img
+        format="webp"
         class="w-32 h-32"
         :src="'logo-solo.png'">
       </nuxt-img>
     </div>
     <nuxt-img
+      format="webp"
       class="w-14 h-14 md:w-20 md:h-20"
       :class="menuDisplay ? 'block md:hidden' : 'hidden'"
       src="logo-solo-white.png">
