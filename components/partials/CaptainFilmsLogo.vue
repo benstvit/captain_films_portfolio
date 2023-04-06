@@ -1,12 +1,14 @@
 <template>
   <div
     class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-80 hover:opacity-100 text-center"
+    :class="{'border-black border-2 p-8 w-fit': loader}"
     @click="$emit('reset-menu')">
-    <nuxt-img
-      class="w-12 h-12 md:w-20 md:h-20"
-      :class="menuDisplay && 'hidden'"
-      :src="'logo-solo.png'">
-    </nuxt-img>
+    <div :class="{'hidden': menuDisplay}">
+      <nuxt-img
+        class="w-32 h-32"
+        :src="'logo-solo.png'">
+      </nuxt-img>
+    </div>
     <nuxt-img
       class="w-14 h-14 md:w-20 md:h-20"
       :class="menuDisplay ? 'block md:hidden' : 'hidden'"
@@ -29,6 +31,10 @@
 export default {
   name: 'CaptainFilmsLogo',
   props: {
+    loader: {
+      type: Boolean,
+      default: false
+    },
     menuDisplay: {
       type: Boolean,
       default: true
