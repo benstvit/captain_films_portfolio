@@ -104,7 +104,7 @@ export default {
     this.bannerPhotos = this.photosData;
     setInterval(() => {
       this.isLoading = false;
-    }, 3100);
+    }, 3000);
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
