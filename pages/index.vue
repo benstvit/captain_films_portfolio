@@ -1,5 +1,7 @@
 <template>
-  <section class="flex flex-col justify-center" :style="{ contain: 'paint'}">
+  <section
+    class="flex flex-col justify-center" :style="{ contain: 'paint'}"
+    :class="isLoading && 'h-screen'">
     <header id="header">
       <CaptainFilmsLogo
         v-if="isLoading"
@@ -102,7 +104,7 @@ export default {
     this.bannerPhotos = this.photosData;
     setInterval(() => {
       this.isLoading = false;
-    }, 2800);
+    }, 3200);
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
