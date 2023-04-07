@@ -1,7 +1,7 @@
 <template>
    <section>
     <div
-      class="w-24 flex flex-col justify-center items-center gap-6">
+      class="w-24 flex flex-col justify-center items-center gap-6 mx-4">
       <div class="flex-col justify-center">
         <h1
           v-for="(letter, index) in 'Captain'"

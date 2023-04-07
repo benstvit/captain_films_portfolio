@@ -6,6 +6,7 @@
     <div :class="{'hidden': menuDisplay}">
       <nuxt-img
         format="webp"
+        preload
         :class="{'w-14 h-14 md:w-20 md:h-20': !loader, 'w-32 h-32': loader}"
         alt='loader-logo'
         :src="'logo-solo.png'">

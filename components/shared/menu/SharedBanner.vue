@@ -2,7 +2,7 @@
   <section v-show="menus">
     <div class="relative flex justify-center items-center">
       <CaptainFilmsText :class="menuDisplay ? 'block' : 'hidden'"/>
-      <div class="flex justify-center items-center">
+      <div class="flex justify-center items-center lg:w-full">
         <NavigateLeft
           v-if="!menuDisplay"
           class="hidden md:block pt-32 mx-4 lg:mx-10"
