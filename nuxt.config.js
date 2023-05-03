@@ -124,27 +124,6 @@ export default {
     gzip: true,
     routes: createSitemapRoutes,
   },
-  i18n: {
-    locales: [
-      {
-        code: "en",
-        iso: "en-US",
-        file: "en-US.json",
-        dir: "ltr",
-        moment: "en",
-      },
-    ],
-    defaultLocale: "en",
-    lazy: true,
-    langDir: "locales/",
-    noPrefixDefaultLocale: true,
-    vueI18n: {
-      fallbackLocale: "en",
-      messages: {
-        "en-US": require("./locales/en-US"),
-      },
-    },
-  },
 
   toast: {
     position: "top-center",
