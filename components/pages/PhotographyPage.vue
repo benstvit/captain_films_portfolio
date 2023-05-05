@@ -34,8 +34,8 @@ export default {
       galleryY: false,
       isLoading: false,
       submenus: [
-        { title: 'New Arrival', active: false, page: 'photo' },
-        { title: 'By the Seas', active: true, page: 'photo' },
+        { title: 'New Arrival', active: true, page: 'photo' },
+        { title: 'By the Seas', active: false, page: 'photo' },
         { title: 'Here, there & everywhere', active: false, page: 'photo' },
         { title: 'Live Music', active: false, page: 'photo' },
         { title: 'Portraits', active: false, page: 'photo' },
