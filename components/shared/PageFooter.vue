@@ -12,7 +12,7 @@
         <InstagramSvg class="self-start" :stroke="instagramSvg.stroke" />
       </a>
       <ul
-        class="flex flex-wrap items-center justify-center font-captainlight text-gray-50 text-sm dark:text-white"
+        class="flex flex-wrap items-center justify-center font-captainlight text-sm"
       >
         <li
           v-for="menu in menus"
@@ -62,8 +62,8 @@ export default {
         menu === "Contact me" ? "Contact me | Order your pic" : menu;
 
       return activeMenu === this.activePage[0].title
-        ? "text-white hover:cursor-default"
-        : "hover:text-white hover:opacity-100 opacity-80 hover:cursor-pointer";
+        ? "text-white hover:cursor-default text-md"
+        : "opacity-80 text-gray-50 dark:text-white hover:text-white hover:opacity-100 hover:cursor-pointer";
     },
     navigateTo(menu) {
       const payload =
