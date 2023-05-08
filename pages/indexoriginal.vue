@@ -26,7 +26,6 @@
     <main>
       <PhotographyPage
         v-if="isOpen('Gallery')"
-        :photos="bannerPhotos"
         @reset-translateY="resetTranslateY"/>
       <ShowRoomPage
         v-if="isOpen('Showroom')"

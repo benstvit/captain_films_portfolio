@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="displayModal"
     @click.stop="handleBodyClick"
     class="fixed top-36 left-0 z-20 w-full h-full overflow-auto backdrop-blur-sm"
   >
@@ -51,12 +50,6 @@
 
 <script>
 export default {
-  props: {
-    displayModal: {
-      type: Boolean,
-      default: true,
-    },
-  },
   methods: {
     closeModal() {
       this.$emit("close-modal");

@@ -7,7 +7,13 @@
         :menus="bannerPhotos"
         @selected-menu="selectMenu"
       />
-      <ContentDisplay v-else :selected-page="enabledMenu" />
+      <ContentDisplay
+        v-else
+        :banner-photos="bannerPhotos"
+        :selected-page="enabledMenu"
+        @reset-home="resetHome"
+        @set-menu="setMenu"
+      />
     </section>
   </section>
 </template>
@@ -40,7 +46,7 @@ export default {
       return this.bannerPhotos.filter((photo) => photo.enabled);
     },
     menuDisplay() {
-      console.log(this.enabledMenu)
+      console.log(this.enabledMenu);
       return this.enabledMenu.length === 3;
     },
   },
@@ -57,6 +63,23 @@ export default {
     selectMenu(index) {
       this.bannerPhotos.forEach((menu) =>
         menu.index === index ? (menu.enabled = true) : (menu.enabled = false)
+      );
+    },
+    resetHome() {
+      this.bannerPhotos.forEach(photo => photo.enabled = true);
+    },
+    setMenu(payload) {
+      if (payload.direction === "rewind")
+        return this.bannerPhotos.forEach((menu) =>
+          menu.index === 1 ? (menu.enabled = true) : (menu.enabled = false)
+        );
+
+      const direction =
+        payload.direction === "right" ? payload.index + 1 : payload.index - 1;
+      this.bannerPhotos.forEach((menu) =>
+        menu.index === direction
+          ? (menu.enabled = true)
+          : (menu.enabled = false)
       );
     },
   },
