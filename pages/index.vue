@@ -15,8 +15,7 @@
         class="transition ease-out duration-300"
         :menus="enabledMenu"
         @reset-menu="resetHome"
-        @toggle-menu="setMenu"
-        @navigate="navigateTo"/>
+        @toggle-menu="setMenu"/>
       <IntroductionModal
         id="modal"
         v-if="isOpen('Gallery')"
