@@ -6,6 +6,12 @@
       @close-modal="displayModal = false"
       @toggle-menu="setMenu"
     />
+    <SharedBanner
+      :style="{ transform: 'translateX(' + translateY + 'px)', opacity: bannerOpacity }"
+      class="transition ease-out duration-300"
+      :menus="selectedPage"
+      @reset-menu="resetHome"
+      @toggle-menu="setMenu"/>
     <PageContent :page-index="pageIndex" />
     <Footer
       :active-page="activePage"
@@ -19,17 +25,21 @@
 import Footer from "./shared/PageFooter.vue";
 import IntroductionModal from "./shared/IntroductionModal.vue";
 import PageContent from "./pages/PageContent.vue";
+import SharedBanner from "./shared/menu/SharedBanner.vue";
 
 export default {
   name: "content-display",
   components: {
     Footer,
     IntroductionModal,
-    PageContent
+    PageContent,
+    SharedBanner
   },
   data() {
     return {
-      displayModal: true
+      bannerOpacity: 100,
+      displayModal: true,
+      translateY: 0
     }
   },
   props: {
@@ -50,10 +60,6 @@ export default {
       return this.selectedPage[0].index;
     },
   },
-  mounted() {
-
-    console.log(this.selectedPage);
-  },
   methods: {
     navigateTo(payload) {
       if (payload === 'Home') return this.resetHome();
@@ -63,16 +69,17 @@ export default {
       this.scrollToTop()
     },
     reset() {
-      this.bannerPhotos.forEach(photo => photo.enabled = false);
+      this.$emit('reset');
     },
     resetHome() {
-      this.$emit('reset-home')
+      this.$emit('reset-home');
     },
     resetTranslateY() {
       this.translateY = 0;
       this.bannerOpacity = 1;
     },
     setMenu(payload) {
+      this.reset();
       this.$emit('set-menu', payload)
     },
     scrollToTop() {

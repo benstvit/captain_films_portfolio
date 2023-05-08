@@ -1,6 +1,5 @@
 <template>
   <SharedBanner
-    id="banner"
     class="transition ease-out duration-300"
     :menus="menus"
   />

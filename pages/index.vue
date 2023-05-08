@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Loader v-if="!isLoaded" />
+    <Loader v-if="isLoading" />
     <section v-else>
       <MenuDisplay
         v-if="menuDisplay"
@@ -11,6 +11,7 @@
         v-else
         :banner-photos="bannerPhotos"
         :selected-page="enabledMenu"
+        @reset="reset"
         @reset-home="resetHome"
         @set-menu="setMenu"
       />
@@ -34,7 +35,7 @@ export default {
   },
   data() {
     return {
-      isLoaded: false,
+      isLoading: true,
     };
   },
   computed: {
@@ -46,7 +47,6 @@ export default {
       return this.bannerPhotos.filter((photo) => photo.enabled);
     },
     menuDisplay() {
-      console.log(this.enabledMenu);
       return this.enabledMenu.length === 3;
     },
   },
@@ -54,7 +54,7 @@ export default {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
     setInterval(() => {
-      this.isLoaded = true;
+      this.isLoading = false;
     }, 3000);
   },
   methods: {
@@ -64,6 +64,9 @@ export default {
       this.bannerPhotos.forEach((menu) =>
         menu.index === index ? (menu.enabled = true) : (menu.enabled = false)
       );
+    },
+    reset() {
+      this.bannerPhotos.forEach(photo => photo.enabled = false);
     },
     resetHome() {
       this.bannerPhotos.forEach(photo => photo.enabled = true);
