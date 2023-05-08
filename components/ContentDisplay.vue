@@ -7,6 +7,7 @@
       @toggle-menu="setMenu"
     />
     <SharedBanner
+      id="banner"
       :style="{ transform: 'translateX(' + translateY + 'px)', opacity: bannerOpacity }"
       class="transition ease-out duration-300"
       :menus="selectedPage"
@@ -37,6 +38,7 @@ export default {
   },
   data() {
     return {
+      bannerHeight: 0,
       bannerOpacity: 100,
       displayModal: true,
       translateY: 0
@@ -60,6 +62,13 @@ export default {
       return this.selectedPage[0].index;
     },
   },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.bannerHeight = document.getElementById('banner').offsetHeight;
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
   methods: {
     navigateTo(payload) {
       if (payload === 'Home') return this.resetHome();
@@ -74,13 +83,21 @@ export default {
     resetHome() {
       this.$emit('reset-home');
     },
-    resetTranslateY() {
-      this.translateY = 0;
-      this.bannerOpacity = 1;
-    },
     setMenu(payload) {
       this.reset();
       this.$emit('set-menu', payload)
+    },
+    // Scroll behavior
+    handleScroll() {
+      if (document.body.offsetHeight > (3 * this.bannerHeight)) {
+        this.translateY = window.scrollY / 2; // You can adjust the division value to control the speed of the translation
+        const opacity = Math.round((this.translateY / 300) * 10) / 10;
+        this.bannerOpacity = 1 - opacity;
+      }
+    },
+    resetTranslateY() {
+      this.translateY = 0;
+      this.bannerOpacity = 1;
     },
     scrollToTop() {
       const header = document.getElementById('header');

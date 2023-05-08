@@ -3,7 +3,7 @@
     <PhotographyPage v-if="pageIndex === 1" />
     <ShowRoomPage
       v-if="pageIndex === 2"
-      @toggle-menu="this.$parent.$emit('setMenu', payload)"
+      @toggle-menu="setMenu"
     />
     <ContactPage v-if="pageIndex === 3" />
   </section>
