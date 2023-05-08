@@ -51,6 +51,11 @@ export default {
       default: () => [],
     },
   },
+  computed: {
+    menuDisplay() {
+      return this.menus.length === 3;
+    },
+  },
   watch: {
     menus(active) {
       if (!this.menus.length) return;
@@ -58,19 +63,13 @@ export default {
       this.pageIndex = this.menus[0].index;
     }
   },
-  computed: {
-    menuDisplay() {
-      if (!this.menus.length) return;
-
-      return this.menus.length === 3;
-    },
-  },
   methods: {
     resetMenu() {
       this.$emit('reset-menu');
     },
     selectMenu(index) {
-      this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
+      const test = this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
+      this.$parent.$emit('selected-menu', index)
     },
     toggleMenu(direction) {
       this.$emit('toggle-menu', { direction, index: this.menus[0].index })

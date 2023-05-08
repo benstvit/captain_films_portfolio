@@ -2,8 +2,12 @@
   <section>
     <Loader v-if="!isLoaded" />
     <section v-else>
-      <MenuDisplay v-if="menuDisplay" :menus="bannerPhotos" />
-      <h1 v-else>CONTENT</h1>
+      <MenuDisplay
+        v-if="menuDisplay"
+        :menus="bannerPhotos"
+        @selected-menu="selectMenu"
+      />
+      <ContentDisplay v-else :selected-page="enabledMenu" />
     </section>
   </section>
 </template>
@@ -11,12 +15,14 @@
 <script>
 import { mapState, mapActions } from "vuex";
 
+import ContentDisplay from "../components/ContentDisplay.vue";
 import Loader from "../components/partials/Loader.vue";
 import MenuDisplay from "../components/MenuDisplay.vue";
 
 export default {
   name: "index",
   components: {
+    ContentDisplay,
     Loader,
     MenuDisplay,
   },
@@ -34,7 +40,8 @@ export default {
       return this.bannerPhotos.filter((photo) => photo.enabled);
     },
     menuDisplay() {
-      return this.bannerPhotos.length === 3;
+      console.log(this.enabledMenu)
+      return this.enabledMenu.length === 3;
     },
   },
   async mounted() {
@@ -46,6 +53,12 @@ export default {
   },
   methods: {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
+
+    selectMenu(index) {
+      this.bannerPhotos.forEach((menu) =>
+        menu.index === index ? (menu.enabled = true) : (menu.enabled = false)
+      );
+    },
   },
 };
 </script>
