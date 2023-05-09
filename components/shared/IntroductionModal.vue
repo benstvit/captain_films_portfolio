@@ -27,7 +27,7 @@
         <p class="font-cormorant text-sm md:text-lg">
           All photographs were shot on 35mm film in various places around the
           world. They are all available to be printed and framed in different
-          formats on cotton paper of great quality.
+          formats on cotton paper of 👌 quality.
         </p>
         <p class="font-cormorant text-sm md:text-lg">
           Curious ? Take a look at
@@ -39,8 +39,7 @@
           in the home of the people who took the plunge.
         </p>
         <p class="font-cormorant text-sm md:text-lg">
-          As a web developer, I coded this portfolio from scratch to share my
-          passions.
+          Oh, and as a web developer, I coded this portfolio from scratch 👾.
         </p>
         <p class="text-lg md:text-2xl font-handwritten">Captain Films.</p>
       </div>
