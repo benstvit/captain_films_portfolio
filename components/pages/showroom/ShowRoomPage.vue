@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import ShowroomIntroduction from "../showroom/ShowroomIntroduction.vue"
-import ShowroomGallery from "../showroom/ShowroomGallery.vue"
+import ShowroomIntroduction from "./ShowroomIntroduction.vue"
+import ShowroomGallery from "./ShowroomGallery.vue"
 
 export default {
   name: 'ShowRoomPage',

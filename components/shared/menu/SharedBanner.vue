@@ -14,7 +14,7 @@
           class="shrink-0 lg:shrink"
           :menus="menus"
           :menu-display="menuDisplay"
-          @navigate="navigateTo"
+          @reset-menu="resetMenu"
           @select-menu="selectMenu"/>
         <NavigateRight
           v-if="!menuDisplay"
@@ -35,11 +35,6 @@ import NavigateRight from "./NavigateRight.vue"
 
 export default {
   name: "SharedBanner",
-  data() {
-    return {
-      pageIndex: null,
-    }
-  },
   components: {
     BannerImage,
     CaptainFilmsText,
@@ -52,32 +47,23 @@ export default {
       default: () => [],
     },
   },
-  watch: {
-    menus(active) {
-      if (!this.menus.length) return;
-
-      this.pageIndex = this.menus[0].index;
-    }
-  },
   computed: {
+    pageIndex() {
+      return this.menus[0].index;
+    },
     menuDisplay() {
-      if (!this.menus.length) return;
-
-      return this.menus.length === 3;
+      return this.menus.length > 1;
     },
   },
   methods: {
-    navigateTo(payload) {
-      this.$emit('navigate', payload)
-    },
     resetMenu() {
-      this.$emit('reset-menu');
+      this.$parent.$emit('reset-home');
     },
     selectMenu(index) {
-      this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
+      this.$parent.$emit('selected-menu', index)
     },
     toggleMenu(direction) {
-      this.$emit('toggle-menu', { direction, index: this.menus[0].index })
+      this.$parent.$emit('set-menu', { direction, index: this.menus[0].index })
     }
   },
 };

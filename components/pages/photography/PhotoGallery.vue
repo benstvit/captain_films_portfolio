@@ -15,7 +15,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import GalleryLoader from '../partials/GalleryLoader'
+import GalleryLoader from '../../partials/GalleryLoader.vue'
 
 export default {
   name: 'PhotoGallery',

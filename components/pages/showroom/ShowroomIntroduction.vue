@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import aos from "../../mixins/aos"
+import aos from "../../../mixins/aos"
 
 export default {
   name: 'ShowroomIntroduction',

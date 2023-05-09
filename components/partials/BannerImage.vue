@@ -64,7 +64,7 @@ export default {
       return index === 3 ? 'col-span-6 hover:cursor-pointer hover:opacity-90 hover:shadow-inner' : 'col-span-6 lg:col-span-3 hover:cursor-pointer hover:opacity-90 hover:shadow-inner';
     },
     resetMenu() {
-      this.$parent.$emit('reset-menu');
+      this.$emit('reset-menu');
     },
     selectMenu(index) {
       this.$emit('select-menu', index)

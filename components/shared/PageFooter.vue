@@ -41,7 +41,7 @@ import InstagramSvg from "../svg/InstagramSvg.vue";
 export default {
   name: "PageFooter",
   props: {
-    activePage: {
+    selectedPage: {
       type: Array,
       default: () => [],
     },
@@ -55,19 +55,22 @@ export default {
       instagramSvg: { stroke: "#FFFFFF" },
     };
   },
+  computed: {
+    activePage() {
+      return this.selectedPage.length === 1 ? this.selectedPage : null;
+    },
+  },
   methods: {
     customClass(menu) {
       if (!this.activePage.length) return;
-      const activeMenu =
-        menu === "Contact me" ? "Contact me | Order your pic" : menu;
+      const activeMenu = menu === "Contact me" ? "Contact me | Order your pic" : menu;
 
       return activeMenu === this.activePage[0].title
         ? "text-white hover:cursor-default text-md"
         : "opacity-80 text-gray-50 dark:text-white hover:text-white hover:opacity-100 hover:cursor-pointer";
     },
     navigateTo(menu) {
-      const payload =
-        menu === "Contact me" ? "Contact me | Order your pic" : menu;
+      const payload = menu === "Contact me" ? "Contact me | Order your pic" : menu;
       this.$emit("reset-translateY");
       this.$emit("navigate", payload);
     },
