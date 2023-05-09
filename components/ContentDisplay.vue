@@ -7,8 +7,8 @@
     />
     <SharedBanner
       id="banner"
-      class="transition ease-out duration-300"
-      :style="{ transform: 'translateX(' + translateY + 'px)', opacity: bannerOpacity }"
+      class="transition ease-in-out duration-300"
+      :style="{ opacity: bannerOpacity }"
       :menus="selectedPage"/>
     <PageContent :page-index="pageIndex" />
     <Footer
@@ -80,7 +80,7 @@ export default {
     handleScroll() {
       if (document.body.offsetHeight > (3 * this.bannerHeight)) {
         this.translateY = window.scrollY / 2; // You can adjust the division value to control the speed of the translation
-        const opacity = Math.round((this.translateY / 300) * 10) / 10;
+        const opacity = Math.round((this.translateY / 300) * 15) / 10;
         this.bannerOpacity = 1 - opacity;
       }
     },
