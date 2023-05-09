@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import ContactPage from "./ContactPage.vue";
-import PhotographyPage from "./PhotographyPage.vue";
-import ShowRoomPage from "./ShowRoomPage.vue";
+import ContactPage from "./contact/ContactPage.vue";
+import PhotographyPage from "./photography/PhotographyPage.vue";
+import ShowRoomPage from "./showroom/ShowRoomPage.vue";
 
 export default {
   name: "page-content",

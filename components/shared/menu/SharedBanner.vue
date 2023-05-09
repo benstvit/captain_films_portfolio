@@ -14,6 +14,7 @@
           class="shrink-0 lg:shrink"
           :menus="menus"
           :menu-display="menuDisplay"
+          @reset-menu="resetMenu"
           @select-menu="selectMenu"/>
         <NavigateRight
           v-if="!menuDisplay"
@@ -56,13 +57,13 @@ export default {
   },
   methods: {
     resetMenu() {
-      this.$emit('reset-menu');
+      this.$parent.$emit('reset-home');
     },
     selectMenu(index) {
       this.$parent.$emit('selected-menu', index)
     },
     toggleMenu(direction) {
-      this.$emit('toggle-menu', { direction, index: this.menus[0].index })
+      this.$parent.$emit('set-menu', { direction, index: this.menus[0].index })
     }
   },
 };

@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import NavBar from "../shared/NavBar.vue";
-import PhotoGallery from "../photography/PhotoGallery.vue";
+import NavBar from "../../shared/NavBar.vue";
+import PhotoGallery from "./PhotoGallery.vue";
 
 export default {
   name: 'PhotographyPage',

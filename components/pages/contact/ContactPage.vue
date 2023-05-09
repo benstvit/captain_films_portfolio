@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import ContactForm from "../contact/Form/ContactForm.vue"
-import NavBar from "../shared/NavBar"
-import MyPartners from "../contact/MyPartners.vue"
+import ContactForm from "./Form/ContactForm.vue"
+import NavBar from "../../shared/NavBar.vue"
+import MyPartners from "./MyPartners.vue"
 
 export default {
   name: 'ContactPage',

@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import ConfettiSvg from '../../svg/ConfettiSvg.vue'
-import ErrorSvg from '../../svg/ErrorSvg.vue'
+import ConfettiSvg from '../../../svg/ConfettiSvg.vue'
+import ErrorSvg from '../../../svg/ErrorSvg.vue'
 
 export default {
   name: 'FormSubmitMessage',

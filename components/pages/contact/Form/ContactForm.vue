@@ -69,7 +69,7 @@
 
 <script>
 import emailjs from '@emailjs/browser'
-import FormSubmitMessage from '../Form/FormSubmitMessage.vue'
+import FormSubmitMessage from './FormSubmitMessage.vue'
 
 export default {
   name: 'ContactPage',

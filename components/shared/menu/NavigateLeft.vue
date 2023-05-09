@@ -78,9 +78,6 @@ export default {
       return 'flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 mr-4 hover:cursor-pointer hover:text-teal-700'
     }
   },
-  mounted() {
-    console.log(this.pageIndex)
-  },
   methods: {
     display(page) {
       page.stroke = '#0F766E'

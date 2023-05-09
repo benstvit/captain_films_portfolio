@@ -61,7 +61,7 @@ export default {
       }
     },
     navigateToGallery() {
-      this.$emit("toggle-menu", { direction: "right", index: 1 });
+      this.$parent.$emit("set-menu", { direction: "right", index: 1 });
       this.$emit("close-modal");
     },
   },

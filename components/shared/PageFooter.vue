@@ -70,8 +70,7 @@ export default {
         : "opacity-80 text-gray-50 dark:text-white hover:text-white hover:opacity-100 hover:cursor-pointer";
     },
     navigateTo(menu) {
-      const payload =
-        menu === "Contact me" ? "Contact me | Order your pic" : menu;
+      const payload = menu === "Contact me" ? "Contact me | Order your pic" : menu;
       this.$emit("reset-translateY");
       this.$emit("navigate", payload);
     },

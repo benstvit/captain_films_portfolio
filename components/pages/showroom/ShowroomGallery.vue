@@ -30,8 +30,8 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import aos from "../../mixins/aos"
-import GalleryLoader from "../partials/GalleryLoader.vue"
+import aos from "../../../mixins/aos"
+import GalleryLoader from "../../partials/GalleryLoader.vue"
 
 export default {
   name: 'ShowroomGallery',

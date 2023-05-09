@@ -1,7 +1,7 @@
 <template>
   <section>
     <Loader v-if="isLoading" />
-    <section v-else>
+    <div v-else>
       <MenuDisplay
         v-if="menuDisplay"
         :menus="bannerPhotos"
@@ -14,7 +14,7 @@
         @reset-home="resetHome"
         @set-menu="setMenu"
       />
-    </section>
+    </div>
   </section>
 </template>
 
@@ -49,27 +49,27 @@ export default {
     this.bannerPhotos = this.photosData;
     setInterval(() => {
       this.isLoading = false;
-    }, 3000);
+    }, 2600);
   },
   methods: {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
 
-    selectMenu(index) {
-      this.bannerPhotos.forEach(menu => menu.index === index ? menu.enabled = true : menu.enabled = false);
-    },
     reset() {
       this.bannerPhotos.forEach(photo => photo.enabled = false);
     },
     resetHome() {
       this.bannerPhotos.forEach(photo => photo.enabled = true);
     },
+    selectMenu(index) {
+      this.bannerPhotos.forEach(menu => menu.index === index ? menu.enabled = true : menu.enabled = false);
+    },
     setMenu(payload) {
       if (payload.direction === "rewind")
         return this.bannerPhotos.forEach((menu) =>
           menu.index === 1 ? (menu.enabled = true) : (menu.enabled = false)
         );
-
-      const direction = payload.direction === "right" ? payload.index + 1 : payload.index - 1;
+        const direction = payload.direction === "right" ? payload.index + 1 : payload.index - 1;
+      this.reset();
       this.bannerPhotos.forEach((menu) =>
         menu.index === direction ? (menu.enabled = true) : (menu.enabled = false)
       );
