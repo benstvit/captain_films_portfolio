@@ -34,11 +34,6 @@ import NavigateRight from "./NavigateRight.vue"
 
 export default {
   name: "SharedBanner",
-  data() {
-    return {
-      pageIndex: null,
-    }
-  },
   components: {
     BannerImage,
     CaptainFilmsText,
@@ -52,19 +47,12 @@ export default {
     },
   },
   computed: {
+    pageIndex() {
+      return this.menus[0].index;
+    },
     menuDisplay() {
       return this.menus.length > 1;
     },
-  },
-  watch: {
-    menus(active) {
-      if (!this.menus.length) return;
-      console.log(active);
-      this.pageIndex = this.menus[0].index;
-    }
-  },
-  mounted() {
-    console.log(this.menus);
   },
   methods: {
     resetMenu() {

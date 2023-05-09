@@ -10,7 +10,6 @@
       <ContentDisplay
         v-else
         :banner-photos="bannerPhotos"
-        :selected-page="enabledMenu"
         @reset="reset"
         @reset-home="resetHome"
         @set-menu="setMenu"
@@ -41,13 +40,8 @@ export default {
   computed: {
     ...mapState("banner", { photosData: "data" }),
 
-    enabledMenu() {
-      if (!this.bannerPhotos) return;
-
-      return this.bannerPhotos.filter((photo) => photo.enabled);
-    },
     menuDisplay() {
-      return this.enabledMenu.length > 1;
+      return this.bannerPhotos.filter((photo) => photo.enabled).length > 1;
     },
   },
   async mounted() {
@@ -61,10 +55,7 @@ export default {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
 
     selectMenu(index) {
-      this.reset();
-      this.bannerPhotos.forEach((menu) =>
-        menu.index === index ? (menu.enabled = true) : (menu.enabled = false)
-      );
+      this.bannerPhotos.forEach(menu => menu.index === index ? menu.enabled = true : menu.enabled = false);
     },
     reset() {
       this.bannerPhotos.forEach(photo => photo.enabled = false);

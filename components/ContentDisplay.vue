@@ -49,20 +49,23 @@ export default {
       type: Array,
       default: () => []
     },
-    selectedPage: {
-      type: Array,
-      default: () => [],
-    },
-  },
-  watch: {
-    selectedPage(active) {
-      console.log(active);
-    }
   },
   computed: {
     pageIndex() {
+      if (!this.selectedPage) return;
+
       return this.selectedPage[0].index;
     },
+    selectedPage() {
+      // if (!this.bannerPhotos) return;
+
+      return this.bannerPhotos.filter((photo) => photo.enabled);
+    }
+  },
+  watch: {
+    bannerPhotos() {
+      console.log('hello');
+    }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
