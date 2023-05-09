@@ -10,11 +10,11 @@
           <div class="flex justify-start w-fit px-2 py-2">
             <ul class="flex flex-wrap items-center justify-center font-captainlight text-gray-800 ml-4 text-xs dark:text-white">
               <li
-                v-for="menu in menus"
+                v-for="(menu, index) in menus"
                 :key="menu"
                 class="mx-1"
                 :class="activeClass(menu)"
-                @click.stop="navigateTo(menu)">
+                @click.stop="selectMenu(index)">
                 {{menu}}
               </li>
             </ul>
@@ -55,9 +55,8 @@ export default {
 
       if (submenu === this.activePage[0].title) return 'text-teal-700';
     },
-    navigateTo(menu) {
-      const payload = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
-      this.$parent.$emit('navigate', payload);
+    selectMenu(index) {
+      this.$emit('select-menu', index + 1);
     },
   }
 }

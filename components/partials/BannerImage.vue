@@ -8,7 +8,8 @@
       <MobileMenu
         class="block md:hidden"
         :menu-display="menuDisplay"
-        :active-page="menus"/>
+        :active-page="menus"
+        @select-menu="selectMenu"/>
       <div class="relative grid grid-cols-6">
         <div id="image-wrapper"
           v-for="menu in menus"
