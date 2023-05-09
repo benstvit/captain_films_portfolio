@@ -1,7 +1,7 @@
 <template>
   <section>
     <Loader v-if="isLoading" />
-    <div v-else>
+    <div v-if="!isLoading">
       <MenuDisplay
         v-if="menuDisplay"
         :menus="bannerPhotos"

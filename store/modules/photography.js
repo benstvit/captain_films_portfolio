@@ -9,8 +9,10 @@ const PHOTOSETS = [
 
 export default {
   namespaced: true,
-  state: {
-    data: {},
+  state() {
+    return {
+      data: {},
+    }
   },
   getters: {
     data: (state) => state.data
