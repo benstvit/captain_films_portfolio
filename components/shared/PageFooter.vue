@@ -12,7 +12,7 @@
         <InstagramSvg class="self-start" :stroke="instagramSvg.stroke" />
       </a>
       <ul
-        class="flex flex-wrap items-center justify-center font-captainlight text-sm"
+        class="flex flex-wrap items-center justify-center font-captainlight text-xs md:text-sm "
       >
         <li
           v-for="menu in menus"
