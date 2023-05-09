@@ -1,7 +1,7 @@
 <template>
   <section>
     <Loader v-if="isLoading" />
-    <div v-if="!isLoading">
+    <div v-if="!isLoading" :style="{ contain: 'paint' }">
       <MenuDisplay
         v-if="menuDisplay"
         :menus="bannerPhotos"
@@ -12,6 +12,7 @@
         :banner-photos="bannerPhotos"
         @reset="reset"
         @reset-home="resetHome"
+        @selected-menu="selectMenu"
         @set-menu="setMenu"
       />
     </div>
@@ -55,23 +56,28 @@ export default {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
 
     reset() {
-      this.bannerPhotos.forEach(photo => photo.enabled = false);
+      this.bannerPhotos.forEach((photo) => (photo.enabled = false));
     },
     resetHome() {
-      this.bannerPhotos.forEach(photo => photo.enabled = true);
+      this.bannerPhotos.forEach((photo) => (photo.enabled = true));
     },
     selectMenu(index) {
-      this.bannerPhotos.forEach(menu => menu.index === index ? menu.enabled = true : menu.enabled = false);
+      this.bannerPhotos.forEach((menu) =>
+        menu.index === index ? (menu.enabled = true) : (menu.enabled = false)
+      );
     },
     setMenu(payload) {
       if (payload.direction === "rewind")
         return this.bannerPhotos.forEach((menu) =>
           menu.index === 1 ? (menu.enabled = true) : (menu.enabled = false)
         );
-        const direction = payload.direction === "right" ? payload.index + 1 : payload.index - 1;
+      const direction =
+        payload.direction === "right" ? payload.index + 1 : payload.index - 1;
       this.reset();
       this.bannerPhotos.forEach((menu) =>
-        menu.index === direction ? (menu.enabled = true) : (menu.enabled = false)
+        menu.index === direction
+          ? (menu.enabled = true)
+          : (menu.enabled = false)
       );
     },
   },

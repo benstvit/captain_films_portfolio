@@ -1,9 +1,11 @@
 <template>
-  <CaptainFilmsLogo
-    class="mx-auto animate-pulse"
-    :menu-display="menuDisplay"
-    :loader="loader"
-  />
+  <div class="flex justify-center items-center w-screen h-screen">
+    <CaptainFilmsLogo
+      class="w-52 h-auto animate-pulse"
+      :menu-display="menuDisplay"
+      :loader="loader"
+    />
+  </div>
 </template>
 
 <script>
