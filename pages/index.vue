@@ -47,7 +47,7 @@ export default {
       return this.bannerPhotos.filter((photo) => photo.enabled);
     },
     menuDisplay() {
-      return this.enabledMenu.length === 3;
+      return this.enabledMenu.length > 1;
     },
   },
   async mounted() {
@@ -61,6 +61,7 @@ export default {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
 
     selectMenu(index) {
+      this.reset();
       this.bannerPhotos.forEach((menu) =>
         menu.index === index ? (menu.enabled = true) : (menu.enabled = false)
       );
@@ -77,12 +78,9 @@ export default {
           menu.index === 1 ? (menu.enabled = true) : (menu.enabled = false)
         );
 
-      const direction =
-        payload.direction === "right" ? payload.index + 1 : payload.index - 1;
+      const direction = payload.direction === "right" ? payload.index + 1 : payload.index - 1;
       this.bannerPhotos.forEach((menu) =>
-        menu.index === direction
-          ? (menu.enabled = true)
-          : (menu.enabled = false)
+        menu.index === direction ? (menu.enabled = true) : (menu.enabled = false)
       );
     },
   },

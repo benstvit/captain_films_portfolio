@@ -15,7 +15,7 @@
       @toggle-menu="setMenu"/>
     <PageContent :page-index="pageIndex" />
     <Footer
-      :active-page="activePage"
+      :selected-page="selectedPage"
       @navigate="navigateTo"
       @reset-translateY="resetTranslateY"
     />
@@ -54,10 +54,12 @@ export default {
       default: () => [],
     },
   },
+  watch: {
+    selectedPage(active) {
+      console.log(active);
+    }
+  },
   computed: {
-    activePage() {
-      return this.selectedPage.length === 1 ? this.selectedPage : null;
-    },
     pageIndex() {
       return this.selectedPage[0].index;
     },

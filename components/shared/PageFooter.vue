@@ -41,7 +41,7 @@ import InstagramSvg from "../svg/InstagramSvg.vue";
 export default {
   name: "PageFooter",
   props: {
-    activePage: {
+    selectedPage: {
       type: Array,
       default: () => [],
     },
@@ -55,11 +55,15 @@ export default {
       instagramSvg: { stroke: "#FFFFFF" },
     };
   },
+  computed: {
+    activePage() {
+      return this.selectedPage.length === 1 ? this.selectedPage : null;
+    },
+  },
   methods: {
     customClass(menu) {
       if (!this.activePage.length) return;
-      const activeMenu =
-        menu === "Contact me" ? "Contact me | Order your pic" : menu;
+      const activeMenu = menu === "Contact me" ? "Contact me | Order your pic" : menu;
 
       return activeMenu === this.activePage[0].title
         ? "text-white hover:cursor-default text-md"

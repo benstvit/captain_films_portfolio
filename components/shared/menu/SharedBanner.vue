@@ -53,22 +53,24 @@ export default {
   },
   computed: {
     menuDisplay() {
-      return this.menus.length === 3;
+      return this.menus.length > 1;
     },
   },
   watch: {
     menus(active) {
       if (!this.menus.length) return;
-
+      console.log(active);
       this.pageIndex = this.menus[0].index;
     }
+  },
+  mounted() {
+    console.log(this.menus);
   },
   methods: {
     resetMenu() {
       this.$emit('reset-menu');
     },
     selectMenu(index) {
-      const test = this.menus.filter(p => p.index !== index).forEach(menu => menu.enabled = false);
       this.$parent.$emit('selected-menu', index)
     },
     toggleMenu(direction) {
