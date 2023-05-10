@@ -3,7 +3,7 @@
     <nuxt-img
       preload
       format="webp"
-      class="shadow-md rounded-sm hover:opacity-70 hover:cursor-zoom-in"
+      class="shadow-md rounded-sm hover:opacity-80 hover:shadow-lg hover:cursor-zoom-in"
       :alt="blog.alt"
       :src="blog.thumbnail"
     >

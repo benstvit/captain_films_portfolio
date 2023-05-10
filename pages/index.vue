@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Loader v-if="isLoading" />
+    <Loader v-if="!navigatingFromPage && isLoading" />
     <div v-if="!isLoading" :style="{ contain: 'paint' }">
       <MenuDisplay
         v-if="menuDisplay"
@@ -41,13 +41,19 @@ export default {
   computed: {
     ...mapState("banner", { photosData: "data" }),
 
+    navigatingFromPage() {
+      return this.$nuxt.context.from ? true : false;
+    },
     menuDisplay() {
       return this.bannerPhotos.filter((photo) => photo.enabled).length > 1;
     },
   },
   async mounted() {
     await this.fetchPhotos();
+    this.isLoading = true;
     this.bannerPhotos = this.photosData;
+    // this.redirect() ==> Développer l'idée de selectMenu(index) en fonction du route path
+    if (this.navigatingFromPage) return this.isLoading = false;
     setInterval(() => {
       this.isLoading = false;
     }, 2600);
@@ -75,7 +81,9 @@ export default {
         payload.direction === "right" ? payload.index + 1 : payload.index - 1;
       this.reset();
       this.bannerPhotos.forEach((menu) =>
-        menu.index === direction ? (menu.enabled = true) : (menu.enabled = false)
+        menu.index === direction
+          ? (menu.enabled = true)
+          : (menu.enabled = false)
       );
     },
   },

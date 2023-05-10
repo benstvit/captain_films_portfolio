@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white">
+    <nuxt-link to="/" class="font-captainlight self-start p-8 pb-0 mt-8 mx-12 hover:text-teal-600 hover:cursor-pointer hover:animate-pulse">
+      // Back to Homepage
+    </nuxt-link>
     <CaptainFilmsLogo :menu-display="false" />
-    <div class="grid grid-cols-12 mx-14 my-8">
+    <div class="grid grid-cols-12 mx-20 my-8">
       <div class="col-span-4 mx-2" v-for="blog in blogs" :key="blog.alt">
         <Card :blog="blog" />
       </div>
