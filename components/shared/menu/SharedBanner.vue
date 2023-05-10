@@ -1,7 +1,7 @@
 <template>
   <section v-show="menus">
     <div class="relative flex justify-center items-center">
-      <CaptainFilmsText :class="menuDisplay ? 'block' : 'hidden'"/>
+      <SideMenu :class="menuDisplay ? 'block' : 'hidden'" />
       <div class="flex justify-center items-center lg:w-full">
         <NavigateLeft
           v-if="!menuDisplay"
@@ -32,6 +32,7 @@ import BannerImage from "../../partials/BannerImage.vue"
 import CaptainFilmsText from "../../partials/CaptainFilmsText.vue"
 import NavigateLeft from "./NavigateLeft.vue"
 import NavigateRight from "./NavigateRight.vue"
+import SideMenu from "../../UI/SideMenu.vue"
 
 export default {
   name: "SharedBanner",
@@ -39,7 +40,8 @@ export default {
     BannerImage,
     CaptainFilmsText,
     NavigateLeft,
-    NavigateRight
+    NavigateRight,
+    SideMenu
   },
   props: {
     menus: {
