@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center font-cormorant">
+  <div class="flex flex-col items-center h-screen bg-white">
     <CaptainFilmsLogo :menu-display="false" />
     <div class="grid grid-cols-12 mx-14 my-8">
       <div class="col-span-4 mx-2" v-for="blog in blogs" :key="blog.alt">
