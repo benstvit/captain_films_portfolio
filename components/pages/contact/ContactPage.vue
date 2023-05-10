@@ -18,7 +18,7 @@ import NavBar from "../../shared/NavBar.vue"
 import MyPartners from "./MyPartners.vue"
 
 export default {
-  name: 'ContactPage',
+  name: 'contact',
   created () {
     window.addEventListener('scroll', this.getFormPosition);
   },

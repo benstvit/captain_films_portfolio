@@ -75,9 +75,7 @@ export default {
         payload.direction === "right" ? payload.index + 1 : payload.index - 1;
       this.reset();
       this.bannerPhotos.forEach((menu) =>
-        menu.index === direction
-          ? (menu.enabled = true)
-          : (menu.enabled = false)
+        menu.index === direction ? (menu.enabled = true) : (menu.enabled = false)
       );
     },
   },
