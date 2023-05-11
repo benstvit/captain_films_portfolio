@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import query from '../../mixins/blogQuery'
+import query from '../../mixins/contentFulBlogsQuery'
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
 import Card from "../../components/UI/Card.vue";
 
