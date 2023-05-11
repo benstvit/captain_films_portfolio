@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white">
-    <nuxt-link to="/" class="font-captainlight self-start p-8 pb-0 mt-8 mx-12 hover:text-teal-600 hover:cursor-pointer hover:animate-pulse">
-      // Back to Homepage
+    <nuxt-link to="/" class="font-captainlight self-start p-8 pb-0 mt-8 mx-12 hover:cursor-pointer">
+      // <span class="hover:font-bold">Back to Homepage</span>
     </nuxt-link>
     <CaptainFilmsLogo :menu-display="false" />
     <div class="grid grid-cols-12 mx-20 my-8">

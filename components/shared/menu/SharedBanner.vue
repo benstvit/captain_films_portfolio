@@ -32,7 +32,7 @@ import BannerImage from "../../partials/BannerImage.vue"
 import CaptainFilmsText from "../../partials/CaptainFilmsText.vue"
 import NavigateLeft from "./NavigateLeft.vue"
 import NavigateRight from "./NavigateRight.vue"
-import SideMenu from "../../UI/SideMenu.vue"
+import SideMenu from "../../partials/SideMenu.vue"
 
 export default {
   name: "SharedBanner",
