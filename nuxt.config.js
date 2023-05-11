@@ -50,6 +50,12 @@ export default {
     start_url: "/",
   },
 
+  // Contentful
+  env: {
+    contentfulAccessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
+    contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
