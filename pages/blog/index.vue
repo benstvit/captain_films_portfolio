@@ -31,7 +31,6 @@ export default {
   },
   async mounted() {
     this.blogPosts = await this.getBlogPosts();
-    console.log(this.blogPosts);
   },
   methods: {
     async getBlogPosts() {
