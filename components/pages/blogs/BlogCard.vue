@@ -4,8 +4,8 @@
       preload
       format="webp"
       class="shadow-md rounded-sm hover:opacity-80 hover:shadow-lg hover:cursor-zoom-in"
-      :alt="blog.alt"
-      :src="blog.thumbnail"
+      :alt="blog.thumbnail.title"
+      :src="blog.thumbnail.url"
     >
     </nuxt-img>
     <div id="description" class="p-2">
@@ -24,9 +24,12 @@ export default {
       default: () => {},
     },
   },
+  mounted() {
+    console.log(this.blog);
+  },
   computed: {
     blogAbstract() {
-      return this.blog.content.substr(0, 140) + "...";
+      return this.blog.introduction.substr(0, 180) + "...";
     },
   },
 };

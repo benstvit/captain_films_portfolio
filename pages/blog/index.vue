@@ -1,28 +1,27 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white">
-    <nuxt-link to="/" class="font-captainlight self-start p-8 pb-0 mt-8 mx-12 hover:cursor-pointer">
-      // <span class="hover:font-bold">Back to Homepage</span>
-    </nuxt-link>
-    <CaptainFilmsLogo :menu-display="false" />
-    <div class="grid grid-cols-12 mx-20 my-8">
-      <!-- <div class="col-span-4 mx-2" v-for="blog in blogs" :key="blog.alt">
-        <Card :blog="blog" />
-      </div> -->
+    <BlogNavbar />
+    <div class="grid grid-cols-12 mx-8 md:mx-40 my-8">
+      <div class="col-span-6 mx-4" v-for="blog in blogPosts" :key="blog.alt">
+        <BlogCard :blog="blog" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import query from '../../mixins/contentFulBlogsQuery'
+import BlogNavbar from '../../components/pages/blogs/BlogNavbar.vue'
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
-import Card from "../../components/UI/Card.vue";
+import BlogCard from "../../components/pages/blogs/BlogCard.vue";
+import query from '../../mixins/contentfulBlogsQuery.js'
 
 export default {
   name: "blog-index",
   mixins: [query],
   components: {
+    BlogNavbar,
     CaptainFilmsLogo,
-    Card,
+    BlogCard,
   },
   data() {
     return {
@@ -48,7 +47,6 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then(response =>
           response.json()
         );
-        console.log(response);
         return response.data.blogPostPhotoCollection.items;
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
