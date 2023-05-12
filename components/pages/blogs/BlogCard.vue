@@ -3,7 +3,8 @@
     <nuxt-img
       preload
       format="webp"
-      class="shadow-md rounded-sm hover:opacity-80 hover:shadow-lg hover:cursor-zoom-in"
+      title="Read more..."
+      class="shadow-md rounded-sm hover:opacity-80 hover:shadow-lg hover:cursor-pointer"
       :alt="blog.thumbnail.title"
       :src="blog.thumbnail.url"
     >

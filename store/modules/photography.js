@@ -18,7 +18,7 @@ export default {
     data: (state) => state.data
   },
   actions: {
-    async fetch({ commit }, payload) {
+    async fetch({ commit }) {
       let photos = []
       const album_id = PHOTOSETS.filter(s => s.title === payload.payload.title)[0].photosetId
       const { data, status } = await this.$axios.get(`https://www.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=6fbbbf8a9d5ff41558c9100d42279af6&photoset_id=${album_id}&user_id=184230567%40N04&format=json&nojsoncallback=1`)
