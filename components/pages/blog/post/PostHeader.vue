@@ -8,8 +8,7 @@
           class="w-auto h-[70vh]"
           :alt="post.thumbnail.title"
           :src="post.thumbnail.url"
-        >
-        </nuxt-img>
+        />
         <div class="flex justify-start items-center gap-2 py-2 w-full">
           <p>{{date}}</p>
           <p>|</p>

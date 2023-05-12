@@ -81,6 +81,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/auth-next",
     "@nuxt/image",
+    "@nuxtjs/markdownit",
     "@nuxtjs/toast",
   ],
   // Nuxt Axios
