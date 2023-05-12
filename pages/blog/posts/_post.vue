@@ -1,21 +1,24 @@
 <template>
   <div
     v-if="post"
-    class="h-screen bg-pink-50"
-    :class="post.id % 2 === 0 ? 'bg-pink-50' : 'bg-blue-50'"
+    class="h-full"
+    :class="post.id % 2 === 0 ? 'bg-pink-100' : 'bg-sky-50'"
   >
     <PostHeader :post="post" />
+    <PostContent :post="post" />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 
+import PostContent from '../../../components/pages/blog/post/PostContent.vue'
 import PostHeader from '../../../components/pages/blog/post/PostHeader.vue'
 
 export default {
   name: "blog-post",
   components: {
+    PostContent,
     PostHeader
   },
   computed: {
