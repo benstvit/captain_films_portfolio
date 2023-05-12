@@ -1,27 +1,23 @@
 <template>
   <div
     v-if="post"
-    class="h-screen bg-white"
+    class="h-screen bg-pink-50"
+    :class="post.id % 2 === 0 ? 'bg-pink-50' : 'bg-blue-50'"
   >
-    <div class="flex flex-col items-center gap-2 md:mx-20 my-8">
-      <h1 class="col-span-12 font-cormorant font-semibold p-4 text-3xl text-center">{{ post.title }}</h1>
-      <nuxt-img
-        :alt="post.thumbnail.title"
-        :src="post.thumbnail.url"
-        preload
-        format="webp"
-        class="w-auto h-[70vh]"
-      >
-      </nuxt-img>
-    </div>
+    <PostHeader :post="post" />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
 
+import PostHeader from '../../../components/pages/blog/post/PostHeader.vue'
+
 export default {
   name: "blog-post",
+  components: {
+    PostHeader
+  },
   computed: {
     ...mapState("blogs", { blogPosts: "data" }),
 

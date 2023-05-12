@@ -17,9 +17,9 @@
 <script>
 import {mapActions, mapState} from 'Vuex';
 
-import BlogNavbar from "../../components/pages/blogs/BlogNavbar.vue";
+import BlogNavbar from "../../components/pages/blog/BlogNavbar.vue";
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
-import BlogCard from "../../components/pages/blogs/BlogCard.vue";
+import BlogCard from "../../components/pages/blog/BlogCard.vue";
 
 export default {
   name: "blog-index",

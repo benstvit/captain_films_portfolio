@@ -11,10 +11,7 @@ const QUERY = `{
       }
       photoCredits
       date
-      location {
-        lat
-        lon
-      }
+      location
       introduction
       question1
       paragraph1
