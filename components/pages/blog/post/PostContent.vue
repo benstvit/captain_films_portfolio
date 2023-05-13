@@ -66,7 +66,6 @@ export default {
   methods: {
     content(text) {
       if (!text) return;
-      console.log(this.images);
 
       return this.$md.render(text);
     },

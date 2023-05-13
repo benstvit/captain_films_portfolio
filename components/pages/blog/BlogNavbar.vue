@@ -1,16 +1,26 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center w-full px-8 md:px-40">
     <CaptainFilmsLogo :menu-display="false" />
-    <div class="w-full m-2">
+    <div
+      class="flex flex-row items-center w-full m-2 text-sm md:text-base"
+      :class="customClass">
       <nuxt-link
         to="/"
-        class="font-captainlight self-start p-8 mx-12 hover:cursor-pointer"
+        class="font-captainlight self-start px-4 hover:cursor-pointer"
       >
-        // <span class="mx-1 opacity-90 hover:opacity-100 hover:animate-pulse">Back</span>
+        // <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Back to homepage</span>
       </nuxt-link>
       <nuxt-link
+        v-if="this.$route.params.post"
+        to="/blog"
+        class="font-captainlight self-start px-4 hover:cursor-pointer"
+      >
+        <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Back to blog</span>
+      </nuxt-link>
+      <nuxt-link
+        v-if="this.$route.path === '/blog'"
         to="#"
-        class="font-captainlight self-start p-4 mx-12 hover:cursor-pointer"
+        class="font-captainlight self-start px-4 hover:cursor-pointer"
       >
         <span class="mx-1 opacity-90 hover:opacity-100 hover:animate-pulse">Filter by...</span>
       </nuxt-link>
@@ -25,5 +35,11 @@ export default {
   components: {
     CaptainFilmsLogo,
   },
+  computed: {
+    customClass() {
+      return this.$route.params.post ? "justify-center" : "justify-start"
+    }
+  }
+
 };
 </script>
