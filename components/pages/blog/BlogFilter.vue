@@ -2,7 +2,7 @@
   <div class="flex justify-between items-center gap-2 mx-2">
     <FilterSvg />
     <select
-      class="rounded-md focus:ring-none border-none text-xs md:text-sm font-captainlight opacity-90 bg-transparent hover:cursor-pointer px-2 w-52"
+      class="rounded-md border-none text-xs md:text-sm font-captainlight opacity-90 bg-transparent focus:ring-teal-600 hover:cursor-pointer px-2 w-32 md:w-52"
       v-model="selectedOption"
     >
       <option

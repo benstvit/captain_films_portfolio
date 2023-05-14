@@ -3,7 +3,7 @@
     <BlogNavbar @filter="filter" />
     <div class="grid grid-cols-12 mx-8 md:mx-40 my-8">
       <div
-        class="col-span-6 md:col-span-5 mx-4"
+        class="col-span-12 md:col-span-6 md:col-span-5 mx-4"
         v-for="blog in filteredPosts"
         :key="blog.alt"
         @click="$router.push(`blog/posts/${blog.slug}`)"

@@ -9,9 +9,9 @@
       :src="blog.thumbnail.url"
     >
     </nuxt-img>
-    <div id="description" class="p-2">
+    <div id="description" class="text-sm md:text-base py-2">
       <h1 class="font-captainlight uppercase">{{ blog.title }}</h1>
-      <p class="font-cormorant text-md py-1">{{ blogAbstract }}</p>
+      <p class="font-cormorant py-1">{{ blogAbstract }}</p>
     </div>
   </div>
 </template>
