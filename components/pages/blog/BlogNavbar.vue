@@ -2,22 +2,24 @@
   <div class="flex flex-col items-center w-full px-8 md:px-40">
     <CaptainFilmsLogoBlog :menu-display="false" />
     <div
-      class="flex flex-row items-center w-full m-2 text-sm md:text-base uppercase"
+      class="flex flex-row items-center justify-between w-full m-2 text-xs md:text-sm md:text-base"
       :class="customClass">
-      <nuxt-link
-        to="/"
-        class="font-captainlight px-4 hover:cursor-pointer"
-      >
-        // <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Home</span>
-      </nuxt-link>
-      <nuxt-link
-        v-if="onPostPage"
-        to="/blog"
-        class="font-captainlight px-4 hover:cursor-pointer"
-      >
-        <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Retour au blog</span>
-      </nuxt-link>
-      <BlogFilter v-if="!onPostPage" />
+      <div>
+        <nuxt-link
+          to="/"
+          class="font-captainlight px-4 hover:cursor-pointer"
+        >
+          // <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Home</span>
+        </nuxt-link>
+        <nuxt-link
+          v-if="onPostPage"
+          to="/blog"
+          class="font-captainlight px-4 hover:cursor-pointer"
+        >
+          <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Retour au blog</span>
+        </nuxt-link>
+      </div>
+      <BlogFilter class="self-end" v-if="!onPostPage" />
     </div>
   </div>
 </template>

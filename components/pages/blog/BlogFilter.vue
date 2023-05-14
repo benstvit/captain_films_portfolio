@@ -1,7 +1,8 @@
 <template>
-  <div class="mx-2">
+  <div class="flex justify-between items-center gap-2 mx-2">
+    <FilterSvg />
     <select
-      class="rounded-md focus:ring-none border-none font-captainlight opacity-90 bg-transparent hover:cursor-pointer px-2 w-52"
+      class="rounded-md focus:ring-none border-none text-xs md:text-sm font-captainlight opacity-90 bg-transparent hover:cursor-pointer px-2 w-52"
       v-model="selectedOption"
     >
       <option
@@ -16,16 +17,21 @@
 </template>
 
 <script>
+import FilterSvg from '../../svg/FilterSvg.vue';
+
 export default {
   name: "blog-filter",
+  components: {
+    FilterSvg
+  },
   data() {
     return {
       selectedOption: "",
       options: [
-        { value: "tout", label: "Tout" },
-        { value: "À L'OEIL", label: "À l'Oeil" },
-        { value: "À ÉCOUTER", label: "À Écouter" },
-        { value: "À LIRE", label: "À Lire" },
+        { value: "tout", label: "Tous les articles" },
+        { value: "À GARDER À L'OEIL", label: "À garder à l'oeil" },
+        { value: "À ÉCOUTER", label: "À écouter" },
+        { value: "À LIRE", label: "À lire" },
         { value: "À VOIR", label: "À voir" },
       ],
     };
@@ -35,5 +41,8 @@ export default {
       this.$parent.$emit("filter", newValue);
     },
   },
+  mounted() {
+    this.selectedOption = this.options[0].value;
+  }
 };
 </script>

@@ -44,6 +44,7 @@ export default {
     ...mapActions({fetchBlogs: 'blogs/fetch'}),
 
     filter(filter) {
+      console.log(filter);
       if (filter === 'tout') return this.filteredPosts = this.blogPosts;
 
       this.filteredPosts = this.blogPosts.filter(blog => blog.tag === filter);
