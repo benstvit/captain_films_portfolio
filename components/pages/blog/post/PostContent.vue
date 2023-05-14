@@ -7,7 +7,7 @@
           v-if="images[0]"
           preload
           format="webp"
-          class="w-full h-auto my-2"
+          class="w-full h-auto my-4"
           :alt="images[0].title"
           :src="images[0].url"
         />
@@ -17,7 +17,7 @@
           v-if="images[1]"
           preload
           format="webp"
-          class="w-full h-auto my-2"
+          class="w-full h-auto my-4"
           :alt="images[1].title"
           :src="images[1].url"
         />
@@ -27,7 +27,7 @@
           v-if="images[2]"
           preload
           format="webp"
-          class="w-full h-auto my-2"
+          class="w-full h-auto my-4"
           :alt="images[2].title"
           :src="images[2].url"
         />
@@ -37,7 +37,7 @@
           v-if="images[3]"
           preload
           format="webp"
-          class="w-full h-auto my-2"
+          class="w-full h-auto my-4"
           :alt="images[3].title"
           :src="images[3].url"
         />

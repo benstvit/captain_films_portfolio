@@ -25,9 +25,6 @@ export default {
       default: () => {},
     },
   },
-  mounted() {
-    console.log(this.blog);
-  },
   computed: {
     blogAbstract() {
       return this.blog.introduction.substr(0, 180) + "...";

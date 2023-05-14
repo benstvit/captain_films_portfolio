@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white">
-    <BlogNavbar />
+    <BlogNavbar @filter="filter" />
     <div class="grid grid-cols-12 mx-8 md:mx-40 my-8">
       <div
-        class="col-span-5 mx-4"
-        v-for="blog in blogPosts"
+        class="col-span-6 md:col-span-5 mx-4"
+        v-for="blog in filteredPosts"
         :key="blog.alt"
         @click="$router.push(`blog/posts/${blog.slug}`)"
       >
@@ -23,6 +23,11 @@ import BlogCard from "../../components/pages/blog/BlogCard.vue";
 
 export default {
   name: "blog-index",
+  data() {
+    return {
+      filteredPosts: {}
+    }
+  },
   components: {
     BlogNavbar,
     CaptainFilmsLogo,
@@ -33,9 +38,16 @@ export default {
   },
   async mounted() {
     await this.fetchBlogs();
+    this.filteredPosts = this.blogPosts;
   },
   methods: {
-    ...mapActions({fetchBlogs: 'blogs/fetch'})
+    ...mapActions({fetchBlogs: 'blogs/fetch'}),
+
+    filter(filter) {
+      if (filter === 'tout') return this.filteredPosts = this.blogPosts;
+
+      this.filteredPosts = this.blogPosts.filter(blog => blog.tag === filter);
+    }
   },
 };
 </script>
