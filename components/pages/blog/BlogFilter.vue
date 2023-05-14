@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <select v-model="selectedOption">
+  <div class="mx-2">
+    <select
+      class="rounded-md focus:ring-none border-none font-captainlight opacity-90 bg-transparent hover:cursor-pointer px-2 w-52"
+      v-model="selectedOption"
+    >
       <option
         v-for="option in options"
         :key="option.value"
@@ -20,7 +23,7 @@ export default {
       selectedOption: "",
       options: [
         { value: "tout", label: "Tout" },
-        { value: "À L\'OEIL", label: "À l'Oeil" },
+        { value: "À L'OEIL", label: "À l'Oeil" },
         { value: "À ÉCOUTER", label: "À Écouter" },
         { value: "À LIRE", label: "À Lire" },
         { value: "À VOIR", label: "À voir" },
@@ -29,8 +32,8 @@ export default {
   },
   watch: {
     selectedOption(newValue) {
-      this.$parent.$emit('filter', newValue);
-    }
-  }
+      this.$parent.$emit("filter", newValue);
+    },
+  },
 };
 </script>
