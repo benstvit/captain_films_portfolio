@@ -1,10 +1,9 @@
 <template>
-  <div
-    v-if="post"
-    class="h-full"
-    :class="customBackgroundColor"
-  >
-    <BlogNavbar />
+  <div v-if="post" class="h-full" :class="customBackgroundColor">
+    <BlogNavbar
+      id="navbar"
+      :class="isScrolling ? 'opacity-90 transition ease-linear duration-1000' : 'opacity-100 transition ease-linear duration-300' "
+    />
     <PostHeader :post="post" />
     <PostContent :post="post" />
   </div>
@@ -24,15 +23,19 @@ export default {
     PostContent,
     PostHeader,
   },
+  data() {
+    return {
+      isScrolling: false,
+    };
+  },
   computed: {
     ...mapState("blogs", { blogPosts: "data" }),
 
     customBackgroundColor() {
       const tag = this.post.tag;
-      if (tag === "À GARDER À L'OEIL") return 'bg-sky-50';
+      if (tag === "À GARDER À L'OEIL") return "bg-sky-50";
 
-      return tag === "À ÉCOUTER" ? 'bg-pink-50' : 'bg-teal-50'
-
+      return tag === "À ÉCOUTER" ? "bg-pink-50" : "bg-teal-50";
     },
     slug() {
       return this.$route.params.post;
@@ -45,10 +48,20 @@ export default {
     },
   },
   async mounted() {
+    window.addEventListener("scroll", this.getOffsetTop);
     await this.fetchBlogs();
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.getOffsetTop);
   },
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),
+
+    getOffsetTop() {
+      const navbarY = document.getElementById("navbar").getBoundingClientRect().y;
+      if (navbarY <= -40) this.isScrolling = true
+      // navbarY <= -40 ? this.isScrolling = true : this.isScrolling = false;
+    },
   },
 };
 </script>
