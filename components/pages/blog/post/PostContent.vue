@@ -3,6 +3,8 @@
     class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-8 font-cormorant text-base md:text-lg text-justify"
   >
     <p class="py-4" v-html="content(post.introduction)"></p>
+
+    <!-- <vue-youtube-embed :video-id="videoID(post.videoUrl)"></vue-youtube-embed> -->
     <nuxt-img
           v-if="images[0]"
           preload
@@ -47,6 +49,8 @@
 </template>
 
 <script>
+// import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed'
+
 export default {
   name: "post-content",
   props: {
@@ -69,6 +73,10 @@ export default {
 
       return this.$md.render(text);
     },
+    // videoID(url) {
+    //   console.log(getIdFromURL(url));
+    //   return getIdFromURL(url);
+    // }
   },
 };
 </script>

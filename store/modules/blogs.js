@@ -9,6 +9,7 @@ const QUERY = `{
         title
         url
       }
+      videoUrl
       photoCredits
       date
       location

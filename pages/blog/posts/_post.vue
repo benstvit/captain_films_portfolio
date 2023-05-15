@@ -2,7 +2,7 @@
   <div v-if="post" class="h-full" :class="customBackgroundColor">
     <BlogNavbar
       id="navbar"
-      :class="isScrolling ? 'opacity-90 transition ease-linear duration-1000' : 'opacity-100 transition ease-linear duration-300' "
+      :class="isScrolling ? 'opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'"
     />
     <PostHeader :post="post" />
     <PostContent :post="post" />
@@ -60,7 +60,6 @@ export default {
     getOffsetTop() {
       const navbarY = document.getElementById("navbar").getBoundingClientRect().y;
       if (navbarY <= -40) this.isScrolling = true
-      // navbarY <= -40 ? this.isScrolling = true : this.isScrolling = false;
     },
   },
 };

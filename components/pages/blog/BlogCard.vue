@@ -11,7 +11,7 @@
     </nuxt-img>
     <div id="description" class="text-sm md:text-base py-2">
       <h1 class="font-captainlight uppercase">{{ blog.title }}</h1>
-      <p class="font-cormorant py-1">{{ blogAbstract }}</p>
+      <p class="font-cormorant py-1" v-html="blogAbstract"></p>
     </div>
   </div>
 </template>
@@ -27,7 +27,8 @@ export default {
   },
   computed: {
     blogAbstract() {
-      return this.blog.introduction.substr(0, 180) + "...";
+      const abstract = this.blog.introduction.substr(0, 180) + "...";
+      return this.$md.render(abstract);
     },
   },
 };

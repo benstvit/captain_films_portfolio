@@ -1,6 +1,7 @@
 <template>
   <div
-    class="sticky -top-10 z-10 bg-white drop-shadow-lg  flex flex-col items-center w-full p-6 mb-6 md:px-40"
+    class="sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 mb-6 md:px-40"
+    :class="onPostPage && 'drop-shadow-md'"
   >
     <div
       class="flex items-end w-full m-2 text-xs md:text-sm md:text-base"
@@ -38,7 +39,7 @@ export default {
       return this.$route.params.post ? true : false;
     },
     customClass() {
-      return this.onPostPage ? "justify-around" : "justify-around";
+      return this.onPostPage ? "justify-around" : "justify-around border-black border-b-2 pb-10";
     },
   },
 };
