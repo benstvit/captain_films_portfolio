@@ -31,7 +31,6 @@ export default {
         { value: "tout", label: "Tous les articles" },
         { value: "À GARDER À L'OEIL", label: "À garder à l'oeil" },
         { value: "À ÉCOUTER", label: "À écouter" },
-        { value: "À LIRE", label: "À lire" },
         { value: "À VOIR", label: "À voir" },
       ],
     };
