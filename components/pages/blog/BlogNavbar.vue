@@ -9,7 +9,8 @@
           to="/"
           class="font-captainlight px-4 hover:cursor-pointer"
         >
-          // <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Home</span>
+          <HomeSvg :stroke="home.stroke" />
+          <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Home</span>
         </nuxt-link>
         <nuxt-link
           v-if="onPostPage"
@@ -27,11 +28,19 @@
 <script>
 import BlogFilter from "./BlogFilter.vue"
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
+import HomeSvg from '../../svg/HomeSvg.vue'
+
 export default {
   name: "blog-navbar",
   components: {
     BlogFilter,
     CaptainFilmsLogoBlog,
+    HomeSvg
+  },
+  data() {
+    return {
+      home: {stroke: '#27272A'}
+    }
   },
   computed: {
     onPostPage() {
