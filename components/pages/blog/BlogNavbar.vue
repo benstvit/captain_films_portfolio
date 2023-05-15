@@ -1,55 +1,40 @@
 <template>
-  <div class="flex flex-col items-center w-full px-8 md:px-40">
-    <CaptainFilmsLogoBlog :menu-display="false" />
+  <div class="flex flex-col items-center w-full p-6 md:px-40">
+    <!-- <CaptainFilmsLogoBlog v-if="!onPostPage" :menu-display="false" /> -->
     <div
-      class="flex flex-row items-center justify-between w-full m-2 text-xs md:text-sm md:text-base"
-      :class="customClass">
-      <div>
-        <nuxt-link
-          to="/"
-          class="font-captainlight px-4 hover:cursor-pointer"
-        >
-          <HomeSvg :stroke="home.stroke" />
-          <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Home</span>
-        </nuxt-link>
-        <nuxt-link
-          v-if="onPostPage"
-          to="/blog"
-          class="font-captainlight px-4 hover:cursor-pointer"
-        >
-          <span class="mx-1 opacity-90 hover:opacity-100 hover:text-teal-600">Retour au blog</span>
-        </nuxt-link>
-      </div>
-      <BlogFilter class="self-end" v-if="!onPostPage" />
+      class="flex items-end w-full m-2 text-xs md:text-sm md:text-base"
+      :class="customClass"
+    >
+        <BlogButton menu-name="home" :custom-size="customSizeBlogButton" />
+        <CaptainFilmsLogoBlog :menu-display="false" />
+        <BlogButton v-if='onPostPage' :menu-name="blog" :custom-size="customSizeBlogButton" />
+      <BlogFilter class="" v-if="!onPostPage" />
     </div>
   </div>
 </template>
 
 <script>
-import BlogFilter from "./BlogFilter.vue"
+import BlogButton from '../../UI/BlogButton.vue';
+import BlogFilter from "./BlogFilter.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
-import HomeSvg from '../../svg/HomeSvg.vue'
 
 export default {
   name: "blog-navbar",
   components: {
+    BlogButton,
     BlogFilter,
     CaptainFilmsLogoBlog,
-    HomeSvg
-  },
-  data() {
-    return {
-      home: {stroke: '#27272A'}
-    }
   },
   computed: {
+    customSizeBlogButton() {
+      return 'w-12 h-12';
+    },
     onPostPage() {
       return this.$route.params.post ? true : false;
     },
     customClass() {
-      return this.onPostPage ? "justify-center" : "justify-start"
-    }
-  }
-
+      return this.onPostPage ? "justify-around" : "justify-between";
+    },
+  },
 };
 </script>

@@ -2,7 +2,7 @@
   <span @mouseover="display()" @mouseleave="hide()" @click="resetMenu">
     <div class="flex justify-center items-center h-fit gap-4">
       <LeftArrowSvg />
-      <div class="flex flex-col justify-center items-center">
+      <div class="flex flex-col justify-centerr items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-14 w-14 hover:cursor-pointer icon icon-tabler icon-tabler-window"
@@ -29,18 +29,20 @@
             />
           </g>
         </svg>
-        <h2 class="font-cormorant text-base lg:text-lg">Home</h2>
+        <h2 class="font-cormorant text-base lg:text-lg transition ease-in-out duration-200">
+          Home
+        </h2>
       </div>
     </div>
   </span>
 </template>
 
 <script>
-import LeftArrowSvg from './LeftArrowSvg.vue';
+import LeftArrowSvg from "./LeftArrowSvg.vue";
 
 export default {
   components: {
-    LeftArrowSvg
+    LeftArrowSvg,
   },
   data() {
     return {
@@ -55,8 +57,8 @@ export default {
       this.stroke = "#27272A";
     },
     resetMenu() {
-      this.$emit('reset-menu');
-    }
+      this.$emit("reset-menu");
+    },
   },
 };
 </script>

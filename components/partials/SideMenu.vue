@@ -1,16 +1,15 @@
 <template>
   <section>
-    <SideMenuButton menu-name='blog' />
-    <SideMenuButton menu-name='music' />
+    <BlogButton menu-name='blog' />
   </section>
 </template>
 
 <script>
-import SideMenuButton from "../UI/SideMenuButton.vue"
+import BlogButton from "../UI/BlogButton.vue"
 export default {
   name: "side-menu",
   components: {
-    SideMenuButton
+    BlogButton
   }
 };
 </script>
