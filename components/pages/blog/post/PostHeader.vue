@@ -10,6 +10,8 @@
       </h1>
       <nuxt-img
         preload
+        loading="lazy"
+        quality="80"
         format="webp"
         class="w-full md:w-auto h-auto md:h-[70vh]"
         :alt="post.thumbnail.title"

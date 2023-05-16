@@ -60,7 +60,11 @@ export default {
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['./plugins/tailwind-components.js','./plugins/axios.js'],
+  plugins: [
+    './plugins/tailwind-components.js',
+    './plugins/axios.js',
+    './plugins/youtube.js',
+  ],
   //   { src: "~/plugins/tailwind-components.js" },
   //   { src: '~/plugins/axios.js'}
   // ],
@@ -138,7 +142,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ["epic-spinners"],
+    transpile: ["epic-spinners", 'vue-youtube-embed'],
     html: {
       minify: {
         collapseWhitespace: true,

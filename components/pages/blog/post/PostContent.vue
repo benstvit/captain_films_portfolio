@@ -2,9 +2,14 @@
   <div
     class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-8 font-cormorant text-base md:text-lg text-justify"
   >
-    <p class="py-4" v-html="content(post.introduction)"></p>
+    <p class="test py-4" v-html="content(post.introduction)"></p>
 
-    <!-- <vue-youtube-embed :video-id="videoID(post.videoUrl)"></vue-youtube-embed> -->
+    <youtube
+      v-if="post.videoUrl"
+      class="border-1 border-black shadow-md my-4"
+      :video-id="videoID(post.videoUrl)"
+    ></youtube>
+
     <div v-for="(num, index) in 4" :key="num">
       <nuxt-img
         v-if="images[index]"
@@ -27,8 +32,7 @@
 
 <script>
 import aos from "../../../../mixins/aos";
-
-// import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed'
+import { getIdFromURL } from "vue-youtube-embed";
 
 export default {
   name: "post-content",
@@ -38,6 +42,11 @@ export default {
       type: Object,
       default: () => {},
     },
+  },
+  mounted() {
+    document.querySelectorAll("p > a").forEach((elem) => {
+      elem.setAttribute("target", "_blank");
+    });
   },
   computed: {
     images() {
@@ -53,10 +62,9 @@ export default {
 
       return this.$md.render(text);
     },
-    // videoID(url) {
-    //   console.log(getIdFromURL(url));
-    //   return getIdFromURL(url);
-    // }
+    videoID(url) {
+      return getIdFromURL(url);
+    },
   },
 };
 </script>
