@@ -1,5 +1,5 @@
 <template>
-  <span @mouseover="display()" @mouseleave="hide()" @click="resetMenu">
+  <span @mouseover="display()" @mouseleave="hide()" @click="resetHome">
     <div class="flex justify-center items-center h-fit gap-4">
       <LeftArrowSvg />
       <div class="flex flex-col justify-centerr items-center">
@@ -41,6 +41,8 @@
 import LeftArrowSvg from "./LeftArrowSvg.vue";
 
 export default {
+  name: 'home-svg',
+  inject: ['resetHome'],
   components: {
     LeftArrowSvg,
   },

@@ -7,15 +7,12 @@
           v-if="!menuDisplay"
           class="hidden md:block pt-32 mx-4 lg:mx-10"
           :pageIndex="pageIndex"
-          @reset-menu="resetMenu"
           @toggle-menu="toggleMenu"/>
         <BannerImage
           id="bannerImage"
           class="shrink-0 lg:shrink"
           :menus="menus"
-          :menu-display="menuDisplay"
-          @reset-menu="resetMenu"
-          @select-menu="selectMenu"/>
+          :menu-display="menuDisplay"/>
         <NavigateRight
           v-if="!menuDisplay"
           class="hidden md:block pt-32 mx-4 lg:mx-10"
@@ -36,6 +33,7 @@ import SideMenu from "../../partials/SideMenu.vue"
 
 export default {
   name: "SharedBanner",
+  inject: ['setMenu'],
   components: {
     BannerImage,
     CaptainFilmsText,
@@ -58,14 +56,8 @@ export default {
     },
   },
   methods: {
-    resetMenu() {
-      this.$parent.$emit('reset-home');
-    },
-    selectMenu(index) {
-      this.$parent.$emit('selected-menu', index)
-    },
     toggleMenu(direction) {
-      this.$parent.$emit('set-menu', { direction, index: this.menus[0].index })
+      this.setMenu({ direction, index: this.menus[0].index })
     }
   },
 };

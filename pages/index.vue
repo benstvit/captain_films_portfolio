@@ -38,6 +38,13 @@ export default {
       isLoading: true,
     };
   },
+  provide() {
+    return {
+      resetHome: this.resetHome,
+      selectMenu: this.selectMenu,
+      setMenu: this.setMenu
+    }
+  },
   computed: {
     ...mapState("banner", { photosData: "data" }),
 

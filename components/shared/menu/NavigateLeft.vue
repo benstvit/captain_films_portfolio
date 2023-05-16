@@ -1,7 +1,7 @@
 <template>
   <section>
     <div :class="pageIndex !== 1 ? 'hidden' : buttonClass">
-      <HomeSvg @reset-menu="resetMenu" />
+      <HomeSvg />
     </div>
     <div :class="pageIndex !== 2 ? 'hidden' : buttonClass">
       <span
@@ -75,9 +75,6 @@ export default {
     },
     hide(page) {
       page.stroke = "#27272A";
-    },
-    resetMenu() {
-      this.$emit("reset-menu");
     },
     toggleMenu() {
       this.$emit("toggle-menu", "left");

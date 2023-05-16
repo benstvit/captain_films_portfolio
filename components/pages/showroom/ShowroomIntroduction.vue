@@ -15,7 +15,7 @@
         It is always a pleasure to see your photographs leave the digital world of Instagram and Internet
         to come to life in people's homes.<br>
         You will find on this page pictures of the photographs that left the nest to go and live their own life.<br>
-        Feel free to <span class="underline decoration-3 cursor-pointer hover:font-bold" @click="navigateToContact">contact me</span> if you wish to adopt one.
+        Feel free to <span class="underline decoration-3 cursor-pointer hover:font-bold" @click="setMenu({ direction: 'right', index: 2 })">contact me</span> if you wish to adopt one.
       </p>
     </div>
   </section>
@@ -26,6 +26,7 @@ import aos from "../../../mixins/aos"
 
 export default {
   name: 'ShowroomIntroduction',
+  inject: ['setMenu'],
   mixins: [aos],
   props: {
     scrollTop: {
@@ -38,11 +39,5 @@ export default {
       return this.scrollTop > 90;
     }
   },
-  methods: {
-    navigateToContact() {
-      this.$parent.$emit('toggle-menu', { direction: 'right', index: 2 });
-      this.$parent.$emit('reset-translateY');
-    }
-  }
 }
 </script>

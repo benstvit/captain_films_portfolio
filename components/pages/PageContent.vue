@@ -1,10 +1,7 @@
 <template>
   <section>
     <PhotographyPage v-if="pageIndex === 1" />
-    <ShowRoomPage
-      v-if="pageIndex === 2"
-      @toggle-menu="setMenu"
-    />
+    <ShowRoomPage v-if="pageIndex === 2" />
     <ContactPage v-if="pageIndex === 3" />
   </section>
 </template>
@@ -27,10 +24,5 @@ export default {
       default: 1,
     },
   },
-  methods: {
-    setMenu() {
-      this.$parent.$emit('set-menu', payload);
-    }
-  }
 };
 </script>

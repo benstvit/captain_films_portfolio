@@ -28,6 +28,11 @@ export default {
       filteredPosts: {},
     };
   },
+  provide() {
+    return {
+      filter: this.filter
+    }
+  },
   components: {
     BlogNavbar,
     CaptainFilmsLogo,

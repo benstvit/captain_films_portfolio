@@ -3,13 +3,11 @@
     <div class="flex flex-col justify-center items-center md:gap-4 mx-4">
       <CaptainFilmsLogo
         v-if="!menuDisplay"
-        :menu-display="menuDisplay"
-        @reset-menu="resetMenu" />
+        :menu-display="menuDisplay"/>
       <MobileMenu
         class="block md:hidden"
         :menu-display="menuDisplay"
-        :active-page="menus"
-        @select-menu="selectMenu"/>
+        :active-page="menus"/>
       <div class="relative grid grid-cols-6">
         <div id="image-wrapper"
           v-for="menu in menus"
@@ -46,6 +44,7 @@ import MobileMenu from './MobileMenu.vue'
 
 export default {
   name:"BannerImage",
+  inject: ['selectMenu'],
   components: {
     CaptainFilmsLogo,
     MobileMenu,
@@ -63,12 +62,6 @@ export default {
   methods: {
     menuGrid(index) {
       return index === 3 ? 'col-span-6 hover:cursor-pointer hover:opacity-90 hover:shadow-inner' : 'col-span-6 lg:col-span-3 hover:cursor-pointer hover:opacity-90 hover:shadow-inner';
-    },
-    resetMenu() {
-      this.$emit('reset-menu');
-    },
-    selectMenu(index) {
-      this.$emit('select-menu', index)
     },
   },
 }

@@ -70,7 +70,6 @@ export default ({
           navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
         }, 500);
       }
-      this.$parent.$emit('reset-translateY')
     }
   },
   async mounted() {

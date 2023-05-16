@@ -49,6 +49,7 @@
 
 <script>
 export default {
+  inject: ['setMenu'],
   methods: {
     closeModal() {
       this.$emit("close-modal");
@@ -60,7 +61,7 @@ export default {
       }
     },
     navigateToGallery() {
-      this.$parent.$emit("set-menu", { direction: "right", index: 1 });
+      this.setMenu({ direction: "right", index: 1 })
       this.$emit("close-modal");
     },
   },

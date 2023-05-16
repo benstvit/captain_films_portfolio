@@ -14,7 +14,6 @@
     <Footer
       :selected-page="selectedPage"
       @navigate="navigateTo"
-      @reset-translateY="resetTranslateY"
     />
   </section>
 </template>
@@ -60,6 +59,9 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
     this.bannerHeight = document.getElementById('banner').offsetHeight;
+  },
+  updated() {
+    this.resetTranslateY();
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
