@@ -1,10 +1,10 @@
 <template>
   <section id="header">
-    <IntroductionModal
-      id="modal"
-      v-if="pageIndex === 1 && displayModal"
-      @close-modal="displayModal = false"
-    />
+      <IntroductionModal
+        id="modal"
+        v-if="pageIndex === 1 && displayModal"
+        @close-modal="displayModal = false"
+      />
     <SharedBanner
       id="banner"
       class="transition ease-in-out duration-300"

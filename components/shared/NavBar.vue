@@ -4,11 +4,13 @@
       <div
         v-for="(menu, index) in formattedSubmenus"
         :key="index"
-        class="w-fit">
+        class="w-fit"
+      >
         <button
           @click.stop="activate(menu.title)"
           class="text-sm md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-1 lg:px-4 py-1 mx-2 my-2 md:my-0"
-          :class="customClass(menu)">
+          :class="customClass(menu)"
+        >
           {{ menu.title }}
         </button>
       </div>
@@ -17,12 +19,12 @@
 </template>
 
 <script>
-export default ({
-  name: 'NavbarComponent',
+export default {
+  name: "NavbarComponent",
   props: {
     submenus: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     isLoading: {
       type: Boolean,
@@ -31,50 +33,56 @@ export default ({
     isScrolling: {
       type: Boolean,
       default: false,
-    }
+    },
   },
-  data () {
+  data() {
     return {
       formattedSubmenus: [],
-      page: ''
-    }
+      page: "",
+    };
   },
   components: {
     stickyClass() {
-      if (this.formattedSubmenus[0].page === 'photo') return 'fixed sticky top-10 z-10';
-    }
+      if (this.formattedSubmenus[0].page === "photo")
+        return "fixed sticky top-10 z-10";
+    },
   },
   watch: {
     formattedSubmenus(newValue) {
-      const active = newValue.filter(menu => menu.active).pop();
-      if (active) this.$emit('active-submenu', active);
+      const active = newValue.filter((menu) => menu.active).pop();
+      if (active) this.$emit("active-submenu", active);
 
       return;
     },
   },
   methods: {
     activate(title) {
-      this.formattedSubmenus = this.submenus.map(e => e.title === title ? ({ ...e, active: true }) : ({...e, active: false }));
+      this.formattedSubmenus = this.submenus.map((e) =>
+        e.title === title ? { ...e, active: true } : { ...e, active: false }
+      );
       this.handleScrollBack();
     },
     customClass(menu) {
-      if (menu.active) return 'hover:bg-teal-700 animate-pulse bg-teal-700 hover:text-white text-white pointer-events-none shadow-lg border border-transparent';
+      if (menu.active)
+        return "hover:bg-teal-700 animate-pulse bg-teal-700 hover:text-white text-white pointer-events-none shadow-lg border border-transparent";
 
-      return this.isScrolling ? 'bg-white text-black border border-black md:border-white hover:border-black transition ease-out duration-300' : 'border border-black text-black';
+      return this.isScrolling
+        ? "bg-white text-black border border-black md:border-white hover:border-black transition ease-out duration-300"
+        : "border border-black text-black";
     },
     handleScrollBack() {
-      const navbar = document.getElementById('navbar');
-      window.scrollTo(0, 0)
+      const navbar = document.getElementById("navbar");
+      window.scrollTo(0, 0);
       if (!this.isLoading && window.innerWidth > 640) {
         setTimeout(() => {
-          navbar.scrollIntoView({ block: 'start', behavior: 'smooth' });
+          navbar.scrollIntoView({ block: "start", behavior: "smooth" });
         }, 500);
       }
-    }
+    },
   },
   async mounted() {
     this.page = this.submenus[0].page;
     this.formattedSubmenus = this.submenus;
   },
-})
+};
 </script>

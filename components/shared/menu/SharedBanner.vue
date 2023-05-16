@@ -2,23 +2,23 @@
   <section v-show="menus">
     <div class="relative flex justify-center items-center">
       <SideMenu :class="menuDisplay ? 'block' : 'hidden'" />
-      <div class="flex justify-center items-center lg:w-full">
-        <NavigateLeft
-          v-if="!menuDisplay"
-          class="hidden md:block pt-32 mx-4 lg:mx-10"
-          :pageIndex="pageIndex"
-          @toggle-menu="toggleMenu"/>
-        <BannerImage
-          id="bannerImage"
-          class="shrink-0 lg:shrink"
-          :menus="menus"
-          :menu-display="menuDisplay"/>
-        <NavigateRight
-          v-if="!menuDisplay"
-          class="hidden md:block pt-32 mx-4 lg:mx-10"
-          :pageIndex="pageIndex"
-          @toggle-menu="toggleMenu" />
-      </div >
+        <div class="flex justify-center items-center lg:w-full">
+          <NavigateLeft
+            v-if="!menuDisplay"
+            class="hidden md:block pt-32 mx-4 lg:mx-10"
+            :pageIndex="pageIndex"
+            @toggle-menu="toggleMenu"/>
+          <BannerImage
+            id="bannerImage"
+            class="shrink-0 lg:shrink"
+            :menus="menus"
+            :menu-display="menuDisplay"/>
+          <NavigateRight
+            v-if="!menuDisplay"
+            class="hidden md:block pt-32 mx-4 lg:mx-10"
+            :pageIndex="pageIndex"
+            @toggle-menu="toggleMenu" />
+        </div >
       <CaptainFilmsText :class="menuDisplay ? 'block' : 'hidden'"/>
     </div>
   </section>

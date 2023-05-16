@@ -5,54 +5,34 @@
     <p class="py-4" v-html="content(post.introduction)"></p>
 
     <!-- <vue-youtube-embed :video-id="videoID(post.videoUrl)"></vue-youtube-embed> -->
-    <nuxt-img
-          v-if="images[0]"
-          preload
-          format="webp"
-          class="w-full h-auto my-4"
-          :alt="images[0].title"
-          :src="images[0].url"
-        />
-    <p :class="questionClass">{{ post.question1 }}</p>
-    <p class="py-2" v-html="content(post.paragraph1)"></p>
-    <nuxt-img
-          v-if="images[1]"
-          preload
-          format="webp"
-          class="w-full h-auto my-4"
-          :alt="images[1].title"
-          :src="images[1].url"
-        />
-    <p :class="questionClass">{{ post.question2 }}</p>
-    <p class="py-2" v-html="content(post.paragraph2)"></p>
-    <nuxt-img
-          v-if="images[2]"
-          preload
-          format="webp"
-          class="w-full h-auto my-4"
-          :alt="images[2].title"
-          :src="images[2].url"
-        />
-    <p :class="questionClass">{{ post.question3 }}</p>
-    <p class="py-2" v-html="content(post.paragraph3)"></p>
-    <nuxt-img
-          v-if="images[3]"
-          preload
-          format="webp"
-          class="w-full h-auto my-4"
-          :alt="images[3].title"
-          :src="images[3].url"
-        />
-    <p :class="questionClass">{{ post.question4 }}</p>
-    <p class="py-2" v-html="content(post.paragraph4)"></p>
+    <div v-for="(num, index) in 4" :key="num">
+      <nuxt-img
+        v-if="images[index]"
+        preload
+        loading="lazy"
+        quality="60"
+        format="webp"
+        class="w-full h-auto my-4"
+        :alt="images[index].title"
+        :src="images[index].url"
+        data-aos-easing="ease-in"
+        data-aos="fade-in"
+        data-aos-duration="300"
+      />
+      <p :class="questionClass">{{ post[`question${num}`] }}</p>
+      <p class="py-2" v-html="content(post[`paragraph${num}`])"></p>
+    </div>
   </div>
 </template>
 
 <script>
+import aos from "../../../../mixins/aos";
+
 // import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed'
 
 export default {
   name: "post-content",
+  mixins: [aos],
   props: {
     post: {
       type: Object,
