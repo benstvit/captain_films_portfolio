@@ -45,7 +45,7 @@ export default {
       return this.bannerPhotos.filter((photo) => photo.enabled).length > 1;
     },
   },
-  async mounted() {
+  async created() {
     await this.fetchPhotos();
     this.bannerPhotos = this.photosData;
     setInterval(() => {
