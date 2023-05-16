@@ -47,7 +47,7 @@ export default {
       return post[0];
     },
   },
-  async mounted() {
+  async created() {
     window.addEventListener("scroll", this.getOffsetTop);
     await this.fetchBlogs();
   },

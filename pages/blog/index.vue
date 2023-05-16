@@ -36,7 +36,7 @@ export default {
   computed: {
     ...mapState("blogs", { blogPosts: "data" }),
   },
-  async mounted() {
+  async created() {
     await this.fetchBlogs();
     this.filteredPosts = this.blogPosts;
   },
