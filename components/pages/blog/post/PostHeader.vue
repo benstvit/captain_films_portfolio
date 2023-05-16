@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center gap-2 mx-4 md:mx-20 pt-8">
+  <div class="flex justify-center items-start gap-12 mx-4 md:mx-20 pt-8">
     <div
       class="relative flex flex-col items-start font-cormorant font-light text-sm"
     >
@@ -10,8 +10,7 @@
       </h1>
       <nuxt-img
         preload
-        loading="lazy"
-        quality="80"
+        quality="60"
         format="webp"
         class="w-full md:w-auto h-auto md:h-[70vh]"
         :alt="post.thumbnail.title"

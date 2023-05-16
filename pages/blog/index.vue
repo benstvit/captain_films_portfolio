@@ -30,7 +30,7 @@ export default {
   },
   provide() {
     return {
-      filter: this.filter
+      filter: this.filter,
     }
   },
   components: {

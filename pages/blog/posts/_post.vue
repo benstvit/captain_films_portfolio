@@ -4,6 +4,7 @@
       id="navbar"
       :class="isScrolling ? 'opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'"
     />
+    <PostNavbar :posts="blogPosts" />
     <PostHeader :post="post" />
     <PostContent :post="post" />
   </div>
@@ -15,6 +16,7 @@ import { mapState, mapActions } from "vuex";
 import BlogNavbar from "../../../components/pages/blog/BlogNavbar.vue";
 import PostContent from "../../../components/pages/blog/post/PostContent.vue";
 import PostHeader from "../../../components/pages/blog/post/PostHeader.vue";
+import PostNavbar from "../../../components/pages/blog/post/PostNavbar.vue";
 
 export default {
   name: "blog-post",
@@ -22,6 +24,7 @@ export default {
     BlogNavbar,
     PostContent,
     PostHeader,
+    PostNavbar
   },
   data() {
     return {
