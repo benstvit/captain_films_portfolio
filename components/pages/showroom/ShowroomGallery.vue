@@ -57,7 +57,7 @@ export default {
   methods: {
     ...mapActions({ fetchPhotos: 'showroom/fetch' }),
   },
-  async mounted() {
+  async created() {
     await this.fetchPhotos();
     this.isLoading = false;
   }
