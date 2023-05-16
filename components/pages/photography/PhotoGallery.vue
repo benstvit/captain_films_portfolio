@@ -1,46 +1,56 @@
 <template>
   <section>
     <div class="flex justify-center items-center h-full py-2 md:py-8 px-12">
+      <keep-alive>
       <GalleryLoader v-if="isLoading" />
-      <viewer v-else :images="images" class="grid grid-cols-12 flex items-start">
-        <img v-for="image in images"
+        <viewer
+          v-else
+          :images="images"
+          class="grid grid-cols-12 flex items-start"
+        >
+          <img
+            v-for="image in images"
             :key="image.src"
             :src="image.src"
             :alt="image.alt"
-            class="col-span-12 md:col-span-6 lg:col-span-4 flex items-center hover:cursor-zoom-in hover:opacity-90 border border-1 border-white">
-      </viewer>
+            class="col-span-12 md:col-span-6 lg:col-span-4 flex items-center hover:cursor-zoom-in hover:opacity-90 border border-1 border-white"
+          />
+        </viewer>
+      </keep-alive>
     </div>
   </section>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
-import GalleryLoader from '../../partials/GalleryLoader.vue'
+import { mapState, mapActions } from "vuex";
+import GalleryLoader from "../../partials/GalleryLoader.vue";
 
 export default {
-  name: 'PhotoGallery',
+  name: "PhotoGallery",
   props: {
     active: {
       type: Object,
-      default: () => {}
-    }
+      default: () => {},
+    },
   },
   components: {
-    GalleryLoader
+    GalleryLoader,
   },
   data() {
     return {
       isLoading: true,
-      backgroundPhoto: null
-    }
+      backgroundPhoto: null,
+    };
   },
   computed: {
-    ...mapState('photography', { photosData: 'data'}),
+    ...mapState("photography", { photosData: "data" }),
 
     backgroundImage() {
       if (this.backgroundPhoto) return;
 
-      return this.photosData?.filter(photo => photo.title === 'Two religions').pop()
+      return this.photosData
+        ?.filter((photo) => photo.title === "Two religions")
+        .pop();
     },
     images() {
       if (!this.photosData.length) return;
@@ -51,26 +61,26 @@ export default {
           description: photo.title,
           index: index,
           src: photo.url,
-        }
-      })
+        };
+      });
     },
   },
   watch: {
     async active(newValue) {
       this.isLoading = true;
-      await this.fetchPhotos({ payload: newValue});
+      await this.fetchPhotos({ payload: newValue });
       this.isLoading = false;
     },
     isLoading(newValue) {
-      this.$emit('set-loading', newValue);
-    }
+      this.$emit("set-loading", newValue);
+    },
   },
   methods: {
-    ...mapActions({ fetchPhotos: 'photography/fetch' }),
+    ...mapActions({ fetchPhotos: "photography/fetch" }),
   },
-  async mounted() {
+  async created() {
     await this.fetchPhotos({ payload: this.active });
     this.isLoading = false;
-  }
-}
+  },
+};
 </script>
