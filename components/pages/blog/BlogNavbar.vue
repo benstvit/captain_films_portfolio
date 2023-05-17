@@ -3,6 +3,7 @@
     class="sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 mb-6 md:px-40"
     :class="onPostPage && 'drop-shadow-md'"
   >
+    <BlogSearchBar />
     <div
       class="flex items-end w-full m-2 text-xs md:text-sm md:text-base"
       :class="customClass"
@@ -22,6 +23,7 @@
 <script>
 import BlogButton from "../../UI/BlogButton.vue";
 import BlogFilter from "./BlogFilter.vue";
+import BlogSearchBar from "../../UI/BlogSearchBar.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
 
 export default {
@@ -29,17 +31,24 @@ export default {
   components: {
     BlogButton,
     BlogFilter,
+    BlogSearchBar,
     CaptainFilmsLogoBlog,
   },
   computed: {
+    customClass() {
+      return this.onPostPage
+        ? "justify-around"
+        : "justify-around border-black border-b-2 pb-10";
+    },
     customSizeBlogButton() {
       return "w-12 h-12";
     },
     onPostPage() {
       return this.$route.params.post ? true : false;
     },
-    customClass() {
-      return this.onPostPage ? "justify-around" : "justify-around border-black border-b-2 pb-10";
+    searchQuery(input) {
+      console.log(input);
+      // this.query = this.$refs.search.value;
     },
   },
 };

@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full flex flex-nowrap justify-between items-center px-12 font-cormorant hover:font-bold italic"
+    class="w-full flex flex-nowrap justify-between items-center py-2 px-12 font-cormorant italic"
   >
     <div
-      class="flex justify-between items-center gap-2 hover:cursor-pointer"
+      class="flex justify-between items-center gap-2 hover:cursor-pointer hover:underline opacity-80 hover:opacity-100"
       :class="displayLeftArrow ? 'visible' : 'invisible'"
       @click="navigate('previous')"
     >
@@ -11,7 +11,7 @@
       <p>{{ displayNavigation("left") }}</p>
     </div>
     <div
-      class="flex justify-between items-center gap-2 hover:cursor-pointer"
+      class="flex justify-between items-center gap-2 hover:cursor-pointer hover:underline opacity-80 hover:opacity-100"
       :class="displayRightArrow ? 'visible' : 'invisible'"
       @click="navigate('next')"
     >

@@ -48,10 +48,16 @@ export default {
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),
 
-    filter(filter) {
-      if (filter === "tout") return (this.filteredPosts = this.blogPosts);
+    filter(category, search) {
+      if (category) {
+        if (category === "tout") return (this.filteredPosts = this.blogPosts);
 
-      this.filteredPosts = this.blogPosts.filter((blog) => blog.tag === filter);
+        return this.filteredPosts = this.blogPosts.filter(blog => blog.tag === category);
+      }
+
+      this.filteredPosts = this.blogPosts.filter((blog) => {
+        return blog.title.toLowerCase().includes(search.toLowerCase());
+      })
     },
   },
 };
