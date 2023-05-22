@@ -46,10 +46,6 @@ export default {
     onPostPage() {
       return this.$route.params.post ? true : false;
     },
-    searchQuery(input) {
-      console.log(input);
-      // this.query = this.$refs.search.value;
-    },
   },
 };
 </script>

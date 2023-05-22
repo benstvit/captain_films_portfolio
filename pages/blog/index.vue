@@ -8,7 +8,7 @@
         :key="blog.alt"
         @click="$router.push(`blog/posts/${blog.slug}`)"
       >
-        <keep-alive><BlogCard :blog="blog" /></keep-alive>
+        <keep-alive><BlogCard :blog="blog" :is-searching="isSearching" /></keep-alive>
       </div>
     </div>
   </div>
@@ -25,6 +25,7 @@ export default {
   name: "blog-index",
   data() {
     return {
+      isSearching: false,
       filteredPosts: {},
     };
   },
@@ -48,16 +49,28 @@ export default {
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),
 
+    setQueryColor(query) {
+      this.filteredPosts.map(post => {
+        const title = post.title;
+        if (query.length) {
+          this.isSearching = true;
+          const highlightedContent = title.replace(new RegExp(query, "gi"), '<span class="bg-teal-600">$&</span>');
+          return this.$set(post, 'queryTitle', highlightedContent)
+        }
+          return this.isSearching = false;
+      })
+    },
+
     filter(category, search) {
       if (category) {
         if (category === "tout") return (this.filteredPosts = this.blogPosts);
 
         return this.filteredPosts = this.blogPosts.filter(blog => blog.tag === category);
       }
-
       this.filteredPosts = this.blogPosts.filter((blog) => {
         return blog.title.toLowerCase().includes(search.toLowerCase());
       })
+      this.setQueryColor(search);
     },
   },
 };

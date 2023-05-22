@@ -10,7 +10,12 @@
     >
     </nuxt-img>
     <div id="description" class="text-sm md:text-base py-2">
-      <h1 class="font-captainlight uppercase">{{ blog.title }}</h1>
+      <h1
+        v-if="isSearching"
+        class="font-captainlight uppercase"
+        v-html="blogTitle"
+      ></h1>
+      <h1 v-else class="font-captainlight uppercase">{{ blogTitle }}</h1>
       <p class="font-cormorant py-1" v-html="blogAbstract"></p>
     </div>
   </div>
@@ -24,12 +29,19 @@ export default {
       type: Object,
       default: () => {},
     },
+    isSearching: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     blogAbstract() {
       const abstract = this.blog.introduction.substr(0, 180) + "...";
       return this.$md.render(abstract);
     },
+    blogTitle() {
+      return this.isSearching ? this.blog.queryTitle : this.blog.title;
+    }
   },
 };
 </script>

@@ -1,11 +1,12 @@
 <template>
   <div
-    class="rounded-md border-none text-xs md:text-sm font-captainlight opacity-90 bg-transparent focus:ring-teal-600 hover:cursor-pointer w-32 md:w-48 px-2"
+    class="font-captainlight opacity-90"
   >
     <input
+      class="text-xs md:text-sm text-center rounded-sm focus:border-teal-600 focus:ring-0 hover:cursor-text w-fit px-4"
       type="text"
       v-model="query"
-      placeholder="Rechercher un article par mot-clef"
+      placeholder="Rechercher un article"
     />
   </div>
 </template>
