@@ -28,8 +28,12 @@ const QUERY = `{
           url
           width
           height
+          description
         }
       }
+      facebookUrl
+      instagramUrl
+      websiteUrl
     }
   }
 }`;

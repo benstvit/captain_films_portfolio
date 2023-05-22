@@ -7,6 +7,7 @@
     <PostNavbar :posts="blogPosts" />
     <PostHeader :post="post" />
     <PostContent :post="post" />
+    <PostGallery :images="galleryImages"/>
   </div>
 </template>
 
@@ -16,6 +17,7 @@ import { mapState, mapActions } from "vuex";
 import BlogNavbar from "../../../components/pages/blog/BlogNavbar.vue";
 import PostContent from "../../../components/pages/blog/post/PostContent.vue";
 import PostHeader from "../../../components/pages/blog/post/PostHeader.vue";
+import PostGallery from "../../../components/pages/blog/post/PostGallery.vue"
 import PostNavbar from "../../../components/pages/blog/post/PostNavbar.vue";
 
 export default {
@@ -24,6 +26,7 @@ export default {
     BlogNavbar,
     PostContent,
     PostHeader,
+    PostGallery,
     PostNavbar
   },
   data() {
@@ -40,14 +43,17 @@ export default {
 
       return tag === "À ÉCOUTER" ? "bg-pink-50" : "bg-teal-50";
     },
-    slug() {
-      return this.$route.params.post;
+    galleryImages() {
+      return this.post.imagesCollection.items.filter(image => image.description !== '');
     },
     post() {
       if (!this.blogPosts.length) return;
 
       const post = this.blogPosts.filter((blog) => blog.slug === this.slug);
       return post[0];
+    },
+    slug() {
+      return this.$route.params.post;
     },
   },
   async created() {
