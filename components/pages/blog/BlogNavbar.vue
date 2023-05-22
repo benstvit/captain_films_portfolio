@@ -1,18 +1,19 @@
 <template>
   <div
-    class="relative sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 md:px-40"
+    class="relative sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 md:px-32 lg:px-40"
     :class="{'drop-shadow-md mb-6 pb-6': onPostPage, 'mb-0 pb-2': onIndexPage }"
   >
-    <BlogSearchBar v-if="onIndexPage" class="self-end" />
+    <BlogSearchBar v-if="onIndexPage" class="hidden lg:block " />
+    <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" />
     <div
-      class="grid grid-cols-6 flex items-end w-full m-2 text-xs md:text-sm md:text-base"
+      class="lg:grid lg:grid-cols-6 flex items-end w-full m-2 text-xs md:text-sm md:text-base"
       :class="customClass"
     >
       <BlogButton class="col-span-2" menu-name="home" :custom-size="customSizeBlogButton" />
-      <CaptainFilmsLogoBlog class="col-span-2" :menu-display="false" />
+      <CaptainFilmsLogoBlog class="hidden lg:block col-span-2" />
       <BlogButton
         v-if="onPostPage"
-        class="col-span-2"
+        class="col-span-2 "
         menu-name="blog"
         :custom-size="customSizeBlogButton"
       />
@@ -39,7 +40,7 @@ export default {
     customClass() {
       return this.onPostPage
         ? "justify-around"
-        : "justify-around border-black border-b-2 pb-10";
+        : "justify-between lg:justify-around border-black border-b-2 pb-4 lg:pb-8";
     },
     customSizeBlogButton() {
       return "w-12 h-12";

@@ -1,8 +1,8 @@
 <template>
   <div class="flex justify-center items-center gap-1">
-    <FilterSvg />
+    <FilterSvg class="w-fit h-auto opacity-90" />
     <select
-      class="rounded-md border-none text-xs md:text-sm font-captainlight opacity-90 bg-transparent focus:ring-teal-600 hover:cursor-pointer w-32 md:w-48 px-2"
+      class="rounded-md border-none text-xs md:text-sm lg:text-base font-cormorant opacity-90 bg-transparent focus:ring-teal-600 hover:cursor-pointer w-fit pr-8 pl-2"
       v-model="selectedOption"
     >
       <option
