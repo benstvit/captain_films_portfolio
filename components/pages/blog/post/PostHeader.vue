@@ -4,7 +4,7 @@
       class="relative flex flex-col items-start font-cormorant font-light text-sm"
     >
       <h1
-        class="absolute top-2 md:top-8 right-2 left-2 text-center mx-auto font-cormorant font-semibold p-4 text-2xl md:text-4xl text-center text-white"
+        class="absolute top-2 md:top-8 right-2 left-2 text-center mx-auto font-cormorant font-semibold p-4 text-xl md:text-4xl text-center text-white"
       >
         {{ post.title }}
       </h1>

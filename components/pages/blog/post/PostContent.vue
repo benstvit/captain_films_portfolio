@@ -7,10 +7,12 @@
     <youtube
       v-if="post.videoUrl"
       class="border-1 border-black shadow-md my-4"
+      :player-width="width"
+      :player-height="height"
       :video-id="videoID(post.videoUrl)"
     ></youtube>
 
-    <viewer>
+    <viewer v-if="images.length">
       <div v-for="(image, index) in images" :key="image.title">
         <nuxt-img
           preload
@@ -28,7 +30,12 @@
         <p class="py-2" v-html="content(post[`paragraph${index + 1}`])"></p>
       </div>
     </viewer>
-    <div class="divide-y-8 divide-gray-100" />
+    <div v-else>
+      <div v-for="num in 4" :key="num">
+        <p :class="questionClass">{{ post[`question${num}`] }}</p>
+        <p class="py-2" v-html="content(post[`paragraph${num}`])"></p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,11 +46,20 @@ import { getIdFromURL } from "vue-youtube-embed";
 export default {
   name: "post-content",
   mixins: [aos],
+  data() {
+    return {
+      width: 0,
+      height: 0,
+    };
+  },
   props: {
     post: {
       type: Object,
       default: () => {},
     },
+  },
+  beforeMount() {
+    this.setVideoWidth();
   },
   mounted() {
     document.querySelectorAll("p > a").forEach((elem) => {
@@ -52,13 +68,20 @@ export default {
   },
   computed: {
     images() {
-      return this.post.imagesCollection.items.filter(image => image.description === '');
+      return this.post.imagesCollection.items.filter(
+        (image) => image.description === ""
+      );
     },
     questionClass() {
       return "self-start font-cormorant font-bold text-base md:text-xl italic pt-6 overflow-visible";
     },
   },
   methods: {
+    setVideoWidth() {
+      const windowWidth = window.innerWidth;
+      this.width = windowWidth / 2;
+      this.height = Math.round(this.width * 0.5625);
+    },
     content(text) {
       if (!text) return;
 

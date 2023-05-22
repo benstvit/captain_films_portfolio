@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full flex flex-nowrap justify-between items-center px-12 font-cormorant italic"
+    class="w-full flex flex-nowrap justify-between items-center px-1 md:px-12 font-cormorant text-[0.6rem] md:text-sm lg:text-base italic"
   >
     <div
-      class="flex justify-between items-center gap-2 hover:cursor-pointer hover:underline opacity-90 hover:opacity-100 hover:font-bold"
+      class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-pointer hover:underline opacity-90 hover:opacity-100 hover:font-bold"
       :class="displayLeftArrow ? 'visible' : 'invisible'"
       @click="navigate('previous')"
     >
