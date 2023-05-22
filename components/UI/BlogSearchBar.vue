@@ -1,10 +1,10 @@
 <template>
   <div
-    class="font-captainlight opacity-90 flex justify-center items-center gap-2"
+    class="flex justify-center items-center gap-2"
   >
     <SearchSvg />
     <input
-      class="text-xs md:text-sm text-left rounded-md border-none focus:ring-0 hover:cursor-text w-fit p-1"
+      class="font-captainlight text-xs md:text-sm text-left rounded-md border-none focus:ring-0 hover:cursor-text w-fit p-1"
       type="text"
       v-model="query"
       placeholder="Rechercher un article..."

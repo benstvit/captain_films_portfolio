@@ -10,23 +10,25 @@
       :video-id="videoID(post.videoUrl)"
     ></youtube>
 
-    <div v-for="(num, index) in 4" :key="num">
-      <nuxt-img
-        v-if="images[index]"
-        preload
-        loading="lazy"
-        quality="60"
-        format="webp"
-        class="w-full h-auto my-4"
-        :alt="images[index].title"
-        :src="images[index].url"
-        data-aos-easing="ease-in"
-        data-aos="fade-in"
-        data-aos-duration="300"
-      />
-      <p :class="questionClass">{{ post[`question${num}`] }}</p>
-      <p class="py-2" v-html="content(post[`paragraph${num}`])"></p>
-    </div>
+    <viewer>
+      <div v-for="(num, index) in 4" :key="num">
+        <nuxt-img
+          v-if="images[index]"
+          preload
+          loading="lazy"
+          quality="40"
+          format="webp"
+          class="w-full h-auto my-4 hover:cursor-zoom-in"
+          :alt="images[index].title"
+          :src="images[index].url"
+          data-aos-easing="ease-in"
+          data-aos="fade-in"
+          data-aos-duration="300"
+        />
+        <p :class="questionClass">{{ post[`question${num}`] }}</p>
+        <p class="py-2" v-html="content(post[`paragraph${num}`])"></p>
+      </div>
+    </viewer>
   </div>
 </template>
 
