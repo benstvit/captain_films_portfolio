@@ -1,21 +1,22 @@
 <template>
   <div
-    class="sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 mb-6 md:px-40"
-    :class="onPostPage && 'drop-shadow-md'"
+    class="relative sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 md:px-40"
+    :class="{'drop-shadow-md mb-6 pb-6': onPostPage, 'mb-0 pb-2': onIndexPage }"
   >
-    <BlogSearchBar />
+    <BlogSearchBar v-if="onIndexPage" class="self-end" />
     <div
-      class="flex items-end w-full m-2 text-xs md:text-sm md:text-base"
+      class="grid grid-cols-6 flex items-end w-full m-2 text-xs md:text-sm md:text-base"
       :class="customClass"
     >
-      <BlogButton menu-name="home" :custom-size="customSizeBlogButton" />
-      <CaptainFilmsLogoBlog :menu-display="false" />
+      <BlogButton class="col-span-2" menu-name="home" :custom-size="customSizeBlogButton" />
+      <CaptainFilmsLogoBlog class="col-span-2" :menu-display="false" />
       <BlogButton
         v-if="onPostPage"
+        class="col-span-2"
         menu-name="blog"
         :custom-size="customSizeBlogButton"
       />
-      <BlogFilter class="" v-if="!onPostPage" />
+      <BlogFilter class="col-span-2" v-if="onIndexPage" />
     </div>
   </div>
 </template>
@@ -42,6 +43,9 @@ export default {
     },
     customSizeBlogButton() {
       return "w-12 h-12";
+    },
+    onIndexPage() {
+      return !this.$route.params.post;
     },
     onPostPage() {
       return this.$route.params.post ? true : false;

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-start gap-12 mx-4 md:mx-20 pt-8">
+  <div class="flex justify-center items-start gap-12 mx-4 md:mx-20 pt-6">
     <div
       class="relative flex flex-col items-start font-cormorant font-light text-sm"
     >
