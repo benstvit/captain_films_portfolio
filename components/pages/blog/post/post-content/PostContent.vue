@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-8 font-cormorant text-base md:text-lg text-justify"
+    class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-6 font-cormorant text-base md:text-lg text-justify"
   >
     <InterviewFormat :post="post" v-if="contentFormat === 'interview'" />
     <ListenFormat :post="post" v-if="contentFormat === 'listen'" />

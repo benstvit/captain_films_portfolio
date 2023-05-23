@@ -17,14 +17,15 @@
         :src="post.thumbnail.url"
       />
       <div
-        class="flex flex-col md:flex-row justify-start items-start md:items-center gap-0 md:gap-2 py-2 w-full text-xs md:text-base"
+        class="flex flex-row justify-start items-center gap-2 md:py-2 w-full text-[0.6rem] md:text-base"
       >
         <p>{{ date }}</p>
-        <p class="md:block hidden">|</p>
-        <p>Tag: {{ post.tag }}</p>
+        <p>|</p>
+        <p class="md:block hidden">Tag: {{ post.tag }}</p>
         <p class="md:block hidden">|</p>
         <p>{{ post.location }}</p>
-        <p class="md:ml-auto">{{ post.photoCredits }}</p>
+        <p class="md:hidden block">|</p>
+        <p class="ml-auto">📸 {{ post.photoCredits }}</p>
       </div>
     </div>
   </div>

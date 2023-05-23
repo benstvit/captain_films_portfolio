@@ -1,9 +1,9 @@
 <template>
   <div
-    class="w-full flex flex-nowrap justify-between items-center px-1 md:px-12 font-cormorant text-[0.6rem] md:text-sm lg:text-base italic"
+    class="w-full flex flex-nowrap justify-between items-center px-1 md:px-12 font-captainbold text-[0.6rem] md:text-sm lg:text-base"
   >
     <div
-      class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-pointer hover:underline opacity-90 hover:opacity-100 hover:font-bold"
+      class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-w-resize hover:underline opacity-90 hover:opacity-100"
       :class="displayLeftArrow ? 'visible' : 'invisible'"
       @click="navigate('previous')"
     >
@@ -11,7 +11,7 @@
       <p>{{ displayNavigation("left") }}</p>
     </div>
     <div
-      class="flex justify-between items-center gap-2 hover:cursor-pointer hover:underline opacity-90 hover:opacity-100 hover:font-bold"
+      class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-e-resize hover:underline opacity-90 hover:opacity-100"
       :class="displayRightArrow ? 'visible' : 'invisible'"
       @click="navigate('next')"
     >
@@ -48,8 +48,10 @@ export default {
     displayNavigation(direction) {
       if (direction === "left" && this.currentPostIndex === 0) return (this.displayLeftArrow = false);
       if (direction === "right" && this.currentPostIndex === this.posts.length - 1) return (this.displayRightArrow = false);
-
-      return direction === "left" ? this.posts[this.currentPostIndex - 1].title : this.posts[this.currentPostIndex + 1].title;
+      const regexp = /:(.*)/;
+      const left = this.posts[this.currentPostIndex - 1]?.title.match(regexp)[1];
+      const right = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1]
+      return direction === "left" ? `Précédent: ${left}`  : `Suivant: ${right}`;
     },
     navigate(direction) {
       const index = direction === 'next' ? this.currentPostIndex + 1 : this.currentPostIndex - 1;

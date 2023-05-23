@@ -1,7 +1,7 @@
 <template>
   <div
-    class="relative sticky -top-10 z-10 bg-white flex flex-col items-center w-full p-6 md:px-32 lg:px-40"
-    :class="{'drop-shadow-md mb-6 pb-6': onPostPage, 'mb-0 pb-2': onIndexPage }"
+    class="relative sticky -top-1 md:-top-10 z-10 bg-white flex flex-col items-center w-full p-3 md:p-6 md:px-32 lg:px-40"
+    :class="{'drop-shadow-md mb-6': onPostPage, 'mb-0 pb-2': onIndexPage }"
   >
     <BlogSearchBar v-if="onIndexPage" class="hidden lg:block " />
     <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" />

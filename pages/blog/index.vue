@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center h-screen bg-white">
+  <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <BlogNavbar @filter="filter" />
     <div class="flex grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8">
       <div
