@@ -74,8 +74,8 @@ export default {
   methods: {
     menuGrid(index) {
       return index === 3
-        ? "col-span-6 hover:cursor-pointer hover:opacity-90 hover:shadow-inner"
-        : "col-span-6 lg:col-span-3 hover:cursor-pointer hover:opacity-90 hover:shadow-inner";
+        ? "col-span-6 hover:cursor-pointer hover:opacity-80 hover:shadow-inner"
+        : "col-span-6 lg:col-span-3 hover:cursor-pointer hover:opacity-80 hover:shadow-inner";
     },
   },
 };

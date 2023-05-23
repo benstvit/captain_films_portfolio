@@ -1,7 +1,8 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="h-6 w-6 icon icon-tabler icon-tabler-filter-star"
+    class="icon icon-tabler icon-tabler-filter-star"
+    :class="width"
     width="44"
     height="44"
     viewBox="0 0 24 24"
@@ -20,3 +21,15 @@
     />
   </svg>
 </template>
+
+<script>
+export default {
+  name: 'filter-svg',
+  props: {
+    width: {
+      type: String,
+      default: 'h-6 w-6'
+    }
+  }
+}
+</script>

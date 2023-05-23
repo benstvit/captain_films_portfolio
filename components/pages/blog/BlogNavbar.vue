@@ -1,12 +1,12 @@
 <template>
   <div
     class="relative sticky -top-1 md:-top-10 z-10 flex flex-col items-center w-full p-3 md:pt-6 md:px-32 lg:px-40"
-    :class="isScrolling ? 'bg-white opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'"
+    :class="isScrolling ? 'bg-white drop-shadow-sm opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'"
   >
     <BlogSearchBar v-if="onIndexPage" class="hidden lg:block" />
     <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" />
     <div
-      class="border-black border-b-2 pb-4 lg:pb-8 lg:grid lg:grid-cols-6 flex items-end w-full m-2 text-xs md:text-sm md:text-base"
+      class="border-black border-b-2 pb-4 lg:pb-8 lg:grid lg:grid-cols-6 flex items-end w-full text-xs md:text-sm md:text-base"
       :class="{'justify-around': this.onPostPage, 'justify-between lg:justify-around': !this.onPostPage,'border-none': this.isScrolling }"
     >
       <BlogButton
@@ -21,9 +21,9 @@
         menu-name="blog"
         :post-class="customSizeBlogButton"
       />
-      <BlogFilter class="col-span-2" v-if="onIndexPage" />
+      <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
-    <PostNavbar :is-scrolling="isScrolling" :posts="posts" v-if="onPostPage" />
+    <PostNavbar v-if="onPostPage" :posts="posts"  />
   </div>
 </template>
 

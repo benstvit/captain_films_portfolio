@@ -39,10 +39,6 @@ export default {
     RightArrowSvg,
   },
   props: {
-    isScrolling: {
-      type: Boolean,
-      default: false
-    },
     posts: {
       type: Array,
       default: () => [],
