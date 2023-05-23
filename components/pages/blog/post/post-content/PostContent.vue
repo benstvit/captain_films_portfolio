@@ -1,0 +1,42 @@
+<template>
+  <div
+    class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-8 font-cormorant text-base md:text-lg text-justify"
+  >
+    <InterviewFormat :post="post" v-if="contentFormat === 'interview'" />
+    <ListenFormat :post="post" v-if="contentFormat === 'listen'" />
+    <WatchFormat :post="post" v-if="contentFormat === 'watch'" />
+  </div>
+</template>
+
+<script>
+import InterviewFormat from "./InterviewFormat.vue";
+import ListenFormat from "./ListenFormat.vue";
+import WatchFormat from "./WatchFormat.vue";
+
+export default {
+  name: "post-content",
+  components: {
+    InterviewFormat,
+    ListenFormat,
+    WatchFormat,
+  },
+  props: {
+    post: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  computed: {
+    contentFormat() {
+      if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
+
+      return this.post.tag === "POUR LES MIRETTES" ? "watch" : "listen";
+    },
+  },
+  mounted() {
+    document.querySelectorAll("p > a").forEach((elem) => {
+      elem.setAttribute("target", "_blank");
+    });
+  },
+};
+</script>

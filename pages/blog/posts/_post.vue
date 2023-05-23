@@ -15,7 +15,7 @@
 import { mapState, mapActions } from "vuex";
 
 import BlogNavbar from "../../../components/pages/blog/BlogNavbar.vue";
-import PostContent from "../../../components/pages/blog/post/PostContent.vue";
+import PostContent from "../../../components/pages/blog/post/post-content/PostContent.vue";
 import PostHeader from "../../../components/pages/blog/post/PostHeader.vue";
 import PostGallery from "../../../components/pages/blog/post/PostGallery.vue"
 import PostNavbar from "../../../components/pages/blog/post/PostNavbar.vue";
