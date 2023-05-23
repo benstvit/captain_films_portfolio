@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center md:gap-4 mx-4">
+    <div class="flex flex-col justify-center items-center md:gap-4 mx-4 border-2 border-black">
       <CaptainFilmsLogo v-if="!menuDisplay" :menu-display="menuDisplay" />
       <MobileMenu
         class="block md:hidden"
@@ -26,7 +26,7 @@
               preload
               :class="
                 menuDisplay
-                  ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-white'
+                  ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-black'
                   : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-xl rounded-lg w-full '
               "
               :src="menu.url"
