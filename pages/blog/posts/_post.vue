@@ -39,9 +39,9 @@ export default {
 
     customBackgroundColor() {
       const tag = this.post.tag;
-      if (tag === "À GARDER À L'OEIL") return "bg-sky-50";
+      if (tag === "ENTRE DEUX VERRES") return "bg-sky-50";
 
-      return tag === "À ÉCOUTER" ? "bg-pink-50" : "bg-teal-50";
+      return tag === "POUR LES ÉCOUTILLES" ? "bg-pink-50" : "bg-teal-50";
     },
     galleryImages() {
       return this.post.imagesCollection.items.filter(image => image.description !== '');
