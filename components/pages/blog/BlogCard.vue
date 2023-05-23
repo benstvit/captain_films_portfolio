@@ -5,7 +5,7 @@
         preload
         format="webp"
         title="Read more..."
-        class="rounded-lg hover:opacity-80 hover:shadow-lg hover:cursor-pointer border-2 border-black"
+        class="rounded-lg hover:opacity-90 hover:shadow-lg hover:cursor-pointer border-2 border-black"
         :alt="blog.thumbnail.title"
         :src="blog.thumbnail.url"
       >

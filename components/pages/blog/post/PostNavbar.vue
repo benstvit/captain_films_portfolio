@@ -1,10 +1,10 @@
 <template>
   <div
-    class="w-full flex flex-nowrap justify-between items-center px-1 md:px-12 font-captainbold text-[0.6rem] md:text-sm lg:text-base"
+    class="w-full flex flex-nowrap justify-between items-center m-2 px-1 font-captainbold text-[0.6rem] md:text-sm lg:text-base"
   >
     <div
       class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-w-resize hover:underline opacity-90 hover:opacity-100"
-      :class="displayLeftArrow ? 'visible' : 'invisible'"
+      :class="{'visible': displayLeftArrow, 'invisible': !displayLeftArrow }"
       @click="navigate('previous')"
     >
       <LeftArrowSvg />
@@ -39,6 +39,10 @@ export default {
     RightArrowSvg,
   },
   props: {
+    isScrolling: {
+      type: Boolean,
+      default: false
+    },
     posts: {
       type: Array,
       default: () => [],

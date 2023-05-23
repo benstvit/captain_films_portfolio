@@ -3,8 +3,9 @@
     <BlogNavbar
       id="navbar"
       :is-scrolling="isScrolling"
+      :posts="blogPosts"
     />
-    <PostNavbar :posts="blogPosts" />
+    <!-- <PostNavbar :posts="blogPosts" /> -->
     <PostHeader :post="post" />
     <PostContent :post="post" />
     <PostGallery :images="galleryImages"/>
@@ -13,6 +14,7 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
+import scrollHandler from '../../../mixins/scrollHandler'
 
 import BlogNavbar from "../../../components/pages/blog/BlogNavbar.vue";
 import PostContent from "../../../components/pages/blog/post/post-content/PostContent.vue";
@@ -22,17 +24,13 @@ import PostNavbar from "../../../components/pages/blog/post/PostNavbar.vue";
 
 export default {
   name: "blog-post",
+  mixins: [scrollHandler],
   components: {
     BlogNavbar,
     PostContent,
     PostHeader,
     PostGallery,
     PostNavbar
-  },
-  data() {
-    return {
-      isScrolling: false,
-    };
   },
   computed: {
     ...mapState("blogs", { blogPosts: "data" }),
@@ -57,19 +55,10 @@ export default {
     },
   },
   async created() {
-    window.addEventListener("scroll", this.getOffsetTop);
     await this.fetchBlogs();
-  },
-  destroyed() {
-    window.removeEventListener("scroll", this.getOffsetTop);
   },
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),
-
-    getOffsetTop() {
-      const navbarY = document.getElementById("navbar").getBoundingClientRect().y;
-      return navbarY <= -40 ? this.isScrolling = true : this.isScrolling = false;
-    },
   },
 };
 </script>

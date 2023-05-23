@@ -1,8 +1,7 @@
 <template>
   <div
     class="relative sticky -top-1 md:-top-10 z-10 flex flex-col items-center w-full p-3 md:pt-6 md:px-32 lg:px-40"
-    :class="isScrolling ? 'bg-white opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'
-    "
+    :class="isScrolling ? 'bg-white opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'"
   >
     <BlogSearchBar v-if="onIndexPage" class="hidden lg:block" />
     <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" />
@@ -24,6 +23,7 @@
       />
       <BlogFilter class="col-span-2" v-if="onIndexPage" />
     </div>
+    <PostNavbar :is-scrolling="isScrolling" :posts="posts" v-if="onPostPage" />
   </div>
 </template>
 
@@ -32,6 +32,7 @@ import BlogButton from "../../UI/BlogButton.vue";
 import BlogFilter from "./BlogFilter.vue";
 import BlogSearchBar from "../../UI/BlogSearchBar.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
+import PostNavbar from "./post/PostNavbar";
 
 export default {
   name: "blog-navbar",
@@ -40,8 +41,13 @@ export default {
     BlogFilter,
     BlogSearchBar,
     CaptainFilmsLogoBlog,
+    PostNavbar
   },
   props: {
+    posts: {
+      type: Array,
+      default: () => []
+    },
     isScrolling: {
       type: Boolean,
       default: false,
