@@ -9,13 +9,13 @@
       class="lg:grid lg:grid-cols-6 flex items-end w-full m-2 text-xs md:text-sm md:text-base"
       :class="customClass"
     >
-      <BlogButton class="col-span-2" menu-name="home" :custom-size="customSizeBlogButton" />
+      <BlogButton class="col-span-2" menu-name="home" :post-class="customSizeBlogButton" />
       <CaptainFilmsLogoBlog class="hidden lg:block col-span-2" />
       <BlogButton
         v-if="onPostPage"
         class="col-span-2 "
         menu-name="blog"
-        :custom-size="customSizeBlogButton"
+        :post-class="customSizeBlogButton"
       />
       <BlogFilter class="col-span-2" v-if="onIndexPage" />
     </div>

@@ -63,7 +63,7 @@ export default {
     if (this.navigatingFromPage) return this.isLoading = false;
     setInterval(() => {
       this.isLoading = false;
-    }, 2600);
+    }, 0);
   },
   methods: {
     ...mapActions({ fetchPhotos: "banner/fetch" }),

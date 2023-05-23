@@ -41,12 +41,14 @@
             {{ menu.title }}
           </h1>
         </div>
+        <BlogButton v-if="menuDisplay" class="absolute left-1/2 -ml-16 top-1/2 -mt-12"/>
       </div>
     </div>
   </section>
 </template>
 
 <script>
+import BlogButton from '../UI/BlogButton.vue'
 import CaptainFilmsLogo from "./CaptainFilmsLogo.vue";
 import MobileMenu from "./MobileMenu.vue";
 
@@ -54,6 +56,7 @@ export default {
   name: "BannerImage",
   inject: ["selectMenu"],
   components: {
+    BlogButton,
     CaptainFilmsLogo,
     MobileMenu,
   },
