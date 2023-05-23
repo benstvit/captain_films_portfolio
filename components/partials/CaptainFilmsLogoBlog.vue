@@ -1,6 +1,6 @@
 <template>
   <div class="w-full mt-0 md:mt-4 opacity-80">
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center text-black">
       <nuxt-img
         format="webp"
         preload
@@ -13,7 +13,7 @@
         Captain Films
       </h1>
       <div
-        class="font-captainlight text-center italic text-[0.6rem] md:text-xs sm:font-bold md:font-normal text-black"
+        class="font-captainlight text-center italic text-[0.6rem] md:text-xs sm:font-bold md:font-normal"
       >
         <p>Film Photography</p>
         <p class="font-cormorant font-bold uppercase not-italic pt-1">
