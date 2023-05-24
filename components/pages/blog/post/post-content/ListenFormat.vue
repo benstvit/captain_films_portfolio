@@ -1,8 +1,8 @@
 <template>
-  <section class="flex flex-col items-center text-justify">
+  <section class="flex flex-col items-center text-justify tracking-wide leading-relaxed">
     <p class="py-4" v-html="content(post.introduction)"></p>
 
-    <div class="my-4 shadow-md border-b-[7px] border-black bg-black rounded-lg">
+    <div class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg">
       <youtube
         v-if="post.videoUrl"
         class="rounded-lg hover:opacity-80 hover:shadow-lg hover:cursor-pointer border-2 border-black"

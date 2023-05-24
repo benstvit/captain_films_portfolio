@@ -34,7 +34,7 @@ export default {
     },
   },
   mounted() {
-    document.querySelectorAll("p > a").forEach((elem) => {
+    document.querySelectorAll("p > strong > a").forEach((elem) => {
       elem.setAttribute("target", "_blank");
     });
   },

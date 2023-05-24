@@ -13,16 +13,21 @@
     </div>
 
     <div v-for="num in 8" :key="num">
-      <p class="py-2" v-html="content(post[`paragraph${num}`])"></p>
+      <p :class="post[`paragraph${num}`] && 'py-2'" v-html="content(post[`paragraph${num}`])"></p>
     </div>
+    <SocialNetworksFooter :post="post" />
   </section>
 </template>
 
 <script>
 import { getIdFromURL } from "vue-youtube-embed";
 
+import SocialNetworksFooter from './SocialNetworksFooter.vue';
 export default {
   name: "watch-format",
+  components: {
+    SocialNetworksFooter
+  },
   props: {
     post: {
       type: Object,
