@@ -31,7 +31,7 @@ export default {
       options: [
         { value: "tout", label: "Tous les articles" },
         { value: "ENTRE DEUX VERRES", label: "Entre deux verres" },
-        { value: "POUR LES ÉCOUTILLES", label: "Pour les écoutilles" },
+        { value: "POUR LES OREILLES", label: "Pour les oreilles" },
         { value: "POUR LES MIRETTES", label: "Pour les mirettes" },
       ],
     };

@@ -39,7 +39,7 @@ export default {
       const tag = this.post.tag;
       if (tag === "ENTRE DEUX VERRES") return "bg-sky-50";
 
-      return tag === "POUR LES ÉCOUTILLES" ? "bg-pink-50" : "bg-teal-50";
+      return tag === "POUR LES OREILLES" ? "bg-violet-50" : "bg-teal-50";
     },
     galleryImages() {
       return this.post.imagesCollection.items.filter(image => image.description !== '');
