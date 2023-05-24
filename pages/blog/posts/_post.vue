@@ -5,7 +5,6 @@
       :is-scrolling="isScrolling"
       :posts="blogPosts"
     />
-    <!-- <PostNavbar :posts="blogPosts" /> -->
     <PostHeader :post="post" />
     <PostContent :post="post" />
     <PostGallery :images="galleryImages"/>
@@ -20,7 +19,6 @@ import BlogNavbar from "../../../components/pages/blog/BlogNavbar.vue";
 import PostContent from "../../../components/pages/blog/post/post-content/PostContent.vue";
 import PostHeader from "../../../components/pages/blog/post/PostHeader.vue";
 import PostGallery from "../../../components/pages/blog/post/PostGallery.vue"
-import PostNavbar from "../../../components/pages/blog/post/PostNavbar.vue";
 
 export default {
   name: "blog-post",
@@ -30,7 +28,6 @@ export default {
     PostContent,
     PostHeader,
     PostGallery,
-    PostNavbar
   },
   computed: {
     ...mapState("blogs", { blogPosts: "data" }),
@@ -39,7 +36,7 @@ export default {
       const tag = this.post.tag;
       if (tag === "ENTRE DEUX VERRES") return "bg-sky-50";
 
-      return tag === "POUR LES OREILLES" ? "bg-violet-50" : "bg-teal-50";
+      return tag === "POUR LES OREILLES" ? "bg-red-50" : "bg-teal-50";
     },
     galleryImages() {
       return this.post.imagesCollection.items.filter(image => image.description !== '');

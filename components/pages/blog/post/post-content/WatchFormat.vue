@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center">
+  <section class="flex flex-col items-center text-justify">
     <p class="py-4" v-html="content(post.introduction)"></p>
 
     <div class="my-4 shadow-md border-b-[7px] border-black bg-black rounded-lg">

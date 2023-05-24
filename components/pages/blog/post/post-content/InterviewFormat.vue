@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="text-justify">
     <p class="test py-4" v-html="content(post.introduction)"></p>
 
     <viewer v-if="images.length">
@@ -20,15 +20,21 @@
         <p class="py-2" v-html="content(post[`paragraph${index + 1}`])"></p>
       </div>
     </viewer>
+       <SocialNetworksFooter :post="post"/>
   </section>
 </template>
 
 <script>
 import aos from "../../../../../mixins/aos";
 
+import SocialNetworksFooter from './SocialNetworksFooter.vue'
+
 export default {
   name: "interview-format",
   mixins: [aos],
+  components: {
+    SocialNetworksFooter
+  },
   props: {
     post: {
       type: Object,

@@ -12,7 +12,7 @@ export default {
   props: {
     stroke: {
       type: String,
-      default: 'none'
+      default: '#FFFFFF'
     }
   }
 }

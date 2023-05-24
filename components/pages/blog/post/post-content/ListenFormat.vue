@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center">
+  <section class="flex flex-col items-center text-justify">
     <p class="py-4" v-html="content(post.introduction)"></p>
 
     <div class="my-4 shadow-md border-b-[7px] border-black bg-black rounded-lg">
@@ -13,16 +13,22 @@
     </div>
 
     <div v-for="num in 8" :key="num">
-      <p class="py-2" v-html="content(post[`paragraph${num}`])"></p>
+      <p :class="post[`paragraph${num}`] && 'py-2'" v-html="content(post[`paragraph${num}`])"></p>
     </div>
+    <SocialNetworksFooter :post="post"/>
   </section>
 </template>
 
 <script>
 import { getIdFromURL } from "vue-youtube-embed";
 
+import SocialNetworksFooter from './SocialNetworksFooter.vue';
+
 export default {
   name: "listen-format",
+  components: {
+    SocialNetworksFooter
+  },
   props: {
     post: {
       type: Object,
@@ -37,6 +43,9 @@ export default {
   },
   beforeMount() {
     this.setVideoWidth();
+  },
+  mounted() {
+    console.log(this.post)
   },
   methods: {
     content(text) {
