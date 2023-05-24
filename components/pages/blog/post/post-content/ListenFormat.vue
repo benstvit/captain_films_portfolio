@@ -44,9 +44,6 @@ export default {
   beforeMount() {
     this.setVideoWidth();
   },
-  mounted() {
-    console.log(this.post)
-  },
   methods: {
     content(text) {
       if (!text) return;

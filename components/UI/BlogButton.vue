@@ -1,7 +1,7 @@
 <template>
   <section>
     <nuxt-link
-      class="flex flex-col justify-center items-center gap-6 mx-4" :to="menuRoute">
+      class="flex flex-col justify-center items-center gap-6" :class="menuName === 'home' && 'mx-4'" :to="menuRoute">
       <span
         class="flex justify-center items-center bg-white border-2 hover:font-bold hover:border border-black transition ease-in-out duration-200"
         :class="postClass ? 'w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14' : 'w-16 h-16 lg:w-24 lg:h-24 rotate-45'"

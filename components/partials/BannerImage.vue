@@ -42,7 +42,7 @@
             {{ menu.title }}
           </h1>
         </div>
-        <BlogButton v-if="menuDisplay" class="fixed md:absolute left-1/2 -ml-12 top-1/3 -mt-10 lg:left-1/2 lg:-ml-16 lg:top-1/2 lg:-mt-12"/>
+        <BlogButton v-if="menuDisplay" class="fixed md:absolute left-1/2 -ml-8 top-1/3 -mt-10 md:-mt-8 lg:left-1/2 lg:-ml-12 lg:top-1/2 lg:-mt-12"/>
       </div>
     </div>
   </section>

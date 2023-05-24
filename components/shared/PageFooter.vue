@@ -12,7 +12,7 @@
         <InstagramSvg class="self-start" :stroke="instagramSvg.stroke" />
       </a>
       <ul
-        class="flex flex-wrap items-center justify-center font-captainlight text-xs md:text-sm "
+        class="flex flex-wrap items-center justify-center font-captainlight text-xs md:text-sm"
       >
         <li
           v-for="menu in menus"
@@ -24,8 +24,11 @@
           {{ menu }}
         </li>
       </ul>
+      <BlogButton class="self-end" :post-class="true" />
     </div>
-    <p class="text-gray-50 opacity-90 text-xs font-sans italic text-center px-2 pt-1">
+    <p
+      class="text-gray-50 opacity-90 text-xs font-sans italic text-center px-2 pt-1"
+    >
       © All work contained within this blog is Captain Films | Benjamin Saint
       Viteux 2015-2022.
     </p>
@@ -36,6 +39,7 @@
 </template>
 
 <script>
+import BlogButton from "../UI/BlogButton.vue";
 import InstagramSvg from "../svg/InstagramSvg.vue";
 
 export default {
@@ -47,6 +51,7 @@ export default {
     },
   },
   components: {
+    BlogButton,
     InstagramSvg,
   },
   data() {
@@ -63,14 +68,16 @@ export default {
   methods: {
     customClass(menu) {
       if (!this.activePage.length) return;
-      const activeMenu = menu === "Contact me" ? "Contact me | Order your pic" : menu;
+      const activeMenu =
+        menu === "Contact me" ? "Contact me | Order your pic" : menu;
 
       return activeMenu === this.activePage[0].title
         ? "text-white hover:cursor-default text-md"
         : "opacity-80 text-gray-50 dark:text-white hover:text-white hover:opacity-100 hover:cursor-pointer";
     },
     navigateTo(menu) {
-      const payload = menu === "Contact me" ? "Contact me | Order your pic" : menu;
+      const payload =
+        menu === "Contact me" ? "Contact me | Order your pic" : menu;
       this.$emit("navigate", payload);
     },
   },

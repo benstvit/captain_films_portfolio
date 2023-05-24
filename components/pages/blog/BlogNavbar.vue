@@ -58,7 +58,7 @@ export default {
       return !this.$route.params.post;
     },
     onPostPage() {
-      return this.$route.params.post ? true : false;
+      return this.$route.params.post;
     },
   },
 };

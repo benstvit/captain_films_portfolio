@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" />
     <div
-      class="flex grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8"
+      class="grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8"
     >
       <div
         class="col-span-12 md:col-span-6 mx-2"
@@ -69,7 +69,6 @@ export default {
         return (this.isSearching = false);
       });
     },
-
     filter(category, search) {
       if (category) {
         if (category === "tout") return (this.filteredPosts = this.blogPosts);
