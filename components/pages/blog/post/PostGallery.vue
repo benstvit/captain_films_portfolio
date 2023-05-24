@@ -1,5 +1,7 @@
 <template>
-  <viewer :images="images" class="grid grid-cols-12 gap-4 flex items-start px-12 md:px-24 py-14 lg:px-32 lg:mx-32">
+  <viewer
+    :images="images"
+    class="grid grid-cols-12 gap-4 flex items-start px-12 md:px-24 py-14 lg:px-32 lg:mx-32">
     <nuxt-img
       v-for="image in images"
       preload

@@ -7,7 +7,7 @@
     />
     <PostHeader :post="post" />
     <PostContent :post="post" />
-    <PostGallery :images="galleryImages"/>
+    <PostGallery  v-if="galleryImages.length" :images="galleryImages"/>
   </div>
 </template>
 

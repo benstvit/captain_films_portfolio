@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center text-justify tracking-wide leading-relaxed">
+  <section class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed">
     <p class="py-4" v-html="content(post.introduction)"></p>
 
     <div class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg">

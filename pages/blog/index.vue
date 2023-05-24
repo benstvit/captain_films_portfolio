@@ -4,16 +4,16 @@
     <div
       class="grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8"
     >
-      <div
+      <nuxt-link
         class="col-span-12 md:col-span-6 mx-2"
         v-for="blog in filteredPosts"
         :key="blog.alt"
-        @click="$router.push(`blog/posts/${blog.slug}`)"
+        :to="`/blog/posts/${blog.slug}`"
       >
         <keep-alive>
           <BlogCard :blog="blog" :is-searching="isSearching" />
         </keep-alive>
-      </div>
+      </nuxt-link>
     </div>
   </div>
 </template>

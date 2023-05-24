@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-center items-center mt-6">
+  <div class="flex flex-col justify-center items-center m-6">
     <p class="text-left">Pour suivre le projet ça ce passe ici :</p>
     <div class="flex justify-around items-center gap-4 m-2">
       <a v-if="post.instagramUrl" :href="post.instagramUrl" target="_blank">
