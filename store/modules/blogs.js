@@ -65,6 +65,7 @@ export default {
         const response = await fetch(fetchUrl, fetchOptions).then((response) =>
           response.json()
         );
+        const posts = response.data.blogPostPhotoCollection.items;
         commit('SET_DATA', response.data.blogPostPhotoCollection.items)
 
       } catch (error) {

@@ -59,7 +59,6 @@ export default {
     await this.fetchPhotos();
     this.isLoading = true;
     this.bannerPhotos = this.photosData;
-    // this.redirect() ==> Développer l'idée de selectMenu(index) en fonction du route path
     if (this.navigatingFromPage) return this.isLoading = false;
     setInterval(() => {
       this.isLoading = false;
@@ -67,7 +66,6 @@ export default {
   },
   methods: {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
-
     reset() {
       this.bannerPhotos.forEach((photo) => (photo.enabled = false));
     },

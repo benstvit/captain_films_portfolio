@@ -1,4 +1,5 @@
 import createSitemapRoutes from "./utils/createSitemap";
+const store = require('./store/modules/blogs');
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -41,7 +42,15 @@ export default {
       },
     ],
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  generate: {
+      routes: () => {
+        const posts = store.state.data;
+        return posts.map(post => {
+          return {path: `/blog/posts/${post.slug}`}
+        })
+      }
+  },
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
@@ -53,7 +62,7 @@ export default {
   // Contentful
   env: {
     contentfulAccessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
-    contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID
+    contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
