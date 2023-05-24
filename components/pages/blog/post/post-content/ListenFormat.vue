@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed">
+  <section id="listen-content" class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed">
     <p class="py-4" v-html="content(post.introduction)"></p>
 
     <div class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg">
@@ -51,8 +51,8 @@ export default {
       return this.$md.render(text);
     },
     setVideoWidth() {
-      const windowWidth = window.innerWidth;
-      this.width = windowWidth / 2;
+      const contentWidth = window.innerWidth;
+      this.width = contentWidth < 768 ? contentWidth - 50 : contentWidth / 2;
       this.height = Math.round(this.width * 0.5625);
     },
 
