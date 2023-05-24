@@ -50,8 +50,8 @@ export default {
       return this.$md.render(text);
     },
     setVideoWidth() {
-      const windowWidth = window.innerWidth;
-      this.width = windowWidth / 2;
+      const contentWidth = window.innerWidth;
+      this.width = contentWidth < 768 ? contentWidth - 50 : contentWidth / 2;
       this.height = Math.round(this.width * 0.5625);
     },
 
