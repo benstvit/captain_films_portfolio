@@ -1,5 +1,68 @@
 import createSitemapRoutes from "./utils/createSitemap";
 
+const QUERY = `{
+  blogPostPhotoCollection(order: articleId_DESC) {
+    items {
+      articleId
+      slug
+      tag
+      title
+      thumbnail {
+        title
+        url
+      }
+      videoUrl
+      photoCredits
+      date
+      location
+      introduction
+      question1
+      paragraph1
+      question2
+      paragraph2
+      question3
+      paragraph3
+      question4
+      paragraph4
+      imagesCollection {
+        items {
+          title
+          url
+          width
+          height
+          description
+        }
+      }
+      facebookUrl
+      instagramUrl
+      websiteUrl
+    }
+  }
+}`;
+
+const fetchPosts = async () => {
+  const query = QUERY;
+  const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/1e5mw7riemb8`;
+  const fetchOptions = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer qffk44BY4yvR4zgjDaCYI9dAR8cI_weWvCDxyL7ODew`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  };
+  try {
+    const response = await fetch(fetchUrl, fetchOptions).then((response) =>
+    response.json()
+    );
+    console.log(response.data);
+    const posts = response.data.blogPostPhotoCollection.items;
+    return posts.map(post => ({route: '/blog/posts/' + post.slug, payload: post }));
+  } catch (error) {
+    throw new Error("Could not receive the data from Contentful!");
+  };
+};
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -42,12 +105,14 @@ export default {
     ],
   },
   generate: {
+    routes: fetchPosts
 
-    routes: [
-      '/blog/posts/pour-les-oreilles-creve-d-ennui-ML',
-    ]
+
+    // routes: [
+    //   {route: '/blog/posts/pour-les-oreilles-creve-d-ennui-ML'},
+    // ]
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
