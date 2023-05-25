@@ -23,6 +23,11 @@ import PostGallery from "../../../components/pages/blog/post/PostGallery.vue"
 export default {
   name: "blog-post",
   mixins: [scrollHandler],
+  data() {
+    return {
+      post: null
+    }
+  },
   components: {
     BlogNavbar,
     PostContent,
@@ -41,18 +46,10 @@ export default {
     galleryImages() {
       return this.post.imagesCollection.items.filter(image => image.description !== '');
     },
-    post() {
-      if (!this.blogPosts.length) return;
-
-      const post = this.blogPosts.filter((blog) => blog.slug === this.slug);
-      return post[0];
-    },
-    slug() {
-      return this.$route.params.post;
-    },
   },
   async created() {
     await this.fetchBlogs();
+    this.post = this.blogPosts.filter(blog => blog.slug === this.$route.params.post)[0];
   },
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),

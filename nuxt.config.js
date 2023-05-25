@@ -1,5 +1,4 @@
 import createSitemapRoutes from "./utils/createSitemap";
-const store = require('./store/modules/blogs');
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -43,14 +42,12 @@ export default {
     ],
   },
   generate: {
-      routes: () => {
-        const posts = store.state.data;
-        return posts.map(post => {
-          return {path: `/blog/posts/${post.slug}`}
-        })
-      }
+
+    routes: [
+      '/blog/posts/pour-les-oreilles-creve-d-ennui-ML',
+    ]
   },
-  target: "static", // Set to static before nuxt generate, server when dev environment
+  target: "server", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
