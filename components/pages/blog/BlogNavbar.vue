@@ -55,10 +55,10 @@ export default {
   },
   computed: {
     onIndexPage() {
-      return !this.$route.params.post;
+      return !this.$route.params.slug;
     },
     onPostPage() {
-      return this.$route.params.post;
+      return this.$route.params.slug;
     },
   },
 };

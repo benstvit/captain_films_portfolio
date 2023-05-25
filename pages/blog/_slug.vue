@@ -13,12 +13,12 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import scrollHandler from '../../../mixins/scrollHandler'
+import scrollHandler from '../../mixins/scrollHandler'
 
-import BlogNavbar from "../../../components/pages/blog/BlogNavbar.vue";
-import PostContent from "../../../components/pages/blog/post/post-content/PostContent.vue";
-import PostHeader from "../../../components/pages/blog/post/PostHeader.vue";
-import PostGallery from "../../../components/pages/blog/post/PostGallery.vue"
+import BlogNavbar from "../../components/pages/blog/BlogNavbar.vue";
+import PostContent from "../../components/pages/blog/post/post-content/PostContent.vue";
+import PostHeader from "../../components/pages/blog/post/PostHeader.vue";
+import PostGallery from "../../components/pages/blog/post/PostGallery.vue"
 
 export default {
   name: "blog-post",
@@ -49,10 +49,11 @@ export default {
   },
   async created() {
     await this.fetchBlogs();
-    this.post = this.blogPosts.filter(blog => blog.slug === this.$route.params.post)[0];
+    this.post = this.blogPosts.filter(blog => blog.slug === this.$route.params.slug)[0];
   },
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),
+
   },
 };
 </script>

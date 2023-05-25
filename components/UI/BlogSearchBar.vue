@@ -19,7 +19,6 @@ import SearchSvg from  '../svg/SearchSvg.vue';
 
 export default {
   name: "blog-search-bar",
-  inject: ["filter"],
   components: {
     SearchSvg
   },
@@ -30,7 +29,7 @@ export default {
   },
   watch: {
     query(newValue) {
-      this.filter(null, newValue);
+      this.$parent.$emit(null, newValue);
     },
   },
 };

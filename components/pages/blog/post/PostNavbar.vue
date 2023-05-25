@@ -56,12 +56,12 @@ export default {
     navigate(direction) {
       const index = direction === 'next' ? this.currentPostIndex + 1 : this.currentPostIndex - 1;
       const post = this.posts[index];
-      this.$router.push({path: `/blog/posts/${post.slug}`});
+      this.$router.push({path: `/blog/${post.slug}`});
     },
   },
   created() {
     this.currentPostIndex = this.posts.findIndex(
-      (post) => post.slug === this.$route.params.post
+      (post) => post.slug === this.$route.params.slug
     );
   },
 };

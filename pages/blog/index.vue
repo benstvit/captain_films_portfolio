@@ -8,7 +8,7 @@
         class="col-span-12 md:col-span-6 mx-2"
         v-for="blog in filteredPosts"
         :key="blog.alt"
-        :to="`/blog/posts/${blog.slug}`"
+        :to="`/blog/${blog.slug}`"
       >
         <keep-alive>
           <BlogCard :blog="blog" :is-searching="isSearching" />

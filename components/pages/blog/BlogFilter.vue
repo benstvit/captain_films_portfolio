@@ -21,7 +21,6 @@ import FilterSvg from '../../svg/FilterSvg.vue';
 
 export default {
   name: "blog-filter",
-  inject: ['filter'],
   components: {
     FilterSvg
   },
@@ -38,7 +37,7 @@ export default {
   },
   watch: {
     selectedOption(newValue) {
-      this.filter(newValue);
+      this.$parent.$emit(newValue);
     },
   },
   mounted() {
