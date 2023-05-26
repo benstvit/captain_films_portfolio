@@ -42,9 +42,6 @@ export default {
     ],
   },
   generate: {
-    // routes: fetchPosts
-
-
     routes: [
       {route: '/blog/pour-les-oreilles-creve-d-ennui-ML'},
     ]

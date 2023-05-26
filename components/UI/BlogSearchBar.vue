@@ -29,7 +29,8 @@ export default {
   },
   watch: {
     query(newValue) {
-      this.$parent.$emit(null, newValue);
+      const payload= [null, newValue];
+      this.$parent.$emit('filter', ...payload);
     },
   },
 };

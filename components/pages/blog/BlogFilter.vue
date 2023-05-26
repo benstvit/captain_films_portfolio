@@ -37,7 +37,7 @@ export default {
   },
   watch: {
     selectedOption(newValue) {
-      this.$parent.$emit(newValue);
+      this.$parent.$emit('filter', newValue);
     },
   },
   mounted() {
