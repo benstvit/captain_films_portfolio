@@ -29,7 +29,7 @@ export default {
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Noto+Serif+Khojki:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap&family=Caveat",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Cormorant+Garamond:wght@700&family=Noto+Serif+Khojki:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap&family=Caveat",
         crossorigin: true,
       },
     ],
@@ -41,6 +41,11 @@ export default {
       },
     ],
   },
+  generate: {
+    routes: [
+      {route: '/blog/pour-les-oreilles-creve-d-ennui-ML' },
+    ]
+  },
   target: "server", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
@@ -50,11 +55,21 @@ export default {
     start_url: "/",
   },
 
+  // Contentful
+  env: {
+    contentfulAccessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
+    contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["@/assets/css/main.css", "@/assets/css/tailwind.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['./plugins/tailwind-components.js','./plugins/axios.js'],
+  plugins: [
+    './plugins/tailwind-components.js',
+    './plugins/axios.js',
+    './plugins/youtube.js',
+  ],
   //   { src: "~/plugins/tailwind-components.js" },
   //   { src: '~/plugins/axios.js'}
   // ],
@@ -75,6 +90,7 @@ export default {
     "@nuxtjs/axios",
     "@nuxtjs/auth-next",
     "@nuxt/image",
+    "@nuxtjs/markdownit",
     "@nuxtjs/toast",
   ],
   // Nuxt Axios
@@ -131,7 +147,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ["epic-spinners"],
+    transpile: ["epic-spinners", 'vue-youtube-embed'],
     html: {
       minify: {
         collapseWhitespace: true,

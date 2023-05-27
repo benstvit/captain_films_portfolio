@@ -14,7 +14,7 @@
                 :key="menu"
                 class="mx-1"
                 :class="activeClass(menu)"
-                @click.stop="selectMenu(index)">
+                @click.stop="selectMenu(index + 1)">
                 {{menu}}
               </li>
             </ul>
@@ -29,6 +29,7 @@ import CaptainFilmsLogo from './CaptainFilmsLogo.vue'
 
 export default {
   name:'MobileMenu',
+  inject: ['selectMenu'],
   components: {
     CaptainFilmsLogo
   },
@@ -54,9 +55,6 @@ export default {
       const submenu = menu === 'Contact me' ? 'Contact me | Order your pic' : menu;
 
       if (submenu === this.activePage[0].title) return 'text-teal-700';
-    },
-    selectMenu(index) {
-      this.$emit('select-menu', index + 1);
     },
   }
 }

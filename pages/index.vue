@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Loader v-if="isLoading" />
+    <Loader v-if="!navigatingFromPage && isLoading" />
     <div v-if="!isLoading" :style="{ contain: 'paint' }">
       <MenuDisplay
         v-if="menuDisplay"
@@ -38,23 +38,34 @@ export default {
       isLoading: true,
     };
   },
+  provide() {
+    return {
+      resetHome: this.resetHome,
+      selectMenu: this.selectMenu,
+      setMenu: this.setMenu
+    }
+  },
   computed: {
     ...mapState("banner", { photosData: "data" }),
 
+    navigatingFromPage() {
+      return this.$nuxt.context.from ? true : false;
+    },
     menuDisplay() {
       return this.bannerPhotos.filter((photo) => photo.enabled).length > 1;
     },
   },
   async created() {
     await this.fetchPhotos();
+    this.isLoading = true;
     this.bannerPhotos = this.photosData;
+    if (this.navigatingFromPage) return this.isLoading = false;
     setInterval(() => {
       this.isLoading = false;
-    }, 2600);
+    }, 2500);
   },
   methods: {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
-
     reset() {
       this.bannerPhotos.forEach((photo) => (photo.enabled = false));
     },
@@ -75,7 +86,9 @@ export default {
         payload.direction === "right" ? payload.index + 1 : payload.index - 1;
       this.reset();
       this.bannerPhotos.forEach((menu) =>
-        menu.index === direction ? (menu.enabled = true) : (menu.enabled = false)
+        menu.index === direction
+          ? (menu.enabled = true)
+          : (menu.enabled = false)
       );
     },
   },

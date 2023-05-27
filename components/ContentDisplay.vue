@@ -1,10 +1,10 @@
 <template>
   <section id="header">
-    <IntroductionModal
-      id="modal"
-      v-if="pageIndex === 1 && displayModal"
-      @close-modal="displayModal = false"
-    />
+      <IntroductionModal
+        id="modal"
+        v-if="pageIndex === 1 && displayModal"
+        @close-modal="displayModal = false"
+      />
     <SharedBanner
       id="banner"
       class="transition ease-in-out duration-300"
@@ -14,7 +14,6 @@
     <Footer
       :selected-page="selectedPage"
       @navigate="navigateTo"
-      @reset-translateY="resetTranslateY"
     />
   </section>
 </template>
@@ -60,6 +59,9 @@ export default {
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
     this.bannerHeight = document.getElementById('banner').offsetHeight;
+  },
+  updated() {
+    this.resetTranslateY();
   },
   destroyed() {
     window.removeEventListener('scroll', this.handleScroll);
