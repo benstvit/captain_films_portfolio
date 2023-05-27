@@ -1,5 +1,5 @@
 <template>
-  <div v-if="post" class="h-full" :class="customBackgroundColor">
+  <div v-if="isLoaded" class="h-full" :class="customBackgroundColor">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
     <PostHeader :post="post" />
     <PostContent :post="post" />
@@ -22,6 +22,7 @@ export default {
   data() {
     return {
       post: undefined,
+      isLoaded: false
     };
   },
   components: {
@@ -45,11 +46,12 @@ export default {
       );
     },
   },
-  async mounted() {
+  async created() {
     await this.fetchBlogs();
     this.post = this.blogPosts.filter(
       (blog) => blog.slug === this.$route.params.slug
     )[0];
+    this.isLoaded = true;
   },
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),

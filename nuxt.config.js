@@ -46,7 +46,7 @@ export default {
       {route: '/blog/pour-les-oreilles-creve-d-ennui-ML' },
     ]
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
