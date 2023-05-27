@@ -43,7 +43,7 @@ export default {
   },
   generate: {
     routes: [
-      {route: '/blog/pour-les-oreilles-creve-d-ennui-ML'},
+      {route: '/blog/pour-les-oreilles-creve-d-ennui-ML' },
     ]
   },
   target: "server", // Set to static before nuxt generate, server when dev environment

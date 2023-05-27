@@ -66,6 +66,7 @@ export default {
           response.json()
         );
         const posts = response.data.blogPostPhotoCollection.items;
+        // Vue.prototype.$posts = posts;
         commit('SET_DATA', response.data.blogPostPhotoCollection.items)
 
       } catch (error) {
