@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded" class="h-full" :class="customBackgroundColor">
+  <div v-if="isLoaded && post" class="h-full" :class="customBackgroundColor">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
     <PostHeader :post="post" />
     <PostContent :post="post" />
@@ -21,8 +21,8 @@ export default {
   mixins: [scrollHandler],
   data() {
     return {
-      post: undefined,
-      isLoaded: false
+      fetchedPosts: [],
+      isLoaded: false,
     };
   },
   components: {
@@ -35,22 +35,30 @@ export default {
     ...mapState("blogs", { blogPosts: "data" }),
 
     customBackgroundColor() {
+      if (!this.post) return;
+
       const tag = this.post.tag;
       if (tag === "ENTRE DEUX VERRES") return "bg-sky-50";
 
       return tag === "POUR LES OREILLES" ? "bg-red-50" : "bg-teal-50";
     },
     galleryImages() {
+      if (!this.post) return;
       return this.post.imagesCollection.items.filter(
         (image) => image.description !== ""
       );
     },
+    post() {
+      if (!this.fetchedPosts.length) return;
+
+      return this.fetchedPosts.filter((blog) => {
+        blog.slug !== this.$route.params.slug;
+      })[0];
+    },
   },
   async created() {
     await this.fetchBlogs();
-    this.post = this.blogPosts.filter(
-      (blog) => blog.slug === this.$route.params.slug
-    )[0];
+    this.fetchedPosts = this.blogPosts;
     this.isLoaded = true;
   },
   methods: {
