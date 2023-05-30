@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded && post" class="h-full" :class="customBackgroundColor">
+  <div v-if="post" class="h-full" :class="customBackgroundColor">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
     <PostHeader :post="post" />
     <PostContent :post="post" />
@@ -19,12 +19,6 @@ import PostGallery from "../../components/pages/blog/post/PostGallery.vue";
 export default {
   name: "blog-post",
   mixins: [scrollHandler],
-  data() {
-    return {
-      fetchedPosts: [],
-      isLoaded: false,
-    };
-  },
   components: {
     BlogNavbar,
     PostContent,
@@ -44,22 +38,18 @@ export default {
     },
     galleryImages() {
       if (!this.post) return;
+
       return this.post.imagesCollection.items.filter(
         (image) => image.description !== ""
       );
     },
-    post() {
-      if (!this.fetchedPosts.length) return;
-
-      return this.fetchedPosts.filter((blog) => {
-        blog.slug !== this.$route.params.slug;
-      })[0];
-    },
   },
-  async created() {
-    await this.fetchBlogs();
-    this.fetchedPosts = this.blogPosts;
-    this.isLoaded = true;
+  async asyncData({ store, params }) {
+    await store.dispatch("blogs/fetch");
+    const posts = store.getters["blogs/data"];
+    const post = posts.filter((e) => e.slug === params.slug)[0];
+
+    return { post };
   },
   methods: {
     ...mapActions({ fetchBlogs: "blogs/fetch" }),
