@@ -8,7 +8,6 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
 import BlogNavbar from "../../components/pages/blog/BlogNavbar.vue";
@@ -25,9 +24,42 @@ export default {
     PostHeader,
     PostGallery,
   },
-  computed: {
-    ...mapState("blogs", { blogPosts: "data" }),
+  head() {
+    return {
+      title: "Captain Films - Blog",
+      meta: [
+        {
+          hid: "og-title",
+          property: "og:title",
+          content: `Captain Films Blog - ${this.post.title}`,
+        },
+        { hid: "og-type", property: "og:type", content: "blog" },
 
+        {
+          hid: "description",
+          name: "description",
+          content: this.blogAbstract(),
+        },
+        {
+          hid: "og-image",
+          itemprop: "image",
+          property: "og:image",
+          content: `${this.post.thumbnail.url}`,
+        },
+        {
+          hid: "og-image-alt",
+          property: "og:image:alt	",
+          content: `${this.post.thumbnail.title}`,
+        },
+        {
+          hid: "og-url",
+          property: "og:url",
+          content: `https://captain-films.com/blog/${this.$route.params.slug}`,
+        },
+      ],
+    };
+  },
+  computed: {
     customBackgroundColor() {
       if (!this.post) return;
 
@@ -46,13 +78,19 @@ export default {
   },
   async asyncData({ store, params }) {
     await store.dispatch("blogs/fetch");
-    const posts = store.getters["blogs/data"];
-    const post = posts.filter((e) => e.slug === params.slug)[0];
+    const blogPosts = store.getters["blogs/data"];
+    const post = blogPosts.filter((e) => e.slug === params.slug)[0];
 
-    return { post };
+    return { blogPosts, post };
   },
   methods: {
-    ...mapActions({ fetchBlogs: "blogs/fetch" }),
+    blogAbstract() {
+      const abstract = this.post.introduction.substr(0, 180) + "...";
+      return abstract;
+    },
+  },
+  mounted() {
+    console.log(this.post);
   },
 };
 </script>
