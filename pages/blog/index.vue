@@ -5,10 +5,10 @@
       class="grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8"
     >
       <nuxt-link
-        class="col-span-12 md:col-span-6 mx-2"
         v-for="blog in filteredPosts"
+        class="col-span-12 md:col-span-6 mx-2"
         :key="blog.alt"
-        :to="`/blog/${blog.slug}`"
+        :to="'/blog/' + blog.slug"
       >
         <keep-alive>
           <BlogCard :blog="blog" :is-searching="isSearching" />
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       isSearching: false,
-      filteredPosts: {},
+      filteredPosts: [],
     };
   },
   provide() {

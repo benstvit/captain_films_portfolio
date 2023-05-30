@@ -9,14 +9,13 @@ export default {
     },
     meta: [
       { hid: 'og-type', property: 'og:type', content: 'website' },
-      { hid: 'og-title', property: 'og:title', content: 'Captain Films - Film Photography' },
-      { hid: 'og-desc', property: 'og:description', content: 'A photography and web design portfolio.' },
+      { hid: 'og-title', property: 'og:title', content: 'Captain Films - Film Photography & Blog' },
+      { hid: 'og-desc', property: 'og:description', content: 'Where film photography, web design and blogging meet.' },
       { hid: 'og-image', itemprop: "image", property: 'og:image', content: 'cf-share-logo.png'},
       { hid: 'og-url', property: 'og:url', content: 'https://captain-films.com/' },
       { hid: 'og-image-alt', property: 'og:image:alt	', content: 'Captain Films Logo' },
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [
@@ -79,8 +78,12 @@ export default {
     // https://go.nuxtjs.dev/tailwindcss
     '@braid/vue-formulate/nuxt',
     "@nuxtjs/tailwindcss",
+    '@nuxt/image',
     "@nuxtjs/moment",
   ],
+  image: {
+    domains: ['images.ctfassets.net']
+  },
   moment: {
     defaultTimezone: "Asia/Phnom_Penh",
   },

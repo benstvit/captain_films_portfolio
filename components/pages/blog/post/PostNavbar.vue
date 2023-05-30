@@ -4,7 +4,7 @@
   >
     <div
       class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-w-resize hover:underline opacity-90 hover:opacity-100"
-      :class="{'visible': displayLeftArrow, 'invisible': !displayLeftArrow }"
+      v-if="displayLeftArrow"
       @click="navigate('previous')"
     >
       <LeftArrowSvg />
@@ -12,7 +12,7 @@
     </div>
     <div
       class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-e-resize hover:underline opacity-90 hover:opacity-100"
-      :class="displayRightArrow ? 'visible' : 'invisible'"
+      v-if="displayRightArrow"
       @click="navigate('next')"
     >
       <p>{{ displayNavigation("right") }}</p>
@@ -29,9 +29,8 @@ export default {
   name: "post-navbar",
   data() {
     return {
-      currentPostIndex: "",
-      displayLeftArrow: true,
-      displayRightArrow: true,
+      displayLeftArrow: false,
+      displayRightArrow: false,
     };
   },
   components: {
@@ -45,6 +44,9 @@ export default {
     },
   },
   methods: {
+    currentPostIndex() {
+      return this.posts.findIndex(post => post.slug === this.$route.params.slug);
+    },
     displayNavigation(direction) {
       if (direction === "left" && this.currentPostIndex === 0) return (this.displayLeftArrow = false);
       if (direction === "right" && this.currentPostIndex === this.posts.length - 1) return (this.displayRightArrow = false);
@@ -58,11 +60,6 @@ export default {
       const post = this.posts[index];
       this.$router.push({path: `/blog/${post.slug}`});
     },
-  },
-  created() {
-    this.currentPostIndex = this.posts.findIndex(
-      (post) => post.slug === this.$route.params.slug
-    );
   },
 };
 </script>

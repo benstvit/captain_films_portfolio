@@ -6,7 +6,7 @@
         preload
         class="w-10 h-10 md:w-20 md:h-20"
         alt="loader-logo"
-        :src="'logo-solo.png'"
+        src="/logo-solo.png"
       >
       </nuxt-img>
       <h1 class="font-captainlight text-center text-[0.6rem] md:text-sm">
