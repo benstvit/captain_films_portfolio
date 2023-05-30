@@ -29,6 +29,40 @@ import BlogCard from "../../components/pages/blog/BlogCard.vue";
 export default {
   name: "blog-index",
   mixins: [scrollHandler],
+  head() {
+    return {
+      title: "Captain Films - Blog",
+      meta: [
+        {
+          hid: "og-title",
+          property: "og:title",
+          content: `Captain Films Blog`,
+        },
+        { hid: "og-type", property: "og:type", content: "blog" },
+        {
+          hid: "description",
+          name: "description",
+          content: 'Le Blog de Captain Films. Des interviews, de la musique, de la photographie...',
+        },
+        {
+          hid: "og-image",
+          itemprop: "image",
+          property: "og:image",
+          content: 'cf-share-logo-blog.png',
+        },
+        {
+          hid: "og-image-alt",
+          property: "og:image:alt	",
+          content: 'Captain Films Blog',
+        },
+        {
+          hid: "og-url",
+          property: "og:url",
+          content: 'https://captain-films.com/blog',
+        },
+      ],
+    };
+  },
   data() {
     return {
       isSearching: false,
