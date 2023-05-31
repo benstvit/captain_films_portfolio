@@ -1,4 +1,5 @@
 import createSitemapRoutes from "./utils/createSitemap";
+const axios = require('axios');
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -41,11 +42,61 @@ export default {
     ],
   },
   generate: {
-    routes: [
-      {route: '/blog/pour-les-mirettes-creve-d-ennui-ML' },
-    ]
+    async routes() {
+      const query = `{
+        blogPostPhotoCollection(order: articleId_DESC) {
+          items {
+            articleId
+            slug
+            tag
+            title
+            thumbnail {
+              title
+              url
+            }
+            videoUrl
+            photoCredits
+            date
+            location
+            introduction
+            question1
+            paragraph1
+            question2
+            paragraph2
+            question3
+            paragraph3
+            question4
+            paragraph4
+            imagesCollection {
+              items {
+                title
+                url
+                width
+                height
+                description
+              }
+            }
+            facebookUrl
+            instagramUrl
+            websiteUrl
+          }
+        }
+      }`;
+      const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.VUE_APP_CONTENTFUL_SPACE_ID}`;
+      const response = await axios({
+        url: fetchUrl,
+        method: "post",
+        headers: {
+          Authorization: `Bearer ${process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          "content-type": "application/json",
+        },
+        data: {query},
+      });
+      const posts = response.data.data.blogPostPhotoCollection.items;
+      return posts.map(post => ({ route: '/blog/' + post.slug }));
+    },
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
@@ -69,9 +120,6 @@ export default {
     './plugins/axios.js',
     './plugins/youtube.js',
   ],
-  //   { src: "~/plugins/tailwind-components.js" },
-  //   { src: '~/plugins/axios.js'}
-  // ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [

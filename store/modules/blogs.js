@@ -66,8 +66,7 @@ export default {
           response.json()
         );
         const posts = response.data.blogPostPhotoCollection.items;
-        // Vue.prototype.$posts = posts;
-        commit('SET_DATA', response.data.blogPostPhotoCollection.items)
+        commit('SET_DATA', posts)
 
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");
