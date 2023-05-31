@@ -9,6 +9,8 @@ const QUERY = `{
         title
         url
       }
+      trackId
+      albumId
       videoUrl
       photoCredits
       date

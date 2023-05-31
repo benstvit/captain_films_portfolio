@@ -46,39 +46,7 @@ export default {
       const query = `{
         blogPostPhotoCollection(order: articleId_DESC) {
           items {
-            articleId
             slug
-            tag
-            title
-            thumbnail {
-              title
-              url
-            }
-            videoUrl
-            photoCredits
-            date
-            location
-            introduction
-            question1
-            paragraph1
-            question2
-            paragraph2
-            question3
-            paragraph3
-            question4
-            paragraph4
-            imagesCollection {
-              items {
-                title
-                url
-                width
-                height
-                description
-              }
-            }
-            facebookUrl
-            instagramUrl
-            websiteUrl
           }
         }
       }`;
@@ -96,7 +64,7 @@ export default {
       return posts.map(post => ({ route: '/blog/' + post.slug }));
     },
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
