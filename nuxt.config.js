@@ -64,7 +64,7 @@ export default {
       return posts.map(post => ({ route: '/blog/' + post.slug }));
     },
   },
-  target: "static", // Set to static before nuxt generate, server when dev environment
+  target: "server", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
@@ -76,6 +76,7 @@ export default {
   // Contentful
   env: {
     contentfulAccessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
+    contentfulPreviewAccessToken: process.env.VUE_APP_CONTENTFUL_PREVIEW_ACCESS_TOKEN,
     contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
   },
 
