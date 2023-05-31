@@ -66,7 +66,7 @@ export default {
       const tag = this.post.tag;
       if (tag === "ENTRE DEUX VERRES") return "bg-sky-50";
 
-      return tag === "POUR LES OREILLES" ? "bg-red-50" : "bg-teal-50";
+      return tag === "POUR LES OREILLES" ? "bg-red-50" : "bg-amber-50";
     },
     galleryImages() {
       if (!this.post) return;
@@ -88,9 +88,6 @@ export default {
       const abstract = this.post.introduction.substr(0, 180) + "...";
       return abstract;
     },
-  },
-  mounted() {
-    console.log(this.post);
   },
 };
 </script>
