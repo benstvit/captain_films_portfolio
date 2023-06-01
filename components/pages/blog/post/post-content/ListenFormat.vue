@@ -3,7 +3,7 @@
     id="listen-content"
     class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed"
   >
-    <div class="w-1/2 m-2 shadow-sm">
+    <div class="m-2 shadow-sm">
       <BandcampAudioPlayer
         v-if="displayBandCampPlayer"
         :album-id="post.albumId"
@@ -36,7 +36,7 @@
         v-html="content(post[`paragraph${num}`])"
       ></p>
     </div>
-    <div class="w-1/2 m-4 py-4">
+    <div class="m-4 py-4">
       <BandcampAudioPlayer
         v-if="displayBandCampPlayer"
         :album-id="post.albumId"
