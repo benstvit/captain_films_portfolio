@@ -12,7 +12,7 @@
         preload
         quality="60"
         format="webp"
-        class="w-full md:w-auto h-auto md:h-[70vh]"
+        class="w-full md:w-auto h-auto lg:h-[70vh]"
         :alt="post.thumbnail.title"
         :src="post.thumbnail.url"
       />

@@ -1,10 +1,10 @@
 <template>
   <div
-    class="w-full flex flex-nowrap justify-between items-center mt-2 px-1 font-captainbold text-[0.6rem] md:text-sm"
+    class="w-full flex flex-nowrap justify-between items-center mt-2 px-1 font-captainbold font-bold text-[0.6rem] md:text-sm"
   >
     <div
       class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-w-resize hover:underline opacity-90 hover:opacity-100"
-      v-if="displayLeftArrow"
+      :class="displayLeftArrow ? 'visible' : 'invisible'"
       @click="navigate('previous')"
     >
       <LeftArrowSvg />
@@ -12,7 +12,7 @@
     </div>
     <div
       class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-e-resize hover:underline opacity-90 hover:opacity-100"
-      v-if="displayRightArrow"
+      :class="displayRightArrow ? 'visible' : 'invisible'"
       @click="navigate('next')"
     >
       <p>{{ displayNavigation("right") }}</p>
@@ -43,13 +43,16 @@ export default {
       default: () => [],
     },
   },
-  methods: {
+  computed: {
     currentPostIndex() {
       return this.posts.findIndex(post => post.slug === this.$route.params.slug);
     },
+  },
+  mounted() {
+    this.setDisplayStatus();
+  },
+  methods: {
     displayNavigation(direction) {
-      if (direction === "left" && this.currentPostIndex === 0) return (this.displayLeftArrow = false);
-      if (direction === "right" && this.currentPostIndex === this.posts.length - 1) return (this.displayRightArrow = false);
       const regexp = /:(.*)/;
       const left = this.posts[this.currentPostIndex - 1]?.title.match(regexp)[1];
       const right = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1]
@@ -60,6 +63,10 @@ export default {
       const post = this.posts[index];
       this.$router.push({path: `/blog/${post.slug}`});
     },
+    setDisplayStatus() {
+      this.displayLeftArrow = (this.currentPostIndex === 0) ? false : true;
+      this.displayRightArrow = (this.currentPostIndex === this.posts.length - 1) ? false : true;
+    }
   },
 };
 </script>
