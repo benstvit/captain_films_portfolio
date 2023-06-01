@@ -11,21 +11,35 @@ export default {
     };
   },
   props: {
-    post: {
-      type: Object,
-      default: () => {},
+    albumId: {
+      type: String,
+      default: null
     },
+    trackId: {
+      type: String,
+      default: null
+    }
   },
   mounted() {
-    this.embedCode = this.generateEmbedCode(this.post);
+    if (this.trackId) return this.embedCode = this.generateTrackEmbedCode(this.trackId, this.albumId);
+
+    this.embedCode = this.generateAlbumEmbedCode(this.albumId);
   },
   methods: {
-    generateEmbedCode(post) {
-      const id = post.trackId ? post.trackId : post.albumId;
+    generateAlbumEmbedCode(albumId) {
       const embedCode = `
         <iframe style="border: 0; width: 350px; height: 470px;"
-          src="https://bandcamp.com/EmbeddedPlayer/album=${id}/size=large/bgcol=ffffff/linkcol=0687f5/license_id=671/tracklist=false/transparent=true/" seamless>
+          src="https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=large/bgcol=ffffff/linkcol=0687f5/license_id=671/tracklist=false/transparent=true/" seamless>
         </iframe>`;
+
+      return embedCode;
+    },
+    generateTrackEmbedCode(trackId, albumId) {
+      const embedCode = `
+        <iframe style="border: 0; width: 100%; height: 42px;"
+          src="https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=small/bgcol=ffffff/linkcol=0687f5/license_id=671/track=${trackId}/transparent=true/" seamless>
+        </iframe>
+        `;
 
       return embedCode;
     },

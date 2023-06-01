@@ -3,10 +3,15 @@
     id="listen-content"
     class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed"
   >
+    <BandcampPlayer
+      v-if="displayBandCampPlayer"
+      :album-id="post.albumId"
+      :track-id="post.trackId"
+    />
     <p class="py-4" v-html="content(post.introduction)"></p>
 
     <div>
-      <BandcampPlayer v-if="displayBandCampPlayer" :post="post" />
+      <BandcampPlayer v-if="displayBandCampPlayer" :album-id="post.albumId" />
     </div>
     <div class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg">
       <youtube
@@ -54,7 +59,7 @@ export default {
   },
   computed: {
     displayBandCampPlayer() {
-      return this.post.trackId || this.post.albumId;
+      return this.post.albumId;
     },
   },
   beforeMount() {

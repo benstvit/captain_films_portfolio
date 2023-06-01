@@ -37,7 +37,7 @@ export default {
     svgStroke() {
       if (this.post.tag === "ENTRE DEUX VERRES") return "#7dd3fc";
 
-      return this.post.tag === "POUR LES MIRETTES" ? "#5eead4" : "#fca5a5";
+      return this.post.tag === "POUR LES MIRETTES" ? "#fcd34d" : "#fca5a5";
     },
   },
 };
