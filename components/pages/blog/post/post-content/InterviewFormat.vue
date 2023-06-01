@@ -1,6 +1,6 @@
 <template>
   <section class="text-justify">
-    <p class="test py-4" v-html="content(post.introduction)"></p>
+    <p class="test py-6 italic" v-html="content(post.introduction)"></p>
 
     <viewer v-if="images.length">
       <div v-for="(image, index) in images" :key="image.title">
@@ -16,8 +16,9 @@
           data-aos="fade-in"
           data-aos-duration="500"
         />
-        <p :class="questionClass">{{ post[`question${index + 1}`] }}</p>
-        <p class="py-2" v-html="content(post[`paragraph${index + 1}`])"></p>
+        <p class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
+          :class="post[`question${index + 1}`] ? 'block' : 'hidden'">{{ post[`question${index + 1}`] }}</p>
+        <p :class="post[`paragraph${index + 1}`] ? 'py-2 block' : 'hidden'" v-html="content(post[`paragraph${index + 1}`])"></p>
       </div>
     </viewer>
        <SocialNetworksFooter :post="post"/>
@@ -46,9 +47,6 @@ export default {
       return this.post.imagesCollection.items.filter(
         (image) => image.description === ""
       );
-    },
-    questionClass() {
-      return "self-start font-cormorant font-bold text-base md:text-xl italic pt-6 overflow-visible";
     },
   },
   methods: {
