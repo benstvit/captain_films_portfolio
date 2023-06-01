@@ -3,19 +3,20 @@
     id="listen-content"
     class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed"
   >
-    <BandcampPlayer
-      v-if="displayBandCampPlayer"
-      :album-id="post.albumId"
-      :track-id="post.trackId"
-    />
+    <div class="w-1/2 m-2 shadow-sm">
+      <BandcampPlayer
+        v-if="displayBandCampPlayer"
+        :album-id="post.albumId"
+        :track-id="post.trackId"
+      />
+    </div>
     <p class="py-4" v-html="content(post.introduction)"></p>
 
-    <div>
-      <BandcampPlayer v-if="displayBandCampPlayer" :album-id="post.albumId" />
-    </div>
-    <div class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg">
+    <div
+      v-if="post.videoUrl"
+      class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg"
+    >
       <youtube
-        v-if="post.videoUrl"
         class="rounded-lg hover:opacity-80 hover:shadow-lg hover:cursor-pointer border-2 border-black"
         :player-width="width"
         :player-height="height"
@@ -28,6 +29,9 @@
         :class="post[`paragraph${num}`] && 'py-2'"
         v-html="content(post[`paragraph${num}`])"
       ></p>
+    </div>
+    <div class="w-1/2 m-2 shadow-sm">
+      <BandcampPlayer v-if="displayBandCampPlayer" :album-id="post.albumId" />
     </div>
     <SocialNetworksFooter :post="post" />
   </section>

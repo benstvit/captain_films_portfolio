@@ -12,11 +12,11 @@ export default {
   },
   props: {
     albumId: {
-      type: String,
+      type: Number,
       default: null
     },
     trackId: {
-      type: String,
+      type: Number,
       default: null
     }
   },
