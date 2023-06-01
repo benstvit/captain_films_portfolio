@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex flex-nowrap justify-between items-center mt-2 px-1 font-captainbold font-bold text-[0.6rem] md:text-sm"
+    class="w-full flex flex-nowrap justify-between items-center mt-2 px-1 font-captainbold text-[0.6rem] md:text-sm"
   >
     <div
       class="flex justify-between items-center gap-1 md:gap-2 hover:cursor-w-resize hover:underline opacity-90 hover:opacity-100"
