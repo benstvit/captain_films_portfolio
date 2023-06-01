@@ -28,10 +28,9 @@ export default {
   methods: {
     generateAlbumEmbedCode(albumId) {
       const embedCode = `
-        <iframe style="border: 0; width: 350px; height: 470px;"
-          src="https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=large/bgcol=ffffff/linkcol=0687f5/license_id=671/tracklist=false/transparent=true/" seamless>
+        <iframe style="border: 0; width: 350px; height: 753px;"
+          src="https://bandcamp.com/EmbeddedPlayer/album=${albumId}/size=large/bgcol=ffffff/linkcol=0687f5/license_id=671/transparent=true/" seamless>
         </iframe>`;
-
       return embedCode;
     },
     generateTrackEmbedCode(trackId, albumId) {

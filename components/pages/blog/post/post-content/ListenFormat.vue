@@ -35,7 +35,7 @@
         v-html="content(post[`paragraph${num}`])"
       ></p>
     </div>
-    <div class="w-1/2 m-2 shadow-sm">
+    <div class="w-1/2 m-4 py-4">
       <BandcampPlayer v-if="displayBandCampPlayer" :album-id="post.albumId" />
     </div>
     <SocialNetworksFooter :post="post" />
