@@ -4,7 +4,7 @@
     class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed"
   >
     <div class="w-1/2 m-2 shadow-sm">
-      <BandcampPlayer
+      <BandcampAudioPlayer
         v-if="displayBandCampPlayer"
         :album-id="post.albumId"
         :track-id="post.trackId"
@@ -27,7 +27,8 @@
     <div v-for="num in 8" :key="num">
       <p
         class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
-        :class="post[`question${num}`] ? 'block' : 'hidden'">
+        :class="post[`question${num}`] ? 'block' : 'hidden'"
+      >
         {{ post[`question${num}`] }}
       </p>
       <p
@@ -36,7 +37,10 @@
       ></p>
     </div>
     <div class="w-1/2 m-4 py-4">
-      <BandcampPlayer v-if="displayBandCampPlayer" :album-id="post.albumId" />
+      <BandcampAudioPlayer
+        v-if="displayBandCampPlayer"
+        :album-id="post.albumId"
+      />
     </div>
     <SocialNetworksFooter :post="post" />
   </section>
@@ -45,13 +49,13 @@
 <script>
 import { getIdFromURL } from "vue-youtube-embed";
 
-import BandcampPlayer from "../../../../partials/BandcampPlayer.vue";
+import BandcampAudioPlayer from "../../../../partials/BandcampAudioPlayer.vue";
 import SocialNetworksFooter from "./SocialNetworksFooter.vue";
 
 export default {
   name: "listen-format",
   components: {
-    BandcampPlayer,
+    BandcampAudioPlayer,
     SocialNetworksFooter,
   },
   props: {
