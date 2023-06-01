@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div class="shadow-md border-b-[7px] border-black bg-black rounded-lg">
+    <div class="shadow-md border-b-[7px] border-black bg-black rounded-lg my-4">
       <nuxt-img
         preload
         format="webp"
         title="Read more..."
-        class="rounded-lg hover:opacity-90 hover:shadow-lg hover:cursor-pointer border-2 border-black"
+        class="rounded-lg hover:opacity-90 hover:shadow-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover"
         :alt="blog.thumbnail.title"
         :src="blog.thumbnail.url"
       >
@@ -19,7 +19,7 @@
       ></h1>
       <h1
         v-else
-        class="font-captainlight text-sm md:text-sm lg:text-base xl:text-lg uppercase"
+        class="font-captainlight text-sm md:text-sm lg:text-base uppercase"
       >
         {{ blogTitle }}
       </h1>

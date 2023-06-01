@@ -1,7 +1,18 @@
 <template>
-  <section id="listen-content" class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed">
+  <section
+    id="listen-content"
+    class="flex flex-col items-center text-justify px-1 md:px-0 tracking-wide leading-normal md:leading-relaxed"
+  >
+    <BandcampPlayer
+      v-if="displayBandCampPlayer"
+      :album-id="post.albumId"
+      :track-id="post.trackId"
+    />
     <p class="py-4" v-html="content(post.introduction)"></p>
 
+    <div>
+      <BandcampPlayer v-if="displayBandCampPlayer" :album-id="post.albumId" />
+    </div>
     <div class="my-4 shadow-md border-b-[9px] border-black bg-black rounded-lg">
       <youtube
         v-if="post.videoUrl"
@@ -13,21 +24,26 @@
     </div>
 
     <div v-for="num in 8" :key="num">
-      <p :class="post[`paragraph${num}`] && 'py-2'" v-html="content(post[`paragraph${num}`])"></p>
+      <p
+        :class="post[`paragraph${num}`] && 'py-2'"
+        v-html="content(post[`paragraph${num}`])"
+      ></p>
     </div>
-    <SocialNetworksFooter :post="post"/>
+    <SocialNetworksFooter :post="post" />
   </section>
 </template>
 
 <script>
 import { getIdFromURL } from "vue-youtube-embed";
 
-import SocialNetworksFooter from './SocialNetworksFooter.vue';
+import BandcampPlayer from "../../../../partials/BandcampPlayer.vue";
+import SocialNetworksFooter from "./SocialNetworksFooter.vue";
 
 export default {
   name: "listen-format",
   components: {
-    SocialNetworksFooter
+    BandcampPlayer,
+    SocialNetworksFooter,
   },
   props: {
     post: {
@@ -40,6 +56,11 @@ export default {
       width: 0,
       height: 0,
     };
+  },
+  computed: {
+    displayBandCampPlayer() {
+      return this.post.albumId;
+    },
   },
   beforeMount() {
     this.setVideoWidth();
@@ -59,6 +80,6 @@ export default {
     videoID(url) {
       return getIdFromURL(url);
     },
-  }
+  },
 };
 </script>

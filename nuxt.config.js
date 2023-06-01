@@ -46,39 +46,7 @@ export default {
       const query = `{
         blogPostPhotoCollection(order: articleId_DESC) {
           items {
-            articleId
             slug
-            tag
-            title
-            thumbnail {
-              title
-              url
-            }
-            videoUrl
-            photoCredits
-            date
-            location
-            introduction
-            question1
-            paragraph1
-            question2
-            paragraph2
-            question3
-            paragraph3
-            question4
-            paragraph4
-            imagesCollection {
-              items {
-                title
-                url
-                width
-                height
-                description
-              }
-            }
-            facebookUrl
-            instagramUrl
-            websiteUrl
           }
         }
       }`;
@@ -108,6 +76,7 @@ export default {
   // Contentful
   env: {
     contentfulAccessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
+    contentfulPreviewAccessToken: process.env.VUE_APP_CONTENTFUL_PREVIEW_ACCESS_TOKEN,
     contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
   },
 

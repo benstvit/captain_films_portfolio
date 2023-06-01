@@ -6,7 +6,7 @@
     >
       <nuxt-link
         v-for="blog in filteredPosts"
-        class="col-span-12 md:col-span-6 mx-2"
+        class="col-span-12 md:col-span-6 xl:col-span-4 mx-2"
         :key="blog.alt"
         :to="'/blog/' + blog.slug"
       >
