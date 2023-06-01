@@ -21,9 +21,9 @@ export default {
     }
   },
   mounted() {
-    if (this.trackId) return this.embedCode = this.generateTrackEmbedCode(this.trackId, this.albumId);
-
-    this.embedCode = this.generateAlbumEmbedCode(this.albumId);
+    console.log(this.trackId);
+    if (this.trackId && this.albumId) return this.embedCode = this.generateTrackEmbedCode(this.trackId, this.albumId);
+    if (this.albumId && !this.trackId) return this.embedCode = this.generateAlbumEmbedCode(this.albumId);
   },
   methods: {
     generateAlbumEmbedCode(albumId) {
