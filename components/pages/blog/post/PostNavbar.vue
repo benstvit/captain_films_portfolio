@@ -54,6 +54,7 @@ export default {
   },
   methods: {
     displayNavigation(direction) {
+      if (!this.posts.length) return;
       const regexp = /:(.*)/;
       const left = this.posts[this.currentPostIndex - 1]?.title.match(regexp)[1];
       const right = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1];
