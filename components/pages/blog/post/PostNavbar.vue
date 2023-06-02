@@ -45,6 +45,7 @@ export default {
   },
   computed: {
     currentPostIndex() {
+      if (!this.posts.length) return;
       return this.posts.findIndex(post => post.slug === this.$route.params.slug);
     },
   },
@@ -55,7 +56,7 @@ export default {
     displayNavigation(direction) {
       const regexp = /:(.*)/;
       const left = this.posts[this.currentPostIndex - 1]?.title.match(regexp)[1];
-      const right = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1]
+      const right = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1];
       return direction === "left" ? `Précédent: ${left}`  : `Suivant: ${right}`;
     },
     navigate(direction) {
