@@ -31,7 +31,7 @@ export default {
   mixins: [scrollHandler],
   head() {
     return {
-      title: "Captain Films - Blog",
+      title: "Captain Films - Le Blog",
       meta: [
         {
           hid: "og-title",

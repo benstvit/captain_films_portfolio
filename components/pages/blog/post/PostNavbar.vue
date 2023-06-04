@@ -58,6 +58,8 @@ export default {
       const regexp = /:(.*)/;
       const left = this.posts[this.currentPostIndex - 1]?.title.match(regexp)[1];
       const right = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1];
+      if (!left) this.displayLeftArrow = false;
+      if (!right) this.displayRightArrow = false;
       return direction === "left" ? `Précédent: ${left}`  : `Suivant: ${right}`;
     },
     navigate(direction) {
