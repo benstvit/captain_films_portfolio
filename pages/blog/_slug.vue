@@ -64,9 +64,9 @@ export default {
       if (!this.post) return;
 
       const tag = this.post.tag;
-      if (tag === "ENTRE DEUX VERRES") return "bg-sky-50";
+      if (tag === "ENTRE DEUX VERRES") return "bg-sky-100";
 
-      return tag === "POUR LES OREILLES" ? "bg-red-50" : "bg-amber-50";
+      return tag === "POUR LES OREILLES" ? "bg-red-100" : "bg-amber-100";
     },
     galleryImages() {
       if (!this.post) return;
