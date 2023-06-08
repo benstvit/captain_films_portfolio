@@ -23,7 +23,7 @@
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
-    <PostNavbar v-if="onPostPage" :posts="posts"  />
+    <PostNavbar class="block sm:hidden" :posts="posts"  />
   </div>
 </template>
 
@@ -32,8 +32,7 @@ import BlogButton from "../../UI/BlogButton.vue";
 import BlogFilter from "./BlogFilter.vue";
 import BlogSearchBar from "../../UI/BlogSearchBar.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
-import PostNavbar from "./post/PostNavbar";
-
+import PostNavbar from "./post/PostNavbar"
 export default {
   name: "blog-navbar",
   components: {

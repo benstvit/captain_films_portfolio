@@ -1,7 +1,7 @@
 <template>
   <div v-if="post" class="h-full" :class="customBackgroundColor">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
-    <PostHeader :post="post" />
+    <PostHeader :post="post" :posts="blogPosts"  />
     <PostContent :post="post" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
   </div>
