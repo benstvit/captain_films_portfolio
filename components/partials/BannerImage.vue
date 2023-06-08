@@ -28,7 +28,7 @@
               :class="
                 menuDisplay
                   ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-black'
-                  : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-xl rounded-lg w-full '
+                  : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-sm rounded-lg w-full'
               "
               :src="menu.url"
               :alt="menu.title"

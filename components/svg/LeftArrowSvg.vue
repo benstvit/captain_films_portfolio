@@ -6,7 +6,7 @@
     height="44"
     viewBox="0 0 24 24"
     stroke-width="1.5"
-    stroke="#27272A"
+    :stroke="stroke"
     fill="none"
     stroke-linecap="round"
     stroke-linejoin="round"
@@ -15,3 +15,15 @@
     <polyline points="15 6 9 12 15 18" />
   </svg>
 </template>
+
+<script>
+export default {
+  name:"left-arrow-svg",
+  props: {
+    stroke: {
+      type: String,
+      default: "#27272A"
+    }
+  }
+}
+</script>
