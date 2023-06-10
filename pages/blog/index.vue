@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" />
     <div
-      class="hidden md:block w-full md:flex md:justify-around md:items-center md:flex-nowrap md:gap-4 lg:gap-8 font-cormorant text-sm lg:text-base md:mt-6 md:mb-2 lg:mt-8 lg:mb-4 md:mx-8"
+      class="hidden md:block w-full md:flex md:justify-around md:items-center md:flex-nowrap md:gap-4 lg:gap-8 font-cormorant text-sm lg:text-base md:mt-6 lg:mt-8 lg:mb-2 md:mx-8"
     >
       <p>Un condensé de choses qui m'inspirent,</p>
       <p>des reportages photo,</p>
