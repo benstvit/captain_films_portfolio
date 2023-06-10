@@ -1,14 +1,7 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" />
-    <div
-      class="hidden md:block w-full md:flex md:justify-around md:items-center md:flex-nowrap md:gap-4 lg:gap-8 font-cormorant text-sm lg:text-base md:mt-6 lg:mt-8 lg:mb-2 md:mx-8"
-    >
-      <p>Un condensé de choses qui m'inspirent,</p>
-      <p>des reportages photo,</p>
-      <p>des vidéos qui claquent,</p>
-      <p>de la musique qui fait vibrer.</p>
-    </div>
+    <InfiniteScrollText class="hidden xl:block" />
     <div class="grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8">
       <nuxt-link
         v-for="blog in filteredPosts"
@@ -31,6 +24,7 @@ import scrollHandler from "../../mixins/scrollHandler";
 import BlogNavbar from "../../components/pages/blog/BlogNavbar.vue";
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
 import BlogCard from "../../components/pages/blog/BlogCard.vue";
+import InfiniteScrollText from "../../components/partials/InfiniteScrollText.vue";
 
 export default {
   name: "blog-index",
@@ -85,6 +79,7 @@ export default {
     BlogNavbar,
     CaptainFilmsLogo,
     BlogCard,
+    InfiniteScrollText
   },
   computed: {
     ...mapState("blogs", { blogPosts: "data" }),
