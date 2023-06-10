@@ -1,5 +1,6 @@
 <template>
-  <div class="grid grid-cols-12 flex justify-center items-center sm:gap-4 md:gap-8 xl:gap-4 mx-4 md:mx-36 md:pt-6">
+  <div
+    class="grid grid-cols-12 flex justify-center items-center sm:gap-4 md:gap-8 xl:gap-4 mx-4 md:mx-36 md:pt-6">
     <div
       class="sm:col-span-2 sm:flex sm:justify-start sm:items-center gap-1 hover:cursor-pointer opacity-80 hover:opacity-100"
       :class="displayLeftArrow ? 'hidden sm:block sm:visible' : 'hidden sm:block sm:invisible'"
@@ -20,7 +21,7 @@
         preload
         quality="60"
         format="webp"
-        class="w- object-cover md:w-auto h-auto lg:h-[70vh]"
+        class="border-2 border-black w-fit object-cover md:w-auto h-auto lg:h-[70vh]"
         :alt="post.thumbnail.title"
         :src="post.thumbnail.url"
       />

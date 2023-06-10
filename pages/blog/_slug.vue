@@ -1,5 +1,5 @@
 <template>
-  <div v-if="post" class="h-full" :class="customBackgroundColor">
+  <div v-if="post" class="h-full bg-white">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
     <PostHeader :post="post" :posts="blogPosts"  />
     <PostContent :post="post" />
@@ -60,14 +60,6 @@ export default {
     };
   },
   computed: {
-    customBackgroundColor() {
-      if (!this.post) return;
-
-      const tag = this.post.tag;
-      if (tag === "ENTRE DEUX VERRES") return "bg-sky-100";
-
-      return tag === "POUR LES OREILLES" ? "bg-red-100" : "bg-amber-100";
-    },
     galleryImages() {
       if (!this.post) return;
 

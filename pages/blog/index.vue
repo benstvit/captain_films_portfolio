@@ -2,8 +2,14 @@
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" />
     <div
-      class="grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8"
+      class="hidden md:block w-full md:flex md:justify-around md:items-center md:flex-nowrap md:gap-4 lg:gap-8 font-cormorant text-sm lg:text-base md:mt-6 md:mb-2 lg:mt-8 lg:mb-4 md:mx-8"
     >
+      <p>Un condensé de choses qui m'inspirent,</p>
+      <p>des reportages photo,</p>
+      <p>des vidéos qui claquent,</p>
+      <p>de la musique qui fait vibrer.</p>
+    </div>
+    <div class="grid grid-cols-12 gap-6 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8">
       <nuxt-link
         v-for="blog in filteredPosts"
         class="col-span-12 md:col-span-6 xl:col-span-4 mx-2"
@@ -42,23 +48,24 @@ export default {
         {
           hid: "description",
           name: "description",
-          content: 'Le Blog de Captain Films. Des interviews, de la musique, de la photographie...',
+          content:
+            "Le Blog de Captain Films. Des interviews, de la musique, de la photographie...",
         },
         {
           hid: "og-image",
           itemprop: "image",
           property: "og:image",
-          content: 'cf-share-logo-blog.png',
+          content: "cf-share-logo-blog.png",
         },
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: 'Captain Films Blog',
+          content: "Captain Films Blog",
         },
         {
           hid: "og-url",
           property: "og:url",
-          content: 'https://captain-films.com/blog',
+          content: "https://captain-films.com/blog",
         },
       ],
     };

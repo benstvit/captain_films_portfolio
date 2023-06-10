@@ -23,7 +23,7 @@
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
-    <PostNavbar class="block sm:hidden" :posts="posts"  />
+    <PostNavbar v-if="onPostPage" class="block sm:hidden" :posts="posts"  />
   </div>
 </template>
 
