@@ -24,6 +24,8 @@ const QUERY = `{
       paragraph3
       question4
       paragraph4
+      question5
+      paragraph5
       imagesCollection {
         items {
           title
