@@ -93,7 +93,6 @@ export default {
   },
   methods: {
     displayNavigation(direction) {
-      console.log(this.currentPostIndex);
       if (!this.posts.length) return;
       const previousTitle = this.posts[this.currentPostIndex - 1]?.title;
       const nextTitle = this.posts[this.currentPostIndex + 1]?.title;

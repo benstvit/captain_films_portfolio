@@ -15,17 +15,26 @@
     <div v-for="num in 8" :key="num">
       <p :class="post[`paragraph${num}`] && 'py-2'" v-html="content(post[`paragraph${num}`])"></p>
     </div>
+    <div class="m-2 shadow-sm">
+      <BandcampAudioPlayer
+        v-if="displayBandCampPlayer"
+        :album-id="post.albumId"
+        :track-id="post.trackId"
+      />
+    </div>
     <SocialNetworksFooter :post="post" />
   </section>
 </template>
 
 <script>
 import { getIdFromURL } from "vue-youtube-embed";
-
+import BandcampAudioPlayer from "../../../../partials/BandcampAudioPlayer.vue"
 import SocialNetworksFooter from './SocialNetworksFooter.vue';
+
 export default {
   name: "watch-format",
   components: {
+    BandcampAudioPlayer,
     SocialNetworksFooter
   },
   props: {
@@ -40,8 +49,16 @@ export default {
       height: 0,
     };
   },
+  computed: {
+    displayBandCampPlayer() {
+      return this.post.albumId;
+    },
+  },
   beforeMount() {
     this.setVideoWidth();
+  },
+  mounted() {
+    console.log(this.post);
   },
   methods: {
     content(text) {

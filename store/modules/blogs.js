@@ -37,7 +37,7 @@ const QUERY = `{
       }
       facebookUrl
       instagramUrl
-      websiteUrl
+      spotifyUrl
     }
   }
 }`;
