@@ -57,7 +57,6 @@ export default {
       const query = QUERY;
       const accessToken = process.env.NODE_ENV === 'production' ? process.env.contentfulAccessToken : process.env.contentfulPreviewAccessToken;
       const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${process.env.contentfulSpaceId}?access_token=${accessToken}`;
-      console.log(fetchUrl)
       const fetchOptions = {
         method: "POST",
         headers: {
