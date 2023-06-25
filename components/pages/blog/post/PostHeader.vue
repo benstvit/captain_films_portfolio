@@ -93,10 +93,10 @@ export default {
   },
   methods: {
     displayNavigation(direction) {
+      console.log(this.currentPostIndex);
       if (!this.posts.length) return;
-      const regexp = /:(.*)/;
-      const previousTitle = this.posts[this.currentPostIndex - 1]?.title.match(regexp)[1];
-      const nextTitle = this.posts[this.currentPostIndex + 1]?.title.match(regexp)[1];
+      const previousTitle = this.posts[this.currentPostIndex - 1]?.title;
+      const nextTitle = this.posts[this.currentPostIndex + 1]?.title;
       if (!previousTitle) this.displayLeftArrow = false;
       if (!nextTitle) this.displayRightArrow = false;
       return direction === "left" ? previousTitle  : nextTitle;

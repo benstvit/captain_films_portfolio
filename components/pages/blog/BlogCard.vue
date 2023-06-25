@@ -21,7 +21,7 @@
         v-else
         class="font-captainlight text-sm md:text-sm lg:text-base uppercase"
       >
-        {{ blogTitle }}
+        {{ blog.tag + ' : ' + blogTitle }}
       </h1>
       <p
         class="font-cormorant py-1 text-sm md:text-base"
@@ -50,7 +50,7 @@ export default {
       return this.$md.render(abstract);
     },
     blogTitle() {
-      return this.isSearching ? this.blog.queryTitle : this.blog.title;
+      return this.isSearching ? `${this.blog.tag} : ${this.blog.queryTitle}` : this.blog.title;
     },
   },
 };
