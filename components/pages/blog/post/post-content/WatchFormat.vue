@@ -30,7 +30,6 @@
 import { getIdFromURL } from "vue-youtube-embed";
 import BandcampAudioPlayer from "../../../../partials/BandcampAudioPlayer.vue"
 import SocialNetworksFooter from './SocialNetworksFooter.vue';
-import BandcampAudioPlayerVue from '../../../../partials/BandcampAudioPlayer.vue';
 
 export default {
   name: "watch-format",
@@ -59,7 +58,7 @@ export default {
     this.setVideoWidth();
   },
   mounted() {
-    console.log(this.post)
+    console.log(this.post);
   },
   methods: {
     content(text) {

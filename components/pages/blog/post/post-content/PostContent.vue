@@ -34,7 +34,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.post.introduction);
     document.querySelectorAll("p > strong > a").forEach((elem) => {
       elem.setAttribute("target", "_blank");
     });
