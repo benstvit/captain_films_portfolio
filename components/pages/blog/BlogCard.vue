@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="shadow-md border-b-[7px] border-black bg-black rounded-lg my-4">
+    <div class="shadow-md border-b-[7px] border-black bg-black rounded-lg my-0 md:my-4">
       <nuxt-img
         preload
         format="webp"
@@ -11,7 +11,7 @@
       >
       </nuxt-img>
     </div>
-    <div id="description" class="text-sm md:text-base py-4 md:py-2">
+    <div id="description" class="text-sm md:text-base py-2">
       <h1
         v-if="isSearching"
         class="font-captainlight uppercase"
