@@ -13,9 +13,9 @@
     </div>
 
     <div v-for="num in 8" :key="num">
-      <p :class="post[`paragraph${num}`] && 'py-2'" v-html="content(post[`paragraph${num}`])"></p>
+      <p class="tracking-wide" :class="post[`paragraph${num}`] && 'py-2'" v-html="content(post[`paragraph${num}`])"></p>
     </div>
-    <div class="m-2 shadow-sm">
+    <div class="m-4 py-4">
       <BandcampAudioPlayer
         v-if="displayBandCampPlayer"
         :album-id="post.albumId"
