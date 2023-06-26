@@ -21,7 +21,7 @@
         preload
         quality="60"
         format="webp"
-        class="border-2 border-black w-fit object-cover md:w-auto h-auto lg:h-[70vh]"
+        class="border-2 border-black w-fit object-cover md:w-full h-auto lg:h-[70vh]"
         :alt="post.thumbnail.title"
         :src="post.thumbnail.url"
       />

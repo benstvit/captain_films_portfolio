@@ -70,6 +70,7 @@ export default {
           response.json()
         );
         const posts = response.data.blogPostPhotoCollection.items;
+        console.log(posts);
         commit("SET_DATA", posts);
       } catch (error) {
         throw new Error("Could not receive the data from Contentful!");

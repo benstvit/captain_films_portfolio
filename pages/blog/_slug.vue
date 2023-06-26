@@ -83,3 +83,9 @@ export default {
   },
 };
 </script>
+
+<style>
+  p {
+    letter-spacing: 0.025em;
+  }
+</style>

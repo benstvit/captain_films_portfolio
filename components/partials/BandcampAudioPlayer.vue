@@ -14,7 +14,7 @@ export default {
   },
   props: {
     albumId: {
-      type: Number,
+      type: String,
       default: null
     },
     trackId: {
