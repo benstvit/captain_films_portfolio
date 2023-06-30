@@ -37,6 +37,14 @@ export default {
     document.querySelectorAll("p > strong > a").forEach((elem) => {
       elem.setAttribute("target", "_blank");
     });
+    this.formatSpacings();
   },
+  methods: {
+    formatSpacings() {
+      for(let i = 0; i < 5; i++){
+        // this.post[`paragraph${i}`]?.replace(//g, "HELLO");
+      }
+    }
+  }
 };
 </script>

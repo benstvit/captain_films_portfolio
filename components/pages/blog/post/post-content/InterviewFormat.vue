@@ -9,7 +9,7 @@
           loading="lazy"
           quality="40"
           format="webp"
-          class="w-full h-auto my-4 hover:cursor-zoom-in"
+          class="w-full h-auto my-4 hover:cursor-zoom-in rounded-sm"
           :alt="image.title"
           :src="image.url"
           data-aos-easing="ease-in-out"
