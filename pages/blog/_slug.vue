@@ -1,7 +1,7 @@
 <template>
   <div v-if="post" class="h-full bg-white">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
-    <PostHeader :post="post" :posts="blogPosts"  />
+    <PostHeader :post="post" :posts="blogPosts" />
     <PostContent :post="post" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
   </div>
@@ -75,6 +75,9 @@ export default {
 
     return { blogPosts, post };
   },
+  mounted() {
+    console.log(this.galleryImages);
+  },
   methods: {
     blogAbstract() {
       const abstract = this.post.introduction.substr(0, 180) + "...";
@@ -85,7 +88,7 @@ export default {
 </script>
 
 <style>
-  p {
-    letter-spacing: 0.025em;
-  }
+p {
+  letter-spacing: 0.025em;
+}
 </style>
