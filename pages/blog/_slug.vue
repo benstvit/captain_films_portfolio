@@ -75,9 +75,6 @@ export default {
 
     return { blogPosts, post };
   },
-  mounted() {
-    console.log(this.galleryImages);
-  },
   methods: {
     blogAbstract() {
       const abstract = this.post.introduction.substr(0, 180) + "...";
