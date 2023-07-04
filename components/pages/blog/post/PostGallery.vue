@@ -11,7 +11,7 @@
       :key="image.title"
       :src="image.url"
       :alt="image.title"
-      class="col-span-6 lg:col-span-4 h-full hover:cursor-zoom-in hover:opacity-90 shadow-sm"
+      class="col-span-12 md:col-span-6 lg:col-span-4 h-fit md:h-full hover:cursor-zoom-in hover:opacity-90 shadow-sm"
     />
   </viewer>
 </template>
