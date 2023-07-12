@@ -18,6 +18,8 @@
         {{ post.title }}
       </h1>
       <nuxt-img
+        v-show="imageLoaded"
+        @load="imageLoaded = true"
         preload
         quality="60"
         format="webp"
@@ -25,6 +27,7 @@
         :alt="post.thumbnail.title"
         :src="post.thumbnail.url"
       />
+      <div v-show="!imageLoaded" class="bg-gray-100 animate-pulse w-fit object-cover md:w-full h-auto lg:h-[70vh]"/>
       <div
         class="flex flex-row justify-start items-center gap-2 md:py-2 w-full text-[0.6rem] md:text-xs lg:text-base"
       >
@@ -61,6 +64,7 @@ export default {
     return {
       displayLeftArrow: false,
       displayRightArrow: false,
+      imageLoaded: false
     };
   },
   props: {

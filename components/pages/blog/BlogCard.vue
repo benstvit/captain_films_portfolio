@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <div class="shadow-md border-b-[7px] border-black bg-black rounded-lg my-0 md:my-4">
+  <div v-if="blog.thumbnail">
+    <div
+      class="shadow-md border-b-[7px] border-black bg-black rounded-lg my-0 md:my-4"
+    >
       <nuxt-img
+        v-show="imageLoaded"
+        @load="imageLoaded = true"
         preload
         format="webp"
         title="Read more..."
@@ -10,6 +14,10 @@
         :src="blog.thumbnail.url"
       >
       </nuxt-img>
+      <div
+        v-show="!imageLoaded"
+        class="bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover"
+      />
     </div>
     <div id="description" class="text-sm md:text-base py-2">
       <h1
@@ -44,13 +52,20 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      imageLoaded: false,
+    };
+  },
   computed: {
     blogAbstract() {
       const abstract = this.blog.introduction.substr(0, 180) + "...";
       return this.$md.render(abstract);
     },
     blogTitle() {
-      return this.isSearching ? `${this.blog.tag} : ${this.blog.queryTitle}` : `${this.blog.tag} : ${this.blog.title}`;
+      return this.isSearching
+        ? `${this.blog.tag} : ${this.blog.queryTitle}`
+        : `${this.blog.tag} : ${this.blog.title}`;
     },
   },
 };
