@@ -2,7 +2,7 @@
   <div v-if="post" class="h-full bg-white">
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
     <PostHeader :post="post" :posts="blogPosts" />
-    <PostContent :post="post" />
+    <PostContent :post="postWithFormattedImages" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
   </div>
 </template>
@@ -61,12 +61,30 @@ export default {
   },
   computed: {
     galleryImages() {
-      if (!this.post) return;
+      if (!this.postWithFormattedImages) return;
 
-      return this.post.imagesCollection.items.filter(
+      return this.postWithFormattedImages.imagesCollection.items.filter(
         (image) => image.description !== ""
       );
     },
+    postWithFormattedImages() {
+      const options = {
+        inline: true,
+        button: true,
+        navbar: true,
+        toolbar: true,
+        tooltip: true,
+        movable: true,
+        zoomable: true,
+        rotatable: true,
+        scalable: true,
+        transition: true,
+        fullscreen: true,
+        keyboard: true,
+      };
+      const images = this.post.imagesCollection.items.map((image) => ({ ...image, ...options }));
+      return { ...this.post, imagesCollection: {items: images} }
+    }
   },
   async asyncData({ store, params }) {
     await store.dispatch("blogs/fetch");
