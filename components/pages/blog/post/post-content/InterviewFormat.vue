@@ -1,7 +1,6 @@
 <template>
   <section class="text-justify">
     <p class="test py-6 italic" v-html="content(post.introduction)"></p>
-
     <viewer v-if="images.length">
       <div v-for="(image, index) in images" :key="image.title">
         <nuxt-img
@@ -16,30 +15,44 @@
           data-aos="fade-in"
           data-aos-duration="500"
         />
-        <p class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
-          :class="post[`question${index + 1}`] ? 'block' : 'hidden'">{{ post[`question${index + 1}`] }}</p>
-        <p :class="post[`paragraph${index + 1}`] ? 'py-2 block' : 'hidden'" v-html="content(post[`paragraph${index + 1}`])"></p>
-      </div>
-      <div v-for="number in range(images.length, 5)" :key="number">
-        <p class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
-          :class="post[`question${number}`] ? 'block' : 'hidden'">{{ post[`question${number}`] }}</p>
-        <p :class="post[`paragraph${number}`] ? 'py-2 block' : 'hidden'" v-html="content(post[`paragraph${number}`])"></p>
+        <p
+          class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
+          :class="post[`question${index + 1}`] ? 'block' : 'hidden'"
+        >
+          {{ post[`question${index + 1}`] }}
+        </p>
+        <p
+          :class="post[`paragraph${index + 1}`] ? 'py-2 block' : 'hidden'"
+          v-html="content(post[`paragraph${index + 1}`])"
+        ></p>
       </div>
     </viewer>
-       <SocialNetworksFooter :post="post"/>
+      <div v-for="number in range(images.length, 5)" :key="number">
+        <p
+          class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
+          :class="post[`question${number}`] ? 'block' : 'hidden'"
+        >
+          {{ post[`question${number}`] }}
+        </p>
+        <p
+          :class="post[`paragraph${number}`] ? 'py-2 block' : 'hidden'"
+          v-html="content(post[`paragraph${number}`])"
+        ></p>
+      </div>
+    <SocialNetworksFooter :post="post" />
   </section>
 </template>
 
 <script>
 import aos from "../../../../../mixins/aos";
 
-import SocialNetworksFooter from './SocialNetworksFooter.vue'
+import SocialNetworksFooter from "./SocialNetworksFooter.vue";
 
 export default {
   name: "interview-format",
   mixins: [aos],
   components: {
-    SocialNetworksFooter
+    SocialNetworksFooter,
   },
   props: {
     post: {
@@ -54,6 +67,9 @@ export default {
       );
     },
   },
+  mounted() {
+    console.log(this.post)
+  },
   methods: {
     content(text) {
       if (!text) return;
@@ -61,8 +77,8 @@ export default {
       return this.$md.render(text);
     },
     range(start, end) {
-      return Array.from({ length: end - start + 1 }, (_, i) => start + (i + 1) );
+      return Array.from({ length: end - start + 1 }, (_, i) => start + (i + 1));
     },
-  }
+  },
 };
 </script>
