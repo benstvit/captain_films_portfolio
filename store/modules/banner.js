@@ -29,7 +29,7 @@ export default {
 
         return fetchedData;
       }
-      ['Gallery', 'Showroom', 'Contact me | Order your pic'].forEach((title, index) => {
+      ['Photography', 'Showroom', 'Contact me | Order your pic'].forEach((title, index) => {
         photos.push({enabled: true, error: true, index: index + 1, title: title, url: '/no_image.png'})
       });
       commit('SET_DATA', photos )

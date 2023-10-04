@@ -17,7 +17,7 @@
         <li
           v-for="menu in menus"
           :key="menu"
-          class="mr-4 md:mr-6"
+          class="mr-2 md:mr-6"
           :class="customClass(menu)"
           @click.stop="navigateTo(menu)"
         >
@@ -32,7 +32,7 @@
       © All work contained within this blog is Captain Films | Benjamin Saint
       Viteux 2015-2022.
     </p>
-    <p class="text-gray-50 opacity-90 text-xs font-sans text-center">
+    <p class="hidden md:block text-gray-50 opacity-90 text-xs font-sans text-center">
       Portfolio coded with 💙 by Benjamin Saint Viteux (Captain Films) in Vue.js
     </p>
   </div>
@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      menus: ["Home", "Gallery", "Showroom", "Contact me"],
+      menus: ["Home", "Photography", "Showroom", "Contact me"],
       instagramSvg: { stroke: "#FFFFFF" },
     };
   },

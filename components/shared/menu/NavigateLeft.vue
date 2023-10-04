@@ -13,7 +13,7 @@
           <LeftArrowSvg />
           <div class="flex flex-col justify-center items-center">
             <GallerySvg :stroke="gallery.stroke" />
-            <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
+            <h2 class="font-cormorant text-base lg:text-lg">Photography</h2>
           </div>
         </div>
       </span>
