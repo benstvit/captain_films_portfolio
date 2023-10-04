@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      menus: ['Gallery', 'Showroom', 'Contact me'],
+      menus: ['Photography', 'Showroom', 'Contact me'],
     }
   },
   methods: {
