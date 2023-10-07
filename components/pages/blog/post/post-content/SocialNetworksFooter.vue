@@ -21,6 +21,13 @@
       >
         <SpotifySvg :stroke="svgStroke" />
       </a>
+      <a
+        v-if="post.websiteUrl"
+        :href="post.websiteUrl"
+        target="_blank"
+      >
+        <WebsiteSvg :stroke="svgStroke" />
+      </a>
     </div>
   </div>
 </template>
@@ -29,13 +36,15 @@
 import FacebookSvg from "../../../../svg/FacebookSvg.vue";
 import InstagramSvg from "../../../../svg/InstagramSvg.vue";
 import SpotifySvg from "../../../../svg/SpotifySvg.vue";
+import WebsiteSvg from "../../../../svg/WebsiteSvg.vue";
 
 export default {
   name: "social-networks-footer",
   components: {
     FacebookSvg,
     InstagramSvg,
-    SpotifySvg
+    SpotifySvg,
+    WebsiteSvg
   },
   props: {
     post: {

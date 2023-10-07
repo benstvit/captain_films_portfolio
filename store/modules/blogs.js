@@ -38,6 +38,7 @@ const QUERY = `{
       facebookUrl
       instagramUrl
       spotifyUrl
+      websiteUrl
     }
   }
 }`;
