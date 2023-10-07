@@ -12,6 +12,7 @@ const QUERY = `{
       trackId
       albumId
       videoUrl
+      quote
       photoCredits
       date
       location
@@ -26,6 +27,16 @@ const QUERY = `{
       paragraph4
       question5
       paragraph5
+      question6
+      paragraph6
+      question7
+      paragraph7
+      question8
+      paragraph8
+      question9
+      paragraph9
+      question10
+      paragraph10
       imagesCollection {
         items {
           title
