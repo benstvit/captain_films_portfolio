@@ -15,7 +15,7 @@
       <h1
         class="absolute top-2 md:top-8 right-2 left-2 text-center mx-auto font-cormorant font-semibold p-4 text-xl md:text-2xl lg:text-4xl text-center text-white"
       >
-        {{ post.title }}
+        {{ noPunctuationTitle }}
       </h1>
       <nuxt-img
         v-show="imageLoaded"
@@ -85,6 +85,9 @@ export default {
     date() {
       const date = new Date(this.post.date);
       return date.toLocaleDateString();
+    },
+    noPunctuationTitle() {
+      return this.post.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").trim() + ".";
     },
     svgStroke() {
       if (this.post.tag === "ENTRE DEUX VERRES") return "#38bdf8";
