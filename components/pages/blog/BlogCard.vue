@@ -22,12 +22,12 @@
     <div id="description" class="text-sm md:text-base py-2">
       <h1
         v-if="isSearching"
-        class="font-captainlight uppercase"
+        class="font-captainlight"
         v-html="blogTitle"
       ></h1>
       <h1
         v-else
-        class="font-captainlight text-sm md:text-sm lg:text-base uppercase"
+        class="font-captainlight text-sm md:text-sm lg:text-base"
       >
         {{ blogTitle }}
       </h1>

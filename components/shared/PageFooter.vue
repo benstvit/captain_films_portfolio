@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      menus: ["Home", "Photography", "Showroom", "Contact me"],
+      menus: ["Home", "Photography", "Gallery", "Contact me"],
       instagramSvg: { stroke: "#FFFFFF" },
     };
   },

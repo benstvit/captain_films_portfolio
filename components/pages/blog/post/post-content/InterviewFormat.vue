@@ -16,7 +16,7 @@
           data-aos-duration="500"
         />
         <p
-          class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
+          class="self-start font-cormorant font-bold text-base md:text-lg italic pt-6 pb-2 overflow-visible"
           :class="post[`question${index + 1}`] ? 'block' : 'hidden'"
         >
           {{ post[`question${index + 1}`] }}
@@ -27,7 +27,7 @@
         ></p>
       </div>
     </viewer>
-      <div v-for="number in range(images.length, 5)" :key="number">
+      <div v-for="number in range(images.length, 10)" :key="number">
         <p
           class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
           :class="post[`question${number}`] ? 'block' : 'hidden'"
@@ -66,9 +66,6 @@ export default {
         (image) => image.description === ""
       );
     },
-  },
-  mounted() {
-    console.log(this.post)
   },
   methods: {
     content(text) {

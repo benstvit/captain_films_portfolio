@@ -2,6 +2,12 @@
   <div
     class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-6 font-cormorant text-base md:text-lg"
   >
+    <p
+      v-if="post.quote"
+      class="mt-4 md:m-4 italic font-cormorant text-base md:text-lg lg:text-xl text-center opacity-70"
+    >
+      "{{ post.quote }}"
+    </p>
     <InterviewFormat :post="post" v-if="contentFormat === 'interview'" />
     <ListenFormat :post="post" v-if="contentFormat === 'listen'" />
     <WatchFormat :post="post" v-if="contentFormat === 'watch'" />
