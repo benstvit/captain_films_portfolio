@@ -6,7 +6,7 @@
         v-for="blog in filteredPosts"
         class="col-span-12 md:col-span-6 xl:col-span-4 mx-2"
         :key="blog.alt"
-        :to="'/blog/' + blog.slug"
+        :to="'/journal/' + blog.slug"
       >
         <keep-alive>
           <BlogCard :blog="blog" :is-searching="isSearching" />
@@ -20,28 +20,28 @@
 import { mapActions, mapState } from "Vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
-import BlogNavbar from "../../components/pages/blog/BlogNavbar.vue";
+import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
-import BlogCard from "../../components/pages/blog/BlogCard.vue";
+import BlogCard from "../../components/pages/journal/BlogCard.vue";
 
 export default {
   name: "blog-index",
   mixins: [scrollHandler],
   head() {
     return {
-      title: "Captain Films - Le Blog",
+      title: "Captain Films - Journal",
       meta: [
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films Blog`,
+          content: `Captain Films Journal`,
         },
-        { hid: "og-type", property: "og:type", content: "blog" },
+        { hid: "og-type", property: "og:type", content: "journal" },
         {
           hid: "description",
           name: "description",
           content:
-            "Le Blog de Captain Films. Des interviews, de la musique, de la photographie...",
+            "Le journal de Captain Films. Des interviews, de la musique, de la photographie...",
         },
         {
           hid: "og-image",
@@ -52,12 +52,12 @@ export default {
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: "Captain Films Blog",
+          content: "Captain Films Journal",
         },
         {
           hid: "og-url",
           property: "og:url",
-          content: "https://captain-films.com/blog",
+          content: "https://captain-films.com/journal",
         },
       ],
     };

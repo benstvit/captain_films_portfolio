@@ -10,10 +10,10 @@
 <script>
 import scrollHandler from "../../mixins/scrollHandler";
 
-import BlogNavbar from "../../components/pages/blog/BlogNavbar.vue";
-import PostContent from "../../components/pages/blog/post/post-content/PostContent.vue";
-import PostHeader from "../../components/pages/blog/post/PostHeader.vue";
-import PostGallery from "../../components/pages/blog/post/PostGallery.vue";
+import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
+import PostContent from "../../components/pages/journal/post/post-content/PostContent.vue";
+import PostHeader from "../../components/pages/journal/post/PostHeader.vue";
+import PostGallery from "../../components/pages/journal/post/PostGallery.vue";
 
 export default {
   name: "blog-post",
@@ -26,14 +26,14 @@ export default {
   },
   head() {
     return {
-      title: "Captain Films - Le Blog",
+      title: "Captain Films - Journal",
       meta: [
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films Blog - ${this.post.title}`,
+          content: `Captain Films Journal - ${this.post.title}`,
         },
-        { hid: "og-type", property: "og:type", content: "blog" },
+        { hid: "og-type", property: "og:type", content: "journal" },
 
         {
           hid: "description",
@@ -54,7 +54,7 @@ export default {
         {
           hid: "og-url",
           property: "og:url",
-          content: `https://captain-films.com/blog/${this.$route.params.slug}`,
+          content: `https://captain-films.com/journal/${this.$route.params.slug}`,
         },
       ],
     };

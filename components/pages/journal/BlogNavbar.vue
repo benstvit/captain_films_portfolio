@@ -18,7 +18,7 @@
       <BlogButton
         v-if="onPostPage"
         class="col-span-2"
-        menu-name="blog"
+        menu-name="journal"
         :post-class="true"
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
