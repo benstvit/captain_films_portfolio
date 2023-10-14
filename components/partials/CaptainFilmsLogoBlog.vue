@@ -16,7 +16,7 @@
         class="font-captainlight text-center italic text-[0.5rem] md:text-xs sm:font-bold md:font-normal"
       >
         <p class="font-cormorant font-bold uppercase not-italic pt-1 ">
-          Le Blog
+          Journal
         </p>
       </div>
     </div>

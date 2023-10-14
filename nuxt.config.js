@@ -61,7 +61,7 @@ export default {
         data: {query},
       });
       const posts = response.data.data.blogPostPhotoCollection.items;
-      return posts.map(post => ({ route: '/blog/' + post.slug }));
+      return posts.map(post => ({ route: '/journal/' + post.slug }));
     },
   },
   target: "server", // Set to static before nuxt generate, server when dev environment

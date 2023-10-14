@@ -64,7 +64,7 @@ export default {
     navigate(direction) {
       const index = direction === 'next' ? this.currentPostIndex + 1 : this.currentPostIndex - 1;
       const post = this.posts[index];
-      this.$router.push({path: `/blog/${post.slug}`});
+      this.$router.push({path: `/journal/${post.slug}`});
     },
     setDisplayStatus() {
       this.displayLeftArrow = (this.currentPostIndex === 0) ? false : true;
