@@ -11,7 +11,7 @@ export default {
     meta: [
       { hid: 'og-type', property: 'og:type', content: 'website' },
       { hid: 'og-title', property: 'og:title', content: 'Captain Films - Film Photography & Blog' },
-      { hid: 'og-desc', property: 'og:description', content: 'Where film photography, web design and blogging meet.' },
+      { hid: 'og-desc', property: 'og:description', content: 'Where film photography, music and blogging meet.' },
       { hid: 'og-image', itemprop: "image", property: 'og:image', content: 'cf-share-logo.png'},
       { hid: 'og-url', property: 'og:url', content: 'https://captain-films.com/' },
       { hid: 'og-image-alt', property: 'og:image:alt	', content: 'Captain Films Logo' },
@@ -64,7 +64,7 @@ export default {
       return posts.map(post => ({ route: '/journal/' + post.slug }));
     },
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",

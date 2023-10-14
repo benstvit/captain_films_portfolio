@@ -36,7 +36,7 @@ export default {
         { hid: "og-type", property: "og:type", content: "journal" },
 
         {
-          hid: "description",
+          hid: "og-desc",
           name: "description",
           content: this.blogAbstract(),
         },

@@ -15,7 +15,7 @@
       <div
         class="font-captainlight text-center italic text-[0.5rem] md:text-xs sm:font-bold md:font-normal"
       >
-        <p class="font-cormorant font-bold uppercase not-italic pt-1 ">
+        <p class="font-cormorant uppercase not-italic pt-1 ">
           Journal
         </p>
       </div>
