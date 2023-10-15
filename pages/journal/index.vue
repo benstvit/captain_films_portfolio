@@ -41,13 +41,13 @@ export default {
           hid: "description",
           name: "description",
           content:
-            "Le journal de Captain Films. Des interviews, de la musique, de la photographie...",
+            "Le journal de Captain Films. Des portraits photo, de la musique, de la photographie...",
         },
         {
           hid: "og-image",
           itemprop: "image",
           property: "og:image",
-          content: "cf-share-logo-blog.png",
+          content: 'cf-share-bloglogo.png',
         },
         {
           hid: "og-image-alt",
