@@ -38,16 +38,16 @@ export default {
         },
         { hid: "og-type", property: "og:type", content: "journal" },
         {
-          hid: "description",
+          hid: "og-desc",
           name: "description",
           content:
-            "Le journal de Captain Films. Des portraits photo, de la musique, de la photographie...",
+            "Le journal de Captain Films. Des portraits photo, de la musique, des découvertes...",
         },
         {
           hid: "og-image",
           itemprop: "image",
           property: "og:image",
-          content: 'cf-share-bloglogo.png',
+          content: "cf-share-logo.png",
         },
         {
           hid: "og-image-alt",
