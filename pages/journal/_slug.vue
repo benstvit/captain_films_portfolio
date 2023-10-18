@@ -87,8 +87,8 @@ export default {
     }
   },
   async asyncData({ store, params }) {
-    await store.dispatch("blogs/fetch");
-    const blogPosts = store.getters["blogs/data"];
+    await store.dispatch("journalLogs/fetch");
+    const blogPosts = store.getters["journalLogs/data"];
     const post = blogPosts.filter((e) => e.slug === params.slug)[0];
 
     return { blogPosts, post };

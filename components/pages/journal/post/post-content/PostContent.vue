@@ -35,6 +35,7 @@ export default {
   computed: {
     contentFormat() {
       if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
+      if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
 
       return this.post.tag === "POUR LES MIRETTES" ? "watch" : "listen";
     },

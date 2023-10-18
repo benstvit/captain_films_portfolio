@@ -79,14 +79,14 @@ export default {
     BlogCard,
   },
   computed: {
-    ...mapState("blogs", { blogPosts: "data" }),
+    ...mapState("journalLogs", { blogPosts: "data" }),
   },
   async created() {
     await this.fetchBlogs();
     this.filteredPosts = this.blogPosts;
   },
   methods: {
-    ...mapActions({ fetchBlogs: "blogs/fetch" }),
+    ...mapActions({ fetchBlogs: "journalLogs/fetch" }),
 
     setQueryColor(query) {
       this.filteredPosts.map((post) => {
