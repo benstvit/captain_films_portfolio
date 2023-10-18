@@ -27,18 +27,18 @@
         ></p>
       </div>
     </viewer>
-      <div v-for="number in range(images.length, 10)" :key="number">
-        <p
-          class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
-          :class="post[`question${number}`] ? 'block' : 'hidden'"
-        >
-          {{ post[`question${number}`] }}
-        </p>
-        <p
-          :class="post[`paragraph${number}`] ? 'py-2 block' : 'hidden'"
-          v-html="content(post[`paragraph${number}`])"
-        ></p>
-      </div>
+    <div v-for="number in range(images.length, 10)" :key="number">
+      <p
+        class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
+        :class="post[`question${number}`] ? 'block' : 'hidden'"
+      >
+        {{ post[`question${number}`] }}
+      </p>
+      <p
+        :class="post[`paragraph${number}`] ? 'flex justify-between items-center py-2 block' : 'hidden'"
+        v-html="content(post[`paragraph${number}`])"
+      ></p>
+    </div>
     <SocialNetworksFooter :post="post" />
   </section>
 </template>
@@ -70,7 +70,12 @@ export default {
   methods: {
     content(text) {
       if (!text) return;
-      return this.$md.render(text).replace(/<img/g, '<img class="w-2/3 md:w-1/2 mx-auto mt-4 mb-0 md:mt-6 md:mb-2"');
+      return this.$md
+        .render(text)
+        .replace(
+          /<img/g,
+          '<img class="w-2/3 md:w-1/2 mx-auto my-0 md:my-4 pb-4"'
+        );
     },
     range(start, end) {
       return Array.from({ length: end - start + 1 }, (_, i) => start + (i + 1));
