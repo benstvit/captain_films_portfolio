@@ -5,13 +5,15 @@
       class="rounded-md border-none text-xs md:text-sm lg:text-base font-cormorant opacity-90 bg-transparent focus:ring-teal-600 hover:cursor-pointer w-fit pr-8 pl-2"
       v-model="selectedOption"
     >
-      <option
-        v-for="option in options"
-        :key="option.value"
-        :value="option.value"
-      >
-        {{ option.label }}
-      </option>
+      <optgroup>
+        <option
+          v-for="option in options"
+          :key="option.value"
+          :value="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </optgroup>
     </select>
   </div>
 </template>

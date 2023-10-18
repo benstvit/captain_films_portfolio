@@ -10,7 +10,7 @@
       "{{ post.quote }}"
     </p>
     <InterviewFormat :post="post" v-if="contentFormat === 'portrait'" />
-    <ItineranceFormat :post="post" v-if="contentFormat === 'voyage'" />
+    <VoyageFormat :post="post" v-if="contentFormat === 'voyage'" />
     <ListenFormat :post="post" v-if="contentFormat === 'listen'" />
     <WatchFormat :post="post" v-if="contentFormat === 'watch'" />
   </div>
@@ -18,7 +18,7 @@
 
 <script>
 import InterviewFormat from "./InterviewFormat.vue";
-import ItineranceFormat from "./ItineranceFormat.vue";
+import VoyageFormat from "./VoyageFormat.vue";
 import ListenFormat from "./ListenFormat.vue";
 import WatchFormat from "./WatchFormat.vue";
 
@@ -26,7 +26,7 @@ export default {
   name: "post-content",
   components: {
     InterviewFormat,
-    ItineranceFormat,
+    VoyageFormat,
     ListenFormat,
     WatchFormat,
   },
