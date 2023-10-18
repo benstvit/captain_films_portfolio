@@ -1,6 +1,7 @@
 <template>
   <div
-    class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto md:w-1/2 pt-0 md:pt-6 font-cormorant text-base md:text-lg"
+    class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto pt-0 md:pt-6 font-cormorant text-base md:text-lg"
+    :class="contentFormat === 'travel' ? 'md:w-1/2' : 'md:w-1/2'"
   >
     <p
       v-if="post.quote"
@@ -8,7 +9,8 @@
     >
       "{{ post.quote }}"
     </p>
-    <InterviewFormat :post="post" v-if="contentFormat === 'interview'" />
+    <InterviewFormat :post="post" v-if="contentFormat === 'portrait'" />
+    <VoyageFormat :post="post" v-if="contentFormat === 'voyage'" />
     <ListenFormat :post="post" v-if="contentFormat === 'listen'" />
     <WatchFormat :post="post" v-if="contentFormat === 'watch'" />
   </div>
@@ -16,6 +18,7 @@
 
 <script>
 import InterviewFormat from "./InterviewFormat.vue";
+import VoyageFormat from "./VoyageFormat.vue";
 import ListenFormat from "./ListenFormat.vue";
 import WatchFormat from "./WatchFormat.vue";
 
@@ -23,6 +26,7 @@ export default {
   name: "post-content",
   components: {
     InterviewFormat,
+    VoyageFormat,
     ListenFormat,
     WatchFormat,
   },
@@ -34,9 +38,10 @@ export default {
   },
   computed: {
     contentFormat() {
-      if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
+      if (this.post.tag === "PORTRAIT") return "portrait";
+      if (this.post.tag === "CARNET DE VOYAGE") return "voyage";
 
-      return this.post.tag === "POUR LES MIRETTES" ? "watch" : "listen";
+      return this.post.tag === "À VOIR" ? "watch" : "listen";
     },
   },
   mounted() {

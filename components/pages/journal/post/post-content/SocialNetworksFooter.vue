@@ -21,11 +21,7 @@
       >
         <SpotifySvg :stroke="svgStroke" />
       </a>
-      <a
-        v-if="post.websiteUrl"
-        :href="post.websiteUrl"
-        target="_blank"
-      >
+      <a v-if="post.websiteUrl" :href="post.websiteUrl" target="_blank">
         <WebsiteSvg :stroke="svgStroke" />
       </a>
     </div>
@@ -44,7 +40,7 @@ export default {
     FacebookSvg,
     InstagramSvg,
     SpotifySvg,
-    WebsiteSvg
+    WebsiteSvg,
   },
   props: {
     post: {
@@ -54,9 +50,10 @@ export default {
   },
   computed: {
     svgStroke() {
-      if (this.post.tag === "ENTRE DEUX VERRES") return "#38bdf8";
+      if (this.post.tag === "PORTRAIT") return "#38bdf8";
+      if (this.post.tag === "CARNET DE VOYAGE") return "#34d399";
 
-      return this.post.tag === "POUR LES MIRETTES" ? "#fbbf24" : "#f87171";
+      return this.post.tag === "À VOIR" ? "#fbbf24" : "#f87171";
     },
   },
 };

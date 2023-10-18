@@ -29,10 +29,10 @@
       Captain Films
     </h1>
     <p
-      class="font-captainlight text-center italic text-[0.6rem] md:text-xs md:pb-4 sm:font-bold md:font-normal text-white md:text-black"
+      class="font-cormorant uppercase text-center text-[0.6rem] md:text-xs md:pb-4 sm:font-bold md:font-normal text-white md:text-black"
       :class="menuDisplay ? 'text-white' : 'font-normal text-black'"
     >
-      Film Photography
+      Film Photography <span v-if="loader">& Journal</span>
     </p>
   </div>
 </template>
