@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col items-center justify-center h-auto gap-2 w-full px-4 md:px-0 mx-auto pt-0 md:pt-6 font-cormorant text-base md:text-lg"
-    :class="contentFormat === 'travel' ? 'md:w-2/3' : 'md:w-1/2'"
+    :class="contentFormat === 'travel' ? 'md:w-1/2' : 'md:w-1/2'"
   >
     <p
       v-if="post.quote"
