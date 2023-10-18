@@ -70,8 +70,7 @@ export default {
   methods: {
     content(text) {
       if (!text) return;
-
-      return this.$md.render(text);
+      return this.$md.render(text).replace(/<img/g, '<img class="w-2/3 md:w-1/2 mx-auto mt-4 mb-0 md:mt-6 md:mb-2"');
     },
     range(start, end) {
       return Array.from({ length: end - start + 1 }, (_, i) => start + (i + 1));
