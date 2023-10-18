@@ -20,7 +20,7 @@
       class="col-span-12 sm:col-span-8 relative flex flex-col items-start font-cormorant font-light text-sm"
     >
       <h1
-        class="absolute top-2 mx-2 md:mx-4 md:top-8 right-2 left-2 mx-auto font-cormorant font-semibold p-4 text-xl md:text-2xl lg:text-5xl text-center text-white"
+        class="absolute top-2 mx-2 md:mx-4 md:top-8 right-2 left-2 mx-auto font-cormorant uppercase font-semibold p-4 text-xl md:text-2xl lg:text-5xl text-center text-white"
       >
         {{ noPunctuationTitle }}
       </h1>
@@ -106,11 +106,12 @@ export default {
     },
     noPunctuationTitle() {
       return (
-        this.post.title.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "").trim() + "."
+        this.post.title.replace(/[.,\/#!$%\^&\*;:{}=\_`~()]/g, "").trim() + "."
       );
     },
     svgStroke() {
       if (this.post.tag === "ENTRE DEUX VERRES") return "#38bdf8";
+      if (this.post.tag === "EN ITINERANCE") return "#34d399";
 
       return this.post.tag === "POUR LES MIRETTES" ? "#fbbf24" : "#f87171";
     },

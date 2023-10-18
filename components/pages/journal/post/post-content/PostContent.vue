@@ -9,6 +9,7 @@
       "{{ post.quote }}"
     </p>
     <InterviewFormat :post="post" v-if="contentFormat === 'interview'" />
+    <ItineranceFormat :post="post" v-if="contentFormat === 'travel'" />
     <ListenFormat :post="post" v-if="contentFormat === 'listen'" />
     <WatchFormat :post="post" v-if="contentFormat === 'watch'" />
   </div>
@@ -16,6 +17,7 @@
 
 <script>
 import InterviewFormat from "./InterviewFormat.vue";
+import ItineranceFormat from "./ItineranceFormat.vue";
 import ListenFormat from "./ListenFormat.vue";
 import WatchFormat from "./WatchFormat.vue";
 
@@ -23,6 +25,7 @@ export default {
   name: "post-content",
   components: {
     InterviewFormat,
+    ItineranceFormat,
     ListenFormat,
     WatchFormat,
   },
@@ -35,7 +38,7 @@ export default {
   computed: {
     contentFormat() {
       if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
-      if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
+      if (this.post.tag === "EN ITINERANCE") return "travel";
 
       return this.post.tag === "POUR LES MIRETTES" ? "watch" : "listen";
     },

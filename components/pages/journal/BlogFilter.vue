@@ -32,6 +32,7 @@ export default {
         { value: "ENTRE DEUX VERRES", label: "Entre deux verres" },
         { value: "POUR LES OREILLES", label: "Pour les oreilles" },
         { value: "POUR LES MIRETTES", label: "Pour les mirettes" },
+        { value: "EN ITINERANCE", label: "En itinérance" }
       ],
     };
   },
