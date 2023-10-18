@@ -83,7 +83,7 @@ export default {
   },
   async created() {
     await this.fetchBlogs();
-    this.filteredPosts = this.blogPosts;
+    this.filteredPosts = this.blogPosts.sort((a, b) => b.articleId - a.articleId);
   },
   methods: {
     ...mapActions({ fetchBlogs: "journalLogs/fetch" }),

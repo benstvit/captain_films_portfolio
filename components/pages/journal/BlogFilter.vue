@@ -29,10 +29,10 @@ export default {
       selectedOption: "",
       options: [
         { value: "tout", label: "Tous les articles" },
-        { value: "ENTRE DEUX VERRES", label: "Entre deux verres" },
-        { value: "POUR LES OREILLES", label: "Pour les oreilles" },
-        { value: "POUR LES MIRETTES", label: "Pour les mirettes" },
-        { value: "EN ITINERANCE", label: "En itinérance" }
+        { value: "PORTRAIT", label: "Portrait" },
+        { value: "À ÉCOUTER", label: "À écouter" },
+        { value: "À VOIR", label: "À voir" },
+        { value: "CARNET DE VOYAGE", label: "Carnet de voyage" }
       ],
     };
   },

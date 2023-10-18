@@ -9,8 +9,8 @@
     >
       "{{ post.quote }}"
     </p>
-    <InterviewFormat :post="post" v-if="contentFormat === 'interview'" />
-    <ItineranceFormat :post="post" v-if="contentFormat === 'travel'" />
+    <InterviewFormat :post="post" v-if="contentFormat === 'portrait'" />
+    <ItineranceFormat :post="post" v-if="contentFormat === 'voyage'" />
     <ListenFormat :post="post" v-if="contentFormat === 'listen'" />
     <WatchFormat :post="post" v-if="contentFormat === 'watch'" />
   </div>
@@ -38,10 +38,10 @@ export default {
   },
   computed: {
     contentFormat() {
-      if (this.post.tag === "ENTRE DEUX VERRES") return "interview";
-      if (this.post.tag === "EN ITINERANCE") return "travel";
+      if (this.post.tag === "PORTRAIT") return "portrait";
+      if (this.post.tag === "CARNET DE VOYAGE") return "voyage";
 
-      return this.post.tag === "POUR LES MIRETTES" ? "watch" : "listen";
+      return this.post.tag === "À VOIR" ? "watch" : "listen";
     },
   },
   mounted() {
