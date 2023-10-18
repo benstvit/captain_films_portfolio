@@ -11,7 +11,7 @@
       "
       @click="navigate('previous')"
     >
-      <LeftArrowSvg :stroke="svgStroke" />
+      <LeftArrowSvg class="shrink-0" :stroke="svgStroke" />
       <p class="font-cormorant font-bold text-xs md:text-sm lg:text-base">
         {{ displayNavigation("left") }}
       </p>
@@ -61,7 +61,7 @@
       <p class="font-cormorant font-bold text-xs md:text-sm lg:text-base">
         {{ displayNavigation("right") }}
       </p>
-      <RightArrowSvg :stroke="svgStroke" />
+      <RightArrowSvg class="shrink-0" :stroke="svgStroke" />
     </div>
   </div>
 </template>
