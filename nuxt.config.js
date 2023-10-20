@@ -10,7 +10,7 @@ export default {
     },
     meta: [
       { hid: 'og-type', property: 'og:type', content: 'website' },
-      { hid: 'og-title', property: 'og:title', content: 'Captain Films - Film Photography & Blog' },
+      { hid: 'og-title', property: 'og:title', content: 'Captain Films - Film Photography & Journal' },
       { hid: 'og-desc', property: 'og:description', content: 'Where film photography, music and blogging meet.' },
       { hid: 'og-image', itemprop: "image", property: 'og:image', content: 'cf-share-logo.png'},
       { hid: 'og-url', property: 'og:url', content: 'https://captain-films.com/' },
