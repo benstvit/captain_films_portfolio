@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     svgStroke() {
-      if (this.post.tag === "PORTRAIT") return "#38bdf8";
+      if (this.post.tag === "SPEED PORTRAIT") return "#38bdf8";
       if (this.post.tag === "CARNET DE VOYAGE") return "#34d399";
 
       return this.post.tag === "À VOIR" ? "#fbbf24" : "#f87171";

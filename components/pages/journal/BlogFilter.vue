@@ -31,7 +31,7 @@ export default {
       selectedOption: "",
       options: [
         { value: "tout", label: "Tous les articles" },
-        { value: "PORTRAIT", label: "Portrait" },
+        { value: "SPEED PORTRAIT", label: "Speed portrait" },
         { value: "À ÉCOUTER", label: "À écouter" },
         { value: "À VOIR", label: "À voir" },
         { value: "CARNET DE VOYAGE", label: "Carnet de voyage" }
