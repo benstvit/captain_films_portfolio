@@ -9,7 +9,7 @@
     >
       <FormSubmitMessage
         v-if="successMessage || errorMessage"
-        :language="fr"
+        language="fr"
         :success="successMessage"
         :error="errorMessage" />
       <div v-else>
@@ -67,7 +67,9 @@ export default {
   },
   data() {
     return {
-      isLoading: false
+      errorMessage: false,
+      isLoading: false,
+      successMessage: false,
     };
   },
   methods: {
