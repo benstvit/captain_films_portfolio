@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
+    <JournalSubscriptionModal v-if="subscriptionModalIsOpen" @close-modal="subscriptionModalIsOpen = false" />
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" />
     <div class="grid grid-cols-12 gap-4 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8">
       <nuxt-link
@@ -13,7 +14,7 @@
         </keep-alive>
       </nuxt-link>
     </div>
-    <JournalFooter v-if="filteredPosts.length" />
+    <JournalFooter v-if="filteredPosts.length" @open-subscription-modal="subscriptionModalIsOpen = true" />
   </div>
 </template>
 
@@ -25,6 +26,7 @@ import BlogCard from "../../components/pages/journal/BlogCard.vue";
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
 import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
+import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
 
 
 export default {
@@ -69,6 +71,7 @@ export default {
     return {
       isSearching: false,
       filteredPosts: [],
+      subscriptionModalIsOpen: false
     };
   },
   provide() {
@@ -80,7 +83,8 @@ export default {
     BlogNavbar,
     CaptainFilmsLogo,
     BlogCard,
-    JournalFooter
+    JournalFooter,
+    JournalSubscriptionModal
   },
   computed: {
     ...mapState("journalLogs", { blogPosts: "data" }),
