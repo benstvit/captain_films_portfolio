@@ -32,6 +32,7 @@ import BlogFilter from "./BlogFilter.vue";
 import BlogSearchBar from "../../UI/BlogSearchBar.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
 import PostNavbar from "./post/PostNavbar"
+
 export default {
   name: "blog-navbar",
   components: {

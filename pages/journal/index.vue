@@ -13,6 +13,7 @@
         </keep-alive>
       </nuxt-link>
     </div>
+    <JournalFooter v-if="filteredPosts.length" />
   </div>
 </template>
 
@@ -20,9 +21,11 @@
 import { mapActions, mapState } from "Vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
+import BlogCard from "../../components/pages/journal/BlogCard.vue";
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
 import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
-import BlogCard from "../../components/pages/journal/BlogCard.vue";
+import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
+
 
 export default {
   name: "blog-index",
@@ -77,6 +80,7 @@ export default {
     BlogNavbar,
     CaptainFilmsLogo,
     BlogCard,
+    JournalFooter
   },
   computed: {
     ...mapState("journalLogs", { blogPosts: "data" }),
