@@ -4,12 +4,20 @@
   >
     <div class="flex justify-center items-center gap-4 md:gap-8">
       <a
-        href="https://www.instagram.com/captain_films/"
+        :href="facebook.url"
         target="_blank"
-        @mouseover="instagramSvg.stroke = '#D22F8C'"
-        @mouseleave="instagramSvg.stroke = '#FFFFFF'"
+        @mouseover="facebook.stroke = '#60a5fa'"
+        @mouseleave="facebook.stroke = '#FFFFFF'"
       >
-        <InstagramSvg class="self-start" :stroke="instagramSvg.stroke" />
+        <FacebookSvg class="self-start" :stroke="facebook.stroke" />
+      </a>
+      <a
+        :href="instagram.url"
+        target="_blank"
+        @mouseover="instagram.stroke = '#D22F8C'"
+        @mouseleave="instagram.stroke = '#FFFFFF'"
+      >
+        <InstagramSvg class="self-start" :stroke="instagram.stroke" />
       </a>
       <ul
         class="flex flex-wrap items-center justify-center gap-2 font-captainlight text-xs md:text-sm"
@@ -40,6 +48,7 @@
 
 <script>
 import BlogButton from "../UI/BlogButton.vue";
+import FacebookSvg from "../svg/FacebookSvg.vue"
 import InstagramSvg from "../svg/InstagramSvg.vue";
 
 export default {
@@ -52,12 +61,14 @@ export default {
   },
   components: {
     BlogButton,
+    FacebookSvg,
     InstagramSvg,
   },
   data() {
     return {
       menus: ["Home", "Photography", "Gallery", "Contact me"],
-      instagramSvg: { stroke: "#FFFFFF" },
+      instagram: { stroke: "#FFFFFF", url: 'https://www.instagram.com/captain_films/' },
+      facebook: { stroke: "#FFFFFF", url: 'https://www.facebook.com/captainfilmsjournal' }
     };
   },
   computed: {
