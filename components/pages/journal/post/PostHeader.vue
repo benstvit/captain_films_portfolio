@@ -96,9 +96,11 @@ export default {
   computed: {
     currentPostIndex() {
       if (!this.posts.length) return;
-      return this.posts.findIndex(
+
+      const postIndex = this.posts.findIndex(
         (post) => post.slug === this.$route.params.slug
       );
+      return postIndex;
     },
     date() {
       const date = new Date(this.post.date);

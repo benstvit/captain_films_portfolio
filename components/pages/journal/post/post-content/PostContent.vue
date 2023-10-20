@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     contentFormat() {
-      if (this.post.tag === "PORTRAIT") return "portrait";
+      if (this.post.tag === "SPEED PORTRAIT") return "portrait";
       if (this.post.tag === "CARNET DE VOYAGE") return "voyage";
 
       return this.post.tag === "À VOIR" ? "watch" : "listen";

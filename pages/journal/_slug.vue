@@ -1,7 +1,7 @@
 <template>
   <div v-if="post" class="h-full bg-white">
-    <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="blogPosts" />
-    <PostHeader :post="post" :posts="blogPosts" />
+    <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="filteredPosts" />
+    <PostHeader :post="post" :posts="filteredPosts" />
     <PostContent :post="postWithFormattedImages" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
   </div>
@@ -60,6 +60,11 @@ export default {
     };
   },
   computed: {
+    filteredPosts() {
+      if (!this.blogPosts.length) return;
+
+      return this.blogPosts.sort((a, b) => b.articleId - a.articleId);
+    },
     galleryImages() {
       if (!this.postWithFormattedImages) return;
 
@@ -98,6 +103,7 @@ export default {
       const abstract = this.post.introduction.substr(0, 180) + "...";
       return abstract;
     },
+
   },
 };
 </script>
