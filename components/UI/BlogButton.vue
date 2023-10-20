@@ -12,7 +12,7 @@
         >
           <div
             class="font-cormorant text-lg justify-self-start uppercase p-2"
-            :class="postClass ? 'text-[0.55rem] md:text-[0.65rem] lg:text-xs -rotate-45' : 'text-base lg:text-lg -rotate-45'"
+            :class="postClass ? 'text-[0.55rem] md:text-[0.65rem] lg:text-xs -rotate-45' : 'text-xs md:text-sm lg:text-lg -rotate-45'"
           >
             {{ menuName }}
           </div>
