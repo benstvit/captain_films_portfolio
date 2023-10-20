@@ -12,7 +12,7 @@
         <InstagramSvg class="self-start" :stroke="instagramSvg.stroke" />
       </a>
       <ul
-        class="flex flex-wrap items-center justify-center font-captainlight text-xs md:text-sm"
+        class="flex flex-wrap items-center justify-center gap-2 font-captainlight text-xs md:text-sm"
       >
         <li
           v-for="menu in menus"
@@ -68,17 +68,13 @@ export default {
   methods: {
     customClass(menu) {
       if (!this.activePage.length) return;
-      const activeMenu =
-        menu === "Contact me" ? "Contact me | Order your pic" : menu;
 
-      return activeMenu === this.activePage[0].title
+      return menu === this.activePage[0].title
         ? "text-white hover:cursor-default text-md"
         : "opacity-80 text-gray-50 dark:text-white hover:text-white hover:opacity-100 hover:cursor-pointer";
     },
     navigateTo(menu) {
-      const payload =
-        menu === "Contact me" ? "Contact me | Order your pic" : menu;
-      this.$emit("navigate", payload);
+      this.$emit("navigate", menu);
     },
   },
 };
