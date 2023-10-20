@@ -3,6 +3,10 @@
     class="relative sticky -top-1 md:-top-10 z-10 flex flex-col items-center w-full p-3 md:pt-6 md:px-32 lg:px-40"
     :class="isScrolling ? 'bg-white drop-shadow-sm opacity-90 transition ease-in-out duration-1000' : 'opacity-100 transition ease-in-out duration-300'"
   >
+    <div @click="openSubscriptionModal" class="hover:cursor-pointer">
+      <p>Recevoir un mail quand un article sort</p>
+    </div>
+    <JournalSubscriptionModal v-if="subscriptionModalIsOpen" @close-modal="subscriptionModalIsOpen = false" />
     <BlogSearchBar v-if="onIndexPage" class="block" />
     <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" />
     <div
@@ -31,6 +35,7 @@ import BlogButton from "../../UI/BlogButton.vue";
 import BlogFilter from "./BlogFilter.vue";
 import BlogSearchBar from "../../UI/BlogSearchBar.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
+import JournalSubscriptionModal from "../../pages/contact/Form/JournalSubscriptionModal.vue"
 import PostNavbar from "./post/PostNavbar"
 
 export default {
@@ -40,6 +45,7 @@ export default {
     BlogFilter,
     BlogSearchBar,
     CaptainFilmsLogoBlog,
+    JournalSubscriptionModal,
     PostNavbar
   },
   props: {
@@ -52,6 +58,11 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      subscriptionModalIsOpen: false
+    }
+  },
   computed: {
     onIndexPage() {
       return !this.$route.params.slug;
@@ -60,5 +71,11 @@ export default {
       return this.$route.params.slug;
     },
   },
+  methods: {
+    openSubscriptionModal() {
+      this.subscriptionModalIsOpen = true;
+      this.$emit("blur-bg");
+    }
+  }
 };
 </script>
