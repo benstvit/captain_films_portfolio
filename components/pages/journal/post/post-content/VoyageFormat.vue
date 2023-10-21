@@ -27,7 +27,7 @@
         ></p>
       </div>
     </viewer>
-    <div v-for="number in range(images.length, 10)" :key="number">
+    <div class="mb-4" v-for="number in range(images.length, 10)" :key="number">
       <p
         class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
         :class="post[`question${number}`] ? 'block' : 'hidden'"
@@ -39,7 +39,6 @@
         v-html="content(post[`paragraph${number}`])"
       ></p>
     </div>
-    <SocialNetworksFooter :post="post" />
   </section>
 </template>
 
@@ -74,7 +73,7 @@ export default {
         .render(text)
         .replace(
           /<img/g,
-          '<img class="w-2/3 md:w-1/2 mx-auto my-0 md:my-4 pb-4"'
+          '<img class="w-2/3 md:w-max-2/3 mx-auto my-0 md:my-4 pt-2 pb-4"'
         );
     },
     range(start, end) {
