@@ -1,9 +1,11 @@
 <template>
   <div v-if="post" class="h-full bg-white">
+    <JournalSubscriptionModal v-if="subscriptionModalIsOpen" @close-modal="subscriptionModalIsOpen = false" />
     <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="filteredPosts" />
     <PostHeader :post="post" :posts="filteredPosts" />
     <PostContent :post="postWithFormattedImages" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
+    <JournalFooter @open-subscription-modal="subscriptionModalIsOpen = true"/>
   </div>
 </template>
 
@@ -11,6 +13,8 @@
 import scrollHandler from "../../mixins/scrollHandler";
 
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
+import JournalFooter from "../../components/pages/journal/JournalFooter.vue"
+import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
 import PostContent from "../../components/pages/journal/post/post-content/PostContent.vue";
 import PostHeader from "../../components/pages/journal/post/PostHeader.vue";
 import PostGallery from "../../components/pages/journal/post/PostGallery.vue";
@@ -18,8 +22,15 @@ import PostGallery from "../../components/pages/journal/post/PostGallery.vue";
 export default {
   name: "blog-post",
   mixins: [scrollHandler],
+  data () {
+    return {
+      subscriptionModalIsOpen : false
+    }
+  },
   components: {
     BlogNavbar,
+    JournalFooter,
+    JournalSubscriptionModal,
     PostContent,
     PostHeader,
     PostGallery,
