@@ -39,18 +39,21 @@
         v-html="content(post[`paragraph${number}`])"
       ></p>
     </div>
+    <GoogleMapsAPI />
   </section>
 </template>
 
 <script>
 import aos from "../../../../../mixins/aos";
 
+import GoogleMapsAPI from "../../../../partials/GoogleMapsAPI.vue";
 import SocialNetworksFooter from "./SocialNetworksFooter.vue";
 
 export default {
   name: "itinerance-format",
   mixins: [aos],
   components: {
+    GoogleMapsAPI,
     SocialNetworksFooter,
   },
   props: {

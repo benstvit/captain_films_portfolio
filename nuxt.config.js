@@ -78,6 +78,7 @@ export default {
     contentfulAccessToken: process.env.VUE_APP_CONTENTFUL_ACCESS_TOKEN,
     contentfulPreviewAccessToken: process.env.VUE_APP_CONTENTFUL_PREVIEW_ACCESS_TOKEN,
     contentfulSpaceId: process.env.VUE_APP_CONTENTFUL_SPACE_ID,
+    googleMapsAPIToken: process.env.VUE_APP_GOOGLE_MAPS_API_TOKEN
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
