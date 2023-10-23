@@ -42,8 +42,11 @@
         class="flex flex-row justify-start items-center gap-2 md:py-2 w-full text-[0.6rem] md:text-xs lg:text-base"
       >
         <p>{{ date }}</p>
-        <p v-if="post.tag" class="md:block hidden">|</p>
-        <p class="md:block hidden">Tag: {{ post.tag }}</p>
+        <p v-if="post.subTags" class="md:block hidden">|</p>
+        <p class="md:block hidden">Tags: </p>
+        <div v-for="(subtag, index) in post.subTags" :key="subtag">
+          <p class="md:block hidden">{{ index === post.subTags.length - 1 ? subtag : subtag + ',' }}</p>
+        </div>
         <p v-if="post.location">|</p>
         <p>{{ post.location }}</p>
         <p class="ml-auto">📸 {{ post.photoCredits }}</p>

@@ -4,6 +4,7 @@ const QUERY = `{
       articleId
       slug
       tag
+      subTags
       title
       thumbnail {
         title
