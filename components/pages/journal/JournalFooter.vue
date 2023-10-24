@@ -23,7 +23,7 @@
         @click="openSubscriptionModal"
         class="flex justify-between items-center gap-2 ml-auto self-end animate-pulse animate-bounce hover:cursor-pointer hover:font-bold font-captainlight text-[0.6rem] md:text-sm text-left">
         <ContactSvg class="w-6 h-6 md:w-8 md:h-8" :stroke="contact.stroke" />
-        <p> Je veux recevoir un e-mail quand un nouvel article sort 🙏</p>
+        <p> Me prévenir quand un nouvel article sort 👈</p>
       </div>
     </div>
   </div>
