@@ -9,7 +9,7 @@ export default {
       lang: "en-US",
     },
     meta: [
-      { name: 'google-site-verification', content: '5To6UYGqRenkkezzV7GRgOF1GQc76uJYu4G2HDOqTp4' }
+      { name: 'google-site-verification', content: '5To6UYGqRenkkezzV7GRgOF1GQc76uJYu4G2HDOqTp4' },
       {
         hid: 'description',
         name: 'description',
@@ -70,7 +70,7 @@ export default {
       return posts.map(post => ({ route: '/journal/' + post.slug }));
     },
   },
-  target: "server", // Set to static before nuxt generate, server when dev environment
+  target: "static", // Set to static before nuxt generate, server when dev environment
   manifest: {
     name: "TFD Nuxt Frontend",
     short_name: "TFD Nuxt",
