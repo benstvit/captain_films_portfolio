@@ -9,6 +9,7 @@ export default {
       lang: "en-US",
     },
     meta: [
+      { name: 'google-site-verification', content: '5To6UYGqRenkkezzV7GRgOF1GQc76uJYu4G2HDOqTp4' }
       {
         hid: 'description',
         name: 'description',
