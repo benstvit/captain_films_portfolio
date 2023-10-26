@@ -4,11 +4,16 @@ const axios = require('axios');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Captain Films - Film Photography",
+    title: "Captain Films - Film Photography & Blogging",
     htmlAttrs: {
       lang: "en-US",
     },
     meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Where film photography, music and blogging meet.'
+      },
       { hid: 'og-type', property: 'og:type', content: 'website' },
       { hid: 'og-title', property: 'og:title', content: 'Captain Films - Film Photography & Journal' },
       { hid: 'og-desc', property: 'og:description', content: 'Where film photography, music and blogging meet.' },

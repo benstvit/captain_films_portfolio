@@ -33,6 +33,41 @@ export default {
     Loader,
     MenuDisplay,
   },
+  head() {
+    return {
+      title: "Captain Films - Film Photography & Blogging",
+      meta: [
+        {
+          hid: "og-title",
+          property: "og:title",
+          content: `Captain Films - Film Photography & Blogging`,
+        },
+        { hid: "og-type", property: "og:type", content: "portfolio" },
+        {
+          hid: "og-desc",
+          name: "description",
+          content:
+            "Un espace où photographie, musique, vidéo et blogging se rencontre. Découvrez mon travail en photographie ainsi que le Journal de Captain Films, un blog aux multiples facettes.",
+        },
+        {
+          hid: "og-image",
+          itemprop: "image",
+          property: "og:image",
+          content: "cf-share-bloglogo.png",
+        },
+        {
+          hid: "og-image-alt",
+          property: "og:image:alt	",
+          content: "Captain Films - Film Photography & Blogging",
+        },
+        {
+          hid: "og-url",
+          property: "og:url",
+          content: "https://captain-films.com",
+        },
+      ],
+    };
+  },
   data() {
     return {
       isLoading: true,
