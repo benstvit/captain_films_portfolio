@@ -47,7 +47,7 @@ export default {
           hid: "og-desc",
           name: "description",
           content:
-            "Un espace où photographie, musique, vidéo et blogging se rencontre. Découvrez mon travail en photographie ainsi que le Journal de Captain Films, un blog aux multiples facettes.",
+            "Un espace où photographie, musique, vidéo et blogging se rencontrent. Découvrez mon travail en photographie ainsi que le Journal de Captain Films, un blog aux multiples facettes.",
         },
         {
           hid: "og-image",
@@ -66,6 +66,21 @@ export default {
           content: "https://captain-films.com",
         },
       ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Website",
+            "headline": "Captain Films - Film Photography & Journal",
+            "description": "Where film photography, music and blogging meet.",
+            "author": {
+              "@type": "Person",
+              "name": "Benjamin Saint Viteux"
+            }
+          })
+        }
+      ]
     };
   },
   data() {

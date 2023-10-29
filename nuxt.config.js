@@ -4,7 +4,7 @@ const axios = require('axios');
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Captain Films - Film Photography & Blogging",
+    title: "Captain Films - Film Photography & Journal",
     htmlAttrs: {
       lang: "en-US",
     },

@@ -65,6 +65,21 @@ export default {
           content: "https://captain-films.com/journal",
         },
       ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Article",
+            "headline": "Captain Films Journal",
+            "description": "Le journal de Captain Films. Des portraits photo, de la musique, des découvertes...",
+            "author": {
+              "@type": "Person",
+              "name": "Benjamin Saint Viteux"
+            }
+          })
+        }
+      ]
     };
   },
   data() {

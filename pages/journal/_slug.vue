@@ -68,6 +68,22 @@ export default {
           content: `https://captain-films.com/journal/${this.$route.params.slug}`,
         },
       ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Article",
+            "headline": `${this.post.title}`,
+            "description": `${this.blogAbstract()}`,
+            "datePublished": `${this.post.date}`,
+            "author": {
+              "@type": "Person",
+              "name": "Benjamin Saint Viteux"
+            }
+          })
+        }
+      ]
     };
   },
   computed: {
@@ -108,6 +124,9 @@ export default {
     const post = blogPosts.filter((e) => e.slug === params.slug)[0];
 
     return { blogPosts, post };
+  },
+  mounted() {
+    console.log(this.post);
   },
   methods: {
     blogAbstract() {
