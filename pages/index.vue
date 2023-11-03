@@ -35,12 +35,12 @@ export default {
   },
   head() {
     return {
-      title: "Captain Films - Film Photography & Blogging",
+      title: "Captain Films - Film Photography & Journal",
       meta: [
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films - Film Photography & Blogging`,
+          content: `Captain Films - Film Photography & Journal`,
         },
         { hid: "og-type", property: "og:type", content: "portfolio" },
         {
@@ -53,12 +53,12 @@ export default {
           hid: "og-image",
           itemprop: "image",
           property: "og:image",
-          content: "cf-share-bloglogo.png",
+          content: "cf-share-logo.png",
         },
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: "Captain Films - Film Photography & Blogging",
+          content: "Captain Films - Film Photography & Journal",
         },
         {
           hid: "og-url",
@@ -76,8 +76,9 @@ export default {
             "description": "Where film photography, music and blogging meet.",
             "author": {
               "@type": "Person",
-              "name": "Benjamin Saint Viteux"
-            }
+              "name": "Benjamin Saint Viteux",
+            },
+            "logo": "cf-share-logo.png"
           })
         }
       ]

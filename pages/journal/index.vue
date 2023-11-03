@@ -76,7 +76,8 @@ export default {
             "author": {
               "@type": "Person",
               "name": "Benjamin Saint Viteux"
-            }
+            },
+            "logo": "cf-share-bloglogo.png"
           })
         }
       ]
