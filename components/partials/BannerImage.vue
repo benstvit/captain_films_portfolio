@@ -24,12 +24,9 @@
             <nuxt-img
               v-if="menu.enabled"
               format="webp"
+              @load="imagesAreLoaded = true"
               preload
-              :class="
-                menuDisplay
-                  ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-black'
-                  : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-sm rounded-lg w-full'
-              "
+              :class="bannerImageClass()"
               :src="menu.url"
               :alt="menu.title"
             />
@@ -56,6 +53,11 @@ import MobileMenu from "./MobileMenu.vue";
 export default {
   name: "BannerImage",
   inject: ["selectMenu"],
+  data() {
+    return {
+      imagesAreLoaded: false
+    }
+  },
   components: {
     BlogButton,
     CaptainFilmsLogo,
@@ -72,6 +74,11 @@ export default {
     },
   },
   methods: {
+    bannerImageClass() {
+      if (!this.imagesAreLoaded) return "bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover";
+
+      return this.menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-black' : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-sm rounded-lg w-full';
+    },
     menuGrid(index) {
       return index === 3
         ? "col-span-6 hover:cursor-pointer hover:opacity-80 hover:shadow-inner"

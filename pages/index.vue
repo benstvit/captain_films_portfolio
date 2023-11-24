@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Loader v-if="!navigatingFromPage && isLoading" />
+    <!-- <Loader v-if="!navigatingFromPage && isLoading" /> -->
     <div v-if="!isLoading" :style="{ contain: 'paint' }">
       <MenuDisplay
         v-if="menuDisplay"
@@ -108,12 +108,12 @@ export default {
   },
   async created() {
     await this.fetchPhotos();
-    this.isLoading = true;
+    this.isLoading = false;
     this.bannerPhotos = this.photosData;
     if (this.navigatingFromPage) return this.isLoading = false;
-    setInterval(() => {
-      this.isLoading = false;
-    }, 1800);
+    // setInterval(() => {
+    //   this.isLoading = false;
+    // }, 1800);
   },
   methods: {
     ...mapActions({ fetchPhotos: "banner/fetch" }),
