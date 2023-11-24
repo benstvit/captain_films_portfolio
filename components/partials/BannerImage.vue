@@ -24,9 +24,9 @@
             <nuxt-img
               v-if="menu.enabled"
               format="webp"
-              @load="imagesAreLoaded = true"
+              @load="imageIsLoaded = true"
               preload
-              :class="bannerImageClass()"
+              :class="bannerImageClass"
               :src="menu.url"
               :alt="menu.title"
             />
@@ -55,7 +55,7 @@ export default {
   inject: ["selectMenu"],
   data() {
     return {
-      imagesAreLoaded: false
+      imageIsLoaded: false
     }
   },
   components: {
@@ -73,11 +73,16 @@ export default {
       default: true,
     },
   },
-  methods: {
+  computed: {
     bannerImageClass() {
-      if (!this.imagesAreLoaded) return "bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover";
+      if (!this.imageIsLoaded) return "bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover";
 
       return this.menuDisplay ? 'md:h-[32vh] lg:h-[50vh] w-screen lg:w-full object-cover border border-1 border-black' : 'md:h-[32vh] lg:h-[50vh] max-w-sm mx-4 md:max-w-none md:mx-0 md:w-auto object-cover shadow-sm rounded-lg w-full';
+    },
+  },
+  methods: {
+    imageIsLoaded(imageIndex) {
+       this.imagesArray[imageIndex - 1] = true;
     },
     menuGrid(index) {
       return index === 3
