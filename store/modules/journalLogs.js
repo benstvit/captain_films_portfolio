@@ -38,6 +38,12 @@ const QUERY = `{
       paragraph9
       question10
       paragraph10
+      question11
+      paragraph11
+      question12
+      paragraph12
+      question13
+      paragraph13
       imagesCollection {
         items {
           title

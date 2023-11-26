@@ -27,7 +27,7 @@
         ></p>
       </div>
     </viewer>
-      <div v-for="number in range(images.length, 10)" :key="number">
+      <div v-for="number in range(images.length, 11)" :key="number">
         <p
           class="self-start font-cormorant font-bold text-base md:text-xl italic pt-6 pb-2 overflow-visible"
           :class="post[`question${number}`] ? 'block' : 'hidden'"
