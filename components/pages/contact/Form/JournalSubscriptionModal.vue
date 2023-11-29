@@ -5,8 +5,13 @@
   >
     <div
       id="modal"
-      class="relative bg-white t-56 mt-auto mx-auto p-4 border-2 md:border-1 border-gray-600 md:border-gray-50 w-2/3 rounded-sm md:rounded-md shadow-lg"
+      class="relative bg-white t-56 mt-auto mx-auto p-4 border-2 md:border-1 border-gray-600 md:border-black md:border-2 w-2/3 rounded-sm md:rounded-none shadow-md"
     >
+     <span
+        @click="closeModal()"
+        class="absolute -top-1 right-2 md:top-1 md:right-3 hover:text-black cursor-pointer text-gray-700 float-right font-bold text-2xl md:text-4xl"
+        >&times;</span
+      >
       <FormSubmitMessage
         v-if="successMessage || errorMessage"
         language="fr"

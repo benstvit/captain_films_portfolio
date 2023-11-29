@@ -23,6 +23,7 @@
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
+    <InfiniteTextScrollBanner />
   </div>
 </template>
 
@@ -31,7 +32,7 @@ import BlogButton from "../../UI/BlogButton.vue";
 import BlogFilter from "./BlogFilter.vue";
 import BlogSearchBar from "../../UI/BlogSearchBar.vue";
 import CaptainFilmsLogoBlog from "../../partials/CaptainFilmsLogoBlog.vue";
-import PostNavbar from "./post/PostNavbar"
+import InfiniteTextScrollBanner from "../../UI/InfiniteTextScrollBanner.vue";
 
 export default {
   name: "blog-navbar",
@@ -40,7 +41,7 @@ export default {
     BlogFilter,
     BlogSearchBar,
     CaptainFilmsLogoBlog,
-    PostNavbar
+    InfiniteTextScrollBanner,
   },
   props: {
     posts: {

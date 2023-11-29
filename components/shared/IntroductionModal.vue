@@ -5,19 +5,19 @@
   >
     <div
       id="modal"
-      class="relative bg-white t-56 mt-auto mx-auto p-4 border-2 md:border-1 border-gray-600 md:border-gray-50 w-2/3 rounded-sm md:rounded-md shadow-md"
+      class="relative bg-white t-56 mt-auto mx-auto p-4 border-2 md:border-1 border-gray-600 md:border-black md:border-2 w-2/3 rounded-sm md:rounded-none shadow-md"
     >
       <span
         @click="closeModal"
-        class="absolute top-2 right-4 hover:text-black cursor-pointer text-gray-500 float-right font-bold text-2xl md:text-4xl"
+        class="absolute top-2 right-4 hover:text-black cursor-pointer text-gray-700 float-right font-bold text-2xl md:text-4xl"
         >&times;</span
       >
       <div
-        class="flex flex-col justify-between items-center divide-y-1 p-4 gap-4 my-2 font-captainlight text-center"
+        class="flex flex-col justify-between items-center divide-y-1 p-4 gap-4 md:gap-3 my-0 font-captainlight text-center"
       >
         <nuxt-img
           format="webp"
-          class="h-14 w-14"
+          class="h-14 w-14 p-0 m-0"
           src="/aileron.png"
           alt="aileron"
         />
@@ -25,8 +25,7 @@
           Welcome and thanks for visiting !
         </p>
         <p class="font-cormorant text-sm md:text-lg">
-          All photographs were shot on 35mm film in various places around the
-          world. They are all available to be printed and framed in different
+          All photographs were shot on 35mm film. They are all available to be printed and framed in different
           formats on cotton paper of 👌 quality.
         </p>
         <p class="font-cormorant text-sm md:text-lg">
@@ -39,7 +38,7 @@
           in the home of the people who took the plunge.
         </p>
         <p class="font-cormorant text-sm md:text-lg">
-          Oh, and as a web developer, I coded this portfolio from scratch 👾.
+          Oh, and as a front-end developer, I coded this portfolio from scratch in Vue.js if that means something to you 👾.
         </p>
         <p class="text-lg md:text-2xl font-handwritten">Captain Films.</p>
       </div>
