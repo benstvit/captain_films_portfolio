@@ -31,6 +31,9 @@ module.exports = {
       auto: "auto",
     },
     extend: {
+      animation: {
+        scrollText: 'scrollText linear infinite',
+      },
       backgroundColor: (theme) => ({
         facebook: "#1778F2",
         tfd: "#ce3637",
@@ -57,7 +60,13 @@ module.exports = {
         playfair: ['"Playfair Display"', ...defaultTheme.fontFamily.sans],
         cormorant: ['"Cormorant Garamond"', ...defaultTheme.fontFamily.sans],
       },
-    },
+      keyframes: {
+        scrollText: {
+          from: { transform: 'translateX(-25%)'},
+          to: { transform: 'translateX(100%)' },
+        }
+      },
+    }
   },
   daisyui: {
     themes: [
