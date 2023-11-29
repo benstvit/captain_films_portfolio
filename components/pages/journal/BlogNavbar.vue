@@ -23,7 +23,7 @@
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
-    <InfiniteTextScrollBanner />
+    <InfiniteTextScrollBanner v-if="onIndexPage" />
   </div>
 </template>
 
