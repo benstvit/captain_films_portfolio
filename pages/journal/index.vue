@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <JournalSubscriptionModal v-if="subscriptionModalIsOpen" @close-modal="subscriptionModalIsOpen = false" />
-    <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" />
+    <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" @open-subscription-modal="subscriptionModalIsOpen = true" />
     <div class="grid grid-cols-12 gap-4 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8">
       <nuxt-link
         v-for="blog in filteredPosts"

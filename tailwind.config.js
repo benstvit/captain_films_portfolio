@@ -64,7 +64,7 @@ module.exports = {
         scrollText: {
           from: { transform: 'translateX(-25%)'},
           to: { transform: 'translateX(100%)' },
-        }
+        },
       },
     }
   },
