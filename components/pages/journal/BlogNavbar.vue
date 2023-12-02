@@ -6,7 +6,7 @@
     <BlogSearchBar v-if="onIndexPage" class="block" />
     <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" />
     <div
-      class="border-black border-b-2 pb-4 lg:pb-8 lg:grid lg:grid-cols-6 flex items-center lg:items-end  w-full text-xs md:text-sm md:text-base"
+      class="border-black border-b pb-4 lg:pb-8 lg:grid lg:grid-cols-6 flex items-center lg:items-end  w-full text-xs md:text-sm md:text-base"
       :class="{'justify-around': this.onPostPage, 'justify-between lg:justify-around': !this.onPostPage,'border-none': this.isScrolling }"
     >
       <BlogButton
@@ -23,7 +23,7 @@
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
-    <InfiniteTextScrollBanner v-if="onIndexPage" />
+    <InfiniteTextScrollBanner v-show="!isScrolling" class="transition ease-in-out duration-300" v-if="onIndexPage" />
   </div>
 </template>
 

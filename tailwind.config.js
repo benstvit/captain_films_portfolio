@@ -32,7 +32,9 @@ module.exports = {
     },
     extend: {
       animation: {
-        scrollText: 'scrollText linear infinite',
+        scrollTextLarge: 'scrollTextLarge linear infinite',
+        scrollTextMedium: 'scrollTextMedium linear infinite',
+        scrollTextMobile: 'scrollTextMobile linear infinite'
       },
       backgroundColor: (theme) => ({
         facebook: "#1778F2",
@@ -61,8 +63,16 @@ module.exports = {
         cormorant: ['"Cormorant Garamond"', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
-        scrollText: {
-          from: { transform: 'translateX(-25%)'},
+        scrollTextLarge: {
+          from: { transform: 'translateX(-28%)'},
+          to: { transform: 'translateX(100%)' },
+        },
+        scrollTextMedium: {
+          from: { transform: 'translateX(-50%)'},
+          to: { transform: 'translateX(100%)' },
+        },
+        scrollTextMobile: {
+          from: { transform: 'translateX(-100%)'},
           to: { transform: 'translateX(100%)' },
         },
       },

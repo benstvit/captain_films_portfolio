@@ -135,7 +135,7 @@ export default {
         ));
       }
       this.filteredPosts = this.blogPosts.filter((blog) => {
-        return blog.title.toLowerCase().includes(search.toLowerCase());
+        return blog.title?.toLowerCase().includes(search.toLowerCase());
       });
       this.setQueryColor(search);
     },

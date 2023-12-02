@@ -19,7 +19,7 @@
         :error="errorMessage" />
       <div v-else>
         <h1
-          class="text-xs md:text-base lg:text-base font-bold text-center lg:text-left font-captainbold my-3"
+          class="text-xs md:text-base lg:text-base text-center lg:text-left font-captainbold my-3"
         >
           Il me faut juste un nom et un e-mail (pas de pub, juste des
           articles, promis !)
