@@ -66,7 +66,7 @@ export default {
   },
   data() {
     return {
-      menus: ["Home", "Photography", "Gallery", "Contact me"],
+      menus: ["Home", "Photography", "Showroom", "Contact me"],
       instagram: { stroke: "#FFFFFF", url: 'https://www.instagram.com/captain_films/' },
       facebook: { stroke: "#FFFFFF", url: 'https://www.facebook.com/captainfilmsjournal' }
     };

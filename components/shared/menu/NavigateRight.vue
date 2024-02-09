@@ -9,7 +9,7 @@
         <div class="flex justify-center items-center h-fit gap-4">
           <div class="flex flex-col justify-center items-center">
             <ShowroomSvg :stroke="showroom.stroke" />
-            <h2 class="font-cormorant text-base lg:text-lg">Gallery</h2>
+            <h2 class="font-cormorant text-base lg:text-lg">Showroom</h2>
           </div>
           <RightArrowSvg />
         </div>
