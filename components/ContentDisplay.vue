@@ -11,7 +11,7 @@
       :style="{ opacity: bannerOpacity }"
       :menus="selectedPage"/>
     <PageContent :page-index="pageIndex" />
-    <Footer
+    <PageFooter
       :selected-page="selectedPage"
       @navigate="navigateTo"
     />
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Footer from "./shared/PageFooter.vue";
+import PageFooter from "./shared/PageFooter.vue";
 import IntroductionModal from "./shared/IntroductionModal.vue";
 import PageContent from "./pages/PageContent.vue";
 import SharedBanner from "./shared/menu/SharedBanner.vue";
@@ -27,7 +27,7 @@ import SharedBanner from "./shared/menu/SharedBanner.vue";
 export default {
   name: "content-display",
   components: {
-    Footer,
+    PageFooter,
     IntroductionModal,
     PageContent,
     SharedBanner
