@@ -5,7 +5,7 @@
         :submenus="submenus" />
     <keep-alive>
       <div id="form" class="mt-12">
-        <ContactForm v-if="isOpen('Contact Me')" />
+        <ContactForm v-if="isOpen('Contact')" />
         <MyPartners v-if="isOpen('Partners')" />
       </div>
     </keep-alive>
@@ -30,7 +30,7 @@ export default {
       activeSubmenu: {},
       introY: false,
       submenus: [
-        { title: 'Contact Me', active: true, page: 'contact' },
+        { title: 'Contact', active: true, page: 'contact' },
         { title: 'Partners', active: false, page: 'contact' },
       ]
     }

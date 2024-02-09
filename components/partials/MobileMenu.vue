@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      menus: ['Photography', 'Showroom', 'Contact me'],
+      menus: ['Photography', 'Showroom', 'Contact'],
     }
   },
   methods: {
