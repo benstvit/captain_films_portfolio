@@ -8,14 +8,14 @@
         This idea of ​​uniqueness transpires in the meticulousness that I bring to the development, printing and framing of my photographs.
       </p>
     </div>
-    <div class="flex flex-col justify-between items-center gap-4 m-4 p-4 bg-white">
+    <div class="flex flex-col justify-center md:justify-between items-center gap-4 m-4 p-4 bg-white">
       <FormSubmitMessage
         v-if="successMessage || errorMessage"
         :success="successMessage"
         :error="errorMessage" />
       <div v-else>
         <h1 class="text-lg md:text-xl lg:text-2xl text-center lg:text-left font-captainbold my-4">
-          Please fill in this form if you wish to contact me:
+          Please, fill in this form to contact me 👇 :
         </h1>
         <FormulateForm
           id="contact-form"
@@ -26,7 +26,7 @@
               <FormulateInput
               name="email"
               type="email"
-              label="Your e-mail so I can contact you back"
+              label="Your e-mail, so I can contact you back"
               placeholder="Email address"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
               input-class="w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"
@@ -38,8 +38,8 @@
               name='reason'
               :options="{question: 'Ask a question / get information', order: 'Order a photograph', other: 'Talk about the weather or anything, really'}"
               type="select"
+              label="The subject"
               placeholder="What do you want to talk about?"
-              label="The reason you are contacting me for (though you don't need any)"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
               input-class="w-fit focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
               class="mb-6 mt-2 items-end"
