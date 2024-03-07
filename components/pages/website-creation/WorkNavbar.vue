@@ -42,7 +42,7 @@ export default {
     };
   },
   props: {
-    posts: {
+    works: {
       type: Array,
       default: () => [],
     },

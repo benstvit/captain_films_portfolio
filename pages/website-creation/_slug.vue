@@ -1,20 +1,31 @@
 <template>
-  <div v-if="post" class="h-full bg-white">
-    <JournalSubscriptionModal v-if="subscriptionModalIsOpen" @close-modal="subscriptionModalIsOpen = false" />
-    <BlogNavbar id="navbar" :is-scrolling="isScrolling" :posts="filteredPosts" />
-    <PostHeader :post="post" :posts="filteredPosts" />
-    <PostContent :post="postWithFormattedImages" />
+  <div v-if="work" class="h-full bg-white">
+    <ContactModal
+      v-if="contactModalIsOpen"
+      @close-modal="contactModalIsOpen = false"
+    />
+    <WorkNavbar
+      id="navbar"
+      :is-scrolling="isScrolling"
+      :works="filteredWorks"
+    />
+    <PostHeader :post="work" :posts="filteredWorks" />
+    <PostContent :post="workWithFormattedImages" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
-    <SlugFooter @open-subscription-modal="subscriptionModalIsOpen = true" :footer-text="footerText"/>
+    <SlugFooter
+      :footerText="footerText"
+      :onWorkPage="true"
+      @open-modal="contactModalIsOpen = true"
+    />
   </div>
 </template>
 
 <script>
 import scrollHandler from "../../mixins/scrollHandler";
 
-import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
-import SlugFooter from "../../components/pages/SlugFooter.vue"
-import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
+import WorkNavbar from "../../components/pages/website-creation/WorkNavbar.vue";
+import SlugFooter from "../../components/pages/SlugFooter.vue";
+import ContactModal from "../../components/pages/contact/Form/ContactModal.vue"
 import PostContent from "../../components/pages/journal/post/post-content/PostContent.vue";
 import PostHeader from "../../components/pages/journal/post/PostHeader.vue";
 import PostGallery from "../../components/pages/journal/post/PostGallery.vue";
@@ -22,16 +33,16 @@ import PostGallery from "../../components/pages/journal/post/PostGallery.vue";
 export default {
   name: "website-creation-post",
   mixins: [scrollHandler],
-  data () {
+  data() {
     return {
-      footerText: 'Contactez-moi pour la création de votre site web',
-      subscriptionModalIsOpen : false
-    }
+      footerText: "Contactez-moi pour la création de votre site web",
+      contactModalIsOpen: false,
+    };
   },
   components: {
-    BlogNavbar,
+    WorkNavbar,
     SlugFooter,
-    JournalSubscriptionModal,
+    ContactModal,
     PostContent,
     PostHeader,
     PostGallery,
@@ -43,7 +54,7 @@ export default {
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films Journal - ${this.post.title}`,
+          content: `Captain Films Journal - ${this.work.title}`,
         },
         { hid: "og-type", property: "og:type", content: "journal" },
 
@@ -56,12 +67,12 @@ export default {
           hid: "og-image",
           itemprop: "image",
           property: "og:image",
-          content: `${this.post.thumbnail.url}`,
+          content: `${this.work.thumbnail.url}`,
         },
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: `${this.post.thumbnail.title}`,
+          content: `${this.work.thumbnail.title}`,
         },
         {
           hid: "og-url",
@@ -71,36 +82,36 @@ export default {
       ],
       script: [
         {
-          type: 'application/ld+json',
+          type: "application/ld+json",
           innerHTML: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Article",
-            "headline": `${this.post.title}`,
-            "description": `${this.blogAbstract()}`,
-            "datePublished": `${this.post.date}`,
-            "author": {
+            headline: `${this.work.title}`,
+            description: `${this.blogAbstract()}`,
+            datePublished: `${this.work.date}`,
+            author: {
               "@type": "Person",
-              "name": "Benjamin Saint Viteux"
-            }
-          })
-        }
-      ]
+              name: "Benjamin Saint Viteux",
+            },
+          }),
+        },
+      ],
     };
   },
   computed: {
-    filteredPosts() {
-      if (!this.blogPosts.length) return;
+    filteredWorks() {
+      if (!this.works.length) return;
 
-      return this.blogPosts.sort((a, b) => b.articleId - a.articleId);
+      return this.works.sort((a, b) => b.id - a.id);
     },
     galleryImages() {
-      if (!this.postWithFormattedImages) return;
+      if (!this.workWithFormattedImages) return;
 
-      return this.postWithFormattedImages.imagesCollection.items.filter(
+      return this.workWithFormattedImages.imagesCollection.items.filter(
         (image) => image.description !== ""
       );
     },
-    postWithFormattedImages() {
+    workWithFormattedImages() {
       const options = {
         inline: true,
         button: true,
@@ -115,26 +126,28 @@ export default {
         fullscreen: true,
         keyboard: true,
       };
-      const images = this.post.imagesCollection.items.map((image) => ({ ...image, ...options }));
-      return { ...this.post, imagesCollection: {items: images} }
-    }
+      const images = this.work.imagesCollection.items.map((image) => ({
+        ...image,
+        ...options,
+      }));
+      return { ...this.work, imagesCollection: { items: images } };
+    },
   },
   async asyncData({ store, params }) {
-    await store.dispatch("journalLogs/fetch");
-    const blogPosts = store.getters["journalLogs/data"];
-    const post = blogPosts.filter((e) => e.slug === params.slug)[0];
+    await store.dispatch("workPortfolio/fetch");
+    const works = store.getters["workPortfolio/data"];
+    const work = works.filter((e) => e.slug === params.slug)[0];
 
-    return { blogPosts, post };
+    return { works, work };
   },
   mounted() {
-    console.log(this.post);
+    console.log(this.work);
   },
   methods: {
     blogAbstract() {
-      const abstract = this.post.introduction.substr(0, 180) + "...";
+      const abstract = this.work.introduction.substr(0, 180) + "...";
       return abstract;
     },
-
   },
 };
 </script>

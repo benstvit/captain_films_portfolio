@@ -10,7 +10,7 @@
         :to="'/journal/' + blog.slug"
       >
         <keep-alive>
-          <BlogCard :blog="blog" :is-searching="isSearching" />
+          <Card :data="blog" :is-searching="isSearching" />
         </keep-alive>
       </nuxt-link>
     </div>
@@ -22,7 +22,7 @@
 import { mapActions, mapState } from "Vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
-import BlogCard from "../../components/pages/journal/BlogCard.vue";
+import Card from "../../components/UI/Card.vue";
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
 import SlugFooter from "../../components/pages/SlugFooter.vue";
 import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
@@ -97,7 +97,7 @@ export default {
   },
   components: {
     BlogNavbar,
-    BlogCard,
+    Card,
     SlugFooter,
     JournalSubscriptionModal
   },

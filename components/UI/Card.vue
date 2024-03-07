@@ -1,5 +1,5 @@
 <template>
-  <div v-if="blog.thumbnail">
+  <div v-if="data.thumbnail">
     <div
       class="shadow-md border-b-[7px] border-black bg-black rounded-lg my-0 md:my-4"
     >
@@ -10,8 +10,8 @@
         format="webp"
         title="Read more..."
         class="rounded-lg hover:opacity-90 hover:shadow-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover"
-        :alt="blog.thumbnail.title"
-        :src="blog.thumbnail.url"
+        :alt="data.thumbnail.title"
+        :src="data.thumbnail.url"
       >
       </nuxt-img>
       <div
@@ -43,7 +43,7 @@
 export default {
   name: "card",
   props: {
-    blog: {
+    data: {
       type: Object,
       default: () => {},
     },
@@ -59,13 +59,13 @@ export default {
   },
   computed: {
     blogAbstract() {
-      const abstract = this.blog.introduction.substr(0, 180) + "...";
+      const abstract = this.data.introduction.substr(0, 180) + "...";
       return this.$md.render(abstract);
     },
     blogTitle() {
       return this.isSearching
-        ? `${this.blog.tag} : ${this.blog.queryTitle}`
-        : `${this.blog.tag} : ${this.blog.title}`;
+        ? `${this.data.tag} : ${this.data.queryTitle}`
+        : `${this.data.tag} : ${this.data.title}`;
     },
   },
 };

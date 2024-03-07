@@ -29,7 +29,7 @@
             <FormulateInput
             name="email"
             type="email"
-            label="Votre e-mail, afin que je puisse vous re-contacter"
+            label="Votre e-mail, afin que je puisse vous répondre"
             placeholder="E-mail"
             label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
             input-class="w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"
@@ -40,7 +40,7 @@
               type="textarea"
               v-model="text"
               name="message"
-              label="Parlez-moi de votre projet (un site vitrine ? un site d'e-commerce...?)"
+              label="Parlez-moi de votre projet (un site vitrine ? un site d'e-commerce... ?)"
               label-class="font-captainlight text-xs lg:text-sm"
               input-class="w-full h-36 focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
               class="mb-4"

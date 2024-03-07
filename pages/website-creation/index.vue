@@ -1,18 +1,47 @@
 <template>
-  <div class="flex flex-col items-center h-screen bg-white max-w-screen">
-    <ContactModal v-if="contactModalIsOpen" @close-modal="contactModalIsOpen = false" />
-    <WorkNavbar id="navbar" :is-scrolling="isScrolling" @open-modal="contactModalIsOpen = true" />
-    <SlugFooter class="fixed bottom-0" :footerText="footerText" :onWorkPage="true" @open-modal="contactModalIsOpen = true" />
-  </div>
+  <section>
+    <div class="lg:mb-8">
+      <div class="flex flex-col items-center h-screen bg-white w-full">
+        <ContactModal
+          v-if="contactModalIsOpen"
+          @close-modal="contactModalIsOpen = false"
+        />
+        <WorkNavbar
+          id="navbar"
+          :is-scrolling="isScrolling"
+          @open-modal="contactModalIsOpen = true"
+        />
+        <div class="flex justify-center gap-4 mx-8 md:mx-32 lg:mx-40 my-8">
+          <nuxt-link
+            v-for="work in filteredWorks"
+            class="w-1/2"
+            :key="work.alt"
+            :to="'/website-creation/' + work.slug"
+          >
+            <keep-alive>
+              <Card :data="work" />
+            </keep-alive>
+          </nuxt-link>
+        </div>
+        <SlugFooter
+          v-if="filteredWorks.length"
+          :footerText="footerText"
+          :onWorkPage="true"
+          @open-modal="contactModalIsOpen = true"
+        />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
+import { mapActions, mapState } from "Vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
-import ContactModal from "../../components/pages/contact/Form/ContactModal.vue"
+import Card from "../../components/UI/Card.vue";
+import ContactModal from "../../components/pages/contact/Form/ContactModal.vue";
 import WorkNavbar from "../../components/pages/website-creation/WorkNavbar.vue";
 import SlugFooter from "../../components/pages/SlugFooter.vue";
-
 
 export default {
   name: "website-creation-index",
@@ -30,8 +59,7 @@ export default {
         {
           hid: "og-desc",
           name: "description",
-          content:
-            "Mon travail en tant que créateur de sites web",
+          content: "Mon travail en tant que créateur de sites web",
         },
         {
           hid: "og-image",
@@ -42,7 +70,7 @@ export default {
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: "Captain Films - Website Development"
+          content: "Captain Films - Website Development",
         },
         {
           hid: "og-url",
@@ -52,33 +80,45 @@ export default {
       ],
       script: [
         {
-          type: 'application/ld+json',
+          type: "application/ld+json",
           innerHTML: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Work Portfolio",
-            "headline": "Captain Films - Website Development",
-            "description": "Mon travail en tant que créateur de sites web.",
-            "author": {
+            headline: "Captain Films - Website Development",
+            description: "Mon travail en tant que créateur de sites web.",
+            author: {
               "@type": "Person",
-              "name": "Benjamin Saint Viteux"
+              name: "Benjamin Saint Viteux",
             },
-            "logo": "cf-share-logo.png"
-          })
-        }
-      ]
+            logo: "cf-share-logo.png",
+          }),
+        },
+      ],
     };
   },
   data() {
     return {
-      footerText: 'Contactez-moi pour la création de votre site web',
+      filteredWorks: [],
+      footerText: "Contactez-moi pour la création de votre site web",
       isSearching: false,
-      contactModalIsOpen: false
+      contactModalIsOpen: false,
     };
   },
   components: {
+    Card,
     ContactModal,
     WorkNavbar,
     SlugFooter,
+  },
+  async created() {
+    await this.fetchWorks();
+    this.filteredWorks = this.works.sort((a, b) => b.id - a.id);
+  },
+  computed: {
+    ...mapState("workPortfolio", { works: "data" }),
+  },
+  methods: {
+    ...mapActions({ fetchWorks: "workPortfolio/fetch" }),
   },
 };
 </script>
