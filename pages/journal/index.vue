@@ -24,7 +24,6 @@ import scrollHandler from "../../mixins/scrollHandler";
 
 import BlogCard from "../../components/pages/journal/BlogCard.vue";
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
-import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
 import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
 import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
 
@@ -97,7 +96,6 @@ export default {
   },
   components: {
     BlogNavbar,
-    CaptainFilmsLogo,
     BlogCard,
     JournalFooter,
     JournalSubscriptionModal
