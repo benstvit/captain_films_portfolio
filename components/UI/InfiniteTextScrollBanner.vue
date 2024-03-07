@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     openSubscriptionModal() {
-      this.$parent.$emit('open-subscription-modal')
+      this.$parent.$emit('open-modal')
     }
   }
 };

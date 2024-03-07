@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
-    <WorkNavbar id="navbar" :is-scrolling="isScrolling" />
+    <ContactModal v-if="contactModalIsOpen" @close-modal="contactModalIsOpen = false" />
+    <WorkNavbar id="navbar" :is-scrolling="isScrolling" @open-modal="contactModalIsOpen = true" />
     <JournalFooter />
   </div>
 </template>
@@ -8,6 +9,7 @@
 <script>
 import scrollHandler from "../../mixins/scrollHandler";
 
+import ContactModal from "../../components/pages/contact/Form/ContactModal.vue"
 import WorkNavbar from "../../components/pages/website-creation/WorkNavbar.vue";
 import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
 
@@ -69,9 +71,11 @@ export default {
   data() {
     return {
       isSearching: false,
+      contactModalIsOpen: false
     };
   },
   components: {
+    ContactModal,
     WorkNavbar,
     JournalFooter,
   },

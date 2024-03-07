@@ -41,7 +41,7 @@ export default {
   },
   data() {
     return {
-      scrollingText: "Voici un aperçu de mon travail en création de sites web",
+      scrollingText: "👾 Besoin de votre propre site web ? Contactez-moi en me cliquant dessus 👾",
     };
   },
   props: {
