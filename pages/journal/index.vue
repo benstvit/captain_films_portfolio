@@ -14,7 +14,7 @@
         </keep-alive>
       </nuxt-link>
     </div>
-    <JournalFooter v-if="filteredPosts.length" @open-subscription-modal="subscriptionModalIsOpen = true" />
+    <SlugFooter v-if="filteredPosts.length" @open-subscription-modal="subscriptionModalIsOpen = true" :footer-text="footerText" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ import scrollHandler from "../../mixins/scrollHandler";
 
 import BlogCard from "../../components/pages/journal/BlogCard.vue";
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
-import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
+import SlugFooter from "../../components/pages/SlugFooter.vue";
 import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
 
 
@@ -84,8 +84,9 @@ export default {
   },
   data() {
     return {
-      isSearching: false,
+      footerText: 'Me prévenir quand un nouvel article sort 👈',
       filteredPosts: [],
+      isSearching: false,
       subscriptionModalIsOpen: false
     };
   },
@@ -97,7 +98,7 @@ export default {
   components: {
     BlogNavbar,
     BlogCard,
-    JournalFooter,
+    SlugFooter,
     JournalSubscriptionModal
   },
   computed: {

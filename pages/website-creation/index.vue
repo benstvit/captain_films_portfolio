@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <ContactModal v-if="contactModalIsOpen" @close-modal="contactModalIsOpen = false" />
     <WorkNavbar id="navbar" :is-scrolling="isScrolling" @open-modal="contactModalIsOpen = true" />
-    <JournalFooter />
+    <SlugFooter class="fixed bottom-0" :footerText="footerText" :onWorkPage="true" @open-modal="contactModalIsOpen = true" />
   </div>
 </template>
 
@@ -11,11 +11,11 @@ import scrollHandler from "../../mixins/scrollHandler";
 
 import ContactModal from "../../components/pages/contact/Form/ContactModal.vue"
 import WorkNavbar from "../../components/pages/website-creation/WorkNavbar.vue";
-import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
+import SlugFooter from "../../components/pages/SlugFooter.vue";
 
 
 export default {
-  name: "Website Creation Index",
+  name: "website-creation-index",
   mixins: [scrollHandler],
   head() {
     return {
@@ -70,6 +70,7 @@ export default {
   },
   data() {
     return {
+      footerText: 'Contactez-moi pour la création de votre site web',
       isSearching: false,
       contactModalIsOpen: false
     };
@@ -77,7 +78,7 @@ export default {
   components: {
     ContactModal,
     WorkNavbar,
-    JournalFooter,
+    SlugFooter,
   },
 };
 </script>

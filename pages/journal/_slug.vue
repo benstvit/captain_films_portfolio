@@ -5,7 +5,7 @@
     <PostHeader :post="post" :posts="filteredPosts" />
     <PostContent :post="postWithFormattedImages" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
-    <JournalFooter @open-subscription-modal="subscriptionModalIsOpen = true"/>
+    <SlugFooter @open-subscription-modal="subscriptionModalIsOpen = true" :footer-text="footerText"/>
   </div>
 </template>
 
@@ -13,7 +13,7 @@
 import scrollHandler from "../../mixins/scrollHandler";
 
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
-import JournalFooter from "../../components/pages/journal/JournalFooter.vue"
+import SlugFooter from "../../components/pages/SlugFooter.vue"
 import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
 import PostContent from "../../components/pages/journal/post/post-content/PostContent.vue";
 import PostHeader from "../../components/pages/journal/post/PostHeader.vue";
@@ -24,12 +24,13 @@ export default {
   mixins: [scrollHandler],
   data () {
     return {
+      footerText: 'Me prévenir quand un nouvel article sort 👈',
       subscriptionModalIsOpen : false
     }
   },
   components: {
     BlogNavbar,
-    JournalFooter,
+    SlugFooter,
     JournalSubscriptionModal,
     PostContent,
     PostHeader,
