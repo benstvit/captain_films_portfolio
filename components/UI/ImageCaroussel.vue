@@ -5,8 +5,8 @@
         <div
           v-for="(image, index) in images"
           :key="index"
-          class="w-full rounded-lg hover:cursor-pointer border-2 border-black flex-shrink-0"
-          :class="{ 'ml-0': index === 0, 'ml-[100%]': index !== currentIndex }"
+          class="w-full ease-in-out duration-200 rounded-lg hover:cursor-pointer border-2 border-black flex-shrink-0"
+          :class="{ 'ml-0': index === 0, 'ml-[100%]': index !== currentIndex, 'ml-0': index === currentIndex }"
         >
           <nuxt-img
             v-show="imageLoaded"
@@ -17,11 +17,11 @@
             :alt="image.title"
             :src="image.url"
           ></nuxt-img>
+        </div>
           <div
             v-show="!imageLoaded"
             class="bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover"
           />
-        </div>
       </div>
     </div>
 
