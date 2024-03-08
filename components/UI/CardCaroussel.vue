@@ -1,9 +1,10 @@
 <template>
-  <div v-if="data.thumbnail">
+  <div v-if="data.imagesCollection.items.length">
     <div
-      class="ease-in duration-100  border-black rounded-lg my-0 md:my-4"
+      class="ease-in duration-100 border-black rounded-lg my-0 md:my-4"
     >
-        <viewer class="flex justify-center gap-2 flex-wrap">
+      <ImageCaroussel :images="data.imagesCollection.items" />
+        <!-- <viewer class="flex justify-center gap-2 flex-wrap">
           <img
             v-for="image in data.imagesCollection.items" :key="image.title"
             v-show="imageLoaded"
@@ -14,11 +15,11 @@
             :alt="image.title"
             :src="image.url"
           >
-        </viewer>
-      <div
+        </viewer> -->
+      <!-- <div
         v-show="!imageLoaded"
         class="bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer border-2 border-black aspect-[3/2] object-cover"
-      />
+      /> -->
     </div>
     <div id="description" class="text-center text-sm md:text-base py-2">
       <h1 v-if="isSearching" class="font-captainlight" v-html="blogTitle"></h1>
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import ImageCaroussel from './ImageCaroussel.vue';
 
 export default {
   name: "card-caroussel",
@@ -48,7 +50,7 @@ export default {
     },
   },
   components: {
-
+    ImageCaroussel
   },
   data() {
     return {
@@ -65,9 +67,6 @@ export default {
         ? `${this.data.tag} : ${this.data.queryTitle}`
         : `${this.data.tag} : ${this.data.title}`;
     },
-  },
-  mounted() {
-    console.log(this.data);
   },
 };
 </script>
