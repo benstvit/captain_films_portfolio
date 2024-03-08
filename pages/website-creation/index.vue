@@ -12,16 +12,15 @@
           @open-modal="contactModalIsOpen = true"
         />
         <div class="flex justify-center gap-4 mx-8 md:mx-32 lg:mx-40 my-8">
-          <nuxt-link
+          <div
             v-for="work in filteredWorks"
-            class="w-1/2"
+            class="w-full"
             :key="work.alt"
-            :to="'/website-creation/' + work.slug"
           >
             <keep-alive>
-              <Card :data="work" />
+              <CardCaroussel :data="work" />
             </keep-alive>
-          </nuxt-link>
+          </div>
         </div>
         <SlugFooter
           v-if="filteredWorks.length"
@@ -38,7 +37,7 @@
 import { mapActions, mapState } from "Vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
-import Card from "../../components/UI/Card.vue";
+import CardCaroussel from "../../components/UI/CardCaroussel.vue";
 import ContactModal from "../../components/pages/contact/Form/ContactModal.vue";
 import WorkNavbar from "../../components/pages/website-creation/WorkNavbar.vue";
 import SlugFooter from "../../components/pages/SlugFooter.vue";
@@ -105,7 +104,7 @@ export default {
     };
   },
   components: {
-    Card,
+    CardCaroussel,
     ContactModal,
     WorkNavbar,
     SlugFooter,
