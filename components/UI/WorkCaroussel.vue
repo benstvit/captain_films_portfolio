@@ -15,7 +15,7 @@
           @load="imageLoaded = true"
           preload
           format="webp"
-          class="w-full aspect-[3/2] object-cover"
+          class="w-full aspect-[3/2] object-cover rounded-lg"
           :alt="image.title"
           :src="image.url"
         ></nuxt-img>

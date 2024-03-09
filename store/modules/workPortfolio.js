@@ -5,6 +5,7 @@ const QUERY = `{
       slug
       tag
       title
+      siteUrl
       thumbnail {
         title
         url
