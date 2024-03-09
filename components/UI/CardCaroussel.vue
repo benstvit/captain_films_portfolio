@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data.imagesCollection.items.length">
+  <div v-if="data.imagesCollection.items">
     <div
       class="ease-in duration-100 border-black rounded-lg my-0 md:my-4"
     >
