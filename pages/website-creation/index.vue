@@ -11,14 +11,24 @@
           :is-scrolling="isScrolling"
           @open-modal="contactModalIsOpen = true"
         />
-        <div class="flex justify-center gap-4 mx-8 md:mx-32 lg:mx-40 my-8">
-          <div
-            v-for="work in filteredWorks"
-            class="w-full"
-            :key="work.alt"
-          >
+        <div
+          class="flex justify-center flex-wrap gap-4 mx-8 md:mx-32 lg:mx-40 my-2 md:my-8"
+        >
+          <div id="section-description" class="mb-4">
+            <h1
+            class="w-full text-center p-1 md:p-2 md:mt-2 font-cormorant font-bold text-2xl md:text-4xl lg:text-5xl uppercase"
+            >
+              Website Creation
+            </h1>
+            <p class="p-1 md:p-2 font-cormorant text-center lg:text-lg">
+              Voici un petit descriptif de ce que contient cette section
+              concernant le travail que je fais en tant que développeur de sites
+              web
+            </p>
+          </div>
+          <div v-for="work in filteredWorks" class="w-full lg:w-2/3" :key="work.alt">
             <keep-alive>
-              <CardCaroussel :data="work" />
+              <CardCaroussel @activate-card="activateCard" :data="work" />
             </keep-alive>
           </div>
         </div>
@@ -98,7 +108,7 @@ export default {
   data() {
     return {
       filteredWorks: [],
-      footerText: "Contactez-moi pour la création de votre site web",
+      footerText: "Me contacter pour la création de votre site web",
       isSearching: false,
       contactModalIsOpen: false,
     };
@@ -118,6 +128,10 @@ export default {
   },
   methods: {
     ...mapActions({ fetchWorks: "workPortfolio/fetch" }),
+
+    activateCard(cardId) {
+      this.works.map(work => work.id === cardId ? work.isActive = true : work.isActive = false);
+    }
   },
 };
 </script>

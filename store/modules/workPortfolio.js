@@ -2,6 +2,7 @@ const QUERY = `{
   workPortfolioElementCollection(preview: ${process.env.NODE_ENV === 'production' ? 'false' : 'true'}) {
     items {
       id
+      isActive
       slug
       tag
       title

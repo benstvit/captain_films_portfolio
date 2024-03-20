@@ -1,22 +1,29 @@
 <template>
   <div class="flex flex-col align-center" v-if="data.imagesCollection.items">
-    <div class="ease-in duration-100 border-black rounded-lg my-0 md:my-4">
-      <ImageCaroussel :images="data.imagesCollection.items" />
+    <div class="ease-in duration-100 my-0 md:my-4">
+      <WorkCaroussel @activate-card="activateCard" :isActive="data.isActive" :data="data" />
     </div>
     <div id="description" class="text-center text-sm md:text-base py-2">
-      <h1 class="font-captainlight text-sm md:text-sm lg:text-base">
+      <h1 class="font-captainlight text-sm md:text-sm lg:text-lg uppercase">
         {{ title }}
       </h1>
       <p class="font-cormorant py-1 text-sm md:text-base">
         {{ projectDescription }}
       </p>
     </div>
-    <a class="text-center justify-self-end" :href="data.siteUrl" target="_blank">{{ url }}</a>
+    <div class="text-center w-full">
+      <a
+        class="w-fit animate-pulse opacity-90 hover:opacity-100 hover:animate-none hover:underline hover:cursor-pointer text-sm md:text-lg"
+        :href="data.siteUrl"
+        target="_blank"
+        >{{ url }}</a
+      >
+    </div>
   </div>
 </template>
 
 <script>
-import ImageCaroussel from "./WorkCaroussel.vue";
+import WorkCaroussel from "./WorkCaroussel.vue";
 
 export default {
   name: "card-caroussel",
@@ -31,15 +38,12 @@ export default {
     },
   },
   components: {
-    ImageCaroussel,
+    WorkCaroussel,
   },
   data() {
     return {
       imageLoaded: false,
     };
-  },
-  mounted() {
-    console.log(this.data);
   },
   computed: {
     projectDescription() {
@@ -52,5 +56,13 @@ export default {
       return this.data?.siteUrl;
     },
   },
+  methods: {
+    activateCard(cardId) {
+      this.$emit('activate-card', cardId)
+    }
+  },
+  mounted() {
+    console.log(this.data);
+  }
 };
 </script>
