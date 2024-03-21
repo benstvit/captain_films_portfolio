@@ -39,7 +39,7 @@
       </a>
       <div
         @click="openModal"
-        class="flex justify-between items-center gap-2 ml-auto self-end animate-pulse animate-bounce hover:cursor-pointer hover:font-bold font-captainlight text-[0.6rem] md:text-sm text-left">
+        class="flex justify-between items-center gap-2 ml-auto self-end animate-pulse hover:animate-none animate-bounce hover:cursor-pointer hover:font-semibold font-captainlight text-[0.6rem] md:text-sm text-left">
         <ContactSvg class="w-6 h-6 md:w-8 md:h-8" :stroke="contact.stroke" />
         <p>{{footerText}}</p>
       </div>

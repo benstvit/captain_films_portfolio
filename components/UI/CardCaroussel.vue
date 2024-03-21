@@ -4,7 +4,7 @@
       <WorkCaroussel @activate-card="activateCard" :isActive="data.isActive" :data="data" />
     </div>
     <div id="description" class="text-center text-sm md:text-base py-2">
-      <h1 class="font-captainlight text-sm md:text-sm lg:text-lg uppercase">
+      <h1 class="font-captainlight font-thin text-sm md:text-sm lg:text-lg uppercase">
         {{ title }}
       </h1>
       <p class="font-cormorant py-1 text-sm md:text-base">

@@ -14,18 +14,29 @@
           hidden: index !== currentIndex,
         }"
       >
+        <video
+          v-if="image.url.includes('videos')"
+          autoplay
+          muted
+          loop
+          class="w-full h-full aspect-video object-cover rounded-lg"
+        >
+          <source :src="image.url" type="video/mp4" />
+          Votre navigateur ne semble pas supporter le tag video.
+        </video>
         <nuxt-img
+          v-else
           v-show="imageLoaded"
           @load="imageLoaded = true"
           preload
           format="webp"
-          class="w-full aspect-[3/2] object-cover rounded-lg"
+          class="w-full aspect-video object-cover rounded-lg"
           :alt="image.title"
           :src="image.url"
         ></nuxt-img>
         <div
           v-show="!imageLoaded"
-          class="w-full bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer aspect-[3/2] object-cover"
+          class="w-full bg-gray-100 animate-pulse rounded-lg hover:cursor-pointer aspect-video object-cover"
         />
       </div>
     </div>
@@ -72,12 +83,12 @@ export default {
       return this.images.length > 1;
     },
     images() {
-      return this.data.imagesCollection.items
-    }
+      return this.data.imagesCollection.items;
+    },
   },
   methods: {
     activateCard(cardId) {
-      this.$emit('activate-card', cardId);
+      this.$emit("activate-card", cardId);
     },
     next() {
       if (this.currentIndex < this.images.length - 1) {
