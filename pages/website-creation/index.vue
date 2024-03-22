@@ -14,11 +14,11 @@
         <div
           class="flex justify-center flex-wrap gap-4 mx-8 md:mx-32 lg:mx-40 my-2 md:my-8"
         >
-          <div id="section-description" class="mb-4">
+          <div id="section-description" class="flex flex-col items-center justify-center mb-4">
             <h1
-            class="w-full text-center p-1 md:p-2 md:mt-2 font-cormorant font-bold text-2xl md:text-4xl lg:text-5xl uppercase"
+              class="w-full text-center p-1 md:p-2 md:mt-2 font-cormorant font-bold text-2xl md:text-4xl lg:text-5xl uppercase"
             >
-              Website Creation
+              Création de sites web
             </h1>
             <p class="p-1 md:p-2 font-cormorant text-center lg:text-lg">
               Voici un petit descriptif de ce que contient cette section
@@ -26,7 +26,11 @@
               web
             </p>
           </div>
-          <div v-for="work in filteredWorks" class="w-full lg:w-2/3" :key="work.alt">
+          <div
+            v-for="work in filteredWorks"
+            class="w-full lg:w-2/3"
+            :key="work.alt"
+          >
             <keep-alive>
               <CardCaroussel @activate-card="activateCard" :data="work" />
             </keep-alive>
@@ -130,8 +134,10 @@ export default {
     ...mapActions({ fetchWorks: "workPortfolio/fetch" }),
 
     activateCard(cardId) {
-      this.works.map(work => work.id === cardId ? work.isActive = true : work.isActive = false);
-    }
+      this.works.map((work) =>
+        work.id === cardId ? (work.isActive = true) : (work.isActive = false)
+      );
+    },
   },
 };
 </script>
