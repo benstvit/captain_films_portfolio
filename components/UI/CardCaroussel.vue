@@ -61,8 +61,5 @@ export default {
       this.$emit('activate-card', cardId)
     }
   },
-  mounted() {
-    console.log(this.data);
-  }
 };
 </script>

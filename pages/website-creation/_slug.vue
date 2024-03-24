@@ -140,9 +140,6 @@ export default {
 
     return { works, work };
   },
-  mounted() {
-    console.log(this.work);
-  },
   methods: {
     blogAbstract() {
       const abstract = this.work.introduction.substr(0, 180) + "...";

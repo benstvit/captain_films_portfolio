@@ -1,13 +1,10 @@
 <template>
   <div
-    class="relative sticky -top-1 md:-top-10 z-10 flex flex-col items-center w-full p-3 md:pt-6 md:px-32 lg:px-40"
-    :class="
-      isScrolling
-        ? 'bg-white drop-shadow-sm opacity-90 transition ease-in-out duration-1000'
-        : 'opacity-100 transition ease-in-out duration-300'">
+    class="relative z-10 flex flex-col items-center w-full p-3 md:pt-6 md:px-32 lg:px-40">
+
     <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" pageCategory="Website Creation" />
     <div class="border-black border-b pb-4 lg:pb-8 lg:grid lg:grid-cols-6 flex items-center lg:items-end  w-full text-xs md:text-sm md:text-base"
-      :class="{'justify-around': this.onPostPage, 'justify-between lg:justify-around': !this.onPostPage,'border-none': this.isScrolling }">
+      :class="{'justify-around': this.onPostPage, 'justify-between lg:justify-around': !this.onPostPage }">
       <BlogButton
         class="col-span-2"
         menu-name="home"
@@ -16,7 +13,6 @@
       <CaptainFilmsLogoBlog class="hidden lg:block col-span-2" pageCategory="Website Creation" />
     </div>
     <InfiniteTextScrollBanner
-      v-show="!isScrolling"
       :scrolling-text="scrollingText"
       class="transition ease-in-out duration-300"
       v-if="onIndexPage"
@@ -45,10 +41,6 @@ export default {
     works: {
       type: Array,
       default: () => [],
-    },
-    isScrolling: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {
