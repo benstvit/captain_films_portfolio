@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center h-screen bg-white max-w-screen">
     <JournalSubscriptionModal v-if="subscriptionModalIsOpen" @close-modal="subscriptionModalIsOpen = false" />
-    <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" @open-subscription-modal="subscriptionModalIsOpen = true" />
+    <BlogNavbar id="navbar" :is-scrolling="isScrolling" @filter="filter" @open-modal="subscriptionModalIsOpen = true" />
     <div class="grid grid-cols-12 gap-4 md:gap-2 mx-8 md:mx-32 lg:mx-40 my-8">
       <nuxt-link
         v-for="blog in filteredPosts"
@@ -10,11 +10,11 @@
         :to="'/journal/' + blog.slug"
       >
         <keep-alive>
-          <BlogCard :blog="blog" :is-searching="isSearching" />
+          <Card :data="blog" :is-searching="isSearching" />
         </keep-alive>
       </nuxt-link>
     </div>
-    <JournalFooter v-if="filteredPosts.length" @open-subscription-modal="subscriptionModalIsOpen = true" />
+    <SlugFooter v-if="filteredPosts.length" @open-subscription-modal="subscriptionModalIsOpen = true" :footer-text="footerText" />
   </div>
 </template>
 
@@ -22,10 +22,9 @@
 import { mapActions, mapState } from "Vuex";
 import scrollHandler from "../../mixins/scrollHandler";
 
-import BlogCard from "../../components/pages/journal/BlogCard.vue";
+import Card from "../../components/UI/Card.vue";
 import BlogNavbar from "../../components/pages/journal/BlogNavbar.vue";
-import CaptainFilmsLogo from "../../components/partials/CaptainFilmsLogo.vue";
-import JournalFooter from "../../components/pages/journal/JournalFooter.vue";
+import SlugFooter from "../../components/pages/SlugFooter.vue";
 import JournalSubscriptionModal from "../../components/pages/contact/Form/JournalSubscriptionModal.vue"
 
 
@@ -85,8 +84,9 @@ export default {
   },
   data() {
     return {
-      isSearching: false,
+      footerText: 'Me prévenir quand un nouvel article sort 👈',
       filteredPosts: [],
+      isSearching: false,
       subscriptionModalIsOpen: false
     };
   },
@@ -97,9 +97,8 @@ export default {
   },
   components: {
     BlogNavbar,
-    CaptainFilmsLogo,
-    BlogCard,
-    JournalFooter,
+    Card,
+    SlugFooter,
     JournalSubscriptionModal
   },
   computed: {

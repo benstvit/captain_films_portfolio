@@ -23,7 +23,7 @@
       />
       <BlogFilter v-if="onIndexPage" class="col-span-2"  />
     </div>
-    <InfiniteTextScrollBanner v-show="!isScrolling" class="transition ease-in-out duration-300" v-if="onIndexPage" />
+    <InfiniteTextScrollBanner v-show="!isScrolling" :scrolling-text="scrollingText" class="transition ease-in-out duration-300" v-if="onIndexPage" />
   </div>
 </template>
 
@@ -36,6 +36,11 @@ import InfiniteTextScrollBanner from "../../UI/InfiniteTextScrollBanner.vue";
 
 export default {
   name: "blog-navbar",
+  data() {
+    return {
+      scrollingText: "💌 Hello ! Clique-moi dessus pour t'abonner 💌",
+    }
+  },
   components: {
     BlogButton,
     BlogFilter,

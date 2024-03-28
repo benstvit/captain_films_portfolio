@@ -15,7 +15,7 @@ export default {
     getOffsetTop() {
       const navbarY = document.getElementById("navbar").getBoundingClientRect().y;
       const innerWidth = window.innerWidth;
-      const threshold = innerWidth < 768 ? -4 : -40;
+      const threshold = innerWidth < 768 ? -4 : -10;
       return navbarY <= threshold ? this.isScrolling = true : this.isScrolling = false;
     },
   }

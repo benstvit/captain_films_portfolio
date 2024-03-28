@@ -33,6 +33,7 @@
         </li>
       </ul>
       <BlogButton class="self-end" :post-class="true" />
+      <BlogButton class="self-end" menu-name="work" :post-class="true" />
     </div>
     <div class="flex flex-col justify-center items-center gap-2 text-gray-50 opacity-90 text-xs font-sans text-center">
       <p

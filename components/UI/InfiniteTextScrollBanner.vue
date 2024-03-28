@@ -5,7 +5,7 @@
         class="w-full inline-block animate-scrollTextMobile md:animate-scrollTextMedium lg:animate-scrollTextLarge text-base md:text-lg text-black font-cormorant tracking-wide hover:cursor-pointer"
         :style="{ animationDuration: animationDuration }"
       >
-        <span @click.stop="openSubscriptionModal">{{ text }}</span>
+        <span @click.stop="openSubscriptionModal">{{ scrollingText }}</span>
       </div>
     </div>
   </div>
@@ -14,15 +14,20 @@
 <script>
 export default {
   name: "InfiniteTextScrollBanner",
+  props: {
+    scrollingText: {
+      type: String,
+      default: "",
+    }
+  },
   data() {
     return {
-      text: "💌 Hello ! Clique-moi dessus pour t'abonner 💌",
       animationDuration: "12s", // Adjust as needed
     };
   },
   methods: {
     openSubscriptionModal() {
-      this.$parent.$emit('open-subscription-modal')
+      this.$parent.$emit('open-modal')
     }
   }
 };

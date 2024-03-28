@@ -10,6 +10,7 @@ import banner from "./modules/banner.js";
 import journalLogs from "./modules/journalLogs.js";
 import photography from "./modules/photography.js";
 import showroom from "./modules/showroom.js";
+import workPortfolio from "./modules/workPortfolio.js"
 
 Vue.use(VueFormulate);
 Vue.use(VuePrlx);
@@ -21,7 +22,8 @@ export default () => new Vuex.Store({
     banner,
     journalLogs,
     photography,
-    showroom
+    showroom,
+    workPortfolio
   },
   state: {
     data: {},

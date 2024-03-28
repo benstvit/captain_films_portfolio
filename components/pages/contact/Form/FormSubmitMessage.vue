@@ -7,7 +7,7 @@
         <p class="text-md font-captainlight">Your message was successfuly sent! I will get back to you ASAP.</p>
       </div>
       <div v-else>
-        <p class="text-md font-captainlight">C'est noté ! Un grand merci et à bientôt 👋</p>
+        <p class="text-md font-captainlight">C'est noté ! Un grand merci 👋</p>
       </div>
     </div>
     <div v-if="error" class="flex flex-col justify-center items-center gap-4">

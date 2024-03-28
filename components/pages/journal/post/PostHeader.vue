@@ -87,6 +87,10 @@ export default {
     };
   },
   props: {
+    pageCategory: {
+      type: String,
+      default: 'post'
+    },
     post: {
       type: Object,
       default: () => {},

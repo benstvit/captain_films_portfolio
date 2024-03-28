@@ -4,7 +4,7 @@
       <nuxt-img
         format="webp"
         preload
-        class="w-10 h-10 md:w-20 md:h-20"
+        class="w-14 h-14 md:w-20 md:h-20"
         alt="loader-logo"
         src="/logo-solo.png"
       >
@@ -16,7 +16,7 @@
         class="font-captainlight text-center italic text-[0.5rem] md:text-xs sm:font-bold md:font-normal"
       >
         <p class="font-cormorant uppercase not-italic pt-1 ">
-          Journal
+          {{pageCategory}}
         </p>
       </div>
     </div>
@@ -26,5 +26,11 @@
 <script>
 export default {
   name: "CaptainFilmsLogoBlog",
+  props: {
+    pageCategory: {
+      type: String,
+      default: 'Journal'
+    }
+  }
 };
 </script>
