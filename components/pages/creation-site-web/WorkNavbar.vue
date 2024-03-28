@@ -2,7 +2,7 @@
   <div
     class="relative z-10 flex flex-col items-center w-full p-3 md:pt-6 md:px-32 lg:px-40">
 
-    <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" pageCategory="Website Creation" />
+    <CaptainFilmsLogoBlog class="block lg:hidden col-span-2" pageCategory="Création de sites web" />
     <div class="border-black border-b pb-4 lg:pb-8 lg:grid lg:grid-cols-6 flex items-center lg:items-end  w-full text-xs md:text-sm md:text-base"
       :class="{'justify-around': this.onPostPage, 'justify-between lg:justify-around': !this.onPostPage }">
       <BlogButton
@@ -10,7 +10,12 @@
         menu-name="home"
         :post-class="true"
       />
-      <CaptainFilmsLogoBlog class="hidden lg:block col-span-2" pageCategory="Website Creation" />
+      <CaptainFilmsLogoBlog class="hidden lg:block col-span-2" pageCategory="Création de sites web" />
+      <BlogButton
+        class="col-span-2"
+        menu-name="journal"
+        :post-class="true"
+      />
     </div>
     <InfiniteTextScrollBanner
       :scrolling-text="scrollingText"

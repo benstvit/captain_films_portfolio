@@ -4,7 +4,7 @@
       <nuxt-img
         format="webp"
         preload
-        class="w-10 h-10 md:w-20 md:h-20"
+        class="w-14 h-14 md:w-20 md:h-20"
         alt="loader-logo"
         src="/logo-solo.png"
       >

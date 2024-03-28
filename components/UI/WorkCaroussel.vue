@@ -19,7 +19,7 @@
           autoplay
           muted
           loop
-          class="w-full h-full aspect-video object-cover rounded-lg"
+          class="w-full h-full aspect-video object-cover"
         >
           <source :src="image.url" type="video/mp4" />
           Votre navigateur ne semble pas supporter le tag video.
@@ -46,13 +46,13 @@
     >
       <button
         @click="prev"
-        class="opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-4 py-2 rounded-full focus:outline-none"
+        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-2 md:px-4 md:py-2 rounded-full focus:outline-none"
       >
         &larr;
       </button>
       <button
         @click="next"
-        class="opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-4 py-2 rounded-full focus:outline-none"
+        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-2 md:px-4 md:py-2 rounded-full focus:outline-none"
       >
         &rarr;
       </button>
