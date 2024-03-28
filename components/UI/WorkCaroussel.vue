@@ -66,6 +66,7 @@ export default {
     return {
       imageLoaded: false,
       currentIndex: 0,
+      intervalId: null
     };
   },
   props: {
@@ -86,11 +87,16 @@ export default {
       return this.data.imagesCollection.items;
     },
   },
+  mounted() {
+    this.startCaroussel();
+  },
   methods: {
     activateCard(cardId) {
       this.$emit("activate-card", cardId);
     },
-    next() {
+    next(event) {
+      if (event) this.stopCaroussel();
+
       if (this.currentIndex < this.images.length - 1) {
         this.currentIndex++;
       } else {
@@ -104,7 +110,16 @@ export default {
         this.currentIndex = this.images.length - 1;
       }
     },
+    startCaroussel() {
+      this.intervalId = setInterval(this.next, 6000);
+    },
+    stopCaroussel() {
+      clearInterval(this.intervalId);
+    }
   },
+  beforeDestroy() {
+    this.stopCaroussel();
+  }
 };
 </script>
 
