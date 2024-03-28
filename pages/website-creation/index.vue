@@ -18,7 +18,7 @@
             class="flex flex-col items-center justify-center mb-6 gap-2"
           >
             <h1
-              class="w-full text-center p-1 md:p-2 mt-1 font-cormorant font-bold text-2xl md:text-4xl lg:text-5xl uppercase"
+              class="w-full text-center p-1 md:p-2 mt-1 font-cormorant font-bold text-2xl md:text-4xl lg:text-[44px] uppercase"
             >
               Création de sites web
             </h1>
@@ -34,15 +34,15 @@
                 class="p-2 md:p-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
                 Diplômé en <b>communication et en publicité</b>, j'ai ensuite
-                suivi une formation poussée en <i>coding</i> et
+                suivi une formation poussée en <b>coding</b> et en
                 <b>développement web</b>. Après avoir travaillé dans le secteur
-                de la tech, j'ai choisi de me lancer à mon compte dans la
+                de la tech, au développement d'un SaaS pour une start-up nommée Leexie, j'ai choisi de me lancer à mon compte dans la
                 <b>création de sites web</b>.
               </p>
               <p
                 class="p-2 md:p-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
-                La variété des projets que l'on me proposes rend ce travail
+                La variété des projets que l'on me propose rend ce travail
                 passionnant ! N'hésitez pas à
                 <span
                   class="font-bold hover:cursor-pointer animate-pulse hover:animate-none opacity-90 hover:opacity-100"
