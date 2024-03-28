@@ -1,7 +1,7 @@
 <template>
   <section>
     <div class="lg:mb-8">
-      <div class="flex flex-col items-center h-screen bg-white w-full">
+      <div class="flex flex-col items-center h-screen bg-white w-full mb-4">
         <ContactModal
           v-if="contactModalIsOpen"
           @close-modal="contactModalIsOpen = false"
@@ -11,11 +11,11 @@
           @open-modal="contactModalIsOpen = true"
         />
         <div
-          class="flex justify-center flex-wrap gap-4 mx-8 md:mx-32 lg:mx-40 my-2 md:my-8"
+          class="flex justify-center flex-wrap gap-4 mx-8 md:mx-32 lg:mx-40 pb-4 lg:pb-6 my-8"
         >
           <div
             id="section-description"
-            class="flex flex-col items-center justify-center mb-6 gap-2"
+            class="flex flex-col items-center justify-center mb-6 lg:mb-2 gap-2"
           >
             <h1
               class="w-full text-center p-1 md:p-2 mt-1 font-cormorant font-bold text-2xl md:text-4xl lg:text-[44px] uppercase"
@@ -24,14 +24,14 @@
             </h1>
             <div
               id="introduction"
-              class="md:m-4"
+              class="lg:m-4"
               data-aos="fade-in"
               data-aos-easing="ease-in-sine"
               data-aos-duration="500"
               :data-aos-offset="370"
             >
               <p
-                class="p-2 md:p-4 font-cormorant text-center md:text-lg lg:text-xl"
+                class="p-2 lg:p-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
                 Diplômé en <b>communication et en publicité</b>, j'ai ensuite
                 suivi une formation poussée en <b>coding</b> et en
@@ -55,7 +55,7 @@
               </p>
             </div>
             <div
-              :class="removeScrollIndicator ? 'hidden' : 'block'"
+              :class="removeScrollIndicator ? 'hidden' : 'block md:hidden lg:block'"
               class="transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse px-3 py-1 md:px-4 md:py-2 my-2 rounded-full focus:outline-none"
               @click="scrollToWorkGallery"
             >
@@ -65,12 +65,12 @@
           <div
             id="cards"
             v-for="work in filteredWorks"
-            class="w-full lg:w-2/3"
+            class="w-full lg:w-2/3 my-2"
             :key="work.alt"
             data-aos="fade-in"
             data-aos-easing="ease-in-sine"
             data-aos-duration="300"
-            :data-aos-offset="370"
+            :data-aos-offset="work.id === filteredWorks.length ? 370 : 0"
           >
             <keep-alive>
               <CardCaroussel @activate-card="activateCard" :data="work" />
@@ -95,11 +95,11 @@ import scrollHandler from "../../mixins/scrollHandler";
 
 import CardCaroussel from "../../components/UI/CardCaroussel.vue";
 import ContactModal from "../../components/pages/contact/Form/ContactModal.vue";
-import WorkNavbar from "../../components/pages/website-creation/WorkNavbar.vue";
+import WorkNavbar from "../../components/pages/creation-site-web/WorkNavbar.vue";
 import SlugFooter from "../../components/pages/SlugFooter.vue";
 
 export default {
-  name: "website-creation-index",
+  name: "creation-site-web-index",
   mixins: [scrollHandler, aos],
   head() {
     return {
@@ -169,6 +169,8 @@ export default {
   async created() {
     await this.fetchWorks();
     this.filteredWorks = this.works.sort((a, b) => b.id - a.id);
+        console.log(this.filteredWorks);
+
     window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {

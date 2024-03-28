@@ -8,7 +8,7 @@
       <div
         v-for="(image, index) in images"
         :key="index"
-        class="w-full transition-opacity ease-in-out rounded-lg border-2 border-black flex-shrink-0"
+        class="w-full transition-opacity ease-in-out rounded-lg overflow-hidden border-2 border-black flex-shrink-0"
         :class="{
           block: index === currentIndex,
           hidden: index !== currentIndex,
@@ -30,7 +30,7 @@
           @load="imageLoaded = true"
           preload
           format="webp"
-          class="w-full aspect-video object-cover rounded-lg"
+          class="w-full aspect-video object-cover"
           :alt="image.title"
           :src="image.url"
         ></nuxt-img>
@@ -42,7 +42,7 @@
     </div>
     <div
       v-if="carousselIsActive && imageLoaded"
-      class="absolute top-1/2 left-0 w-full flex justify-between items-center px-6 ease-in-out duration-300"
+      class="absolute top-[45%] md:top-1/2 left-0 w-full flex justify-between items-center px-6 ease-in-out duration-300"
     >
       <button
         @click="prev"
@@ -111,7 +111,7 @@ export default {
       }
     },
     startCaroussel() {
-      this.intervalId = setInterval(this.next, 6000);
+      this.intervalId = setInterval(this.next, 8000);
     },
     stopCaroussel() {
       clearInterval(this.intervalId);
