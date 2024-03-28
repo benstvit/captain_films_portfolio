@@ -34,9 +34,9 @@
                 class="p-2 lg:p-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
                 Diplômé en <b>communication et en publicité</b>, j'ai ensuite
-                suivi une formation poussée en <b>coding</b> et en
-                <b>développement web</b>. Après avoir travaillé dans le secteur
-                de la tech, au développement d'un SaaS pour une start-up nommée Leexie, j'ai choisi de me lancer à mon compte dans la
+                suivi une formation poussée en <b>coding et en
+                développement web</b>. Après avoir travaillé dans le secteur
+                de la tech, au développement d'un SaaS pour une start-up nommée <i>Leexi</i>, j'ai choisi de me lancer à mon compte dans la
                 <b>création de sites web</b>.
               </p>
               <p
@@ -50,7 +50,7 @@
                   @click="contactModalIsOpen = true"
                   >me contacter</span
                 >
-                si vous souhaitez mettre en valeur votre projet avec
+                si vous souhaitez mettre en avant votre projet avec
                 <b>votre propre site web</b>.
               </p>
             </div>

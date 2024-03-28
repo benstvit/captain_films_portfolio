@@ -3,12 +3,11 @@
     <div class="ease-in duration-100 my-0 md:my-4">
       <WorkCaroussel @activate-card="activateCard" :isActive="data.isActive" :data="data" />
     </div>
-    <div id="description" class="text-center text-sm md:text-base py-2">
+    <div id="description" class="flex flex-col items-center gap-0 md:gap-2 text-center text-sm md:text-base pt-4 md:py-2">
       <h1 class="font-captainlight font-thin text-sm md:text-sm lg:text-lg uppercase">
         {{ title }}
       </h1>
-      <p class="font-cormorant py-1 text-sm md:text-base">
-        {{ projectDescription }}
+      <p class="font-cormorant py-1 text-sm md:text-base lg:text-xl" v-html="this.$md.render(projectDescription)">
       </p>
     </div>
     <div class="text-center w-full">
@@ -16,7 +15,7 @@
         class="w-fit animate-pulse opacity-90 hover:opacity-100 hover:animate-none hover:underline hover:cursor-pointer text-sm md:text-lg"
         :href="data.siteUrl"
         target="_blank"
-        >{{ url }}</a
+        >🔗 {{ url }}</a
       >
     </div>
   </div>
