@@ -56,7 +56,7 @@
             </div>
             <div
               :class="removeScrollIndicator ? 'hidden' : 'block md:hidden lg:block'"
-              class="text-center lg:text-2xl transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse w-8 h-8 md:w-10 md:h-10 my-2 rounded-full focus:outline-none"
+              class="text-center lg:text-xl transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse w-8 h-8 md:w-10 md:h-10 my-2 rounded-full focus:outline-none"
               @click="scrollToWorkGallery"
             >
               &darr;
@@ -103,18 +103,18 @@ export default {
   mixins: [scrollHandler, aos],
   head() {
     return {
-      title: "Captain Films - Website Development",
+      title: "Captain Films - Création de sites web",
       meta: [
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films - Website Development`,
+          content: `Captain Films - Création de sites web`,
         },
         { hid: "og-type", property: "og:type", content: "work" },
         {
           hid: "og-desc",
           name: "description",
-          content: "Mon travail en tant que créateur de sites web",
+          content: "Mon travail en tant que développeur de sites web",
         },
         {
           hid: "og-image",
@@ -125,12 +125,12 @@ export default {
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: "Captain Films - Website Development",
+          content: "Captain Films - Création de sites web",
         },
         {
           hid: "og-url",
           property: "og:url",
-          content: "https://captain-films.com/work",
+          content: "https://captain-films.com/creation-site-web",
         },
       ],
       script: [
@@ -139,8 +139,8 @@ export default {
           innerHTML: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Work Portfolio",
-            headline: "Captain Films - Website Development",
-            description: "Mon travail en tant que créateur de sites web.",
+            headline: "Captain Films - Création de sites web",
+            description: "Mon travail en tant que développeur de sites web.",
             author: {
               "@type": "Person",
               name: "Benjamin Saint Viteux",

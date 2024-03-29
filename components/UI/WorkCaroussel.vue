@@ -95,8 +95,7 @@ export default {
       if (window.innerWidth < 640) {
         const videoPlayer = document.querySelectorAll('.videoplayer');
         videoPlayer.forEach(video =>  {
-        // video.removeAttribute('autoplay');
-        // video.setAttribute('controls', true);
+        video.setAttribute('controls', true);
         video.setAttribute('playsinline', true);
         })
       }

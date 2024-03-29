@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col items-center md:w-full p-3 md:pt-6 md:px-32 lg:px-40"
+    class="flex flex-col items-center md:w-full p-3 pb-6 md:pb-2 md:pt-6 md:px-32 lg:px-40"
     :class="onWorkPage ? 'w-1/2' : 'w-1/3'"
   >
     <div
@@ -43,7 +43,7 @@
       </a>
       <div
         @click="openModal"
-        class="flex hidden md:block justify-between items-center gap-2 ml-auto self-end animate-pulse hover:animate-none animate-bounce hover:cursor-pointer hover:font-semibold font-captainlight text-[0.6rem] md:text-sm text-left">
+        class="hidden md:flex md:block md:justify-between md:items-center gap-2 ml-auto self-end animate-pulse hover:animate-none animate-bounce hover:cursor-pointer hover:font-semibold font-captainlight text-[0.6rem] md:text-sm text-left">
         <ContactSvg class="w-6 h-6 md:w-8 md:h-8" :stroke="contact.stroke" />
         <p>{{footerText}}</p>
       </div>
