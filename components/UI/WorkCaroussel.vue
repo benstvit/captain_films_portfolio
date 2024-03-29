@@ -45,13 +45,13 @@
     >
       <button
         @click="prev"
-        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-2 md:px-4 md:py-2 rounded-full focus:outline-none"
+        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-1 py-1 md:px-2 md:py-2 rounded-full focus:outline-none"
       >
         &larr;
       </button>
       <button
         @click="next"
-        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-2 md:px-4 md:py-2 rounded-full focus:outline-none"
+        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-1 py-1 md:px-2 md:py-2 rounded-full focus:outline-none"
       >
         &rarr;
       </button>
@@ -95,8 +95,9 @@ export default {
       const videoPlayer = document.querySelectorAll('.videoplayer');
       if (window.innerWidth < 640) {
         videoPlayer.forEach(video =>  {
-        video.removeAttribute('autoplay');
-        video.setAttribute('controls', true);
+        // video.removeAttribute('autoplay');
+        // video.setAttribute('controls', true);
+        video.setAttribute('playsinline', true);
         })
       }
     },

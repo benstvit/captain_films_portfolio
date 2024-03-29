@@ -56,7 +56,7 @@
             </div>
             <div
               :class="removeScrollIndicator ? 'hidden' : 'block md:hidden lg:block'"
-              class="transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse px-3 py-1 md:px-4 md:py-2 my-2 rounded-full focus:outline-none"
+              class="transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse px-1 py-1 md:px-2 md:py-2 my-2 rounded-full focus:outline-none"
               @click="scrollToWorkGallery"
             >
               &darr;
