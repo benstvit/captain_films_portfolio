@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative md:overflow-hidden w-full"
+    class="relative overflow-hidden w-full"
     :class="isActive ? 'saturate-100' : 'saturate-0'"
   >
     <div class="flex">
@@ -92,8 +92,8 @@ export default {
   },
   methods: {
     disableAutoplayOnMobile() {
-      const videoPlayer = document.querySelectorAll('.videoplayer');
       if (window.innerWidth < 640) {
+        const videoPlayer = document.querySelectorAll('.videoplayer');
         videoPlayer.forEach(video =>  {
         // video.removeAttribute('autoplay');
         // video.setAttribute('controls', true);

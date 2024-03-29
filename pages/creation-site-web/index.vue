@@ -185,11 +185,9 @@ export default {
     ...mapActions({ fetchWorks: "workPortfolio/fetch" }),
 
     activateCard(cardId) {
-      const setActiveWork = this.works.map((work) =>
+      return this.works.map((work) =>
         work.id === cardId ? (work.isActive = true) : (work.isActive = false)
       );
-      this.works = setActiveWork;
-      console.log(this.works);
     },
     handleScroll() {
       this.scrollTop = window.scrollY;
