@@ -3,7 +3,7 @@
     <div class="w-max-full bg-gray-100 shadow-inner text-center font-captainlight text-xs md:text-sm lg:text-base leading-loose mx-6 lg:mx-0 lg:my-2 p-2">
       <p class="py-4 font-cormorant text-sm md:text-base lg:text-lg">
         <span class="text-xs md:text-base lg:text-lg not-italic font-captainbold pb-8">Why film photography ?</span><br>
-        Each photograph has its own identity, its history and is therefore <span class="text-teal-700">unique</span>.<br>
+        Each photograph has its own identity, its history and is therefore <span class="text-black">unique</span>.<br>
         More than a simple snapshot, it becomes the product of a reflective work.<br>
         This idea of ​​uniqueness transpires in the meticulousness that I bring to the development, printing and framing of my photographs.
       </p>
@@ -29,7 +29,7 @@
               label="Your e-mail, so I can contact you back"
               placeholder="Email address"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
-              input-class="w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"
+              input-class="w-2/3 focus:ring-2 focus:ring-black text-xs lg:text-sm focus:border-transparent"
               class="mb-6 mt-2"
               validation="required|email"
               error-behavior="submit" />
@@ -41,7 +41,7 @@
               label="The subject"
               placeholder="What do you want to talk about?"
               label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
-              input-class="w-fit focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
+              input-class="w-fit focus:ring-2 text-xs lg:text-sm focus:ring-black focus:border-transparent"
               class="mb-6 mt-2 items-end"
             />
             </div>
@@ -51,14 +51,14 @@
             name="message"
             label="Write your message here. I will get back to you ASAP"
             label-class="font-captainlight text-xs lg:text-sm"
-            input-class="w-full h-36 focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
+            input-class="w-full h-36 focus:ring-2 text-xs lg:text-sm focus:ring-black focus:border-transparent"
             class="mb-4"
             validation="required|min:10"
           />
           <FormulateInput
             type="submit"
             :label="isLoading ? 'Sending message...' : 'Send message'"
-            :class="hasErrors ? 'font-light md:cursor-none bg-teal-700 md:bg-gray-200 text-white md:text-gray-500 md:hover:cursor-not-allowed' : 'transition ease-in text-black hover:border-transparent bg-white hover:bg-teal-700 hover:cursor-pointer hover:shadow-lg hover:text-white'"
+            :class="hasErrors ? 'font-light cursor-none bg-gray-200 text-gray-500 md:hover:cursor-not-allowed' : 'transition ease-in hover:border-transparent bg-gray-900 hover:bg-black hover:cursor-pointer hover:shadow-lg text-white'"
             class="text-base md:text-lg lg:text-xl font-cormorant w-fit px-4 py-2 border border-transparent md:border-black"
           />
         </FormulateForm>

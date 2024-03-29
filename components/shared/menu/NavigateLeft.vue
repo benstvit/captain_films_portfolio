@@ -3,7 +3,7 @@
     <div :class="pageIndex !== 1 ? 'hidden' : buttonClass">
       <HomeSvg />
     </div>
-    <div :class="pageIndex !== 2 ? 'hidden' : buttonClass">
+    <div class="mt-1" :class="pageIndex !== 2 ? 'hidden' : buttonClass">
       <span
         @mouseover="display(gallery)"
         @mouseleave="hide(gallery)"
@@ -66,12 +66,12 @@ export default {
   },
   computed: {
     buttonClass() {
-      return "flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 mr-4 hover:cursor-pointer hover:text-teal-700";
+      return "flex flex-col items-center h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12 mr-4 opacity-90 hover:opacity-100 hover:cursor-pointer hover:text-gray-900";
     },
   },
   methods: {
     display(page) {
-      page.stroke = "#0F766E";
+      page.stroke = "#000000";
     },
     hide(page) {
       page.stroke = "#27272A";

@@ -2,7 +2,6 @@
   <div
     class="relative overflow-hidden w-full"
     :class="isActive ? 'saturate-100' : 'saturate-0'"
-    @mouseover="activateCard(data.id)"
   >
     <div class="flex">
       <div
@@ -19,7 +18,7 @@
           autoplay
           muted
           loop
-          class="w-full h-full aspect-video object-cover"
+          class="videoplayer w-full h-full aspect-video object-cover"
         >
           <source :src="image.url" type="video/mp4" />
           Votre navigateur ne semble pas supporter le tag video.
@@ -89,10 +88,17 @@ export default {
   },
   mounted() {
     this.startCaroussel();
+    this.disableAutoplayOnMobile();
   },
   methods: {
-    activateCard(cardId) {
-      this.$emit("activate-card", cardId);
+    disableAutoplayOnMobile() {
+      const videoPlayer = document.querySelectorAll('.videoplayer');
+      if (window.innerWidth < 640) {
+        videoPlayer.forEach(video =>  {
+        video.removeAttribute('autoplay');
+        video.setAttribute('controls', true);
+        })
+      }
     },
     next(event) {
       if (event) this.stopCaroussel();

@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col align-center" v-if="data.imagesCollection.items">
-    <div class="ease-in duration-100 my-0 md:my-4">
-      <WorkCaroussel @activate-card="activateCard" :isActive="data.isActive" :data="data" />
+    <div class="ease-in duration-100 my-0 md:my-4" @mouseover="activateCard(data.id)">
+      <WorkCaroussel  :isActive="data.isActive" :data="data" />
     </div>
     <div id="description" class="flex flex-col items-center gap-0 md:gap-2 text-center text-sm md:text-base pt-4 md:py-2">
       <h1 class="font-captainlight font-thin text-sm md:text-sm lg:text-lg uppercase">

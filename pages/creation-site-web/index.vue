@@ -11,7 +11,7 @@
           @open-modal="contactModalIsOpen = true"
         />
         <div
-          class="flex justify-center flex-wrap gap-4 mx-8 md:mx-32 lg:mx-40 pb-4 lg:pb-6 my-8"
+          class="flex justify-center flex-wrap gap-4 mx-3 md:mx-32 lg:mx-40 pb-4 lg:pb-6 my-8"
         >
           <div
             id="section-description"
@@ -169,8 +169,6 @@ export default {
   async created() {
     await this.fetchWorks();
     this.filteredWorks = this.works.sort((a, b) => b.id - a.id);
-        console.log(this.filteredWorks);
-
     window.addEventListener("scroll", this.handleScroll);
   },
   destroyed() {
