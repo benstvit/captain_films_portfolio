@@ -53,7 +53,7 @@ export default {
   },
   methods: {
     display() {
-      this.stroke = "#0F766E";
+      this.stroke = "#000000";
     },
     hide() {
       this.stroke = "#27272A";

@@ -2,7 +2,7 @@
   <div
     class="flex flex-col items-center justify-center gap-0 w-full bg-white pt-4 pb-2 px-4 md:px-0"
   >
-    <div class="flex justify-center items-center w-2/3 gap-4 md:gap-8 border-black border-t-2 p-2">
+    <div class="flex justify-center items-center w-2/3 gap-4 md:gap-8 border-black border-t-2 p-4">
       <a
         :href="facebook.url"
         target="_blank"

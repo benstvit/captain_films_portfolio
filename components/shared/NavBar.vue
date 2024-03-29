@@ -8,7 +8,7 @@
       >
         <button
           @click.stop="activate(menu.title)"
-          class="text-sm md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-gray-50 hover:shadow-lg hover:text-black font-cormorant px-1 lg:px-4 py-1 mx-2 my-2 md:my-0"
+          class="text-sm md:text-lg lg:text-xl transition ease-in hover:cursor-pointer hover:bg-black hover:shadow-lg hover:text-white font-cormorant px-1 lg:px-4 py-1 mx-2 my-2 md:my-0"
           :class="customClass(menu)"
         >
           {{ menu.title }}
@@ -64,10 +64,10 @@ export default {
     },
     customClass(menu) {
       if (menu.active)
-        return "hover:bg-teal-700 animate-pulse bg-teal-700 hover:text-white text-white pointer-events-none shadow-lg border border-transparent";
+        return "animate-pulse bg-black text-white pointer-events-none shadow-lg border border-transparent";
 
       return this.isScrolling
-        ? "bg-white text-black border border-black md:border-white hover:border-black transition ease-out duration-300"
+        ? "animate-none bg-white text-black border border-black md:border-white hover:border-black transition ease-out duration-300"
         : "border border-black text-black";
     },
     handleScrollBack() {
