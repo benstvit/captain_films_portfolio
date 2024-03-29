@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative overflow-hidden w-full"
+    class="relative md:overflow-hidden w-full"
     :class="isActive ? 'saturate-100' : 'saturate-0'"
   >
     <div class="flex">
@@ -45,13 +45,13 @@
     >
       <button
         @click="prev"
-        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-1 py-1 md:px-2 md:py-2 rounded-full focus:outline-none"
+        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 w-8 h-8 md:w-10 md:h-10 rounded-full focus:outline-none"
       >
         &larr;
       </button>
       <button
         @click="next"
-        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 px-1 py-1 md:px-2 md:py-2 rounded-full focus:outline-none"
+        class="flex items-center justify-center opacity-90 hover:opacity-100 text-white font-bold bg-gray-700 w-8 h-8 md:w-10 md:h-10 rounded-full focus:outline-none"
       >
         &rarr;
       </button>

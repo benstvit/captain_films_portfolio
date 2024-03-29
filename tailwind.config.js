@@ -13,6 +13,9 @@ module.exports = {
     locales: ["en-US"],
     defaultLocale: "en-US",
   },
+  borderRadius: {
+    'full': '9999px', // Ensure 'full' is set to a very large value
+  },
   theme: {
     fontFamily: {
       sans: ["Source Sans Pro", "Kantumruy", ...defaultTheme.fontFamily.sans],
