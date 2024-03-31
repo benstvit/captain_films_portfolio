@@ -1,14 +1,16 @@
 <template>
   <section>
-    <div class="flex flex-col justify-center items-center md:gap-4 mx-4"
-    :class="menuDisplay && 'border-2 border-black'">
+    <div
+      class="flex flex-col justify-center items-center md:gap-4 mx-4"
+      :class="menuDisplay && 'border-2 border-black'"
+    >
       <CaptainFilmsLogo v-if="!menuDisplay" :menu-display="menuDisplay" />
       <MobileMenu
         class="block md:hidden"
         :menu-display="menuDisplay"
         :active-page="menus"
       />
-      <div class="relative grid grid-cols-6">
+      <div class="relative grid grid-cols-6 w-full">
         <div
           id="image-wrapper"
           v-for="menu in menus"
@@ -42,16 +44,23 @@
             {{ menu.title }}
           </h1>
         </div>
-        <BlogButton v-if="menuDisplay" class="fixed md:absolute left-1/2 -ml-8 top-1/3 -mt-10 md:-mt-8 lg:left-1/4 lg:-ml-12 lg:top-1/2 lg:-mt-12"/>
-        <WorkButton v-if="menuDisplay" class="fixed md:absolute left-1/2 -ml-8 top-2/3 -mt-10 md:-mt-8 lg:left-3/4 lg:-ml-12 lg:top-1/2 lg:-mt-12"/>
+        <BlogButton
+          v-if="menuDisplay"
+          class="fixed md:absolute left-1/2 -ml-10 top-1/3 -mt-8 md:-mt-8 lg:left-1/4 lg:-ml-12 lg:top-1/2 lg:-mt-12"
+        />
+        <WorkButton
+          v-if="menuDisplay"
+          :menu-display="menuDisplay"
+          class="fixed md:absolute left-1/2 -ml-10 top-2/3 -mt-8 md:-mt-8 lg:left-3/4 lg:-ml-12 lg:top-1/2 lg:-mt-12"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import BlogButton from '../UI/BlogButton.vue'
-import WorkButton from '../UI/WorkButton.vue'
+import BlogButton from "../UI/BlogButton.vue";
+import WorkButton from "../UI/WorkButton.vue";
 import CaptainFilmsLogo from "./CaptainFilmsLogo.vue";
 import MobileMenu from "./MobileMenu.vue";
 
@@ -62,7 +71,7 @@ export default {
     BlogButton,
     CaptainFilmsLogo,
     MobileMenu,
-    WorkButton
+    WorkButton,
   },
   props: {
     menus: {
