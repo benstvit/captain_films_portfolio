@@ -1,7 +1,7 @@
 <template>
     <section>
     <nuxt-link
-      class="flex flex-col justify-center items-center gap-6" to="/creation-site-web">
+      class="flex flex-col justify-center items-center gap-6" :class="menuDisplay && 'mx-4'" to="/creation-site-web">
       <span
         class="flex justify-center items-center w-16 h-16 lg:w-24 lg:h-24 rotate-45 bg-white border-2 hover:font-bold hover:border border-black transition ease-in-out duration-200"
       >
@@ -23,5 +23,11 @@
 
 export default {
   name: 'Work Button',
+  props: {
+    menuDisplay: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
