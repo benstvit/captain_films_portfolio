@@ -73,7 +73,7 @@
             :data-aos-offset="work.id === filteredWorks.length ? 370 : 0"
           >
             <keep-alive>
-              <CardCaroussel @activate-card="activateCard" :data="work" />
+              <CardCaroussel @deactivate-cards="deActivateCards" @activate-card="activateCard" :data="work" />
             </keep-alive>
           </div>
         </div>
@@ -188,6 +188,9 @@ export default {
       return this.works.map((work) =>
         work.id === cardId ? (work.isActive = true) : (work.isActive = false)
       );
+    },
+    deActivateCards() {
+      return this.works.map(work => work.isActive = false);
     },
     handleScroll() {
       this.scrollTop = window.scrollY;

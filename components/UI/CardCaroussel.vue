@@ -2,8 +2,10 @@
   <div class="flex flex-col align-center" v-if="data.imagesCollection.items">
     <div
       class="ease-in duration-100 my-0 md:my-4"
-      @mouseover="activateCard(data.id)"
+      @mouseenter="activateCard(data.id)"
+      @mouseleave="deActivateCards"
       @touchstart="activateCard(data.id)"
+      @touchend="deActivateCards"
     >
       <WorkCaroussel
         :data="data"
@@ -73,6 +75,9 @@ export default {
     activateCard(cardId) {
       this.$emit("activate-card", cardId);
     },
+    deActivateCards() {
+      this.$emit("deactivate-cards")
+    }
   },
 };
 </script>
