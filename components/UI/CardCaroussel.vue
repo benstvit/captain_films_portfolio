@@ -17,7 +17,7 @@
         v-html="this.$md.render(projectDescription)"
       ></p>
     </div>
-    <div class="text-center w-full">
+    <div v-if="url" class="text-center w-full">
       <a
         class="w-fit animate-pulse opacity-90 hover:opacity-100 hover:animate-none hover:underline hover:cursor-pointer text-sm md:text-lg"
         :href="data.siteUrl"

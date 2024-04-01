@@ -35,19 +35,19 @@ export default {
   },
   head() {
     return {
-      title: "Captain Films - Film Photography & Journal",
+      title: "Captain Films - Film Photography, Journal & Website Creation",
       meta: [
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films - Film Photography & Journal`,
+          content: `Captain Films - Film Photography, Journal & Website Creation`,
         },
         { hid: "og-type", property: "og:type", content: "portfolio" },
         {
           hid: "og-desc",
           name: "description",
           content:
-            "Un espace où photographie, musique, vidéo et blogging se rencontrent. Découvrez mon travail en photographie ainsi que le Journal de Captain Films, un blog aux multiples facettes.",
+            "Un espace où photographie, musique, vidéo, blogging et webdesign se rencontrent. Découvrez mon travail en photographie ainsi que le Journal de Captain Films, un blog aux multiples facettes.",
         },
         {
           hid: "og-image",
@@ -58,7 +58,7 @@ export default {
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: "Captain Films - Film Photography & Journal",
+          content: "Captain Films - Film Photography, Journal & Website Creation",
         },
         {
           hid: "og-url",
@@ -73,7 +73,7 @@ export default {
             "@context": "http://schema.org",
             "@type": "Website",
             "headline": "Captain Films - Film Photography & Journal",
-            "description": "Where film photography, music and blogging meet.",
+            "description": "Where film photography, music, blogging and website creation meet.",
             "author": {
               "@type": "Person",
               "name": "Benjamin Saint Viteux",
