@@ -1,15 +1,13 @@
 <template>
   <div class="flex flex-col align-center" v-if="data.imagesCollection.items">
-    <div
-      class="ease-in duration-100 my-0 md:my-4"
-      @mouseenter="activateCard(data.id)"
-      @mouseleave="deActivateCards"
-      @touchstart="activateCard(data.id)"
-      @touchend="deActivateCards"
-    >
+    <div class="ease-in duration-100 my-0 md:my-4">
       <WorkCaroussel
+        @mouseenter.native="activateCard(data.id)"
+        @mouseleave.native="deActivateCards"
+        @touchstart="activateCard(data.id)"
+        @touchend="deActivateCards"
         :data="data"
-        :class="data.isActive ? 'filter-none' : 'saturate-0'"
+        :class="cardIsActive ? 'filter-none' : 'saturate-0'"
       />
     </div>
     <div
@@ -61,6 +59,9 @@ export default {
     };
   },
   computed: {
+    cardIsActive() {
+      return this.data.isActive;
+    },
     projectDescription() {
       return this.data.introduction;
     },
@@ -76,8 +77,8 @@ export default {
       this.$emit("activate-card", cardId);
     },
     deActivateCards() {
-      this.$emit("deactivate-cards")
-    }
+      this.$emit("deactivate-cards");
+    },
   },
 };
 </script>
