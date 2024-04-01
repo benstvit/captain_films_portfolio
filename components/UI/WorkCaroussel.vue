@@ -1,7 +1,6 @@
 <template>
   <div
     class="relative overflow-hidden w-full"
-    :class="isActive ? 'saturate-100' : 'saturate-0'"
   >
     <div class="flex">
       <div
@@ -72,10 +71,6 @@ export default {
     data: {
       type: Object,
       default: {},
-    },
-    isActive: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {

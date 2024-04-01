@@ -3,8 +3,12 @@
     <div
       class="ease-in duration-100 my-0 md:my-4"
       @mouseover="activateCard(data.id)"
+      @touchstart="activateCard(data.id)"
     >
-      <WorkCaroussel :isActive="data.isActive" :data="data" />
+      <WorkCaroussel
+        :data="data"
+        :class="data.isActive ? 'saturate-100' : 'saturate-0'"
+      />
     </div>
     <div
       id="description"
