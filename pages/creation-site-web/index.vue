@@ -6,10 +6,7 @@
           v-if="contactModalIsOpen"
           @close-modal="contactModalIsOpen = false"
         />
-        <WorkNavbar
-          id="navbar"
-          @open-modal="contactModalIsOpen = true"
-        />
+        <WorkNavbar id="navbar" @open-modal="contactModalIsOpen = true" />
         <div
           class="flex justify-center flex-wrap gap-4 mx-3 md:mx-32 lg:mx-40 pb-4 lg:pb-6 my-8"
         >
@@ -34,10 +31,11 @@
                 class="p-2 lg:p-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
                 Diplômé en <b>communication et en publicité</b>, j'ai ensuite
-                suivi une formation poussée en <b>coding et en
-                développement web</b>. Après avoir travaillé dans le secteur
-                de la tech, au développement d'un SaaS pour une start-up nommée <i>Leexi</i>, j'ai choisi de me lancer à mon compte dans la
-                <b>création de sites web</b>.
+                suivi une formation poussée en
+                <b>coding et en développement web</b>. Après avoir travaillé
+                dans le secteur de la tech, au développement d'un SaaS pour une
+                start-up nommée <i>Leexi</i>, j'ai choisi de me lancer à mon
+                compte dans la <b>création de sites web</b>.
               </p>
               <p
                 class="p-2 md:p-4 font-cormorant text-center md:text-lg lg:text-xl"
@@ -56,7 +54,9 @@
             </div>
             <div
               class="pt-[3px] text-center lg:text-xl transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse w-8 h-8 md:w-10 md:h-10 my-2 rounded-full focus:outline-none"
-              :class="removeScrollIndicator ? 'hidden' : 'block md:hidden lg:block'"
+              :class="
+                removeScrollIndicator ? 'hidden' : 'block md:hidden lg:block'
+              "
               @click="scrollToWorkGallery"
             >
               &darr;
@@ -73,7 +73,10 @@
             :data-aos-offset="work.id === filteredWorks.length ? 370 : 0"
           >
             <keep-alive>
-              <CardCaroussel @deactivate-cards="deActivateCards" @activate-card="activateCard" :data="work" />
+              <CardCaroussel
+                class="hover:filter-none saturate-0"
+                :data="work"
+              />
             </keep-alive>
           </div>
         </div>
@@ -184,24 +187,17 @@ export default {
   methods: {
     ...mapActions({ fetchWorks: "workPortfolio/fetch" }),
 
-    activateCard(cardId) {
-      return this.works.map((work) =>
-        work.id === cardId ? (work.isActive = true) : (work.isActive = false)
-      );
-    },
-    deActivateCards() {
-      return this.works.map(work => work.isActive = false);
-    },
     handleScroll() {
       this.scrollTop = window.scrollY;
     },
     scrollToWorkGallery() {
       const workGallery = document.getElementById("cards");
       const yOffset = -100;
-      const y = workGallery.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y =
+        workGallery.getBoundingClientRect().top + window.pageYOffset + yOffset;
 
-      window.scrollTo({top: y, behavior: "smooth" });
-    }
+      window.scrollTo({ top: y, behavior: "smooth" });
+    },
   },
 };
 </script>
