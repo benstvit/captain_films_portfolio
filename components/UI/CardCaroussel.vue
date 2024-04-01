@@ -7,7 +7,7 @@
     >
       <WorkCaroussel
         :data="data"
-        :class="data.isActive ? 'saturate-100' : 'saturate-0'"
+        :class="data.isActive ? 'filter-none' : 'saturate-0'"
       />
     </div>
     <div
