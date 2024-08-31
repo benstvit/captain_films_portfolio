@@ -45,8 +45,9 @@ export default {
     },
   },
   mounted() {
-    document.querySelectorAll("p > strong > a").forEach((elem) => {
-      elem.setAttribute("target", "_blank");
+    document.querySelectorAll("p > strong > a").forEach((link) => {
+      link.setAttribute("target", "_blank");
+      link.classList.add('hover:underline');
     });
     this.formatSpacings();
   },
