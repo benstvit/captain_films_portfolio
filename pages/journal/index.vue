@@ -14,7 +14,7 @@
         </keep-alive>
       </nuxt-link>
     </div>
-    <SlugFooter v-if="filteredPosts.length" @open-subscription-modal="subscriptionModalIsOpen = true" :footer-text="footerText" />
+    <SlugFooter v-if="filteredPosts.length" @open-modal="subscriptionModalIsOpen = true" :footer-text="footerText" />
   </div>
 </template>
 

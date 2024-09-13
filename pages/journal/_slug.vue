@@ -5,7 +5,7 @@
     <PostHeader :post="post" :posts="filteredPosts" />
     <PostContent :post="postWithFormattedImages" />
     <PostGallery v-if="galleryImages.length" :images="galleryImages" />
-    <SlugFooter @open-subscription-modal="subscriptionModalIsOpen = true" :footer-text="footerText"/>
+    <SlugFooter @open-modal="subscriptionModalIsOpen = true" :footer-text="footerText"/>
   </div>
 </template>
 

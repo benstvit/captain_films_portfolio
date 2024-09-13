@@ -73,7 +73,7 @@ export default {
         .render(text)
         .replace(
           /<img/g,
-          '<img class="w-2/3 md:w-max-2/3 mx-auto my-0 md:my-4 pt-2 pb-4 hover:cursor-zoom-in"'
+          '<img class="w-2/3 md:w-full mx-auto my-0 md:my-4 pt-2 pb-4 hover:cursor-zoom-in"'
         );
     },
     range(start, end) {
