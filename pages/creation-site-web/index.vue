@@ -35,7 +35,7 @@
                 <b>coding et en développement web</b>. Après avoir travaillé
                 dans le secteur de la tech, au développement d'un SaaS pour une
                 start-up nommée <i>Leexi</i>, j'ai choisi de me lancer à mon
-                compte dans la <b>création de sites web</b>.
+                compte dans la <b>création de sites web</b> et la <b>consultance en e-commerce Shopify</b>.
               </p>
               <p
                 class="p-2 md:p-4 font-cormorant text-center md:text-lg lg:text-xl"

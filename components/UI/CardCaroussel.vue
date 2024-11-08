@@ -12,6 +12,13 @@
       >
         {{ title }}
       </h1>
+        <div class="my-2 pt-1 pb-2 px-3 border border-1 border-black opacity-90 z-20">
+          <p
+            class="font-captainlight font-thin text-sm md:text-xs lg:text-sm "
+          >
+            {{ tag }}
+          </p>
+        </div>
       <p
         class="font-cormorant py-1 text-sm md:text-base lg:text-xl"
         v-html="this.$md.render(projectDescription)"
@@ -57,6 +64,9 @@ export default {
     },
     title() {
       return this.data.title;
+    },
+    tag() {
+      return this.data.tag;
     },
     url() {
       return this.data?.siteUrl;
