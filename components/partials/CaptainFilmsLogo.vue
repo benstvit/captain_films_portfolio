@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex flex-col justify-center items-center mt-4 hover:cursor-pointer opacity-80 hover:opacity-100 text-center"
-    :class="{ 'border-black border-2 p-8 w-fit': loader }"
+    :class="{ 'border-black border-2 opacity-100 p-8 w-fit': loader }"
     @click="resetHome"
   >
     <div :class="{ hidden: menuDisplay }">

@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center w-screen h-screen">
     <CaptainFilmsLogo
-      class="w-52 h-auto animate-pulse"
+      class="w-52 h-auto bg-white"
       :menu-display="menuDisplay"
       :loader="loader"
     />

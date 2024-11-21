@@ -1,6 +1,8 @@
 <template>
   <section>
-    <Loader v-if="!navigatingFromPage && isLoading" />
+    <MenuDisplayLoading
+      v-if="isLoading"
+    />
     <div v-if="!isLoading" :style="{ contain: 'paint' }">
       <MenuDisplay
         v-if="menuDisplay"
@@ -25,6 +27,7 @@ import { mapState, mapActions } from "vuex";
 import ContentDisplay from "../components/ContentDisplay.vue";
 import Loader from "../components/partials/Loader.vue";
 import MenuDisplay from "../components/MenuDisplay.vue";
+import MenuDisplayLoading from '../components/MenuDisplayLoading';
 
 export default {
   name: "index",
@@ -32,6 +35,7 @@ export default {
     ContentDisplay,
     Loader,
     MenuDisplay,
+    MenuDisplayLoading
   },
   head() {
     return {

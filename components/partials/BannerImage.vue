@@ -20,11 +20,16 @@
           :class="menuDisplay ? menuGrid(menu.index) : 'col-span-6'"
         >
           <div
-            class="flex items-center justify-center gap-4 md:gap-12"
+            class="flex items-center justify-center gap-4 md:gap-12 w-full"
             :class="menuDisplay && !menu.error && 'flex-grow'"
           >
+            <div
+              v-show="!imagesLoaded"
+              class="aspect-[3/2] w-screen md:h-[32vh] lg:h-[50vh] lg:w-full object-cover bg-gray-200 animate-pulse border border-1 border-black"
+            />
             <nuxt-img
-              v-if="menu.enabled"
+              v-show="menu.enabled && imagesLoaded"
+              @load="imagesLoaded = true"
               format="webp"
               preload
               :class="
@@ -73,6 +78,11 @@ export default {
     MobileMenu,
     WorkButton,
   },
+  data() {
+    return {
+      imagesLoaded: false
+    }
+  },
   props: {
     menus: {
       type: Array,
@@ -81,6 +91,13 @@ export default {
     menuDisplay: {
       type: Boolean,
       default: true,
+    },
+  },
+  computed: {
+    isMenuImagesLoading() {
+      console.log(this.menuImagesLoading)
+      console.log(this.menuImagesLoading.menuImagesLoading)
+      return this.menuImagesLoading.menuImagesLoading; // Accède à la propriété réactive
     },
   },
   methods: {
