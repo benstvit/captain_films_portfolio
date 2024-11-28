@@ -29,9 +29,9 @@
       Captain Films
     </h1>
     <p
-      class="font-cormorant uppercase text-center text-[0.6rem] md:text-xs md:pb-4 sm:font-bold md:font-normal text-black"
+      class="font-cormorant uppercase text-center text-[0.6rem] md:text-xs md:pb-4 sm:font-bold md:font-normal text-black mt-1"
     >
-      Film Photography <span v-if="loader">& Journal</span>
+      Film Photography, Journal & Website Creation
     </p>
   </div>
 </template>
