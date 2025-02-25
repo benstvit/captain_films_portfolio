@@ -105,7 +105,10 @@ export default {
     "@nuxtjs/moment",
   ],
   image: {
-    domains: ['images.ctfassets.net']
+    provider: 'ipx',
+    ipx: {
+      domains: ['images.ctfassets.net'], // Domaine de Contentful pour les images
+    },
   },
   moment: {
     defaultTimezone: "Asia/Phnom_Penh",
