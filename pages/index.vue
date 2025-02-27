@@ -1,6 +1,7 @@
 <template>
   <section>
     <MenuDisplayLoading
+      class="hidden md:block"
       v-if="isLoading"
     />
     <div v-if="!isLoading" :style="{ contain: 'paint' }">

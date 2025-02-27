@@ -12,9 +12,9 @@
       >
         {{ title }}
       </h1>
-        <div class="my-2 pt-1 pb-2 px-3 border border-1 border-black opacity-90 z-20">
+        <div class="my-2 py-3 px-3 border border-1 border-black rounded-full bg-black opacity-90 z-20">
           <p
-            class="font-captainlight font-thin text-sm md:text-xs lg:text-sm "
+            class="font-captainlight font-thin text-sm md:text-xs lg:text-sm text-white"
           >
             {{ tag }}
           </p>

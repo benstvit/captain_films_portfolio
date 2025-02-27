@@ -8,11 +8,11 @@
         />
         <WorkNavbar id="navbar" @open-modal="contactModalIsOpen = true" />
         <div
-          class="flex justify-center flex-wrap gap-4 mx-3 md:mx-32 lg:mx-40 pb-4 lg:pb-6 my-8"
+          class="flex justify-around flex-wrap gap-2 mx-3 pb-4 lg:pb-6 my-8"
         >
           <div
             id="section-description"
-            class="flex flex-col items-center justify-center mb-6 lg:mb-2 gap-2"
+            class="flex flex-col items-center justify-center pb-6 mb-6 lg:mb-2 gap-2"
           >
             <h1
               class="w-full text-center p-1 md:p-2 mt-1 font-cormorant font-bold text-2xl md:text-4xl lg:text-[44px] uppercase"
@@ -52,7 +52,7 @@
                 <b>votre propre site web</b>.
               </p>
             </div>
-            <div
+            <!-- <div
               class="pt-[3px] text-center lg:text-xl transition ease-in-out text-gray-700 hover:cursor-pointer font-bold bg-transparent border-2 border-gray-700 animate-pulse w-8 h-8 md:w-10 md:h-10 my-2 rounded-full focus:outline-none"
               :class="
                 removeScrollIndicator ? 'hidden' : 'block md:hidden lg:block'
@@ -60,12 +60,12 @@
               @click="scrollToWorkGallery"
             >
               &darr;
-            </div>
+            </div> -->
           </div>
           <div
             id="cards"
             v-for="work in filteredWorks"
-            class="w-full lg:w-2/3 my-2"
+            class="w-full lg:w-1/3 my-6"
             :key="work.alt"
             data-aos="fade-in"
             data-aos-easing="ease-in-sine"
@@ -75,6 +75,7 @@
             <keep-alive>
               <CardCaroussel
                 class="hover:filter-none saturate-0"
+                :class="work.id === filteredWorks.length && 'filter-none'"
                 :data="work"
               />
             </keep-alive>
