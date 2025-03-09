@@ -17,7 +17,7 @@
             <h1
               class="w-full text-center p-1 md:p-2 mt-1 font-cormorant font-bold text-2xl md:text-4xl lg:text-[44px] uppercase"
             >
-              Création de sites web
+              Website Creation & Web Design
             </h1>
             <div
               id="introduction"
@@ -28,28 +28,22 @@
               :data-aos-offset="370"
             >
               <p
-                class="p-2 lg:p-4 font-cormorant text-center md:text-lg lg:text-xl"
+                class="p-2 lg:p-4 lg:mx-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
-                Diplômé en <b>communication et en publicité</b>, j'ai ensuite
-                suivi une formation poussée en
-                <b>coding et en développement web</b>. Après avoir travaillé
-                dans le secteur de la tech, au développement d'un SaaS pour une
-                start-up nommée <i>Leexi</i>, j'ai choisi de me lancer à mon
-                compte dans la <b>création de sites web</b> et la <b>consultance en e-commerce Shopify</b>.
+              Graduated in communication and advertising, I then pursued advanced training in coding and web development. After working in the tech sector, I chose to start my own business in <b>website creation (showcase or e-commerce)</b> and <b>web design</b>.
               </p>
               <p
                 class="p-2 md:p-4 font-cormorant text-center md:text-lg lg:text-xl"
               >
-                La variété des projets que l'on me propose rend ce travail
-                passionnant ! N'hésitez pas à
+                The variety of projects I am offered makes this work exciting! Feel free
                 <span
                   class="font-bold hover:cursor-pointer animate-pulse hover:animate-none opacity-90 hover:opacity-100"
                   title="Ouvrir la fenêtre de contact"
                   @click="contactModalIsOpen = true"
-                  >me contacter</span
+                  >to contact me</span
                 >
-                si vous souhaitez mettre en avant votre projet avec
-                <b>votre propre site web</b>.
+                if you'd like to bring your project to the forefront with
+                <b>your own website!</b>.
               </p>
             </div>
             <!-- <div
