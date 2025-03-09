@@ -105,7 +105,7 @@ export default {
     "@nuxtjs/moment",
   ],
   image: {
-    provider: 'ipx',
+    provider: process.env.NODE_ENV === 'production' ? 'static' : 'ipx',
     ipx: {
       domains: ['images.ctfassets.net'], // Domaine de Contentful pour les images
     },
