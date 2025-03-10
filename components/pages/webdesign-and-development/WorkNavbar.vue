@@ -39,7 +39,7 @@ export default {
   },
   data() {
     return {
-      scrollingText: "👾 Besoin de votre propre site web ? Contactez-moi en me cliquant dessus 👾",
+      scrollingText: "👾 Need your own website ? Click here to get in touch! 👾",
     };
   },
   props: {
