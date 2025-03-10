@@ -44,7 +44,7 @@
         class="font-sans text-center px-2 pt-1"
       >
         © All work contained within this blog is Captain Films | Benjamin Saint
-        Viteux 2015-2024.
+        Viteux 2015-2025.
       </p>
       <div
         class="hidden md:block flex flex-col md:flex-row md:justify-between items-center gap-0 md:gap-6 w-full pb-2"

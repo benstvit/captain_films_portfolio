@@ -38,7 +38,7 @@ export default {
   computed: {
     menuRoute() {
       if (this.menuName === 'home') return '/';
-      if (this.menuName === 'work') return '/creation-site-web'
+      if (this.menuName === 'work') return '/webdesign-and-development'
 
       return `/${this.menuName}`;
     },

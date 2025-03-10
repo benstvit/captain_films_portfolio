@@ -16,10 +16,10 @@
         v-if="successMessage || errorMessage"
         :success="successMessage"
         :error="errorMessage"
-        language="fr" />
+        language="en" />
       <div v-else>
         <h1 class="text-lg md:text-xl lg:text-2xl text-center lg:text-left font-captainbold my-4">
-          Remplissez ce formulaire pour me contacter 👇 :
+          Fill out this form to contact me 👇 :
         </h1>
         <FormulateForm
           id="contact-form"
@@ -29,7 +29,7 @@
             <FormulateInput
             name="email"
             type="email"
-            label="Votre e-mail:"
+            label="Your e-mail:"
             label-class="font-captainlight text-xs lg:text-sm whitespace-normal"
             input-class="w-full md:w-2/3 focus:ring-2 focus:ring-teal-600 text-xs lg:text-sm focus:border-transparent"
             class="mb-6 mt-2 w-1/2"
@@ -39,7 +39,7 @@
               type="textarea"
               v-model="text"
               name="message"
-              label="Parlez-moi de votre projet (un site vitrine ? un site d'e-commerce... ?):"
+              label="Tell me more about your project (Brochure Website ? E-commerce...?):"
               label-class="font-captainlight text-xs lg:text-sm"
               input-class="w-full h-36 focus:ring-2 text-xs lg:text-sm focus:ring-teal-600 focus:border-transparent"
               class="mb-4"
@@ -47,7 +47,7 @@
             />
             <FormulateInput
               type="submit"
-              :label="isLoading ? 'En cours d\'envoi...' : 'Envoyer le message'"
+              :label="isLoading ? 'Sending your message...' : 'Send Message'"
               :class="hasErrors ? 'font-light md:cursor-none bg-teal-700 md:bg-gray-200 text-white md:text-gray-500 md:hover:cursor-not-allowed' : 'transition ease-in text-black hover:border-transparent bg-white hover:bg-teal-700 hover:cursor-pointer hover:shadow-lg hover:text-white'"
               class="text-base md:text-lg lg:text-xl font-cormorant w-fit px-4 py-2 border border-transparent md:border-black"
             />

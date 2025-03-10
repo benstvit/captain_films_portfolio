@@ -17,7 +17,7 @@
             <h1
               class="w-full text-center p-1 md:p-2 mt-1 font-cormorant font-bold text-2xl md:text-4xl lg:text-[44px] uppercase"
             >
-              Website Creation & Web Design
+              Web Design and Development
             </h1>
             <div
               id="introduction"
@@ -68,7 +68,7 @@
           >
             <keep-alive>
               <CardCaroussel
-                class="hover:filter-none saturate-0"
+                class="saturate-0 hover:filter-none "
                 :class="work.id === filteredWorks.length && 'filter-none'"
                 :data="work"
               />
@@ -93,26 +93,26 @@ import scrollHandler from "../../mixins/scrollHandler";
 
 import CardCaroussel from "../../components/UI/CardCaroussel.vue";
 import ContactModal from "../../components/pages/contact/Form/ContactModal.vue";
-import WorkNavbar from "../../components/pages/creation-site-web/WorkNavbar.vue";
+import WorkNavbar from "../../components/pages/webdesign-and-development/WorkNavbar.vue";
 import SlugFooter from "../../components/pages/SlugFooter.vue";
 
 export default {
-  name: "creation-site-web-index",
+  name: "webdesign-and-development-index",
   mixins: [scrollHandler, aos],
   head() {
     return {
-      title: "Captain Films - Création de sites web",
+      title: "Captain Films - Web Design and Development",
       meta: [
         {
           hid: "og-title",
           property: "og:title",
-          content: `Captain Films - Création de sites web`,
+          content: `Captain Films - Web Design and Development`,
         },
         { hid: "og-type", property: "og:type", content: "work" },
         {
           hid: "og-desc",
           name: "description",
-          content: "Mon travail en tant que développeur de sites web",
+          content: "My work as a web designer and developer",
         },
         {
           hid: "og-image",
@@ -123,12 +123,12 @@ export default {
         {
           hid: "og-image-alt",
           property: "og:image:alt	",
-          content: "Captain Films - Création de sites web",
+          content: "Captain Films - Web Design and Development",
         },
         {
           hid: "og-url",
           property: "og:url",
-          content: "https://captain-films.com/creation-site-web",
+          content: "https://captain-films.com/webdesign-and-development",
         },
       ],
       script: [
@@ -137,8 +137,8 @@ export default {
           innerHTML: JSON.stringify({
             "@context": "http://schema.org",
             "@type": "Work Portfolio",
-            headline: "Captain Films - Création de sites web",
-            description: "Mon travail en tant que développeur de sites web.",
+            headline: "Captain Films - Web Design and Development",
+            description: "My work as a web designer and developer",
             author: {
               "@type": "Person",
               name: "Benjamin Saint Viteux",
@@ -153,7 +153,7 @@ export default {
     return {
       contactModalIsOpen: false,
       filteredWorks: [],
-      footerText: "Me contacter pour la création de votre site web",
+      footerText: "Contact me for your website creation!",
       isSearching: false,
       scrollTop: 0,
     };

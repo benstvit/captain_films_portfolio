@@ -23,7 +23,7 @@
 <script>
 import scrollHandler from "../../mixins/scrollHandler";
 
-import WorkNavbar from "../../components/pages/creation-site-web/WorkNavbar.vue";
+import WorkNavbar from "../../components/pages/webdesign-and-development/WorkNavbar.vue";
 import SlugFooter from "../../components/pages/SlugFooter.vue";
 import ContactModal from "../../components/pages/contact/Form/ContactModal.vue"
 import PostContent from "../../components/pages/journal/post/post-content/PostContent.vue";
@@ -31,7 +31,7 @@ import PostHeader from "../../components/pages/journal/post/PostHeader.vue";
 import PostGallery from "../../components/pages/journal/post/PostGallery.vue";
 
 export default {
-  name: "creation-site-web-post",
+  name: "webdesign-and-development-post",
   mixins: [scrollHandler],
   data() {
     return {
