@@ -43,7 +43,7 @@
           </div>
           <h1
             v-if="menu.enabled"
-            class="absolute top-[45%] font-cormorant uppercase text-center sm:text-xl lg:text-2xl opacity-90"
+            class="absolute top-[45%] font-cormorant uppercase font-black tracking-widest text-center sm:text-xl lg:text-4xl opacity-90"
             :class="menu.error ? 'text-gray-700' : 'text-white'"
           >
             {{ menu.title }}

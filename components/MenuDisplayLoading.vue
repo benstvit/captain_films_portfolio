@@ -1,6 +1,6 @@
 <template>
   <section >
-    <div class="flex h-full justify-center items-center">
+    <div class="flex h-full justify-center items-center over bg-black opacity-70">
       <CaptainFilmsText class="animate-pulse" />
       <div class="flex justify-center items-center lg:w-full border-1 border-black lg:mx-4">
         <div class="relative grid grid-cols-6 w-full">
@@ -18,7 +18,7 @@
                 class="aspect-[3/2] w-fit h-[33vh] md:h-[32vh] lg:h-[50vh] lg:w-full object-cover bg-gray-200 animate-pulse border border-1 border-black"
               />
             <h1
-              class="text-black absolute top-[45%] font-cormorant uppercase text-center sm:text-xl lg:text-2xl"
+              class="text-black absolute top-[45%] font-cormorant uppercase tracking-widest font-black text-center sm:text-xl lg:text-4xl"
             >
               {{ menu }}
             </h1>

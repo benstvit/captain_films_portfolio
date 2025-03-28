@@ -5,23 +5,21 @@
     @click="resetHome"
   >
     <div :class="{ hidden: menuDisplay }">
-      <nuxt-img
+      <img
         format="webp"
         preload
         :class="{ 'w-14 h-14 md:w-20 md:h-20': !loader, 'w-32 h-32': loader }"
         alt="loader-logo"
         src="/logo-solo.png"
-      >
-      </nuxt-img>
+      />
     </div>
-    <nuxt-img
+    <img
       format="webp"
       class="w-14 h-14 md:w-20 md:h-20"
       :class="menuDisplay ? 'block md:hidden' : 'hidden'"
       alt="captain-films logo"
       src="/logo-solo-white.png"
-    >
-    </nuxt-img>
+    />
     <h1
       class="font-captainlight text-center text-[0.7rem] md:text-sm"
       :class="menuDisplay ? 'font-bold text-white' : 'font-normal text-black'"

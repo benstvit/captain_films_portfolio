@@ -15,7 +15,7 @@
       <div
         class="flex flex-col justify-between items-center divide-y-1 p-4 gap-4 md:gap-3 my-0 font-captainlight text-center"
       >
-        <nuxt-img
+        <img
           format="webp"
           class="h-14 w-14 p-0 m-0"
           src="/aileron.png"
