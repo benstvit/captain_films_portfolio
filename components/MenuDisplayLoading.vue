@@ -18,7 +18,7 @@
                 class="aspect-[3/2] w-fit h-[33vh] md:h-[32vh] lg:h-[50vh] lg:w-full object-cover bg-gray-200 animate-pulse border border-1 border-black"
               />
             <h1
-              class="text-black absolute top-[45%] font-cormorant uppercase tracking-widest font-black text-center sm:text-xl lg:text-4xl"
+              class="text-black absolute top-[45%] font-cormorant uppercase tracking-widest font-black text-center sm:text-xl lg:text-3xl"
             >
               {{ menu }}
             </h1>
